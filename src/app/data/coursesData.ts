@@ -2,7 +2,7 @@
 export interface Topic {
   id: string;
   name: string;
- beginner?: {
+  beginner?: {
     content: string;
     codeExamples?: string[];
   };
@@ -66,10 +66,6 @@ public class HelloWorld {
     }
 }`
               ],
-
-
-
-
 
             },
             intermediate: {
@@ -287,145 +283,164 @@ public class PerformanceExample {
             beginner: {
               content: `Operators are symbols that perform operations on variables and values.
 
-Types of Operators:
-• Arithmetic: +, -, *, /, %
-• Relational: ==, !=, >, <, >=, <=
-• Logical: && (AND), || (OR), ! (NOT)
-• Assignment: =, +=, -=, *=, /=
-• Unary: ++, --, +, -, !
-• Bitwise: &, |, ^, ~, <<, >>
-• Ternary: ? :`,
+          Types of Operators:
+          • Arithmetic: +, -, *, /, %
+          • Relational: ==, !=, >, <, >=, <=
+          • Logical: && (AND), || (OR), ! (NOT)
+          • Assignment: =, +=, -=, *=, /=
+          • Unary: ++, --, +, -, !
+          • Bitwise: &, |, ^, ~, <<, >>
+          • Ternary: ? :`,
               codeExamples: [
                 `// Operators Example
-public class OperatorsDemo {
-    public static void main(String[] args) {
-        int a = 10, b = 5;
+          public class OperatorsDemo {
+              public static void main(String[] args) {
+                  int a = 10, b = 5;
 
-        // Arithmetic
-        System.out.println("a + b = " + (a + b));
-        System.out.println("a % b = " + (a % b));
+                  // Arithmetic
+                  System.out.println("a + b = " + (a + b));
+                  System.out.println("a % b = " + (a % b));
 
-        // Relational
-        System.out.println("a > b: " + (a > b));
+                  // Relational
+                  System.out.println("a > b: " + (a > b));
 
-        // Logical
-        boolean result = (a > b) && (b > 0);
-        System.out.println("Logical AND: " + result);
+                  // Logical
+                  boolean result = (a > b) && (b > 0);
+                  System.out.println("Logical AND: " + result);
 
-        // Ternary
-        String max = (a > b) ? "a is greater" : "b is greater";
-        System.out.println(max);
-    }
-}`
+                  // Ternary
+                  String max = (a > b) ? "a is greater" : "b is greater";
+                  System.out.println(max);
+              }
+          }`
               ]
             },
             intermediate: {
               content: `Understanding operator precedence, short-circuit evaluation, and bitwise operations.
 
-Operator Precedence (High to Low):
-1. Postfix: expr++, expr--
-2. Unary: ++expr, --expr, +expr, -expr, !
-3. Multiplicative: *, /, %
-4. Additive: +, -
-5. Shift: <<, >>, >>>
-6. Relational: <, >, <=, >=, instanceof
-7. Equality: ==, !=
-8. Bitwise AND: &
-9. Bitwise XOR: ^
-10. Bitwise OR: |
-11. Logical AND: &&
-12. Logical OR: ||
-13. Ternary: ? :
-14. Assignment: =, +=, -=, etc.
+          Operator Precedence (High to Low):
+          1. Postfix: expr++, expr--
+          2. Unary: ++expr, --expr, +expr, -expr, !
+          3. Multiplicative: *, /, %
+          4. Additive: +, -
+          5. Shift: <<, >>, >>>
+          6. Relational: <, >, <=, >=, instanceof
+          7. Equality: ==, !=
+          8. Bitwise AND: &
+          9. Bitwise XOR: ^
+          10. Bitwise OR: |
+          11. Logical AND: &&
+          12. Logical OR: ||
+          13. Ternary: ? :
+          14. Assignment: =, +=, -=, etc.
 
-Short-Circuit Evaluation:
-&& and || operators don't evaluate the second operand if the result is determined by the first.`,
+          Short-Circuit Evaluation:
+          && and || operators don't evaluate the second operand if the result is determined by the first.`,
               codeExamples: [
                 `// Advanced Operators
-public class AdvancedOperators {
-    public static void main(String[] args) {
-        // Short-circuit evaluation
-        int x = 5;
-        if (x > 3 && ++x > 5) {
-            System.out.println("True");
-        }
-        System.out.println("x = " + x); // x = 6
+          public class AdvancedOperators {
+              public static void main(String[] args) {
+                  // Short-circuit evaluation
+                  int x = 5;
+                  if (x > 3 && ++x > 5) {
+                      System.out.println("True");
+                  }
+                  System.out.println("x = " + x); // x = 6
 
-        // Bitwise operations
-        int a = 5;  // 0101
-        int b = 3;  // 0011
-        System.out.println("a & b = " + (a & b));  // 0001 = 1
-        System.out.println("a | b = " + (a | b));  // 0111 = 7
-        System.out.println("a ^ b = " + (a ^ b));  // 0110 = 6
-        System.out.println("~a = " + (~a));        // -6
-        System.out.println("a << 1 = " + (a << 1)); // 1010 = 10
-    }
-}`
+                  // Bitwise operations
+                  int a = 5;  // 0101
+                  int b = 3;  // 0011
+                  System.out.println("a & b = " + (a & b));  // 0001 = 1
+                  System.out.println("a | b = " + (a | b));  // 0111 = 7
+                  System.out.println("a ^ b = " + (a ^ b));  // 0110 = 6
+                  System.out.println("~a = " + (~a));        // -6
+                  System.out.println("a << 1 = " + (a << 1)); // 1010 = 10
+              }
+          }`
               ]
             },
             expert: {
               content: `Advanced bitwise operations, bit manipulation techniques, and performance optimization.
 
-Bit Manipulation Techniques:
-• Check if number is power of 2: (n & (n-1)) == 0
-• Toggle bit: n ^= (1 << pos)
-• Clear bit: n &= ~(1 << pos)
-• Set bit: n |= (1 << pos)
-• Count set bits: Brian Kernighan's algorithm
+          Bit Manipulation Techniques:
+          • Check if number is power of 2: (n & (n-1)) == 0
+          • Toggle bit: n ^= (1 << pos)
+          • Clear bit: n &= ~(1 << pos)
+          • Set bit: n |= (1 << pos)
+          • Count set bits: Brian Kernighan's algorithm
 
-Performance Considerations:
-• Bit operations are faster than arithmetic operations
-• Use bit shifting for multiplication/division by powers of 2
-• Bitwise operations for flags and permissions
+          Performance Considerations:
+          • Bit operations are faster than arithmetic operations
+          • Use bit shifting for multiplication/division by powers of 2
+          • Bitwise operations for flags and permissions
 
-Real-world Applications:
-• Cryptography
-• Compression algorithms
-• Network protocols
-• Graphics programming`,
+          Real-world Applications:
+          • Cryptography
+          • Compression algorithms
+          • Network protocols
+          • Graphics programming`,
               codeExamples: [
                 `// Bit Manipulation Techniques
-public class BitManipulation {
-    // Check if power of 2
-    public static boolean isPowerOfTwo(int n) {
-        return n > 0 && (n & (n - 1)) == 0;
-    }
+          public class BitManipulation {
+              // Check if power of 2
+              public static boolean isPowerOfTwo(int n) {
+                  return n > 0 && (n & (n - 1)) == 0;
+              }
 
-    // Count set bits
-    public static int countSetBits(int n) {
-        int count = 0;
-        while (n > 0) {
-            n &= (n - 1);
-            count++;
-        }
-        return count;
-    }
+              // Count set bits
+              public static int countSetBits(int n) {
+                  int count = 0;
+                  while (n > 0) {
+                      n &= (n - 1);
+                      count++;
+                  }
+                  return count;
+              }
 
-    // Fast multiplication by 2
-    public static int multiplyByTwo(int n) {
-        return n << 1; // Faster than n * 2
-    }
+              // Fast multiplication by 2
+              public static int multiplyByTwo(int n) {
+                  return n << 1; // Faster than n * 2
+              }
 
-    // Swap without temp variable
-    public static void swap(int a, int b) {
-        a = a ^ b;
-        b = a ^ b;
-        a = a ^ b;
-        System.out.println("a = " + a + ", b = " + b);
-    }
+              // Swap without temp variable
+              public static void swap(int a, int b) {
+                  a = a ^ b;
+                  b = a ^ b;
+                  a = a ^ b;
+                  System.out.println("a = " + a + ", b = " + b);
+              }
 
-    public static void main(String[] args) {
-        System.out.println("Is 16 power of 2? " + isPowerOfTwo(16));
-        System.out.println("Set bits in 7: " + countSetBits(7));
-        System.out.println("5 * 2 = " + multiplyByTwo(5));
-        swap(5, 10);
-    }
-}`
+              public static void main(String[] args) {
+                  System.out.println("Is 16 power of 2? " + isPowerOfTwo(16));
+                  System.out.println("Set bits in 7: " + countSetBits(7));
+                  System.out.println("5 * 2 = " + multiplyByTwo(5));
+                  swap(5, 10);
+              }
+          }`
               ]
             }
           },
         ]
       },
+
+      {
+        id: 'Java Operator',
+        name: 'Java Operators',
+        topics: [
+          {
+            id: 'Arithmetic Operator',
+            name: 'Arithmetic Operator',
+            beginner: {
+              content: '',
+              codeExamples: []
+            }
+
+          }
+
+        ]
+      },
+
+
       {
         id: 'oop',
         name: 'Object-Oriented Programming',
@@ -617,7 +632,7 @@ If a class is declared abstract, it cannot be instantiated.
 To use an abstract class, you have to inherit it from another class, provide implementations to the abstract methods in it.
 
 If you inherit an abstract class, you have to provide implementations to all the abstract methods in it.`,
-              codeExamples:[
+              codeExamples: [
                 `// Abstract parent class
 abstract class Animal {
     // Abstract method (no implementation in the parent)
