@@ -422,25 +422,7 @@ public class PerformanceExample {
           },
         ]
       },
-
-      {
-        id: 'Java Operator',
-        name: 'Java Operators',
-        topics: [
-          {
-            id: 'Arithmetic Operator',
-            name: 'Arithmetic Operator',
-            beginner: {
-              content: '',
-              codeExamples: []
-            }
-
-          }
-
-        ]
-      },
-
-
+      
       {
         id: 'oop',
         name: 'Object-Oriented Programming',
