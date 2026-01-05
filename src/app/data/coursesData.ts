@@ -277,151 +277,355 @@ public class PerformanceExample {
             },
 
           },
-          {
-            id: 'operators',
-            name: 'Operators in Java',
-            beginner: {
-              content: `Operators are symbols that perform operations on variables and values.
+           {
+  id: "operators",
+  name: "Operators in Java",
 
-          Types of Operators:
-          • Arithmetic: +, -, *, /, %
-          • Relational: ==, !=, >, <, >=, <=
-          • Logical: && (AND), || (OR), ! (NOT)
-          • Assignment: =, +=, -=, *=, /=
-          • Unary: ++, --, +, -, !
-          • Bitwise: &, |, ^, ~, <<, >>
-          • Ternary: ? :`,
-              codeExamples: [
-                `// Operators Example
-          public class OperatorsDemo {
-              public static void main(String[] args) {
-                  int a = 10, b = 5;
+  beginner: {
+    content: `
+OPERATORS IN JAVA
 
-                  // Arithmetic
-                  System.out.println("a + b = " + (a + b));
-                  System.out.println("a % b = " + (a % b));
+Operators in Java are symbols used to perform operations on variables and values.
 
-                  // Relational
-                  System.out.println("a > b: " + (a > b));
 
-                  // Logical
-                  boolean result = (a > b) && (b > 0);
-                  System.out.println("Logical AND: " + result);
+TYPES OF OPERATORS
 
-                  // Ternary
-                  String max = (a > b) ? "a is greater" : "b is greater";
-                  System.out.println(max);
-              }
-          }`
-              ]
-            },
-            intermediate: {
-              content: `Understanding operator precedence, short-circuit evaluation, and bitwise operations.
+1) Arithmetic Operators:
 
-          Operator Precedence (High to Low):
-          1. Postfix: expr++, expr--
-          2. Unary: ++expr, --expr, +expr, -expr, !
-          3. Multiplicative: *, /, %
-          4. Additive: +, -
-          5. Shift: <<, >>, >>>
-          6. Relational: <, >, <=, >=, instanceof
-          7. Equality: ==, !=
-          8. Bitwise AND: &
-          9. Bitwise XOR: ^
-          10. Bitwise OR: |
-          11. Logical AND: &&
-          12. Logical OR: ||
-          13. Ternary: ? :
-          14. Assignment: =, +=, -=, etc.
+Used for mathematical calculations.
 
-          Short-Circuit Evaluation:
-          && and || operators don't evaluate the second operand if the result is determined by the first.`,
-              codeExamples: [
-                `// Advanced Operators
-          public class AdvancedOperators {
-              public static void main(String[] args) {
-                  // Short-circuit evaluation
-                  int x = 5;
-                  if (x > 3 && ++x > 5) {
-                      System.out.println("True");
-                  }
-                  System.out.println("x = " + x); // x = 6
+Symbols
 
-                  // Bitwise operations
-                  int a = 5;  // 0101
-                  int b = 3;  // 0011
-                  System.out.println("a & b = " + (a & b));  // 0001 = 1
-                  System.out.println("a | b = " + (a | b));  // 0111 = 7
-                  System.out.println("a ^ b = " + (a ^ b));  // 0110 = 6
-                  System.out.println("~a = " + (~a));        // -6
-                  System.out.println("a << 1 = " + (a << 1)); // 1010 = 10
-              }
-          }`
-              ]
-            },
-            expert: {
-              content: `Advanced bitwise operations, bit manipulation techniques, and performance optimization.
+• +  Addition 
 
-          Bit Manipulation Techniques:
-          • Check if number is power of 2: (n & (n-1)) == 0
-          • Toggle bit: n ^= (1 << pos)
-          • Clear bit: n &= ~(1 << pos)
-          • Set bit: n |= (1 << pos)
-          • Count set bits: Brian Kernighan's algorithm
+• -  Subtraction
 
-          Performance Considerations:
-          • Bit operations are faster than arithmetic operations
-          • Use bit shifting for multiplication/division by powers of 2
-          • Bitwise operations for flags and permissions
+• *  Multiplication
 
-          Real-world Applications:
-          • Cryptography
-          • Compression algorithms
-          • Network protocols
-          • Graphics programming`,
-              codeExamples: [
-                `// Bit Manipulation Techniques
-          public class BitManipulation {
-              // Check if power of 2
-              public static boolean isPowerOfTwo(int n) {
-                  return n > 0 && (n & (n - 1)) == 0;
-              }
+• /  Division 
 
-              // Count set bits
-              public static int countSetBits(int n) {
-                  int count = 0;
-                  while (n > 0) {
-                      n &= (n - 1);
-                      count++;
-                  }
-                  return count;
-              }
+• %  Modulus  
 
-              // Fast multiplication by 2
-              public static int multiplyByTwo(int n) {
-                  return n << 1; // Faster than n * 2
-              }
 
-              // Swap without temp variable
-              public static void swap(int a, int b) {
-                  a = a ^ b;
-                  b = a ^ b;
-                  a = a ^ b;
-                  System.out.println("a = " + a + ", b = " + b);
-              }
+2) Logical Operators:
 
-              public static void main(String[] args) {
-                  System.out.println("Is 16 power of 2? " + isPowerOfTwo(16));
-                  System.out.println("Set bits in 7: " + countSetBits(7));
-                  System.out.println("5 * 2 = " + multiplyByTwo(5));
-                  swap(5, 10);
-              }
-          }`
+Used to perform logical AND (&&) and OR (||) operations.
+
+I).Logical AND (&&) Operator
+
+• The && operator does NOT check the second condition if the first condition is FALSE.
+• It checks the second condition ONLY if the first condition is TRUE.
+Logical AND (&&)
+
+true  &&  true   → true
+
+true  &&  false  → false
+
+false &&  true   → false
+
+false &&  false  → false
+
+II).Logical OR (||) Operator
+
+• The || operator does NOT check the second condition if the first condition is TRUE.
+
+• It checks the second condition ONLY if the first condition is FALSE.
+
+Truth Table – Logical OR (||)
+
+Expression1   Expression2   Result
+
+true    ||      true    →      true
+
+true     ||     false   →      true
+
+false    ||     true     →     true
+
+false    ||     false     →    false
+
+
+3) Relational Operators:
+
+Used to compare two values.
+
+Operators:
+
+• >   Greater than 
+
+• <   Less than  
+
+• >=  Greater than or equal to
+
+• <=  Less than or equal to
+
+• ==  Equal to  
+
+• !=  Not equal to  
+
+
+4) Assignment Operator:
+
+Used to assign values to variables.
+
+Syntax→
+variable = value;
+
+5) Bitwise Operators:
+
+Used to perform bitwise AND (&) and OR (|) operations.
+
+I).Bitwise AND (&)
+
+• Always checks both conditions
+• Executes even if the first condition is FALSE
+
+Truth Table – Bitwise AND (&)
+
+true  &  true   → true
+
+true  &  false  → false
+
+false &  true   → false
+
+false &  false  → false
+
+
+II).Bitwise OR (|)
+
+• Always checks both conditions
+• Executes even if the first condition is TRUE
+
+Truth Table – Bitwise OR (|)
+
+true  |  true   → true
+
+true  |  false  → true
+
+false |  true   → true
+
+false |  false  → false
+
+
+6) Unary Operators:
+
+Used to increment or decrement a variable.
+
+• ++  Increment  
+• --  Decrement  
+
+7) Ternary Operator:
+
+Shorthand for if-else statement.
+
+
+Syntax  condition? value_if_true : value_if_false
+
+8) Shift Operators:
+
+• <<  Left Shift  
+• >>  Right Shift  
+
+
+9) Dot Operator (.):
+
+Used to access class members (variables or methods).
+
+
+10) New Operator:
+
+Used to create an object of a class.
+`,
+
+    codeExamples: [
+`// Java Operators - Complete Example
+package com.test;
+
+public class Operator {
+
+    public static void main(String[] args) {
+
+        int x = 10, y = 20, z = 30;
+
+        // Arithmetic Operators
+        System.out.println(x + y);
+        System.out.println(x - y);
+        System.out.println(x * y);
+        System.out.println(x / y);
+        System.out.println(x % y);
+
+        // Logical Operators
+        System.out.println(x < y && x < z);
+        System.out.println(x > y || x < z);
+
+        // Relational Operators
+        System.out.println(x > y);
+        System.out.println(x == y);
+
+        // Bitwise Operators
+        System.out.println(x < y & x < z);
+        System.out.println(x > y | x < z);
+
+        // Unary Operator
+        int m = 10;
+        m++;
+        System.out.println(m);
+
+        // Ternary Operator
+        int max = (x > y) ? x : y;
+        System.out.println(max);
+
+        // Shift Operators
+        System.out.println(x << 2);
+        System.out.println(x >> 2);
+
+        // Dot & New Operator
+        Operator obj = new Operator();
+        obj.demo();
+    }
+
+    void demo() {
+        System.out.println("Dot operator example");
+    }
+}`
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+  intermediate: {
+    content: `2) Logical Operators:
+Used to perform logical AND and OR operations.
+
+Logical AND (&&):
+• Returns true only if both conditions are true
+• Skips second condition if first is false
+
+Logical OR (||):
+• Returns true if any one condition is true
+• Skips second condition if first is true
+
+3) Relational Operators:
+Used to compare values.
+• >, <, >=, <=, ==, !=
+
+4) Assignment Operators:
+Used to assign values to variables.
+Syntax: variable = value;`,
+
+    codeExamples: [
+`// Logical, Relational & Assignment Operators
+package com.test;
+
+public class Operator {
+    public static void main(String[] args) {
+        int x = 10;
+        int y = 20;
+        int z = 30;
+
+        // Logical AND
+        System.out.println(x < y && x < z);
+        System.out.println(x > y && x < z);
+
+        // Logical OR
+        System.out.println(x < y || x < z);
+        System.out.println(x > y || x > z);
+
+        // Relational Operators
+        System.out.println(x > y);
+        System.out.println(x < y);
+        System.out.println(x >= y);
+        System.out.println(x <= y);
+        System.out.println(x == y);
+        System.out.println(x != y);
+
+        // Assignment Operator
+        System.out.println("value of x is>>> " + x);
+    }
+}`
+    ]
+  },
+
+  expert: {
+    content: `5) Bitwise Operators:
+• &  Bitwise AND (checks both conditions)
+• |  Bitwise OR  (checks both conditions)
+
+6) Unary Operators:
+• ++ Increment
+• -- Decrement
+
+7) Ternary Operator:
+condition ? value_if_true : value_if_false
+
+8) Shift Operators:
+• << Left Shift (multiplication by 2^n)
+• >> Right Shift (division by 2^n)
+
+9) Dot (.) Operator:
+Used to access class variables and methods.
+
+10) new Operator:
+Used to create an object of a class.`,
+
+    codeExamples: [
+`// Bitwise, Unary, Ternary & Shift Operators
+package com.test;
+
+public class Operator {
+    public static void main(String[] args) {
+
+        int x = 10, y = 20, z = 30;
+
+        // Bitwise AND
+        System.out.println(x < y & x < z);
+        System.out.println(x > y & x < z);
+
+        // Bitwise OR
+        System.out.println(x > y | x < z);
+        System.out.println(x > y | x > z);
+
+        // Unary Operators
+        int m = 10;
+        m++;
+        System.out.println("value of m is>> " + m);
+        m--;
+        System.out.println("value of m is>> " + m);
+
+        // Ternary Operator
+        int A = 10;
+        int B = 20;
+        int num = (A > B) ? A : B;
+        System.out.println(num);
+
+        // Shift Operators
+        int K = 10;
+        System.out.println(K << 2);
+        System.out.println(K << 3);
+
+        // new Operator & Dot Operator
+        Code_With_Pankaj obj = new Code_With_Pankaj();
+        obj.demo();
+    }
+
+    void demo() {
+        System.out.println("Dot and new operator example");
+         swap(5, 10);
+    }
+}`
               ]
             }
-          },
+          }
         ]
       },
+
+
       {
         id: 'Jumping Statement',
         name: 'Jumping Statement',

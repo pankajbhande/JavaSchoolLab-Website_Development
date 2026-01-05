@@ -180,55 +180,68 @@ export function ContentArea({
             transition={{ delay: 0.2 }}
           >
             {/* Content Text */}
-            {/* <div className="prose max-w-none mb-8">
-              {content.content.split('\n\n').map((paragraph, index) => {
-                if (paragraph.startsWith('•')) {
-                  // Bullet list
-                  const items = paragraph.split('\n').filter(item => item.trim());
-                  return (
-                    <ul key={index} className="list-disc list-inside space-y-2 my-4">
-                      {items.map((item, idx) => (
-                        <li key={idx} className="text-gray-700 dark:text-gray-300">
-                          {item.replace('•', '').trim()}
-                        </li>
-                      ))}
-                    </ul>
-                  );
-                } else if (paragraph.match(/^\d+\./)) {
-                  // Numbered list
-                  const items = paragraph.split('\n').filter(item => item.trim());
-                  return (
-                    <ol key={index} className="list-decimal list-inside space-y-2 my-4">
-                      {items.map((item, idx) => (
-                        <li key={idx} className="text-gray-700 dark:text-gray-300">
-                          {item.replace(/^\d+\./, '').trim()}
-                        </li>
-                      ))}
-                    </ol>
-                  );
-                } else if (paragraph.includes(':') && paragraph.length < 100) {
-                  // Heading
-                  return (
-                    <h3 key={index} className="text-xl font-semibold text-gray-800 dark:text-gray-200 mt-6 mb-3">
-                      {paragraph}
-                    </h3>
-                  );
-                } else {
-                  // Regular paragraph
-                  return (
-                    <p key={index} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                      {paragraph}
-                    </p>
-                  );
-                }
-              })}
-            </div> */}
-            
-            {/*content text*/}
-            <div
-              className="prose max-w-none mb-8"
-              dangerouslySetInnerHTML={{ __html: content.content }}
-            />
+<div className="prose max-w-none mb-8">
+  {/<[a-z][\s\S]*>/i.test(content.content) ? (
+    // If content contains HTML
+    <div
+      dangerouslySetInnerHTML={{ __html: content.content }}
+    />
+  ) : (
+    // If content is plain text
+    content.content.split('\n\n').map((paragraph, index) => {
+      if (paragraph.startsWith('•')) {
+        // Bullet list
+        const items = paragraph.split('\n').filter(item => item.trim());
+        return (
+          <ul key={index} className="list-disc list-inside space-y-2 my-4">
+            {items.map((item, idx) => (
+              <li key={idx} className="text-gray-700 dark:text-gray-300">
+                {item.replace('•', '').trim()}
+              </li>
+            ))}
+          </ul>
+        );
+      } 
+      
+      if (/^\d+\./.test(paragraph)) {
+        // Numbered list
+        const items = paragraph.split('\n').filter(item => item.trim());
+        return (
+          <ol key={index} className="list-decimal list-inside space-y-2 my-4">
+            {items.map((item, idx) => (
+              <li key={idx} className="text-gray-700 dark:text-gray-300">
+                {item.replace(/^\d+\./, '').trim()}
+              </li>
+            ))}
+          </ol>
+        );
+      } 
+      
+      if (paragraph.includes(':') && paragraph.length < 100) {
+        // Heading
+        return (
+          <h3
+            key={index}
+            className="text-xl font-semibold text-gray-800 dark:text-gray-200 mt-6 mb-3"
+          >
+            {paragraph}
+          </h3>
+        );
+      }
+
+      // Regular paragraph
+      return (
+        <p
+          key={index}
+          className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
+        >
+          {paragraph}
+        </p>
+      );
+    })
+  )}
+</div>
+
 
             {/* Code Examples */}
             {content.codeExamples && content.codeExamples.length > 0 && (
