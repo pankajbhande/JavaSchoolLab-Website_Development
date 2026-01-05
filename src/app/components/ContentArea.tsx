@@ -13,12 +13,12 @@ interface ContentAreaProps {
   contentRef: React.RefObject<HTMLDivElement>;
 }
 
-export function ContentArea({ 
-  course, 
-  topic, 
-  difficulty, 
+export function ContentArea({
+  course,
+  topic,
+  difficulty,
   onDifficultyChange,
-  contentRef 
+  contentRef
 }: ContentAreaProps) {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [showMCQ, setShowMCQ] = useState(false);
@@ -29,12 +29,12 @@ export function ContentArea({
     if (topic) {
       // Generate image based on topic name
       const query = topic.name.toLowerCase().includes('java') ? 'java programming' :
-                   topic.name.toLowerCase().includes('collection') ? 'data structure' :
-                   topic.name.toLowerCase().includes('design') ? 'software architecture' :
-                   topic.name.toLowerCase().includes('database') || topic.name.toLowerCase().includes('sql') ? 'database' :
-                   topic.name.toLowerCase().includes('spring') ? 'spring framework' :
-                   'programming code';
-      
+        topic.name.toLowerCase().includes('collection') ? 'data structure' :
+          topic.name.toLowerCase().includes('design') ? 'software architecture' :
+            topic.name.toLowerCase().includes('database') || topic.name.toLowerCase().includes('sql') ? 'database' :
+              topic.name.toLowerCase().includes('spring') ? 'spring framework' :
+                'programming code';
+
       // Using a placeholder for now - in real app would use unsplash_tool
       setTopicImage(`https://source.unsplash.com/800x400/?${query.replace(' ', ',')}`);
     }
@@ -49,7 +49,7 @@ export function ContentArea({
   if (!course || !topic) {
     return (
       <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-amber-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <motion.div 
+        <motion.div
           className="text-center max-w-2xl px-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -60,23 +60,23 @@ export function ContentArea({
               Your comprehensive guide to mastering Java, Spring Boot, and enterprise technologies
             </p>
           </div>
-          
+
           <div className="grid grid-cols-3 gap-6 mb-8">
-            <motion.div 
+            <motion.div
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">Beginner</div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Start from basics</p>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
               whileHover={{ scale: 1.05 }}
             >
               <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">Intermediate</div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Build expertise</p>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
               whileHover={{ scale: 1.05 }}
             >
@@ -84,7 +84,7 @@ export function ContentArea({
               <p className="text-sm text-gray-600 dark:text-gray-400">Master advanced topics</p>
             </motion.div>
           </div>
-          
+
           <div className="bg-orange-100 dark:bg-orange-900/20 border border-orange-300 dark:border-orange-700 rounded-lg p-6">
             <p className="text-orange-800 dark:text-orange-300 font-medium mb-2">👈 Get started by selecting a course from the sidebar</p>
             <p className="text-orange-700 dark:text-orange-400 text-sm">
@@ -106,31 +106,28 @@ export function ContentArea({
           <div className="flex gap-1">
             <button
               onClick={() => onDifficultyChange('beginner')}
-              className={`px-6 py-3 font-medium transition-all border-b-2 ${
-                difficulty === 'beginner'
+              className={`px-6 py-3 font-medium transition-all border-b-2 ${difficulty === 'beginner'
                   ? 'border-green-500 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20'
                   : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-              }`}
+                }`}
             >
               Beginner
             </button>
             <button
               onClick={() => onDifficultyChange('intermediate')}
-              className={`px-6 py-3 font-medium transition-all border-b-2 ${
-                difficulty === 'intermediate'
+              className={`px-6 py-3 font-medium transition-all border-b-2 ${difficulty === 'intermediate'
                   ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                   : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-              }`}
+                }`}
             >
               Intermediate
             </button>
             <button
               onClick={() => onDifficultyChange('expert')}
-              className={`px-6 py-3 font-medium transition-all border-b-2 ${
-                difficulty === 'expert'
+              className={`px-6 py-3 font-medium transition-all border-b-2 ${difficulty === 'expert'
                   ? 'border-purple-500 text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
                   : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-              }`}
+                }`}
             >
               Expert
             </button>
@@ -149,7 +146,7 @@ export function ContentArea({
         </div>
 
         {/* Topic Title */}
-        <motion.h1 
+        <motion.h1
           className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -164,8 +161,8 @@ export function ContentArea({
             animate={{ opacity: 1, y: 0 }}
             className="mb-8 rounded-xl overflow-hidden shadow-lg"
           >
-            <img 
-              src={topicImage} 
+            <img
+              src={topicImage}
               alt={topic.name}
               className="w-full h-64 object-cover"
               onError={(e) => {
@@ -183,7 +180,7 @@ export function ContentArea({
             transition={{ delay: 0.2 }}
           >
             {/* Content Text */}
-            <div className="prose max-w-none mb-8">
+            {/* <div className="prose max-w-none mb-8">
               {content.content.split('\n\n').map((paragraph, index) => {
                 if (paragraph.startsWith('•')) {
                   // Bullet list
@@ -225,7 +222,13 @@ export function ContentArea({
                   );
                 }
               })}
-            </div>
+            </div> */}
+            
+            {/*content text*/}
+            <div
+              className="prose max-w-none mb-8"
+              dangerouslySetInnerHTML={{ __html: content.content }}
+            />
 
             {/* Code Examples */}
             {content.codeExamples && content.codeExamples.length > 0 && (
