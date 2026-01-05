@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { FileText, Building, Download, ChevronDown, ChevronRight, PanelRightClose, PanelRight } from 'lucide-react';
 import { Course } from '../data/coursesData';
 import { motion, AnimatePresence } from 'motion/react';
-import { Timer } from './Timer';
-import { Alarm } from './Alarm';
+// import { Timer } from './Timer';
+// import { Alarm } from './Alarm';
 import { JavaCompiler } from './JavaCompiler';
+
 
 interface RightSidebarProps {
   course: Course | null;
@@ -102,9 +103,10 @@ export function RightSidebar({ course, isMinimized, onToggleMinimize }: RightSid
                   animate={{ opacity: 1, y: 0 }}
                   className="space-y-4"
                 >
-                  <Timer />
-                  <Alarm />
+                  {/* <Timer /> */}
+                  {/* <Alarm /> */}
                   <JavaCompiler />
+                 
                 </motion.div>
               )}
 

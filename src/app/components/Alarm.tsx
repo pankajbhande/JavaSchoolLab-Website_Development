@@ -1,12 +1,15 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Bell, Plus, Trash2 } from 'lucide-react';
 import { motion } from 'motion/react';
+import alarmSound from "./sounds/loud_alarm_sound.mp3";
+import { useState, useEffect, useRef } from "react";
 
 interface AlarmType {
   id: string;
   time: string;
   label: string;
   active: boolean;
+  hasRang: boolean;
 }
 
 export function Alarm() {
@@ -14,13 +17,59 @@ export function Alarm() {
   const [newAlarmTime, setNewAlarmTime] = useState('');
   const [newAlarmLabel, setNewAlarmLabel] = useState('');
 
+  //alarm sound effect
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  useEffect(() => {
+    audioRef.current = new Audio(alarmSound);
+  }, []);
+
+  // Load alarms when component mounts
+  useEffect(() => {
+    const saved = localStorage.getItem("alarms");
+    if (saved) {
+      setAlarms(JSON.parse(saved));
+    }
+  }, []);
+
+  // Save alarms whenever they change
+  useEffect(() => {
+    localStorage.setItem("alarms", JSON.stringify(alarms));
+  }, [alarms]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const current = now.toTimeString().slice(0, 5);
+
+      setAlarms(prev =>
+        prev.map(a => {
+          if (a.active && !a.hasRang && a.time === current) {
+            audioRef.current?.play();
+
+            return {
+              ...a,
+              active: true,   // disable AFTER ringing
+              hasRang: true    // mark as rang
+            };
+          }
+
+          return a;
+        })
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   const addAlarm = () => {
     if (newAlarmTime) {
       const alarm: AlarmType = {
         id: Date.now().toString(),
         time: newAlarmTime,
         label: newAlarmLabel || 'Study Reminder',
-        active: true
+        active: true,
+        hasRang: false,
       };
       setAlarms([...alarms, alarm]);
       setNewAlarmTime('');
@@ -33,13 +82,14 @@ export function Alarm() {
   };
 
   const toggleAlarm = (id: string) => {
-    setAlarms(alarms.map(a => 
+    setAlarms(alarms.map(a =>
       a.id === id ? { ...a, active: !a.active } : a
     ));
   };
 
+
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-4 rounded-xl shadow-md border border-purple-200 dark:border-purple-700"
@@ -48,7 +98,7 @@ export function Alarm() {
         <Bell className="w-5 h-5 text-purple-600 dark:text-purple-400" />
         <h3 className="font-semibold text-gray-800 dark:text-gray-200">Alarms</h3>
       </div>
-      
+
       <div className="space-y-2 mb-3">
         <input
           type="time"
@@ -81,11 +131,10 @@ export function Alarm() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
-            className={`flex items-center justify-between p-2 rounded-lg ${
-              alarm.active 
-                ? 'bg-white dark:bg-gray-800 border border-purple-300 dark:border-purple-600' 
-                : 'bg-gray-200 dark:bg-gray-700 opacity-50'
-            }`}
+            className={`flex items-center justify-between p-2 rounded-lg ${alarm.active
+              ? 'bg-white dark:bg-gray-800 border border-purple-300 dark:border-purple-600'
+              : 'bg-gray-200 dark:bg-gray-700 opacity-50'
+              }`}
           >
             <div className="flex-1">
               <div className="font-semibold text-gray-800 dark:text-gray-200">{alarm.time}</div>
@@ -94,11 +143,10 @@ export function Alarm() {
             <div className="flex gap-2">
               <button
                 onClick={() => toggleAlarm(alarm.id)}
-                className={`px-3 py-1 rounded text-sm ${
-                  alarm.active
-                    ? 'bg-purple-600 text-white'
-                    : 'bg-gray-400 text-white'
-                }`}
+                className={`px-3 py-1 rounded text-sm ${alarm.active
+                  ? 'bg-purple-600 text-white'
+                  : 'bg-gray-400 text-white'
+                  }`}
               >
                 {alarm.active ? 'ON' : 'OFF'}
               </button>
