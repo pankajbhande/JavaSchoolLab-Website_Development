@@ -30,28 +30,29 @@ export function Sidebar({
 }: SidebarProps) {
   const [expandedCourses, setExpandedCourses] = useState<Set<string>>(new Set());
   const [expandedSubTopics, setExpandedSubTopics] = useState<Set<string>>(new Set());
-
+  
   const toggleCourse = (courseId: string) => {
-    const newExpanded = new Set(expandedCourses);
-    if (newExpanded.has(courseId)) {
-      newExpanded.delete(courseId);
-    } else {
-      newExpanded.add(courseId);
-    }
-    setExpandedCourses(newExpanded);
-    onCourseSelect(courseId);
-  };
+  setExpandedCourses(prev => {
+    if (prev.has(courseId)) return new Set(); // collapse if same
+    return new Set([courseId]);               // close others, open this
+  });
+
+  onCourseSelect(courseId);
+};
 
   const toggleSubTopic = (subTopicId: string) => {
-    const newExpanded = new Set(expandedSubTopics);
-    if (newExpanded.has(subTopicId)) {
-      newExpanded.delete(subTopicId);
-    } else {
-      newExpanded.add(subTopicId);
-    }
-    setExpandedSubTopics(newExpanded);
-    onSubTopicSelect(subTopicId);
-  };
+  setExpandedSubTopics(prev => {
+    // if clicking the currently open subtopic → close it
+    if (prev.has(subTopicId)) return new Set();
+
+    // otherwise, close previous and open this one
+    return new Set([subTopicId]);
+  });
+
+  onSubTopicSelect(subTopicId);
+};
+
+
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
