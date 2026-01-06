@@ -277,12 +277,12 @@ public class PerformanceExample {
             },
 
           },
-           {
-  id: "operators",
-  name: "Operators in Java",
+          {
+            id: "operators",
+            name: "Operators in Java",
 
-  beginner: {
-    content: `
+            beginner: {
+              content: `
 OPERATORS IN JAVA
 
 Operators in Java are symbols used to perform operations on variables and values.
@@ -418,7 +418,7 @@ Used to increment or decrement a variable.
 Shorthand for if-else statement.
 
 
-Syntax  condition? value_if_true : value_if_false
+Syntax -  condition ? value_if_true ; value_if_false
 
 8) Shift Operators:
 
@@ -436,8 +436,8 @@ Used to access class members (variables or methods).
 Used to create an object of a class.
 `,
 
-    codeExamples: [
-`// Java Operators - Complete Example
+              codeExamples: [
+                `// Java Operators - Complete Example
 package com.test;
 
 public class Operator {
@@ -487,8 +487,8 @@ public class Operator {
         System.out.println("Dot operator example");
     }
 }`
-    ]
-  },
+              ]
+            },
 
 
 
@@ -499,8 +499,8 @@ public class Operator {
 
 
 
-  intermediate: {
-    content: `2) Logical Operators:
+            intermediate: {
+              content: `2) Logical Operators:
 Used to perform logical AND and OR operations.
 
 Logical AND (&&):
@@ -519,8 +519,8 @@ Used to compare values.
 Used to assign values to variables.
 Syntax: variable = value;`,
 
-    codeExamples: [
-`// Logical, Relational & Assignment Operators
+              codeExamples: [
+                `// Logical, Relational & Assignment Operators
 package com.test;
 
 public class Operator {
@@ -549,11 +549,11 @@ public class Operator {
         System.out.println("value of x is>>> " + x);
     }
 }`
-    ]
-  },
+              ]
+            },
 
-  expert: {
-    content: `5) Bitwise Operators:
+            expert: {
+              content: `5) Bitwise Operators:
 • &  Bitwise AND (checks both conditions)
 • |  Bitwise OR  (checks both conditions)
 
@@ -574,8 +574,8 @@ Used to access class variables and methods.
 10) new Operator:
 Used to create an object of a class.`,
 
-    codeExamples: [
-`// Bitwise, Unary, Ternary & Shift Operators
+              codeExamples: [
+                `// Bitwise, Unary, Ternary & Shift Operators
 package com.test;
 
 public class Operator {
@@ -621,136 +621,120 @@ public class Operator {
 }`
               ]
             }
-          }
-        ]
-      },
-
-
-      {
-        id: 'Jumping Statement',
-        name: 'Jumping Statement',
-
-        topics: [
-          {
-            id: 'Break statement',
-            name: 'Break Statement',
-            beginner: {
-              content: `The break statement in java is used to terminate a loop and break the current flow of the program or to jump out of loop.
-              <img src="/src/assets/breakstatement.png" alt="img"  style="width: 50%; max-width: 500px; display:block; margin:20px auto; border-radius:12px"/>
-              Syntax:-<br>
-                     jump - statement; <br>
-                            break;
-              
-              `,
-              codeExamples: [
-                `code example 1 :-
-                package com.test; 
-                  public class Code_With_Pankaj {             // Main Class: Test  
-                   public static void main(String[] args) {      // Main Method   
-                    for (int i = 1; i <= 5; i++) {            // i = 1,2,3,4,5    
-                        if (i ==3) {                  // 3==3  // True  => break       
-                             break;   
-                           }    
-                         System.out.println(i);          // Output: 1,2,   
-                      }   
-                      System.out.println("after break....");          
-                   } 
-                }
-                   
-code example 2 :-
-                package com.test;  
-                 public class Code_With_Pankaj {        // Main Class  
-                  public static void main(String[] args) {      // Main Method   
-                    for (char i = 'a'; i <= 'f'; i++) {       // a b c d e f    
-                     if (i == 'c') {                 // c == c   => True  => Break     
-                       break;                      // a b    
-                      }   
-                    System.out.println(i);        // Output: a b   
-                    }  
-                  } 
-                } `
-              ]
-
-            }
           },
           {
-            id: 'Continue Statement',
-            name: 'Continue Statement',
+            id: 'jumping statement',
+            name: 'Jumping statement',
             beginner: {
-              content: `To jump to the next iteration of the loop, we make use of the continue statement. This statement continues the current flow of the program and skips a part of the code at the specified condition.<br><br>
-              <img src="/src/assets/jcontinuestatement.jpg" alt="img"  style="width: 50%; max-width: 500px; display:block; margin:20px auto; border-radius:12px"/>
-
-              Syntax :- <br>
-                 Jump- statement; <br>
-                 continue;  `,
+              content: `
+               There are 3 types of jumping statements in java as- 
+               1) Break 
+               2) Continue 
+               3) Return
+               <br>
+               <img src="/src/assets/jumpstatement.png" alt="Online Image"class="d-block mx-auto"/>
+               <br><br>
+               <h2>1) Break Statement</h2>
+               The break statement in java is used to terminate a loop and break the current flow of the program or to jump out of loop. 
+              <br><br>
+               <img src="/src/assets/breakstatement.png" alt="Online Image"class="d-block mx-auto"/><br>
+               <div class="bg-secondary border border-primary">
+                Syntax-<br>
+                       Jump - statement; <br>
+                              break; 
+                </div>        
+                <br><br>              
+                <h2>2) Continue statement</h2>  
+                To jump to the next iteration of the loop, we make use of the continue statement. This statement continues the current flow of the program and skips a part of the code at the specified condition.             
+                <br>
+                It will skip the current iteration and continue with next iteration. <br>
+                <br><br>
+                <img src="/src/assets/jcontinuestatement.jpg" alt="Online Image"class="d-block mx-auto"/> <br>
+                <div class="bg-secondary border border-primary">
+                 Syntax - <br>
+                 Jump - statement; <br>
+                 break; 
+                </div>
+                <br><br>
+                <h2>3) Return Statement </h2>
+                The return statement in Java is used to exit a method and, optionally, send a value back to the code that called it. It transfers control from the current method back to the point where the method was invoked. 
+                <br><br>
+                <img src="/src/assets/returnstatement.png" alt="Img" class="d-block mx-auto" style="height:350px;"/> <br>
+                `,
 
               codeExamples: [
-                `code example 1 :- 
-
+                `1) Break Statement
+Example :- 1
                  package com.test;  
-                    public class Test {           // Main Class  
-                      public static void main(String[] args) {      // Main Method   
-                        for (int i = 1; i <= 10; i++) {       // 1 to 10    
-                          if (i == 5) {     
-                            continue;              // 1,2,3,4,6,7,8,9,10  ( Print Except 5 )    
-                           }    
-                           System.out.println(i);      
-                         } 
-                       } 
-                     } 
-                  
-code example 2 :- 
-              package com.test;  
-              public class Code_With_Pankaj {    // Main Class  
-                 public static void main(String[] args) {   // Main Method   
-                    for (char i = 'a'; i <= 'f'; i++) {   // a b c d e f    
-                      if (i == 'c') {     
-                        continue;    // a,b,d,e,f ( Print Except 'c' )    
-                       }    
-                     System.out.println(i);  // Output: a b d e f   
-                     }  
-                   } 
-                }  `
-              ]
-            }
-          },
+                   public class Code_With_Pankaj {   // Main Class: Test  
+                     public static void main(String[] args) {  // Main Method   
+                       for (int i = 1; i <= 5; i++) {   // i = 1,2,3,4,5    
+                         if (i ==3) {    // 3==3 // True  => break       
+                           break;    
+                          }    
+                        System.out.println(i);  // Output: 1,2,   
+                      }   
+                    System.out.println("after break....");          
+                    } 
+                  }
 
-          {
-            id: 'Return Statement',
-            name: 'Return Statement',
-            beginner: {
-              content: `The return statement is used to exit from a method and transfer control back to the method's caller. It can optionally return a value to the caller if the method has a non-void return type
-              
-              <img src="/src/assets/returnstatement.png" alt="img"  style="width: 50%; max-width: 500px; display:block; margin:20px auto; border-radius:12px"/>
-
-              `,
-              codeExamples: [
-                `
-
-            public class ReturnExample {
-
-               // A method that takes two integers, calculates their sum, 
-              // and returns the result as an integer.
-               public static int add(int a, int b) {
-                int sum = a + b;
-                return sum; // Returns the value stored in the 'sum' variable
-              }
-
-                 public static void main(String[] args) {       // Call the 'add' method and store the returned value in a variable
-                    int result = add(5, 3); 
-        
-                   // Print the stored result
-                  System.out.println("Sum: " + result); // Output: Sum: 8
-               }
-           }
-
-                `
+Example :- 2 
+                package com.test;  
+                 public class Code_With_Pankaj {    // Main Class  
+                  public static void main(String[] args) {   // Main Method   
+                   for (char i = 'a'; i <= 'f'; i++) {   // a b c d e f    
+                    if (i == 'c') {    // c == c   => True  => Break     
+                      break;    // a b    
+                     }    
+                    System.out.println(i);  // Output: a b   
+                   }  
+                  }
+                 } `,
+                `2) Continue Statement 
+Example :- 1
+                package com.test;  
+                 public class Test {      // Main Class  
+                   public static void main(String[] args) {  // Main Method   
+                     for (int i = 1; i <= 10; i++) {   // 1 to 10    
+                       if (i == 5) {     
+                         continue;   // 1,2,3,4,6,7,8,9,10  ( Print Except 5 )    
+                        }    
+                       System.out.println(i);       
+                      } 
+                    } 
+                  }   
+Example :- 2
+                  package com.test;  
+                    public class Code_With_Pankaj {    // Main Class  
+                      public static void main(String[] args) {   // Main Method   
+                         for (char i = 'a'; i <= 'f'; i++) {   // a b c d e f    
+                            if (i == 'c') {     
+                               continue;    // a,b,d,e,f ( Print Except 'c' )    
+                              }   
+                            System.out.println(i);  // Output: a b d e f   
+                          }  
+                        } 
+                      }`,
+                `3) Return Statement
+            public class Code_With_Pankaj {   // Method to calculate the sum of two integers and return the result
+                public int add(int a, int b) {
+                  int sum = a + b;
+                      return sum;               // Returns an integer value
+                    }
+                public static void main(String[] args) {
+                  ReturnValueExample example = new ReturnValueExample();  // The returned value is captured in a variable
+                     int result = example.add(10, 5); 
+                     System.out.println("Sum: " + result); // Output: Sum: 15
+                   }
+                }`
               ]
             }
           }
-
         ]
       },
+
+
+
 
       {
         id: 'oop',
