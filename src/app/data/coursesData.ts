@@ -733,9 +733,6 @@ Example :- 2
         ]
       },
 
-
-
-
       {
         id: 'oop',
         name: 'Object-Oriented Programming',
