@@ -132,16 +132,47 @@ function AppContent() {
     setDifficulty('beginner');
   };
 
+  // const handleTopicSelect = (topicId: string) => {
+  //   setSelectedTopicId(topicId);
+  //   setDifficulty('beginner');
+  //   // Smooth scroll to top of content
+  //   setTimeout(() => {
+  //     if (contentRef.current) {
+  //       contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  //     }
+  //   }, 100);
+  // };
+
   const handleTopicSelect = (topicId: string) => {
-    setSelectedTopicId(topicId);
-    setDifficulty('beginner');
-    // Smooth scroll to top of content
-    setTimeout(() => {
-      if (contentRef.current) {
-        contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Find parent course and subtopic
+  let parentCourseId: string | null = null;
+  let parentSubTopicId: string | null = null;
+
+  for (const course of coursesData) {
+    for (const subTopic of course.subTopics) {
+      if (subTopic.topics.some(topic => topic.id === topicId)) {
+        parentCourseId = course.id;
+        parentSubTopicId = subTopic.id;
+        break;
       }
-    }, 100);
-  };
+    }
+    if (parentCourseId) break;
+  }
+
+  if (parentCourseId) setSelectedCourseId(parentCourseId);
+  if (parentSubTopicId) setSelectedSubTopicId(parentSubTopicId);
+  
+  setSelectedTopicId(topicId);
+  setDifficulty('beginner');
+
+  // Smooth scroll to top
+  setTimeout(() => {
+    if (contentRef.current) {
+      contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 100);
+};
+
 
   const handleDifficultyChange = (newDifficulty: 'beginner' | 'intermediate' | 'expert') => {
     setDifficulty(newDifficulty);
@@ -171,6 +202,8 @@ function AppContent() {
     : coursesData;
 
   const showDashboard = !selectedCourseId;
+
+  
 
   return (
     <div className="h-screen flex flex-col bg-gray-100 dark:bg-gray-900">

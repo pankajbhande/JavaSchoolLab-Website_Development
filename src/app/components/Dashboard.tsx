@@ -7,74 +7,74 @@ interface DashboardProps {
 }
 
 const courseCards = [
-  { 
-    id: 'java', 
-    name: 'Java', 
-    icon: Code, 
+  {
+    id: 'java',
+    name: 'Java',
+    icon: Code,
     color: 'from-orange-500 to-red-500',
     description: 'Master Java programming fundamentals',
     query: 'java programming code'
   },
-  { 
-    id: 'collection', 
-    name: 'Collection Framework', 
-    icon: Layers, 
+  {
+    id: 'collection',
+    name: 'Collection Framework',
+    icon: Layers,
     color: 'from-blue-500 to-cyan-500',
     description: 'Learn Java Collections in depth',
     query: 'data structure collection'
   },
-  { 
-    id: 'design-patterns', 
-    name: 'Design Patterns', 
-    icon: Layout, 
+  {
+    id: 'design-patterns',
+    name: 'Design Patterns',
+    icon: Layout,
     color: 'from-purple-500 to-pink-500',
     description: 'Understand software design patterns',
     query: 'design pattern architecture'
   },
-  { 
-    id: 'mysql', 
-    name: 'MySQL CSS', 
-    icon: Database, 
+  {
+    id: 'mysql',
+    name: 'MySQL CSS',
+    icon: Database,
     color: 'from-green-500 to-emerald-500',
     description: 'Database and styling concepts',
     query: 'database mysql'
   },
-  { 
-    id: 'jdbc', 
-    name: 'JDBC', 
-    icon: Database, 
+  {
+    id: 'jdbc',
+    name: 'JDBC',
+    icon: Database,
     color: 'from-teal-500 to-cyan-500',
     description: 'Java Database Connectivity',
     query: 'database connection'
   },
-  { 
-    id: 'jsp-servlet', 
-    name: 'JSP Servlet', 
-    icon: Server, 
+  {
+    id: 'jsp-servlet',
+    name: 'JSP Servlet',
+    icon: Server,
     color: 'from-indigo-500 to-blue-500',
     description: 'Server-side Java web technologies',
     query: 'web server technology'
   },
-  { 
-    id: 'hibernate', 
-    name: 'Hibernate', 
-    icon: Database, 
+  {
+    id: 'hibernate',
+    name: 'Hibernate',
+    icon: Database,
     color: 'from-violet-500 to-purple-500',
     description: 'Object-Relational Mapping framework',
     query: 'orm framework'
   },
-  { 
-    id: 'spring-mvc', 
-    name: 'Spring MVC', 
-    icon: Server, 
+  {
+    id: 'spring-mvc',
+    name: 'Spring MVC',
+    icon: Server,
     color: 'from-lime-500 to-green-500',
     description: 'Model-View-Controller framework',
     query: 'spring framework'
   },
-  { 
-    id: 'spring-boot', 
-    name: 'Spring Boot', 
-    icon: Book, 
+  {
+    id: 'spring-boot',
+    name: 'Spring Boot',
+    icon: Book,
     color: 'from-amber-500 to-orange-500',
     description: 'Modern Spring application development',
     query: 'spring boot application'
@@ -91,7 +91,7 @@ export function Dashboard({ onCourseSelect }: DashboardProps) {
         className="max-w-7xl mx-auto"
       >
         <div className="text-center mb-12">
-          <motion.h1 
+          <motion.h1
             className="text-5xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
@@ -127,7 +127,7 @@ export function Dashboard({ onCourseSelect }: DashboardProps) {
                     <h3 className="text-white text-2xl font-bold">{course.name}</h3>
                   </div>
                 </div>
-                
+
                 <div className="p-6">
                   <p className="text-gray-600 dark:text-gray-300">
                     {course.description}
