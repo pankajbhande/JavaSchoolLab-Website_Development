@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight, Code, BookOpen, FileText, Database, PanelLeftClose, PanelLeft } from 'lucide-react';
 import { Course, SubTopic } from '../data/coursesData';
 import { motion, AnimatePresence } from 'motion/react';
@@ -31,6 +31,37 @@ export function Sidebar({
   
   const [expandedCourses, setExpandedCourses] = useState<Set<string>>(new Set());
   const [expandedSubTopics, setExpandedSubTopics] = useState<Set<string>>(new Set());
+
+  // Auto-expand parent course and subtopic when a topic is selected
+  useEffect(() => {
+    if (selectedTopic) {
+      for (const course of courses) {
+        for (const subTopic of course.subTopics) {
+          if (subTopic.topics.some((t) => t.id === selectedTopic)) {
+            setExpandedCourses((prev) => {
+              const newSet = new Set(prev);
+              newSet.add(course.id);
+              return newSet;
+            });
+            setExpandedSubTopics((prev) => {
+              const newSet = new Set(prev);
+              newSet.add(subTopic.id);
+              return newSet;
+            });
+            return;
+          }
+        }
+      }
+    }
+  }, [selectedTopic, courses]);
+
+  // Auto-expand course when selected from TopicsBar
+  useEffect(() => {
+    if (selectedCourse) {
+      setExpandedCourses(new Set([selectedCourse]));
+      setExpandedSubTopics(new Set());
+    }
+  }, [selectedCourse]);
 
 const toggleCourse = (courseId: string) => { 
   const newExpanded = new Set(expandedCourses); 
@@ -99,7 +130,9 @@ const toggleSubTopic = (subTopicId: string) => {
               <h2 className="font-semibold text-lg mb-4 text-gray-800 dark:text-gray-200">Courses</h2>
               
               <div className="space-y-2">
-                {courses.map((course) => (
+                {courses
+                  .filter((course) => !selectedCourse || course.id === selectedCourse)
+                  .map((course) => (
                   <motion.div
                     key={course.id}
                     initial={{ opacity: 0, y: 10 }}

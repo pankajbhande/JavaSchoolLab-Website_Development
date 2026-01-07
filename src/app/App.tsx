@@ -4,6 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { ContentArea } from './components/ContentArea';
 import { RightSidebar } from './components/RightSidebar';
 import { Dashboard } from './components/Dashboard';
+import { TopicsBar } from './components/TopicsBar';
 import { ThemeProvider } from './components/ThemeProvider';
 import { coursesData } from './data/coursesData';
 
@@ -214,6 +215,14 @@ function AppContent() {
         voiceGender={voiceGender}
         onVoiceChange={setVoiceGender}
       />
+      
+      {!showDashboard && (
+        <TopicsBar 
+          courses={filteredCourses}
+          onCourseSelect={handleCourseSelect}
+          selectedCourseId={selectedCourseId}
+        />
+      )}
       
       <div className="flex flex-1 overflow-hidden">
         {!showDashboard && (
