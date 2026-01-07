@@ -631,6 +631,121 @@ public class Operator {
             ]
           },
           {
+            
+          id: "control-statements",
+            name: "Control Statements in Java",
+            beginner: [
+              {
+                content: ` This is the most fundamental concepts required for java programmer. 
+
+ It allows smooth flow of execution of program.
+
+ It controls the flow of program.
+
+There are 5 types of control statements in java:
+
+1. If statements
+
+2. If else statements
+3. if-else-if ladder statement
+4. Nested if statements
+5. Switch statements 
+
+
+
+
+
+1. IF STATEMENTS :
+
+If statement is true then if block is executed. 
+
+Syntax 
+
+if (condition) { 
+
+Statement 1;
+
+
+} 
+
+Flowchart of IF:
+
+
+
+
+2. IF ELSE STATEMENTS :
+
+ 
+If statement is true then if block is executed, if statement is false then else block is executed. 
+ 
+Syntax 
+
+if (condition) { 
+
+Statement 1;  // executes when condition is true  
+
+} else { 
+
+Statement 2;  // executes when condition is false    
+
+}  
+
+3. IF-ELSE-IF LADDER STATEMENT :
+  
+
+The if-else-if ladder statement executes one condition from multiple statements.  
+
+Syntax- 
+
+if (Condition 1) { 
+
+  Statement 1;  //executed if condition 1 is true  
+
+} 
+
+else if (Condition 2) { 
+
+Statement 1;  // executed if condition 2 is true 
+
+} 
+
+else if (Condition 3) { 
+
+Statement 1;  // executed if condition 3 is true 
+ 
+
+} 
+
+else { 
+
+Statement 1;  // executed if all condition false 
+
+} 
+
+`
+            }
+            ],
+            intermediate: [
+              {
+                content: `
+• Nested if conditions
+• Multiple switch cases
+• Logical operators in conditions
+`
+              }
+            ],
+            expert: [
+              {
+                content: `
+Best Practices:
+• Avoid deep nesting
+• Prefer switch for fixed values
+• Use early returns
+`
+              }
+            ]
+          },
+          {
             id: 'jumping statement',
             name: 'Jumping statement',
             beginner: [
