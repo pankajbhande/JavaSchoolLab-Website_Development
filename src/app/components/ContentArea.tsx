@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { Course, Topic } from '../data/coursesData';
+import { Course, Topic, ContentBlock } from '../data/coursesData';
 import { Copy, Check, Award, Image as ImageIcon } from 'lucide-react';
 import { MCQTest } from './MCQTest';
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-
 interface ContentAreaProps {
   course: Course | null;
   topic: Topic | null;
@@ -12,6 +11,12 @@ interface ContentAreaProps {
   onDifficultyChange: (difficulty: 'beginner' | 'intermediate' | 'expert') => void;
   contentRef: React.RefObject<HTMLDivElement>;
 }
+
+const handleAction = (code: string) => {
+  localStorage.setItem("java_try_code", code);
+  window.open("/src/app/components/JavaCompiler.html", "_blank");
+};
+
 
 export function ContentArea({
   course,
@@ -96,7 +101,9 @@ export function ContentArea({
     );
   }
 
-  const content = topic[difficulty];
+  // const content = topic[difficulty];
+  const contentBlocks: ContentBlock[] = topic[difficulty] || [];
+
 
   return (
     <main className="flex-1 overflow-y-auto bg-white dark:bg-gray-800 custom-scrollbar">
@@ -107,8 +114,8 @@ export function ContentArea({
             <button
               onClick={() => onDifficultyChange('beginner')}
               className={`px-6 py-3 font-medium transition-all border-b-2 ${difficulty === 'beginner'
-                  ? 'border-green-500 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20'
-                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                ? 'border-green-500 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20'
+                : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                 }`}
             >
               Beginner
@@ -116,8 +123,8 @@ export function ContentArea({
             <button
               onClick={() => onDifficultyChange('intermediate')}
               className={`px-6 py-3 font-medium transition-all border-b-2 ${difficulty === 'intermediate'
-                  ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                 }`}
             >
               Intermediate
@@ -125,8 +132,8 @@ export function ContentArea({
             <button
               onClick={() => onDifficultyChange('expert')}
               className={`px-6 py-3 font-medium transition-all border-b-2 ${difficulty === 'expert'
-                  ? 'border-purple-500 text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-                  : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                ? 'border-purple-500 text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
+                : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                 }`}
             >
               Expert
@@ -173,109 +180,118 @@ export function ContentArea({
           </motion.div>
         )}
 
-        {content ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            {/* Content Text */}
-<div className="prose max-w-none mb-8">
-  {/<[a-z][\s\S]*>/i.test(content.content) ? (
-    // If content contains HTML
-    <div
-      dangerouslySetInnerHTML={{ __html: content.content }}
-    />
-  ) : (
-    // If content is plain text
-    content.content.split('\n\n').map((paragraph, index) => {
-      if (paragraph.startsWith('•')) {
-        // Bullet list
-        const items = paragraph.split('\n').filter(item => item.trim());
-        return (
-          <ul key={index} className="list-disc list-inside space-y-2 my-4">
-            {items.map((item, idx) => (
-              <li key={idx} className="text-gray-700 dark:text-gray-300">
-                {item.replace('•', '').trim()}
-              </li>
-            ))}
-          </ul>
-        );
-      } 
-      
-      if (/^\d+\./.test(paragraph)) {
-        // Numbered list
-        const items = paragraph.split('\n').filter(item => item.trim());
-        return (
-          <ol key={index} className="list-decimal list-inside space-y-2 my-4">
-            {items.map((item, idx) => (
-              <li key={idx} className="text-gray-700 dark:text-gray-300">
-                {item.replace(/^\d+\./, '').trim()}
-              </li>
-            ))}
-          </ol>
-        );
-      } 
-      
-      if (paragraph.includes(':') && paragraph.length < 100) {
-        // Heading
-        return (
-          <h3
-            key={index}
-            className="text-xl font-semibold text-gray-800 dark:text-gray-200 mt-6 mb-3"
-          >
-            {paragraph}
-          </h3>
-        );
-      }
+        {contentBlocks.length > 0 ? (
+          contentBlocks.map((content, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: idx * 0.1 }}
+              className="mb-8"
+            >
+              {/* Content Text */}
+              <div className="prose max-w-none mb-4">
+                {/<[a-z][\s\S]*>/i.test(content.content) ? (
+                  <div dangerouslySetInnerHTML={{ __html: content.content }} />
+                ) : (
+                  content.content.split('\n\n').map((paragraph, index) => {
+                    // Same paragraph parsing logic
+                    if (paragraph.startsWith('•')) {
+                      const items = paragraph.split('\n').filter(item => item.trim());
+                      return (
+                        <ul key={index} className="list-disc list-inside space-y-2 my-4">
+                          {items.map((item, idx2) => (
+                            <li key={idx2} className="text-gray-700 dark:text-gray-300">
+                              {item.replace('•', '').trim()}
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    }
 
-      // Regular paragraph
-      return (
-        <p
-          key={index}
-          className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
-        >
-          {paragraph}
-        </p>
-      );
-    })
-  )}
-</div>
+                    if (/^\d+\./.test(paragraph)) {
+                      const items = paragraph.split('\n').filter(item => item.trim());
+                      return (
+                        <ol key={index} className="list-decimal list-inside space-y-2 my-4">
+                          {items.map((item, idx2) => (
+                            <li key={idx2} className="text-gray-700 dark:text-gray-300">
+                              {item.replace(/^\d+\./, '').trim()}
+                            </li>
+                          ))}
+                        </ol>
+                      );
+                    }
 
+                    if (paragraph.includes(':') && paragraph.length < 100) {
+                      return (
+                        <h3
+                          key={index}
+                          className="text-xl font-semibold text-gray-800 dark:text-gray-200 mt-6 mb-3"
+                        >
+                          {paragraph}
+                        </h3>
+                      );
+                    }
 
-            {/* Code Examples */}
-            {content.codeExamples && content.codeExamples.length > 0 && (
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Code Examples</h2>
-                {content.codeExamples.map((code, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="relative"
-                  >
-                    <div className="absolute top-2 right-2 z-10">
-                      <button
-                        onClick={() => copyToClipboard(code, index)}
-                        className="p-2 bg-gray-700 hover:bg-gray-600 rounded-md transition-colors"
-                        title="Copy code"
-                      >
-                        {copiedIndex === index ? (
-                          <Check className="w-4 h-4 text-green-400" />
-                        ) : (
-                          <Copy className="w-4 h-4 text-white" />
-                        )}
-                      </button>
-                    </div>
-                    <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-x-auto">
-                      <code className="text-sm">{code}</code>
-                    </pre>
-                  </motion.div>
-                ))}
+                    return (
+                      <p key={index} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        {paragraph}
+                      </p>
+                    );
+                  })
+                )}
               </div>
-            )}
-          </motion.div>
+
+              {/* Code Examples */}
+              {content.codeExamples && content.codeExamples.length > 0 && (
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Code Examples</h2>
+                  {content.codeExamples.map((code, codeIdx) => (
+                    <motion.div
+                      key={codeIdx}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: codeIdx * 0.1 }}
+                      className="relative"
+                    >
+                      {/* <div className="absolute top-2 right-2 z-10">
+                <button
+                  onClick={() => copyToClipboard(code, codeIdx)}
+                  className="p-2 bg-gray-700 hover:bg-gray-600 rounded-md transition-colors"
+                  title="Copy code"
+                >
+                  {copiedIndex === codeIdx ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 text-white" />}
+                </button>
+              </div> */}
+
+                      <div className="absolute top-2 right-2 z-10 flex gap-2">
+                        {/* Copy button */}
+                        <button
+                          onClick={() => copyToClipboard(code, codeIdx)}
+                          className="p-2 bg-gray-700 hover:bg-gray-600 rounded-md"
+                        >
+                          {copiedIndex === codeIdx ? <Check /> : <Copy />}
+                        </button>
+
+                        {/* ⭐ Your new button */}
+                        <button
+                          onClick={() => handleAction(code)}
+                          className="p-2 bg-orange-600 hover:bg-orange-500 rounded-md text-white text-sm font-semibold"
+                        >
+                        Try it
+                        
+                        </button>
+                      </div>
+
+                      <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-x-auto">
+                        <code className="text-sm">{code}</code>
+                      </pre>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          ))
         ) : (
           <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700 rounded-lg p-6">
             <p className="text-yellow-800 dark:text-yellow-300">
@@ -283,6 +299,7 @@ export function ContentArea({
             </p>
           </div>
         )}
+
       </div>
 
       {/* MCQ Test Modal */}

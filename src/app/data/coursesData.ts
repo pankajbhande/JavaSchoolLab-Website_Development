@@ -1,19 +1,16 @@
 // Course data structure for JavaSchoolLab
+
+export interface ContentBlock {
+  content: string;          // HTML content
+  codeExamples?: string[];  // optional code examples
+}
+
 export interface Topic {
   id: string;
   name: string;
-  beginner?: {
-    content: string;
-    codeExamples?: string[];
-  };
-  intermediate?: {
-    content: string;
-    codeExamples?: string[];
-  };
-  expert?: {
-    content: string;
-    codeExamples?: string[];
-  };
+  beginner?: ContentBlock[];
+  intermediate?: ContentBlock[];
+  expert?: ContentBlock[];
 }
 
 export interface SubTopic {
@@ -47,8 +44,9 @@ export const coursesData: Course[] = [
           {
             id: 'introduction',
             name: 'Introduction to Java',
-            beginner: {
-              content: `Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. It was developed by James Gosling at Sun Microsystems (now owned by Oracle Corporation) and released in 1995.
+            beginner: [
+              {
+                content: `Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. It was developed by James Gosling at Sun Microsystems (now owned by Oracle Corporation) and released in 1995.
 
 Key Features of Java:
 • Platform Independent: Write Once, Run Anywhere (WORA)
@@ -58,18 +56,18 @@ Key Features of Java:
 • Robust: Strong memory management
 • Multi-threaded: Supports concurrent programming
 • Architecture Neutral: Portable across platforms`,
-              codeExamples: [
-                `// First Java Program
+                codeExamples: [
+                  `// First Java Program
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
-}`
-              ],
-
-            },
-            intermediate: {
-              content: `Deep dive into Java Architecture and JVM internals. Understanding the compilation and execution process in detail.
+}`]
+              }
+            ],
+            intermediate: [
+              {
+                content: `Deep dive into Java Architecture and JVM internals. Understanding the compilation and execution process in detail.
 
 Java Architecture Components:
 • JDK (Java Development Kit): Complete development environment
@@ -86,8 +84,8 @@ JVM Memory Areas:
 • Method Area: Class structures, constants
 • PC Register: Current instruction address
 • Native Method Stack: Native method execution`,
-              codeExamples: [
-                `// Understanding Class Loading
+                codeExamples: [
+                  `// Understanding Class Loading
 public class ClassLoadingExample {
     static {
         System.out.println("Static block executed");
@@ -101,10 +99,11 @@ public class ClassLoadingExample {
         System.out.println("Constructor executed");
     }
 }`
-              ]
-            },
-            expert: {
-              content: `Advanced JVM tuning, performance optimization, and understanding garbage collection algorithms.
+                ]
+              }],
+            expert: [
+              {
+                content: `Advanced JVM tuning, performance optimization, and understanding garbage collection algorithms.
 
 Garbage Collection Algorithms:
 • Serial GC: Single-threaded, suitable for small applications
@@ -126,8 +125,8 @@ Performance Profiling Tools:
 • VisualVM: Profiling and monitoring
 • JProfiler: Commercial profiler
 • YourKit: Advanced profiling`,
-              codeExamples: [
-                `// Custom ClassLoader Example
+                codeExamples: [
+                  `// Custom ClassLoader Example
 public class CustomClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
@@ -144,15 +143,16 @@ public class CustomClassLoader extends ClassLoader {
         return null;
     }
 }`
-              ]
-            },
+                ]
+              }],
           },
 
           {
             id: 'data-types',
             name: 'Data Types and Variables',
-            beginner: {
-              content: `Java has two categories of data types: Primitive and Reference types.
+            beginner: [
+              {
+                content: `Java has two categories of data types: Primitive and Reference types.
 
 Primitive Data Types (8 types):
 • byte: 8-bit integer (-128 to 127)
@@ -166,8 +166,8 @@ Primitive Data Types (8 types):
 
 Variables:
 A variable is a container that holds data. In Java, you must declare a variable before using it.`,
-              codeExamples: [
-                `// Variable Declaration and Initialization
+                codeExamples: [
+                  `// Variable Declaration and Initialization
 public class DataTypesExample {
     public static void main(String[] args) {
         // Integer types
@@ -189,10 +189,11 @@ public class DataTypesExample {
         System.out.println("Name: " + name);
     }
 }`
-              ]
-            },
-            intermediate: {
-              content: `Understanding wrapper classes, autoboxing, type casting, and variable scope.
+                ]
+              }],
+            intermediate: [
+              {
+                content: `Understanding wrapper classes, autoboxing, type casting, and variable scope.
 
 Wrapper Classes:
 Convert primitive types to objects and vice versa.
@@ -209,8 +210,8 @@ Variable Scope:
 • Class Variables (static): Belong to class
 • Local Variables: Belong to method/block
 • Parameters: Passed to methods`,
-              codeExamples: [
-                `// Autoboxing and Type Casting
+                codeExamples: [
+                  `// Autoboxing and Type Casting
 public class AdvancedDataTypes {
     public static void main(String[] args) {
         // Autoboxing
@@ -229,10 +230,11 @@ public class AdvancedDataTypes {
         System.out.println("Parsed: " + parsed);
     }
 }`
-              ]
-            },
-            expert: {
-              content: `Memory management, immutability, and performance considerations for data types.
+                ]
+              }],
+            expert: [
+              {
+                content: `Memory management, immutability, and performance considerations for data types.
 
 Memory Allocation:
 • Primitive types: Stored in stack (faster access)
@@ -250,8 +252,8 @@ Performance Considerations:
 • Avoid unnecessary boxing/unboxing
 • String concatenation: Use StringBuilder for loops
 • Consider memory footprint in large collections`,
-              codeExamples: [
-                `// Performance Comparison
+                codeExamples: [
+                  `// Performance Comparison
 public class PerformanceExample {
     public static void main(String[] args) {
         // Bad: Using Integer in performance-critical code
@@ -273,16 +275,17 @@ public class PerformanceExample {
         System.out.println("With int: " + (end - start) + " ns");
     }
 }`
-              ]
-            },
+                ]
+              }],
 
           },
           {
             id: "operators",
             name: "Operators in Java",
 
-            beginner: {
-              content: `
+            beginner: [
+              {
+                content: `
 OPERATORS IN JAVA
 
 Operators in Java are symbols used to perform operations on variables and values.
@@ -436,8 +439,8 @@ Used to access class members (variables or methods).
 Used to create an object of a class.
 `,
 
-              codeExamples: [
-                `// Java Operators - Complete Example
+                codeExamples: [
+                  `// Java Operators - Complete Example
 package com.test;
 
 public class Operator {
@@ -487,8 +490,9 @@ public class Operator {
         System.out.println("Dot operator example");
     }
 }`
-              ]
-            },
+                ]
+              }
+            ],
 
 
 
@@ -499,8 +503,9 @@ public class Operator {
 
 
 
-            intermediate: {
-              content: `2) Logical Operators:
+            intermediate: [
+              {
+                content: `2) Logical Operators:
 Used to perform logical AND and OR operations.
 
 Logical AND (&&):
@@ -519,8 +524,8 @@ Used to compare values.
 Used to assign values to variables.
 Syntax: variable = value;`,
 
-              codeExamples: [
-                `// Logical, Relational & Assignment Operators
+                codeExamples: [
+                  `// Logical, Relational & Assignment Operators
 package com.test;
 
 public class Operator {
@@ -549,11 +554,13 @@ public class Operator {
         System.out.println("value of x is>>> " + x);
     }
 }`
-              ]
-            },
+                ]
+              }
+            ],
 
-            expert: {
-              content: `5) Bitwise Operators:
+            expert: [
+              {
+                content: `5) Bitwise Operators:
 • &  Bitwise AND (checks both conditions)
 • |  Bitwise OR  (checks both conditions)
 
@@ -574,8 +581,8 @@ Used to access class variables and methods.
 10) new Operator:
 Used to create an object of a class.`,
 
-              codeExamples: [
-                `// Bitwise, Unary, Ternary & Shift Operators
+                codeExamples: [
+                  `// Bitwise, Unary, Ternary & Shift Operators
 package com.test;
 
 public class Operator {
@@ -619,14 +626,16 @@ public class Operator {
          swap(5, 10);
     }
 }`
-              ]
-            }
+                ]
+              }
+            ]
           },
           {
             id: 'jumping statement',
             name: 'Jumping statement',
-            beginner: {
-              content: `
+            beginner: [
+              {
+                content: `
                There are 3 types of jumping statements in java as- 
                1) Break 
                2) Continue 
@@ -642,31 +651,11 @@ public class Operator {
                 Syntax-<br>
                        Jump - statement; <br>
                               break; 
-                </div>        
-                <br><br>              
-                <h2>2) Continue statement</h2>  
-                To jump to the next iteration of the loop, we make use of the continue statement. This statement continues the current flow of the program and skips a part of the code at the specified condition.             
-                <br>
-                It will skip the current iteration and continue with next iteration. <br>
-                <br><br>
-                <img src="/src/assets/jcontinuestatement.jpg" alt="Online Image"class="d-block mx-auto"/> <br>
-                <div class="bg-secondary border border-primary">
-                 Syntax - <br>
-                 Jump - statement; <br>
-                 break; 
-                </div>
-                <br><br>
-                <h2>3) Return Statement </h2>
-                The return statement in Java is used to exit a method and, optionally, send a value back to the code that called it. It transfers control from the current method back to the point where the method was invoked. 
-                <br><br>
-                <img src="/src/assets/returnstatement.png" alt="Img" class="d-block mx-auto" style="height:350px;"/> <br>
-                `,
-
-              codeExamples: [
-                `1) Break Statement
-Example :- 1
-                 package com.test;  
-                   public class Code_With_Pankaj {   // Main Class: Test  
+                </div> `,
+                codeExamples: [
+                  `
+                  package com.test;  
+                    public class Code_With_Pankaj {   // Main Class: Test  
                      public static void main(String[] args) {  // Main Method   
                        for (int i = 1; i <= 5; i++) {   // i = 1,2,3,4,5    
                          if (i ==3) {    // 3==3 // True  => break       
@@ -676,59 +665,94 @@ Example :- 1
                       }   
                     System.out.println("after break....");          
                     } 
-                  }
-
-Example :- 2 
-                package com.test;  
-                 public class Code_With_Pankaj {    // Main Class  
-                  public static void main(String[] args) {   // Main Method   
-                   for (char i = 'a'; i <= 'f'; i++) {   // a b c d e f    
-                    if (i == 'c') {    // c == c   => True  => Break     
-                      break;    // a b    
-                     }    
-                    System.out.println(i);  // Output: a b   
-                   }  
-                  }
-                 } `,
-                `2) Continue Statement 
-Example :- 1
-                package com.test;  
-                 public class Test {      // Main Class  
-                   public static void main(String[] args) {  // Main Method   
-                     for (int i = 1; i <= 10; i++) {   // 1 to 10    
+                  }`,
+                  `
+                  package com.test;  
+                   public class Code_With_Pankaj {    // Main Class  
+                    public static void main(String[] args) {   // Main Method   
+                     for (char i = 'a'; i <= 'f'; i++) {   // a b c d e f    
+                     if (i == 'c') {    // c == c   => True  => Break     
+                       break;    // a b    
+                      }    
+                     System.out.println(i);  // Output: a b   
+                    }  
+                   }
+                 } `]
+              },
+              {
+                content: `<br>
+                <h2>2) Continue Statement</h2>
+                To jump to the next iteration of the loop, we make use of the continue statement. This statement continues the current flow of the program and skips a part of the code at the specified condition.  
+                <br> It will skip the current iteration and continue with next iteration. 
+                <br>
+                <img src="/src/assets/jcontinuestatement.jpg" alt="Online Image"class="d-block mx-auto"/><br>
+               <div class="bg-secondary border border-primary">
+                Syntax-<br>
+                       Jump - statement; <br>
+                              continue; 
+                </div>
+                `,
+                codeExamples: [
+                  `
+                  package com.test;  
+                   public class Test {      // Main Class  
+                    public static void main(String[] args) {  // Main Method   
+                      for (int i = 1; i <= 10; i++) {   // 1 to 10    
                        if (i == 5) {     
-                         continue;   // 1,2,3,4,6,7,8,9,10  ( Print Except 5 )    
-                        }    
-                       System.out.println(i);       
-                      } 
+                       continue;   // 1,2,3,4,6,7,8,9,10  ( Print Except 5 )    
+                       }    
+                     System.out.println(i);       
                     } 
-                  }   
-Example :- 2
+                   } 
+                  }`,
+                  `
                   package com.test;  
                     public class Code_With_Pankaj {    // Main Class  
                       public static void main(String[] args) {   // Main Method   
                          for (char i = 'a'; i <= 'f'; i++) {   // a b c d e f    
-                            if (i == 'c') {     
-                               continue;    // a,b,d,e,f ( Print Except 'c' )    
-                              }   
-                            System.out.println(i);  // Output: a b d e f   
-                          }  
-                        } 
-                      }`,
-                `3) Return Statement
-            public class Code_With_Pankaj {   // Method to calculate the sum of two integers and return the result
-                public int add(int a, int b) {
-                  int sum = a + b;
-                      return sum;               // Returns an integer value
+                          if (i == 'c') {     
+                              continue;    // a,b,d,e,f ( Print Except 'c' )    
+                            }    
+                           System.out.println(i);  // Output: a b d e f   
+                      }  
+                    } 
+                  }`
+                ]
+              },
+              {
+                content: `<br>
+                <h2>3) Return Statement</h2> <br>
+                The return statement in Java is used to exit a method and, optionally, send a value back to the caller. It transfers control back to the place where the method was invoked. 
+                <br><br>
+                <img src="/src/assets/returnstatement.png" alt="Online Image"class="d-block mx-auto" style="height: 350px;" /><br>
+                `,
+                codeExamples: [
+                  `
+                  public class Calculator {  // Method to add two integers and return the sum
+                  public int add(int a, int b) {
+                   int sum = a + b;
+                    return sum; // Returns the integer value of 'sum'
+                  }
+                      public static void main(String[] args) {
+                         Calculator calc = new Calculator();     
+                         int result = calc.add(10, 5);        // The returned value is stored in the 'result' variable
+                      System.out.println("Sum: " + result);    // Output: Sum: 15
                     }
-                public static void main(String[] args) {
-                  ReturnValueExample example = new ReturnValueExample();  // The returned value is captured in a variable
-                     int result = example.add(10, 5); 
-                     System.out.println("Sum: " + result); // Output: Sum: 15
-                   }
-                }`
-              ]
-            }
+                  }`,
+                  `
+                  public class Eligibility {   // Method to check if a person is eligible based on age
+                     boolean isEligible(int age) {
+                      return age >= 18; // Returns true if age is 18 or more, otherwise false
+                     }
+                     public static void main(String[] args) {
+                       Eligibility e = new Eligibility();
+                        System.out.println("Eligible: " + e.isEligible(20));       // Output: Eligible: true
+                         System.out.println("Eligible: " + e.isEligible(16));      // Output: Eligible: false
+                      }
+                   }`
+                ]
+              }
+            ]
           }
         ]
       },
@@ -740,8 +764,9 @@ Example :- 2
           {
             id: 'classes-objects',
             name: 'Classes and Objects',
-            beginner: {
-              content: `A class is a blueprint for creating objects. An object is an instance of a class.
+            beginner: [
+              {
+                content: `A class is a blueprint for creating objects. An object is an instance of a class.
 
 Key Concepts:
 • Class: Template that defines properties and behaviors
@@ -749,8 +774,8 @@ Key Concepts:
 • Fields: Variables that hold the state
 • Methods: Functions that define behavior
 • Constructor: Special method to initialize objects`,
-              codeExamples: [
-                `// Class and Object Example
+                codeExamples: [
+                  `// Class and Object Example
 public class Student {
     // Fields
     String name;
@@ -774,10 +799,12 @@ public class Student {
         student1.displayInfo();
     }
 }`
-              ]
-            },
-            intermediate: {
-              content: `Understanding encapsulation, access modifiers, static members, and inner classes.
+                ]
+              }
+            ],
+            intermediate: [
+              {
+                content: `Understanding encapsulation, access modifiers, static members, and inner classes.
 
 Access Modifiers:
 • private: Accessible only within the class
@@ -795,8 +822,8 @@ Types of Inner Classes:
 • Static nested class
 • Local inner class
 • Anonymous inner class`,
-              codeExamples: [
-                `// Encapsulation Example
+                codeExamples: [
+                  `// Encapsulation Example
 public class BankAccount {
     private double balance; // Private field
 
@@ -829,10 +856,12 @@ public class BankAccount {
         System.out.println("Welcome to JavaBank");
     }
 }`
-              ]
-            },
-            expert: {
-              content: `Advanced OOP concepts: Design patterns, SOLID principles, and memory management.
+                ]
+              }
+            ],
+            expert: [
+              {
+                content: `Advanced OOP concepts: Design patterns, SOLID principles, and memory management.
 
 SOLID Principles:
 • Single Responsibility: Class should have one reason to change
@@ -851,8 +880,8 @@ Memory Implications:
 • Object overhead: ~12-16 bytes per object
 • Reference size: 4 bytes (32-bit) or 8 bytes (64-bit)
 • Array overhead: ~16 bytes + element storage`,
-              codeExamples: [
-                `// Builder Pattern Example
+                codeExamples: [
+                  `// Builder Pattern Example
 public class Computer {
     // Required parameters
     private final String CPU;
@@ -905,61 +934,11 @@ public class Computer {
             .build();
     }
 }`
-              ]
-            }
+                ]
+              }
+            ]
           },
 
-          {
-            id: 'abstraction',
-            name: 'Abstraction',
-            beginner: {
-              content: `Abstraction in Java is a fundamental Object-Oriented Programming (OOP) concept that focuses on hiding the complex implementation details and showing only the essential features of an object.         
-
-Java abstract classes may or may not contain abstract methods, i.e., methods without body ( public void get(); )
-
-But, if a class has at least one abstract method, then the class must be declared abstract.
-
-If a class is declared abstract, it cannot be instantiated.
-
-To use an abstract class, you have to inherit it from another class, provide implementations to the abstract methods in it.
-
-If you inherit an abstract class, you have to provide implementations to all the abstract methods in it.`,
-              codeExamples: [
-                `// Abstract parent class
-abstract class Animal {
-    // Abstract method (no implementation in the parent)
-    public abstract void makeSound();
-
-    // Concrete method (shared implementation)
-    public void sleep() {
-        System.out.println("The animal is sleeping.");
-    }
-}
-
-// Subclass (concrete class)
-class Dog extends Animal {
-    // Must provide implementation for the abstract method
-    @Override
-    public void makeSound() {
-        System.out.println("Bark");
-    }
-}
-
-// Main class to run the code
-public class Main {
-    public static void main(String[] args) {
-        // Cannot create an object of the abstract class (e.g., new Animal() is invalid)
-        // Use an object of the concrete subclass instead
-        Animal myDog = new Dog();
-
-        myDog.makeSound(); // Output: Bark
-        myDog.sleep();     // Output: The animal is sleeping.
-    }
-}
-`
-              ]
-            }
-          }
         ]
       }
     ],
@@ -1032,8 +1011,9 @@ public class Main {
           {
             id: 'arraylist',
             name: 'ArrayList',
-            beginner: {
-              content: `ArrayList is a resizable array implementation of the List interface. It provides dynamic arrays that can grow as needed.
+            beginner: [
+              {
+                content: `ArrayList is a resizable array implementation of the List interface. It provides dynamic arrays that can grow as needed.
 
 Key Features:
 • Dynamic size
@@ -1041,8 +1021,8 @@ Key Features:
 • Maintains insertion order
 • Allows null values
 • Not synchronized (not thread-safe)`,
-              codeExamples: [
-                `import java.util.ArrayList;
+                codeExamples: [
+                  `import java.util.ArrayList;
 
 public class ArrayListExample {
     public static void main(String[] args) {
@@ -1065,10 +1045,13 @@ public class ArrayListExample {
         System.out.println("Size: " + fruits.size());
     }
 }`
-              ]
-            },
-            intermediate: {
-              content: `Understanding ArrayList internals, performance characteristics, and best practices.
+                ]
+              }
+            ],
+            intermediate: [
+              {
+
+                content: `Understanding ArrayList internals, performance characteristics, and best practices.
 
 Internal Working:
 • Uses Object[] array internally
@@ -1087,8 +1070,8 @@ Best Practices:
 • Specify initial capacity if size is known
 • Use ensureCapacity() to avoid multiple resizing
 • Use trimToSize() to reduce memory footprint`,
-              codeExamples: [
-                `import java.util.ArrayList;
+                codeExamples: [
+                  `import java.util.ArrayList;
 
 public class ArrayListAdvanced {
     public static void main(String[] args) {
@@ -1114,8 +1097,9 @@ public class ArrayListAdvanced {
         System.out.println("Is empty: " + numbers.isEmpty());
     }
 }`
-              ]
-            }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1157,16 +1141,17 @@ public class ArrayListAdvanced {
           {
             id: 'singleton',
             name: 'Singleton Pattern',
-            beginner: {
-              content: `Singleton pattern ensures that a class has only one instance and provides a global point of access to it.
+            beginner: [
+              {
+                content: `Singleton pattern ensures that a class has only one instance and provides a global point of access to it.
 
 When to use:
 • Logger classes
 • Configuration classes
 • Database connections
 • Thread pools`,
-              codeExamples: [
-                `public class Singleton {
+                codeExamples: [
+                  `public class Singleton {
     private static Singleton instance;
 
     // Private constructor
@@ -1184,8 +1169,9 @@ When to use:
         System.out.println("Hello from Singleton!");
     }
 }`
-              ]
-            }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1222,8 +1208,9 @@ When to use:
           {
             id: 'introduction',
             name: 'Introduction to MySQL',
-            beginner: {
-              content: `MySQL is an open-source relational database management system (RDBMS).
+            beginner: [
+              {
+                content: `MySQL is an open-source relational database management system (RDBMS).
 
 Key Concepts:
 • Database: Collection of tables
@@ -1232,8 +1219,8 @@ Key Concepts:
 • Column: Field in a record
 • Primary Key: Unique identifier
 • Foreign Key: Reference to another table`,
-              codeExamples: [
-                `-- Create Database
+                codeExamples: [
+                  `-- Create Database
 CREATE DATABASE school;
 
 -- Use Database
@@ -1253,8 +1240,9 @@ VALUES ('John', 20, 'A');
 
 -- Select Data
 SELECT * FROM students;`
-              ]
-            }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1296,8 +1284,9 @@ SELECT * FROM students;`
           {
             id: 'introduction',
             name: 'Introduction to JDBC',
-            beginner: {
-              content: `JDBC (Java Database Connectivity) is an API for connecting and executing queries with databases.
+            beginner: [
+              {
+                content: `JDBC (Java Database Connectivity) is an API for connecting and executing queries with databases.
 
 JDBC Components:
 • DriverManager: Manages database drivers
@@ -1305,8 +1294,8 @@ JDBC Components:
 • Statement: Executes SQL queries
 • ResultSet: Holds query results
 • SQLException: Handles database errors`,
-              codeExamples: [
-                `import java.sql.*;
+                codeExamples: [
+                  `import java.sql.*;
 
 public class JDBCExample {
     public static void main(String[] args) {
@@ -1341,8 +1330,9 @@ public class JDBCExample {
         }
     }
 }`
-              ]
-            }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1384,8 +1374,9 @@ public class JDBCExample {
           {
             id: 'introduction',
             name: 'Introduction to Servlets',
-            beginner: {
-              content: `A Servlet is a Java class that extends the capabilities of servers to host applications accessed via request-response model.
+            beginner: [
+              {
+                content: `A Servlet is a Java class that extends the capabilities of servers to host applications accessed via request-response model.
 
 Servlet Lifecycle:
 1. init() - Initialization
@@ -1398,8 +1389,8 @@ Key Concepts:
 • doPost(): Handle POST requests
 • HttpServletRequest: Request object
 • HttpServletResponse: Response object`,
-              codeExamples: [
-                `import javax.servlet.*;
+                codeExamples: [
+                  `import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 
@@ -1414,8 +1405,9 @@ public class HelloServlet extends HttpServlet {
         out.println("</body></html>");
     }
 }`
-              ]
-            }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1457,8 +1449,9 @@ public class HelloServlet extends HttpServlet {
           {
             id: 'introduction',
             name: 'Introduction to Hibernate',
-            beginner: {
-              content: `Hibernate is an Object-Relational Mapping (ORM) framework for Java. It simplifies database operations by mapping Java objects to database tables.
+            beginner: [
+              {
+                content: `Hibernate is an Object-Relational Mapping (ORM) framework for Java. It simplifies database operations by mapping Java objects to database tables.
 
 Key Concepts:
 • ORM: Object-Relational Mapping
@@ -1473,8 +1466,8 @@ Advantages:
 • Automatic table creation
 • Caching support
 • Lazy loading`,
-              codeExamples: [
-                `// Entity Class
+                codeExamples: [
+                  `// Entity Class
 @Entity
 @Table(name = "students")
 public class Student {
@@ -1509,8 +1502,9 @@ public class HibernateUtil {
         return sessionFactory;
     }
 }`
-              ]
-            }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1552,8 +1546,9 @@ public class HibernateUtil {
           {
             id: 'introduction',
             name: 'Introduction to Spring MVC',
-            beginner: {
-              content: `Spring MVC is a web framework built on the Model-View-Controller pattern.
+            beginner: [
+              {
+                content: `Spring MVC is a web framework built on the Model-View-Controller pattern.
 
 Components:
 • DispatcherServlet: Front controller
@@ -1570,8 +1565,8 @@ Request Flow:
 5. Returns ModelAndView
 6. ViewResolver resolves view
 7. View renders response`,
-              codeExamples: [
-                `@Controller
+                codeExamples: [
+                  `@Controller
 public class HomeController {
 
     @GetMapping("/")
@@ -1586,8 +1581,9 @@ public class HomeController {
         return "result";
     }
 }`
-              ]
-            }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1629,8 +1625,9 @@ public class HomeController {
           {
             id: 'introduction',
             name: 'Introduction to Spring Boot',
-            beginner: {
-              content: `Spring Boot is a framework that simplifies Spring application development with auto-configuration and embedded servers.
+            beginner: [
+              {
+                content: `Spring Boot is a framework that simplifies Spring application development with auto-configuration and embedded servers.
 
 Key Features:
 • Auto-configuration: Automatically configures beans
@@ -1644,8 +1641,8 @@ Advantages:
 • Microservices support
 • Easy testing
 • Reduced boilerplate code`,
-              codeExamples: [
-                `@SpringBootApplication
+                codeExamples: [
+                  `@SpringBootApplication
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -1667,8 +1664,9 @@ public class ApiController {
         return user;
     }
 }`
-              ]
-            }
+                ]
+              }
+            ]
           }
         ]
       }

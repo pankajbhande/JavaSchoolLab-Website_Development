@@ -4,8 +4,7 @@ import { Course } from '../data/coursesData';
 import { motion, AnimatePresence } from 'motion/react';
 // import { Timer } from './Timer';
 // import { Alarm } from './Alarm';
-import { JavaCompiler } from './JavaCompiler';
-
+// import { JavaCompiler } from './JavaCompiler';
 
 interface RightSidebarProps {
   course: Course | null;
@@ -84,7 +83,7 @@ export function RightSidebar({ course, isMinimized, onToggleMinimize }: RightSid
                   <Building className="w-4 h-4" />
                   <span className="font-medium">Interview</span>
                 </button>
-                <button
+                {/* <button
                   onClick={() => setActiveTab('tools')}
                   className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg transition-all text-sm ${
                     activeTab === 'tools'
@@ -93,7 +92,7 @@ export function RightSidebar({ course, isMinimized, onToggleMinimize }: RightSid
                   }`}
                 >
                   <span className="font-medium">Tools</span>
-                </button>
+                </button> */}
               </div>
 
               {/* Tools Tab */}
@@ -105,7 +104,7 @@ export function RightSidebar({ course, isMinimized, onToggleMinimize }: RightSid
                 >
                   {/* <Timer /> */}
                   {/* <Alarm /> */}
-                  <JavaCompiler />
+                  {/* <JavaCompiler /> */}
                  
                 </motion.div>
               )}
