@@ -3,6 +3,7 @@
 export interface ContentBlock {
   content: string;          // HTML content
   codeExamples?: string[];  // optional code examples
+  
 }
 
 export interface Topic {
@@ -631,100 +632,125 @@ public class Operator {
             ]
           },
           {
-            
-          id: "control-statements",
+            id: "control-statements",
             name: "Control Statements in Java",
             beginner: [
               {
-                content: ` This is the most fundamental concepts required for java programmer. 
+                content: `-This is the most fundamental concepts required for java programmer. <br>
 
- It allows smooth flow of execution of program.
+ -It allows smooth flow of execution of program. <br>
 
- It controls the flow of program.
+ -It controls the flow of program.<br>
+<br>
+There are 5 types of control statements in java:<br>
 
-There are 5 types of control statements in java:
-
-1. If statements
-
-2. If else statements
-3. if-else-if ladder statement
-4. Nested if statements
-5. Switch statements 
-
-
-
-
-
-1. IF STATEMENTS :
-
+1. If statements<br>
+2. If else statements<br>
+3. if-else-if ladder statement<br>
+4. Nested if statements<br>
+5. Switch statements <br>
+<br>
+<h2>1. IF STATEMENTS </h2>
 If statement is true then if block is executed. 
+<br>
+            <div class="bg-secondary border border-primary p-3">
+                Syntax-<br>
+                       if (condition)  <br>
+                       { <br>
+                           statement 1;
+                        <br>
+                       }; 
+            </div>
 
-Syntax 
+<h2>Flowchart of IF:</h2><br>
+<img src="/src/assets/ifif.jpeg" alt="Online Image"class="d-block mx-auto h-80"/>
+<br><br>`,
 
-if (condition) { 
+codeExamples:[
+           `public class Code_With_Pankaj {    // Main Class: Arithmatic  
+              public static void main(String[] args) {   // Main Method   
+               int a = 10;      // Initialize Value   
+                if (a < 50) {  // 10<50 => True  // Condition    
+                   System.out.println("a is Smaller."); // OUTPUT: a is Greater   
+                  }            
+                } 
+              }`
+],
+},
+{
+  content : `<h2>2. IF ELSE STATEMENTS </h2>
+            If statement is true then if block is executed, if statement is false then else block is executed. <br>
+               <div class="bg-secondary border border-primary p-3">
+                 Syntax-<br>
+                       if (condition)  <br>
+                       { <br>
+                           statement 1; //executes when condition is true <br>
+                       } <br>
+                           else {  <br>
+                            statement 2;  // executes when condition is false   <br> 
+                          }  <br>
+                       }; 
+                </div>
+               <h2>Flowchart of IF:</h2><br>
+               <img src="/src/assets/ifstatement.png" alt="Online Image"class="d-block mx-auto h-80"/>
+               <br><br>`,
 
-Statement 1;
-
-
-} 
-
-Flowchart of IF:
-
-
-
-
-2. IF ELSE STATEMENTS :
-
- 
-If statement is true then if block is executed, if statement is false then else block is executed. 
- 
-Syntax 
-
-if (condition) { 
-
-Statement 1;  // executes when condition is true  
-
-} else { 
-
-Statement 2;  // executes when condition is false    
-
-}  
-
-3. IF-ELSE-IF LADDER STATEMENT :
-  
-
-The if-else-if ladder statement executes one condition from multiple statements.  
-
-Syntax- 
-
-if (Condition 1) { 
-
-  Statement 1;  //executed if condition 1 is true  
-
-} 
-
-else if (Condition 2) { 
-
-Statement 1;  // executed if condition 2 is true 
-
-} 
-
-else if (Condition 3) { 
-
-Statement 1;  // executed if condition 3 is true 
- 
-
-} 
-
-else { 
-
-Statement 1;  // executed if all condition false 
-
-} 
-
-`
-            }
+               codeExamples:[
+                ` public class Code_With_Pankaj {    // Main Class: Arithmatic  
+                   public static void main(String[] args) {   // Main Method   
+                     int a = 10;      // Initialize Value   
+                      if (a > 50) {      // Condition    
+                         System.out.println("a is greater.");  // Statement 1   
+                        }   else {    
+                             System.out.println("a is smaller."); // Statement 2   
+                            }      
+                          } 
+                        }  
+                `
+               ]
+              },
+              {
+                content:
+                `<h2>3. IF-ELSE-IF LADDER STATEMENT </h2>
+The if-else-if ladder statement executes one condition from multiple statements.  <br>
+ <div class="bg-secondary border border-primary p-3">
+                 Syntax-<br>
+                       if (condition 1)  <br>
+                       { <br>
+                           statement 1; //executes when condition is true <br>
+                       } <br>
+                           else if(condition 2) {  <br>
+                            statement 1;  // executes when condition is true   <br> 
+                          }  <br>
+                            else if(condition 3) { <br>
+                             statement 1 ;  executes when condition is true <br>
+                          } <br>
+                           else { <br>
+                              statement 1 ;  // executed if all condition false <br>
+                            }  <br>
+                       }; 
+                </div><br><br>`,
+                codeExamples:[
+                  `
+                  public class Code_With_Pankaj {      // Main Class  
+                   public static void main(String[] args) {     // Main Method   
+                    int marks = 70;       // Initialize Value //  
+                     if (marks >= 50 && marks < 60) {   // 50--59 // Condition    
+                        System.out.println("D grade");   
+                       } else if (marks >= 60 && marks < 70) {   // 60---69 // Condition    
+                           System.out.println("C grade");    
+                          } else if (marks >= 70 && marks < 80) {   // 70-79        // Condition    
+                             System.out.println("B grade");    
+                             } else if (marks >= 80 && marks <=100) {   // 80-100 // Condition    
+                           System.out.println("A grade");  
+                           }else {      
+                              System.out.println("incorrect input");   
+                           }  
+                        }`
+                ]
+              }
             ],
+
             intermediate: [
               {
                 content: `
@@ -737,7 +763,7 @@ Statement 1;  // executed if all condition false
             expert: [
               {
                 content: `
-Best Practices:
+Best Practices 
 • Avoid deep nesting
 • Prefer switch for fixed values
 • Use early returns
@@ -762,7 +788,7 @@ Best Practices:
                The break statement in java is used to terminate a loop and break the current flow of the program or to jump out of loop. 
               <br><br>
                <img src="/src/assets/breakstatement.png" alt="Online Image"class="d-block mx-auto"/><br>
-               <div class="bg-secondary border border-primary">
+               <div class="bg-secondary border border-primary p-3">
                 Syntax-<br>
                        Jump - statement; <br>
                               break; 
@@ -801,7 +827,7 @@ Best Practices:
                 <br> It will skip the current iteration and continue with next iteration. 
                 <br>
                 <img src="/src/assets/jcontinuestatement.jpg" alt="Online Image"class="d-block mx-auto"/><br>
-               <div class="bg-secondary border border-primary">
+               <div class="bg-secondary border border-primary p-3">
                 Syntax-<br>
                        Jump - statement; <br>
                               continue; 
@@ -868,7 +894,55 @@ Best Practices:
                 ]
               }
             ]
+          },
+          {
+            id:`Contructor`,
+            name:`Constructor`,
+            beginner:[
+              {
+                content:`
+                 - Constructor name it is same like as class name. <br>
+                 - It is invoked by JVM automatically when you create the object of class.<br>
+                 - It does not return anything even void also.<br>
+
+                 There are 2 types of constructor are as <br>
+                1. Default constructor (No- argument constructor)<br>
+                2. Parameterized constructor ( Argument constructor)<br><br>
+
+               <h2> 1. Default Constructor (No-Argument constructor)</h2><br>
+                - A constructor that does not accept any arguments called as default constructor.<br>
+                - If we do not create any constructor, the Java compiler automatically create a Default.<br>
+                - Constructor (no-argument constructor) during the execution of the program. This constructor is called Default Constructor.<br>
+
+                `,
+                codeExamples:[
+                  `package com.test;
+                     public class Test {
+                       String name; // Global
+                         public Test() { // Default Constructor
+                         name = "Default_Constructor";
+                         }
+                         public static void main(String[] args) {
+                         Test test = new Test(); // Calling Constructor (Test)
+                         // System.out.println ("Name is>>" + test.name);
+                         }
+                        }`
+                ]
+              }
+            ],
+            intermediate:[
+              {
+                content:`<h2> 1. Default Constructor (No-Argument constructor)</h2><br>
+                - Here, we haven't created any constructors. Hence, the Java compiler automatically creates the default constructor.<br>
+                - The default constructor initializes any uninitialized instance variables with default values.<br>
+                
+
+                `
+
+              }
+            ]
           }
+
         ]
       },
 
