@@ -3,7 +3,7 @@
 export interface ContentBlock {
   content: string;          // HTML content
   codeExamples?: string[];  // optional code examples
-  
+
 }
 
 export interface Topic {
@@ -497,13 +497,6 @@ public class Operator {
 
 
 
-
-
-
-
-
-
-
             intermediate: [
               {
                 content: `2) Logical Operators:
@@ -636,7 +629,15 @@ public class Operator {
             name: "Control Statements in Java",
             beginner: [
               {
-                content: `-This is the most fundamental concepts required for java programmer. <br>
+                content:``,
+                codeExamples:[`
+                  
+                  `]
+              }
+            ],
+
+            intermediate: [{
+content: `-This is the most fundamental concepts required for java programmer. <br>
 
  -It allows smooth flow of execution of program. <br>
 
@@ -666,8 +667,8 @@ If statement is true then if block is executed.
 <img src="/src/assets/ifif.jpeg" alt="Online Image"class="d-block mx-auto h-80"/>
 <br><br>`,
 
-codeExamples:[
-           `public class Code_With_Pankaj {    // Main Class: Arithmatic  
+                codeExamples: [
+                  `public class Code_With_Pankaj {    // Main Class: Arithmatic  
               public static void main(String[] args) {   // Main Method   
                int a = 10;      // Initialize Value   
                 if (a < 50) {  // 10<50 => True  // Condition    
@@ -675,10 +676,10 @@ codeExamples:[
                   }            
                 } 
               }`
-],
-},
-{
-  content : `<h2>2. IF ELSE STATEMENTS </h2>
+                ],
+              },
+              {
+                content: `<h2>2. IF ELSE STATEMENTS </h2>
             If statement is true then if block is executed, if statement is false then else block is executed. <br>
                <div class="bg-secondary border border-primary p-3">
                  Syntax-<br>
@@ -691,12 +692,12 @@ codeExamples:[
                           }  <br>
                        }; 
                 </div>
-               <h2>Flowchart of IF:</h2><br>
-               <img src="/src/assets/ifstatement.png" alt="Online Image"class="d-block mx-auto h-80"/>
+               <h2>Flowchart of IF-ELSE:</h2><br>
+               <img src="/src/assets/ifelse.png" alt="Online Image"class="d-block mx-auto h-80"/>
                <br><br>`,
 
-               codeExamples:[
-                ` public class Code_With_Pankaj {    // Main Class: Arithmatic  
+                codeExamples: [
+                  ` public class Code_With_Pankaj {    // Main Class: Arithmatic  
                    public static void main(String[] args) {   // Main Method   
                      int a = 10;      // Initialize Value   
                       if (a > 50) {      // Condition    
@@ -707,11 +708,11 @@ codeExamples:[
                           } 
                         }  
                 `
-               ]
+                ]
               },
               {
                 content:
-                `<h2>3. IF-ELSE-IF LADDER STATEMENT </h2>
+                  `<h2>3. IF-ELSE-IF LADDER STATEMENT </h2>
 The if-else-if ladder statement executes one condition from multiple statements.  <br>
  <div class="bg-secondary border border-primary p-3">
                  Syntax-<br>
@@ -729,8 +730,11 @@ The if-else-if ladder statement executes one condition from multiple statements.
                               statement 1 ;  // executed if all condition false <br>
                             }  <br>
                        }; 
-                </div><br><br>`,
-                codeExamples:[
+                </div>
+                <h2>Flowchart of IF-ELSE-IF LADDER</h2><br>
+                 <img src="/src/assets/ifelseladder.png" alt="Online Image"class="d-block mx-auto h-90"/>
+                `,
+                codeExamples: [
                   `
                   public class Code_With_Pankaj {      // Main Class  
                    public static void main(String[] args) {     // Main Method   
@@ -748,17 +752,102 @@ The if-else-if ladder statement executes one condition from multiple statements.
                            }  
                         }`
                 ]
-              }
-            ],
+              },
 
-            intermediate: [
-              {
-                content: `
-• Nested if conditions
-• Multiple switch cases
-• Logical operators in conditions
-`
-              }
+               {
+                content: `<h2>4. Nested if statements  </h2>
+           The nested if statement represents the if block within another if block. <br>
+           Here, the inner if block condition executes only when outer if block condition is true.    <br>
+               <div class="bg-secondary border border-primary p-3">
+                Syntax <br>
+                if (Condition 1) {   <br>  
+                if (Condition 2) {      <br>
+                     Statement 1; // Execute when condition 1 is True  <br>  
+                   } else {       <br>
+                     Statement 2; // Execute when condition 2 is False   <br>  
+                }<br>
+                </div>
+               <h2>Flowchart of Nested IF-ELSE:</h2><br>
+               <img src="/src/assets/ifnested.png" alt="Online Image"class="d-block mx-auto h-100"/>
+               <br><br>`,
+
+                codeExamples: [
+                  `public class Code_With_Pankaj {     // Main Class  
+        public static void main(String[] args) {    // Main Method   
+        int no = 75;       // Initialize Value   
+         if (no >= 18) {   // True   // Outer Condition    
+           if (no > 50) {      // Inner Condition    
+           System.out.println("No is greater than 50"); // Print Statement     
+         }               
+       }  
+      }  
+    }`,
+    
+    `package com.test;  
+public class Code_With_Pankaj {  
+public static void main(String[] args) {   // Main Method   
+int age = 18;      // Initialize   
+if (age >= 18) {     // Outer Condition     
+ if (age <= 32) {    // Inner Condition     
+   System.out.println(" Candidate is Applicable for UPSC Exam");    
+  } else {     // It Print When Outer Condition is False     
+   System.out.println("Candidate is Not Applicable for UPSC Exam");    
+   }   
+  }  
+} 
+}`
+                ]
+              },
+
+               {
+                content: `<h2>5. Switch statement</h2>
+          - A switch statement in java is used to execute a single statement from multiple conditions. <br>
+          - The switch statement can be used with short, byte, int, long, enum types, etc. Usage of break statement is made to terminate the statement sequence.<br>
+          - Cases cannot be duplicate.   Default statement is executed when any of the case doesn't match the value of expression. <br>
+          - It is optional to use this statement. We can use string and int in switch statements.   <br>
+               <div class="bg-secondary border border-primary p-3">
+                Syntax <br>
+                switch (expression) <br>
+                { <br>
+                 case 1:  Statement 1 break; <br>
+                 //--------------------------------------------------------<br>
+                 case 2:  Statement 2 break; <br>
+                 //--------------------------------------------------------<br>
+                 case 3:  Statement 3 break; <br>
+                 //--------------------------------------------------------<br>
+                 default: default statement <br>
+               }
+                </div>
+               <h2>Flowchart of Switch:</h2><br>
+               <img src="/src/assets/switchcase.png" alt="Online Image"class="d-block mx-auto h-100"/>
+               <br><br>`,
+
+                codeExamples: [
+                  `public class Code_With_Pankaj {    // Main Class: Code_With_Pankaj  
+public static void main(String[] args) {   // Main Method   
+int number = 2;     // Initialize Value   switch (number)
+{     // switch(expression) 
+//----------------------------------------------------------------------------------------------------   
+case 1:     System.out.println("this is 1 number"); // Statement   
+            break;      // break 
+//----------------------------------------------------------------------------------------------------   
+case 2:    System.out.println("this is 2 number"); // Statement    
+           break;      // break 
+//----------------------------------------------------------------------------------------------------   
+case 3:    System.out.println("this is 3 number"); // Statement    
+           break;      // break 
+//----------------------------------------------------------------------------------------------------   
+default:    System.out.println("Invalid input"); // Statement 
+//----------------------------------------------------------------------------------------------------   
+      } 
+    } 
+  } `,
+    
+    `
+    
+    `
+                ]
+              },
             ],
             expert: [
               {
@@ -775,7 +864,13 @@ Best Practices
             id: 'jumping statement',
             name: 'Jumping statement',
             beginner: [
-              {
+             {
+              content:``,
+              codeExamples:[]
+             }
+            ],
+            intermediate:[
+               {
                 content: `
                There are 3 types of jumping statements in java as- 
                1) Break 
@@ -896,16 +991,22 @@ Best Practices
             ]
           },
           {
-            id:`Contructor`,
-            name:`Constructor`,
-            beginner:[
+            id: `Contructor in java`,
+            name: `Constructor in Java`,
+            beginner: [
               {
-                content:`
-                 - Constructor name it is same like as class name. <br>
-                 - It is invoked by JVM automatically when you create the object of class.<br>
-                 - It does not return anything even void also.<br>
-
-                 There are 2 types of constructor are as <br>
+                content: ``,
+                codeExamples: []
+              }
+            ],
+            intermediate: [
+              {
+                content: `- Constructor name it is same like as class name. <br>
+                - It is invoked by JVM automatically when you create the object of class.<br>
+                - It does not return anything even void also.<br>
+                
+                
+                There are 2 types of constructor are as <br>
                 1. Default constructor (No- argument constructor)<br>
                 2. Parameterized constructor ( Argument constructor)<br><br>
 
@@ -915,31 +1016,286 @@ Best Practices
                 - Constructor (no-argument constructor) during the execution of the program. This constructor is called Default Constructor.<br>
 
                 `,
-                codeExamples:[
+                codeExamples: [
                   `package com.test;
-                     public class Test {
-                       String name; // Global
-                         public Test() { // Default Constructor
-                         name = "Default_Constructor";
-                         }
-                         public static void main(String[] args) {
-                         Test test = new Test(); // Calling Constructor (Test)
-                         // System.out.println ("Name is>>" + test.name);
-                         }
-                        }`
+public class Test {
+String name; // Global
+public Test() { // Default Constructor
+name = "Default_Constructor";
+}
+public static void main(String[] args) {
+Test test = new Test(); // Calling Constructor (Test)
+System.out.println ("Name is>>" + test.name);
+}
+}
+                  `,
+
+                  `package com.test;
+class Main {
+int a;
+boolean b;
+public static void main(String[] args) {
+Main obj = new Main();
+System.out.println("a" + obj.a);
+System.out.println("b" + obj.b);
+}
+}
+                        `
+
                 ]
-              }
-            ],
-            intermediate:[
+
+              },
               {
-                content:`<h2> 1. Default Constructor (No-Argument constructor)</h2><br>
-                - Here, we haven't created any constructors. Hence, the Java compiler automatically creates the default constructor.<br>
-                - The default constructor initializes any uninitialized instance variables with default values.<br>
-                
 
-                `
+                content: `
+                <h4>- Here, we haven't created any constructors. Hence, the Java compiler automatically creates the
+default constructor.</h4>
+The default constructor initializes any uninitialized instance variables with default values.
+<img src="/src/assets/defaulttable.png" alt="Online Image"class="d-block mx-auto" style="height: 350px;" /><br>
+<p class="text-center"> In the above program, the variables a and b are initialized with default value 0 and false respectively.</p>
+   
 
-              }
+`
+              },
+
+              {
+                content: `
+                <h2> 2. Parameterized Constructor </h2><br>
+                A constructor with arguments called as parameterized constructor.<br>
+
+                `,
+                codeExamples: [
+                  `package com.test;
+public class Example {
+int id;
+String name;
+String city;
+public Example (int userId, String userName, String userCity) {
+id = userId;
+name = userName;
+city = userCity;
+System.out.println("id>>" + id);
+System.out.println("name>>" + name);
+System.out.println("city>>" + city);
+}
+public static void main(String[] args) {
+Example example = new Example(10, "Pankaj", "Udgir");
+}
+}`
+                ]
+              },
+              {
+                content: `
+                <h3>Note -</h3>
+1. When you do not write any constructor in the class then default constructor will be added by JVM automatically at the compile time. <br>
+2. When you write any constructor in the class then default constructor will not added by JVM.<br>
+3. Constructor does not have any return type. If you write any return type, then it will be called as method. <br>
+4. Java constructor cannot be abstract, static, final, and synchronized.<br><br>
+
+<h3>What is the Use of Constructor-? </h3>
+If you want to execute some code at object creation. In other words, it is used for generally initialization
+of global variables.
+There are 5 ways to calling the constructor as <br>
+- Employee e= new Employee(); <br>
+- super(); <br>
+- this(); <br>
+- new Employee(); <br>
+- class.forName(“com.test”).newInstance(); <br>
+<h4>Constructor can be overloaded because we can write same name with different arguments.</h4>`,
+                codeExamples: [
+                  `package com.test;
+public class Example {
+// id,name,city
+int id;
+String name;
+String city;
+// Parameterized Constructor: 01
+public Example(int id, String name, String city) {
+System.out.println(id);
+System.out.println(name);
+System.out.println(city);
+// OR
+// System.out.println("ID>>"+ id +"Name>>"+ name + "City>>"+ city);
+id = id; //10
+name = name; // Pankaj // Dheeraj
+city = city; // Udgir // Latur
+}
+public Example(String name,String city) {
+System.out.println(name);
+System.out.println(city);
+name=name;
+city=city;
+}
+public static void main(String[] args) {
+Example example=new Example(10,"Pankaj","Udgir"); // calling the constructor
+Example example1=new Example("Dheeraj", "Latur");
+}
+}`
+                ]
+              },
+              {
+                content:`
+                <h4>Note:</h4>
+1. Constructor cannot be overridden because we can’t write multiple constructors with same
+arguments.If you are tried to write it then you will get compiler time error “Duplicate method
+Employee”.<br>
+
+2. Private Constructor is mostly used in singleton design pattern in java.`
+              },
+
+              {
+                content : `<h4>1. What is a Constructor ?</h4>
+  - Constructors are used to initialize the object’s state. <br>
+  - Like methods, a constructor also contains collection of statements(i.e. instructions) that are executed at time of Object creation.
+  <br><br>
+
+  <h4>2. Do we have Copy Constructor in Java?</h4>
+- Like C++, Java also supports copy constructor. But, unlike C++, Java doesn’t create a default copy constructor if you don’t write your own. <br>
+- To copy the values of one object into another in java, you can use: <br>
+- Constructor
+- Assigning the values of one object into another. <br>
+- Clone() method of object class.<br> <br>
+
+
+<h4>3. What is Constructor Chaining ?</h4>
+Constructor Chaining: <br>
+A constructor is called from another constructor in the same class this process is known as constructor
+chaining. <br>
+When we create an instance of a derived class, all the constructors of base class are first invoked, after
+that the constructor of derived class is invoked.<br>
+
+Rules for constructor chaining<br>
+1. must be use this keyword in first line of the constructor.<br>
+2. Order does not matter in constructor chaining.<br>
+3. There must exist at least one constructor that does not use this keyword.<br>
+  `,
+  codeExamples:[
+      `//Java program to illustrate Constructor Chaining
+// within same class Using this() keyword
+class Temp {
+// default constructor 1
+// default constructor will call another constructor
+// using this keyword from same class
+
+Temp() { // calls constructor 2
+this(5);
+System.out.println("The Default constructor");
+}
+
+Temp(int x) { // parameterized constructor 2
+// calls constructor 3
+this(5, 15);
+System.out.println(x);
+}
+// parameterized constructor 3
+Temp(int x, int y) {
+System.out.println(x * y);
+}
+public static void main(String args[]) {
+// invokes default constructor first
+new Temp();
+}
+}`
+  ]
+          },
+          {
+            content:`<h4>4. Can we call sub class constructor from super class constructor?</h4>
+No. There is no way in java to call sub class constructor from a super class constructor. <br><br>
+
+<h4>5. What happens if you keep a return type for a constructor?</h4>
+Ideally, Constructor must not have a return type. By definition, if a method has a return type, it’s not a
+constructor. (JLS8.8 Declaration). It will be treated as a normal method. But compiler gives a warning
+saying that method has a constructor name.<br>`,
+codeExamples:[
+  `Example:
+package com.test;
+public class Test {
+int Test() {
+return 0; // Warning for the return type
+}
+}
+  `
+]
+          },
+          {
+            content:`<h4>6. What is No-arg constructor?</h4>
+Constructor without arguments is called no-arg constructor. <br>
+Default constructor in java is always a no-arg constructor.`,
+codeExamples:[
+  `Example:
+public class ABC {
+public ABC(){ // No-arg constructor
+}
+}`
+]
+          },
+          {
+            content:`<h4>7. How a no – argument constructor is different from default Constructor?</h4>
+- If a class contains no constructor declarations, then a default constructor with no formal parameters
+and no throws clause is implicitly declared.<br>
+- If the class being declared is the primordial class Object, then the default constructor has an empty
+body. <br>
+- Otherwise, the default constructor simply invokes the superclass constructor with no arguments.<br><br>
+
+<h4>8. What are private constructors and where are they used?</h4>
+- Like any method we can provide access specifier to the constructor. <br>
+- If it’s made private, then it can only be accessed inside the class. <br>
+- The major scenarios where we use private constructor:<br>
+a. Internal Constructor chaining. <br>
+b. Singleton class design pattern.<br><br>
+
+<h4>9. When do we need Constructor Overloading?</h4>
+- Sometimes there is a need of initializing an object in different ways. <br>
+- This can be done using constructor overloading. <br>
+- Different constructors can do different work by implementing different line of codes and are called
+based on the type and no of parameters passed. <br>
+According to the situation , a constructor is called with specific number of parameters among
+overloaded constructors. <br><br>
+
+<h4>10. Do we have destructors in Java?</h4>
+- No, Because Java is a garbage collected language you cannot predict when (or even if) an object will
+be destroyed. Hence there is no direct equivalent of a destructor.<br><br>
+
+<h4>11. Can we override constructor?</h4>
+-NO, Constructor cannot be overridden because we can’t write multiple constructors with same arguments.<br>
+If we tried to write it then we will get compiler time error “Duplicate method Employee”.<br><br><br>
+
+<div class="bg-secondary p-2 rounded-md border-radius: var(--radius-md);">
+<h4>1. What is a constructor in Java?</h4>
+o A constructor is a special method used to initialize objects. It is called when an instance of a class is
+created and has the same name as the class. Constructors do not have a return type.<br>
+<h4>2. What is the difference between a default constructor and a parameterized constructor?</h4>
+o A default constructor has no parameters and initializes objects with default values. A parameterized
+constructor takes arguments, allowing you to initialize objects with specific values.<br>
+<h4>3. Can a constructor be private or final?</h4>
+o Yes, a constructor can be private, which is often used in Singleton design patterns to prevent the
+creation of more than one instance. Constructors cannot be final because they are not inherited.<br>
+<h4>4. What is constructor overloading?</h4>
+o Constructor overloading is the process of having more than one constructor in a class, each with
+different parameters. This allows the creation of objects in different ways.<br>
+<h4>5. What is constructor chaining?</h4>
+o Constructor chaining is the process of calling one constructor from another within the same class or
+from a superclass. This is done using this() for the same class and super() for the superclass.<br>
+<h4>6. How do you handle exceptions in constructors?</h4>
+o Exceptions in constructors can be handled using try-catch blocks within the constructor. If an
+exception occurs, it can be caught and handled appropriately.<br>
+<h4>7. Can a constructor call a method?</h4>
+o Yes, a constructor can call methods. However, it is generally advised to avoid calling overridable
+methods from constructors to prevent unexpected behavior.<br>
+<h4>8. What is the purpose of a copy constructor in Java?</h4>
+o A copy constructor is used to create a new object as a copy of an existing object. Java does not
+provide a default copy constructor, so you need to define it explicitly.<br>
+<h4>9. What is the difference between a constructor and a method?</h4>
+o A constructor is used to initialize an object, has the same name as the class, and does not have a
+return type. A method performs a specific task, can have any name, and must have a return type.<br>
+<h4>10.Can you explain constructor inheritance in Java?</h4>
+o Constructors are not inherited in Java. However, a subclass constructor can call a superclass
+constructor using the super() keyword.<br>
+</div>
+
+            `
+          }
+
             ]
           }
 
@@ -1212,7 +1568,6 @@ Key Features:
 • Not synchronized (not thread-safe)`,
                 codeExamples: [
                   `import java.util.ArrayList;
-
 public class ArrayListExample {
     public static void main(String[] args) {
         ArrayList<String> fruits = new ArrayList<>();
