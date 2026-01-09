@@ -34,6 +34,15 @@ function AppContent() {
     ? selectedSubTopic.topics.find(t => t.id === selectedTopicId) || null
     : null;
 
+    // All topics of selected subtopic
+const topicsList = selectedSubTopic ? selectedSubTopic.topics : [];
+
+// Current topic index
+const currentTopicIndex = topicsList.findIndex(
+  t => t.id === selectedTopicId
+);
+
+
   // Text-to-speech functionality with voice selection
   const toggleSpeech = () => {
     if (!contentRef.current) return;
@@ -174,6 +183,20 @@ function AppContent() {
   }, 100);
 };
 
+const handlePrevTopic = () => {
+  if (currentTopicIndex > 0) {
+    const prevTopic = topicsList[currentTopicIndex - 1];
+    handleTopicSelect(prevTopic.id);
+  }
+};
+
+const handleNextTopic = () => {
+  if (currentTopicIndex < topicsList.length - 1) {
+    const nextTopic = topicsList[currentTopicIndex + 1];
+    handleTopicSelect(nextTopic.id);
+  }
+};
+
 
   const handleDifficultyChange = (newDifficulty: 'beginner' | 'intermediate' | 'expert') => {
     setDifficulty(newDifficulty);
@@ -249,6 +272,10 @@ function AppContent() {
             difficulty={difficulty}
             onDifficultyChange={handleDifficultyChange}
             contentRef={contentRef}
+            onPrevTopic={handlePrevTopic}
+  onNextTopic={handleNextTopic}
+  hasPrev={currentTopicIndex > 0}
+  hasNext={currentTopicIndex < topicsList.length - 1}
           />
         )}
         

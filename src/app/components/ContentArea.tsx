@@ -10,6 +10,11 @@ interface ContentAreaProps {
   difficulty: 'beginner' | 'intermediate' | 'expert';
   onDifficultyChange: (difficulty: 'beginner' | 'intermediate' | 'expert') => void;
   contentRef: React.RefObject<HTMLDivElement>;
+
+   onPrevTopic: () => void;
+  onNextTopic: () => void;
+  hasPrev: boolean;
+  hasNext: boolean;
 }
 
 const handleAction = (code: string) => {
@@ -23,7 +28,12 @@ export function ContentArea({
   topic,
   difficulty,
   onDifficultyChange,
-  contentRef
+  contentRef,
+
+   onPrevTopic,
+  onNextTopic,
+  hasPrev,
+  hasNext
 }: ContentAreaProps) {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [showMCQ, setShowMCQ] = useState(false);
@@ -310,6 +320,34 @@ export function ContentArea({
           onClose={() => setShowMCQ(false)}
         />
       )}
+
+      {/* Previous / Next Navigation */}
+<div className="flex justify-between items-center mt-12 border-t pt-6">
+  <button
+    onClick={onPrevTopic}
+    disabled={!hasPrev}
+    className={`px-6 py-2 rounded-lg font-semibold transition
+      ${hasPrev
+        ? 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
+        : 'bg-gray-100 dark:bg-gray-800 opacity-50 cursor-not-allowed'}
+    `}
+  >
+    ⬅ Previous
+  </button>
+
+  <button
+    onClick={onNextTopic}
+    disabled={!hasNext}
+    className={`px-6 py-2 rounded-lg font-semibold transition
+      ${hasNext
+        ? 'bg-orange-600 text-white hover:bg-orange-500'
+        : 'bg-orange-300 text-white opacity-50 cursor-not-allowed'}
+    `}
+  >
+    Next ➡
+  </button>
+</div>
+
     </main>
   );
 }
