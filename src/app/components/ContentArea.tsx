@@ -76,26 +76,26 @@ export function ContentArea({
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-3 gap-5 mb-8">
             <motion.div
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">Beginner</div>
+              <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">Beginner</div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Start from basics</p>
             </motion.div>
             <motion.div
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">Intermediate</div>
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">Intermediate</div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Build expertise</p>
             </motion.div>
             <motion.div
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">Expert</div>
+              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">Expert</div>
               <p className="text-sm text-gray-600 dark:text-gray-400">Master advanced topics</p>
             </motion.div>
           </div>
