@@ -49,7 +49,7 @@ export const coursesData: Course[] = [
               {
                 content: `Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. It was developed by James Gosling at Sun Microsystems (now owned by Oracle Corporation) and released in 1995.
 
-Key Features of Java:
+🔹 Key Features of Java:
 • Platform Independent: Write Once, Run Anywhere (WORA)
 • Object-Oriented: Everything is an object
 • Simple and Easy to Learn
@@ -155,7 +155,7 @@ public class CustomClassLoader extends ClassLoader {
               {
                 content: `Java has two categories of data types: Primitive and Reference types.
 
-Primitive Data Types (8 types):
+🔹 Primitive Data Types (8 types):
 • byte: 8-bit integer (-128 to 127)
 • short: 16-bit integer (-32,768 to 32,767)
 • int: 32-bit integer (-2^31 to 2^31-1)
@@ -625,26 +625,22 @@ public class Operator {
             ]
           },
           {
-            id: "control-statements",
+            id: "Control Statements in Java",
             name: "Control Statements in Java",
             beginner: [
               {
-                content:``,
-                codeExamples:[`
-                  
-                  `]
+                content: `Control statements in Java manage the flow of program execution by allowing the code to make decisions, repeat tasks, or jump to different parts of the code`,
               }
             ],
 
             intermediate: [{
-content: `-This is the most fundamental concepts required for java programmer. <br>
+              content: `-This is the most fundamental concepts required for java programmer. <br>
 
  -It allows smooth flow of execution of program. <br>
 
  -It controls the flow of program.<br>
 <br>
-There are 5 types of control statements in java:<br>
-
+🔹 There are 5 types of control statements in java:<br>
 1. If statements<br>
 2. If else statements<br>
 3. if-else-if ladder statement<br>
@@ -667,8 +663,8 @@ If statement is true then if block is executed.
 <img src="/src/assets/ifif.jpeg" alt="Online Image"class="d-block mx-auto h-80"/>
 <br><br>`,
 
-                codeExamples: [
-                  `public class Code_With_Pankaj {    // Main Class: Arithmatic  
+              codeExamples: [
+                `public class Code_With_Pankaj {    // Main Class: Arithmatic  
               public static void main(String[] args) {   // Main Method   
                int a = 10;      // Initialize Value   
                 if (a < 50) {  // 10<50 => True  // Condition    
@@ -676,10 +672,10 @@ If statement is true then if block is executed.
                   }            
                 } 
               }`
-                ],
-              },
-              {
-                content: `<h2>2. IF ELSE STATEMENTS </h2>
+              ],
+            },
+            {
+              content: `<h2>2. IF ELSE STATEMENTS </h2>
             If statement is true then if block is executed, if statement is false then else block is executed. <br>
                <div class="bg-secondary border border-primary p-3">
                  Syntax-<br>
@@ -696,8 +692,8 @@ If statement is true then if block is executed.
                <img src="/src/assets/ifelse.png" alt="Online Image"class="d-block mx-auto h-80"/>
                <br><br>`,
 
-                codeExamples: [
-                  ` public class Code_With_Pankaj {    // Main Class: Arithmatic  
+              codeExamples: [
+                ` public class Code_With_Pankaj {    // Main Class: Arithmatic  
                    public static void main(String[] args) {   // Main Method   
                      int a = 10;      // Initialize Value   
                       if (a > 50) {      // Condition    
@@ -708,11 +704,11 @@ If statement is true then if block is executed.
                           } 
                         }  
                 `
-                ]
-              },
-              {
-                content:
-                  `<h2>3. IF-ELSE-IF LADDER STATEMENT </h2>
+              ]
+            },
+            {
+              content:
+                `<h2>3. IF-ELSE-IF LADDER STATEMENT </h2>
 The if-else-if ladder statement executes one condition from multiple statements.  <br>
  <div class="bg-secondary border border-primary p-3">
                  Syntax-<br>
@@ -734,8 +730,8 @@ The if-else-if ladder statement executes one condition from multiple statements.
                 <h2>Flowchart of IF-ELSE-IF LADDER</h2><br>
                  <img src="/src/assets/ifelseladder.png" alt="Online Image"class="d-block mx-auto h-90"/>
                 `,
-                codeExamples: [
-                  `
+              codeExamples: [
+                `
                   public class Code_With_Pankaj {      // Main Class  
                    public static void main(String[] args) {     // Main Method   
                     int marks = 70;       // Initialize Value //  
@@ -751,11 +747,11 @@ The if-else-if ladder statement executes one condition from multiple statements.
                               System.out.println("incorrect input");   
                            }  
                         }`
-                ]
-              },
+              ]
+            },
 
-               {
-                content: `<h2>4. Nested if statements  </h2>
+            {
+              content: `<h2>4. Nested if statements  </h2>
            The nested if statement represents the if block within another if block. <br>
            Here, the inner if block condition executes only when outer if block condition is true.    <br>
                <div class="bg-secondary border border-primary p-3">
@@ -771,8 +767,8 @@ The if-else-if ladder statement executes one condition from multiple statements.
                <img src="/src/assets/ifnested.png" alt="Online Image"class="d-block mx-auto h-100"/>
                <br><br>`,
 
-                codeExamples: [
-                  `public class Code_With_Pankaj {     // Main Class  
+              codeExamples: [
+                `public class Code_With_Pankaj {     // Main Class  
         public static void main(String[] args) {    // Main Method   
         int no = 75;       // Initialize Value   
          if (no >= 18) {   // True   // Outer Condition    
@@ -782,8 +778,8 @@ The if-else-if ladder statement executes one condition from multiple statements.
        }  
       }  
     }`,
-    
-    `package com.test;  
+
+                `package com.test;  
 public class Code_With_Pankaj {  
 public static void main(String[] args) {   // Main Method   
 int age = 18;      // Initialize   
@@ -796,11 +792,11 @@ if (age >= 18) {     // Outer Condition
   }  
 } 
 }`
-                ]
-              },
+              ]
+            },
 
-               {
-                content: `<h2>5. Switch statement</h2>
+            {
+              content: `<h2>5. Switch statement</h2>
           - A switch statement in java is used to execute a single statement from multiple conditions. <br>
           - The switch statement can be used with short, byte, int, long, enum types, etc. Usage of break statement is made to terminate the statement sequence.<br>
           - Cases cannot be duplicate.   Default statement is executed when any of the case doesn't match the value of expression. <br>
@@ -822,8 +818,8 @@ if (age >= 18) {     // Outer Condition
                <img src="/src/assets/switchcase.png" alt="Online Image"class="d-block mx-auto h-100"/>
                <br><br>`,
 
-                codeExamples: [
-                  `public class Code_With_Pankaj {    // Main Class: Code_With_Pankaj  
+              codeExamples: [
+                `public class Code_With_Pankaj {    // Main Class: Code_With_Pankaj  
 public static void main(String[] args) {   // Main Method   
 int number = 2;     // Initialize Value   switch (number)
 {     // switch(expression) 
@@ -842,12 +838,12 @@ default:    System.out.println("Invalid input"); // Statement
       } 
     } 
   } `,
+
+                `
     
     `
-    
-    `
-                ]
-              },
+              ]
+            },
             ],
             expert: [
               {
@@ -861,16 +857,20 @@ Best Practices
             ]
           },
           {
-            id: 'jumping statement',
-            name: 'Jumping statement',
+            id: 'Jumping Statement',
+            name: 'Jumping Statement',
             beginner: [
-             {
-              content:``,
-              codeExamples:[]
-             }
+              {
+                content: `
+              In Java, jump statements are used to alter the normal flow of program execution when certain conditions are met. <br>
+              They can be used to terminate a loop, skip an iteration, or exit from a method or block of code.<br><br>
+              
+              This particular statement works by jumping from one specific code to another one, thus exhibiting polymorphism in Java, to the flow of the execution of the program. "Jump Statements" are also called "Branching Statements in Java" as they evaluate different branches to enhance the flow of the execution.
+              `,
+              }
             ],
-            intermediate:[
-               {
+            intermediate: [
+              {
                 content: `
                There are 3 types of jumping statements in java as- 
                1) Break 
@@ -995,8 +995,13 @@ Best Practices
             name: `Constructor in Java`,
             beginner: [
               {
-                content: ``,
-                codeExamples: []
+                content: `A constructor in Java is a special block of code used to initialize objects when they are created. It is automatically called when an instance of a class is created using the new keyword.<br>
+<h4>🔹 Key Characteristics :-</h4> 
+• Same Name as Class: A constructor must have the exact same name as the class it belongs to.<br>
+• No Return Type: It does not have a return type, not even void. Adding a return type makes it a regular method.<br>
+• Automatic Invocation: Constructors are invoked implicitly by the Java runtime when an object is instantiated.<br>
+• Initialization Logic: The primary purpose is to set initial values for the object's instance variables and perform any necessary setup tasks (like opening a file or database connection) to ensure the object is in a valid state. <br>`,
+
               }
             ],
             intermediate: [
@@ -1006,7 +1011,7 @@ Best Practices
                 - It does not return anything even void also.<br>
                 
                 
-                There are 2 types of constructor are as <br>
+                🔹 There are 2 types of constructor are as <br>
                 1. Default constructor (No- argument constructor)<br>
                 2. Parameterized constructor ( Argument constructor)<br><br>
 
@@ -1134,7 +1139,7 @@ Example example1=new Example("Dheeraj", "Latur");
                 ]
               },
               {
-                content:`
+                content: `
                 <h4>Note:</h4>
 1. Constructor cannot be overridden because we can’t write multiple constructors with same
 arguments.If you are tried to write it then you will get compiler time error “Duplicate method
@@ -1144,7 +1149,7 @@ Employee”.<br>
               },
 
               {
-                content : `<h4>1. What is a Constructor ?</h4>
+                content: `<h4>1. What is a Constructor ?</h4>
   - Constructors are used to initialize the object’s state. <br>
   - Like methods, a constructor also contains collection of statements(i.e. instructions) that are executed at time of Object creation.
   <br><br>
@@ -1169,8 +1174,8 @@ Rules for constructor chaining<br>
 2. Order does not matter in constructor chaining.<br>
 3. There must exist at least one constructor that does not use this keyword.<br>
   `,
-  codeExamples:[
-      `//Java program to illustrate Constructor Chaining
+                codeExamples: [
+                  `//Java program to illustrate Constructor Chaining
 // within same class Using this() keyword
 class Temp {
 // default constructor 1
@@ -1196,18 +1201,18 @@ public static void main(String args[]) {
 new Temp();
 }
 }`
-  ]
-          },
-          {
-            content:`<h4>4. Can we call sub class constructor from super class constructor?</h4>
+                ]
+              },
+              {
+                content: `<h4>4. Can we call sub class constructor from super class constructor?</h4>
 No. There is no way in java to call sub class constructor from a super class constructor. <br><br>
 
 <h4>5. What happens if you keep a return type for a constructor?</h4>
 Ideally, Constructor must not have a return type. By definition, if a method has a return type, it’s not a
 constructor. (JLS8.8 Declaration). It will be treated as a normal method. But compiler gives a warning
 saying that method has a constructor name.<br>`,
-codeExamples:[
-  `Example:
+                codeExamples: [
+                  `Example:
 package com.test;
 public class Test {
 int Test() {
@@ -1215,22 +1220,22 @@ return 0; // Warning for the return type
 }
 }
   `
-]
-          },
-          {
-            content:`<h4>6. What is No-arg constructor?</h4>
+                ]
+              },
+              {
+                content: `<h4>6. What is No-arg constructor?</h4>
 Constructor without arguments is called no-arg constructor. <br>
 Default constructor in java is always a no-arg constructor.`,
-codeExamples:[
-  `Example:
+                codeExamples: [
+                  `Example:
 public class ABC {
 public ABC(){ // No-arg constructor
 }
 }`
-]
-          },
-          {
-            content:`<h4>7. How a no – argument constructor is different from default Constructor?</h4>
+                ]
+              },
+              {
+                content: `<h4>7. How a no – argument constructor is different from default Constructor?</h4>
 - If a class contains no constructor declarations, then a default constructor with no formal parameters
 and no throws clause is implicitly declared.<br>
 - If the class being declared is the primordial class Object, then the default constructor has an empty
@@ -1294,13 +1299,13 @@ constructor using the super() keyword.<br>
 </div>
 
             `
-          }
+              }
 
             ]
           },
 
 
-             {
+          {
             id: 'static-keyword',
             name: 'Static Keyword in Java',
             beginner: [{
@@ -1309,10 +1314,10 @@ STATIC KEYWORD IN JAVA
 
 Static is used for memory management. It can be applied to variables, methods, inner classes, and static blocks.
 
-KEY POINTS:
+🔹 KEY POINTS:
 
-• It means single copy storage
 • Local variables cannot be static
+• It means single copy storage
 • We cannot call non-static members from static members because static variables are stored in memory before object creation
 • Outer classes cannot be static, but inner classes can be static
 • Constructors cannot be static
@@ -1360,7 +1365,7 @@ ID: 2, Name: Dheeraj, Course: Code_With_Pankaj
 ID: 3, Name: Shree, Course: Code_With_Pankaj`
               ]
             }],
-            intermediate:[ {
+            intermediate: [{
               content: `
 1) STATIC VARIABLE / CLASS VARIABLE
 
@@ -1653,7 +1658,7 @@ Value of a: 20`
               {
                 content: `A class is a blueprint for creating objects. An object is an instance of a class.
 
-Key Concepts:
+🔹 Key Concepts:
 • Class: Template that defines properties and behaviors
 • Object: Instance of a class
 • Fields: Variables that hold the state
@@ -1823,6 +1828,662 @@ public class Computer {
               }
             ]
           },
+
+          {
+            id: `Encapsulation`,
+            name: `Encapsulation`,
+            beginner:[
+              {
+                content:`• Encapsulation in Java is a core Object-Oriented Programming (OOP) concept where the data (variables) and the code (methods) that operate on that data are bundled together as a single unit, which is typically a class. <br>
+                • This mechanism is also known as data hiding because it restricts direct access to the class's internal state. <br>
+                • The main idea is to hide the internal implementation details from the outside world and provide controlled access through well-defined public methods (getters and setters). <br><br>
+                
+                <h4>How to Achieve Encapsulation in Java</h4>
+To implement encapsulation, you follow these steps: <br>
+1. Declare variables as private: This prevents other classes from accessing the data directly. The variables are only accessible within their own class.<br>
+2. Provide public getter and setter methods: These methods allow controlled, indirect access to the private variables.<br>
+3. Getter methods (getXXX()) are used to retrieve the values of the variables.<br>
+4. Setter methods (setXXX()) are used to modify the values of the variables and can include validation logic to ensure data integrity. <br>
+                
+                `,
+                codeExamples:[
+                  `public class Person {
+    // 1. Private variables (data hiding)
+    private String name;
+    private int age;
+
+    // 2. Public getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // 2. Public setter method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // 2. Public getter method for age
+    public int getAge() {
+        return age;
+    }
+
+    // 2. Public setter method for age with validation
+    public void setAge(int age) {
+        if (age >= 0 && age <= 120) { // Validation logic
+            this.age = age;
+        } else {
+            System.out.println("Invalid age provided.");
+        }
+    }
+}
+`
+                ]
+              }
+            ],
+            intermediate: [
+              {
+                content: `The binding of data into single entity called as “Encapsulation”.
+                
+                Example- Class is the entity which contains variables & methods.
+
+                <div class="bg-secondary border border-primary p-2">
+                Class Employee { <br>
+int salary; <br>
+void m5() {<br>
+statements ;<br>
+}<br>
+}<br>
+                </div>`
+              },
+              {
+                content: `Through encapsulation, data is hidden and protected from access by outside non-member methods of a class.<br> 
+Only member methods defined in a class will have access to the data.<br><br>
+A Java class is an example of encapsulation because class binds variables and methods together.<br>
+<div class="bg-secondary border border-primary p-2">
+<h3>Key Concepts of Encapsulation:</h3>
+<h4>1. Private Variables:</h4>
+ • How: Declare class variables as private so they cannot be accessed directly from outside the class.<br>
+ • Why: This restricts external code from directly accessing and modifying the internal state of the
+object, ensuring data integrity.<br>
+<h4>2. Public Getter and Setter Methods:</h4>
+ • How: Provide public methods (getters and setters) to access and update the private variables.<br>
+ • Why: This allows controlled access to the internal state of the object. You can add logic to these
+methods to validate data before it is changed.<br>
+</div>`,
+codeExamples:[
+  `package com.code_with_pankaj;
+public class Person {
+//------------------------------------------------------
+// Private variables
+private String name;
+private int age;
+//------------------------------------------------------
+// Public getter method for name
+public String getName() {
+return name;
+}
+// Public setter method for name
+public void setName(String name) {
+this.name = name;
+}
+// Public getter method for age
+public int getAge() {
+return age;
+}
+// Public setter method for age
+public void setAge(int age) {
+if (age > 0) { // Simple validation
+this.age = age;
+} else {
+System.out.println("Age must be positive");
+}
+}
+//------------------------------------------------------
+// Method to display information
+public void displayInfo() {
+System.out.println("Name: " + name);
+System.out.println("Age: " + age);
+}
+//------------------------------------------------------
+}
+public class Main {
+public static void main(String[] args) {
+// Creating an object of Person class
+Person person = new Person();
+// Using setter methods to set values
+person.setName("Pankaj");
+person.setAge(100);
+// Using getter methods to access values
+System.out.println("Person's Name: " + person.getName());
+System.out.println("Person's Age: " + person.getAge());
+// Display information using displayInfo method
+person.displayInfo();
+}
+}`
+]
+              }
+            ],
+            expert:[
+              {
+                content:`Generally, variables of a class are declared as “private” whereas, methods of class are declared as “public”. <br>
+This means that variables cannot be accessed from outside the class but methods can be accessed from anywhere outside the class.<br>
+• To use variables from outside, we will have to take the help of methods. <br>
+• Thus, encapsulation protects data of a class from members of another class.<br><br>
+<div class="bg-secondary border border-primary p-2">
+<h4>Real Time Example:</h4>
+Suppose you have an account in the bank. If your balance variable is declared as a public variable in
+the bank software, your account balance will be known as public, In this case, anyone can know your
+account balance. So, is it correct approach? Answer => is No.<br>
+So, they declare balance variable as private for making your account safe, so that anyone cannot see
+your account balance.<br>
+The person who has to see his account balance, will have to access only private members through public
+methods defined inside that class.
+</div>
+
+Thus, we can achieve security by utilizing the concept of data hiding. This is called Encapsulation in Java.<br>
+
+Why ? <br>
+<h4>Employee e1= new Employee();<br>
+e1.salary= 5000; // case 1<br>
+Employee e2= new Employee();<br>
+e2.salary= -3000; // case 2</h4><br>
+
+In this example, case 1, we are passing the 5000 salary to the employee that is correct but case 2, we are passing the salary 3000 that is the negative salary.<br>
+So salary cannot be negative.<br>
+<br>
+`,
+codeExamples:[
+  `//How we are going to achieve this by using Encapsulation:
+public class Employee { // Main Class: Employee
+private int salary;
+public void setSalary(int sal) {
+if (sal > 0) { // 5000>0 True -3000>0 False = Salary =0
+salary = sal; // 5000
+} else {
+salary = 0;
+}
+}
+public int getSalary() {
+return salary;
+}
+}`
+]
+              },
+              {
+                content:`In this example, we are checking the whether the salary is greater than zero. Because salary cannot
+be negative so in this way, we are going to achieve the encapsulation.<br>
+<h4>Note-</h4> Always keeps global variables private & allows others to assign values through public
+methods.`,
+codeExamples:[`
+//Program for Encapsulation Using Hard Coded Values
+package com.encapsulation;
+public class EncapsulationTest { // Main Class: EncapsulationTest
+public static void main(String[] args) { // Main Method
+Employee employee= new Employee (); // Creating Object
+employee.setSalary(5000); // Hard Coded Value Pass
+System.out.println("salary>>"+employee.getSalary());
+}
+}
+  `,`Program for Encapsulation Using Dynamic values
+package com.encapsulation;
+public class Employee { // Main Class: Employee
+//------------------------------------------------------
+// Private Variables
+private int employeeId;
+private String employeeName;
+private String employeeCity;
+//------------------------------------------------------
+// Generate Getter and Setter Method (Public Methods)
+public int getEmployeeId() {
+return employeeId;
+}
+public void setEmployeeId(int employeeId) {
+this.employeeId = employeeId;
+}
+public String getEmployeeName() {
+return employeeName;
+}
+public void setEmployeeName(String employeeName) {
+this.employeeName = employeeName;
+}
+public String getEmployeeCity() {
+return employeeCity;
+}
+public void setEmployeeCity(String employeeCity) {
+this.employeeCity = employeeCity;
+}
+//------------------------------------------------------
+}`,`package com.encapsulation;
+import java.util.Scanner;
+public class TestMain { // Main Class: TestMain
+public static void getUserInput() { // Method getUserInput
+Scanner scanner = new Scanner(System.in);
+System.out.println("Enter the ID>>");
+int id = scanner.nextInt();
+System.out.println("Enter the Name>>");
+String name = scanner.next();
+System.out.println("Enter the City");
+String city = scanner.next();
+// Set Data
+Employee employee = new Employee(); // Object Creation
+employee.setEmployeeId(id);
+employee.setEmployeeName(name);
+employee.setEmployeeCity(city);
+// Get Data
+System.out.println("Employee Id>>" + employee.getEmployeeId());
+System.out.println("Employee Name>>" + employee.getEmployeeName());
+System.out.println("Employee City>>" + employee.getEmployeeCity());
+}
+public static void main(String[] args) {
+getUserInput(); // static = Call Data Using getUserInput Method
+}
+}`]
+              },
+              {
+                content:`Through encapsulation, data is hidden and protected from access by outside non-member methods
+of a class. <br>Only member methods defined in a class will have access to the data.<br>
+A Java class is an example of encapsulation because class binds variables and methods together.<br>
+Generally, variables of a class are declared as “private” whereas, methods of class are declared as
+“public”. <br>This means that variables cannot be accessed from outside the class but methods can be
+accessed from anywhere outside the class.<br>
+To use variables from outside, we will have to take the help of methods. Thus, encapsulation protects
+data of a class from members of another class.<br>
+<div class="bg-secondary border border-primary p-2">
+<h4>Benefits of Encapsulation:</h4>
+1. Control: Allows you to control how data is accessed and modified.<br>
+2. Data Hiding: Protects the internal state of the object from outside access and misuse.<br>
+3. Flexibility: Enables changes to the internal implementation without affecting external code.<br>
+4. Maintainability: Simplifies code management and maintenance.<br>
+5. Security: Enhances the security of data by restricting access to it.<br>
+</div>
+<br>
+<div class="bg-secondary border border-primary p-2">
+<h4>Disadvantages of Encapsulation (In Short):</h4>
+1. Increased Complexity: Requires additional getter and setter methods.<br>
+2. Performance Overhead: Extra method calls can slightly impact performance.<br>
+3. Restricted Flexibility: Can make data access and modification harder.<br>
+4. Testing Challenges: Private methods are harder to test directly.<br>
+5. Verbose Code: More lines of code due to getter and setter methods can reduce readability.<br>
+</div><br>
+
+<div class="bg-secondary border border-primary p-2">
+<h4>1. What is encapsulation in Java?</h4>
+o Encapsulation is the process of wrapping data (variables) and code (methods) together into a single
+unit, typically a class. It is also known as data hiding because it restricts direct access to some of the
+object’s components.<br>
+<h4>2. How do you achieve encapsulation in Java?</h4>
+o Encapsulation is achieved by:<br>
+ Declaring the variables of a class as private.<br>
+ Providing public getter and setter methods to modify and view the variable values.<br>
+<h4>3. What are the benefits of encapsulation?</h4>
+o Encapsulation helps in:<br>
+ Protecting the internal state of an object from unintended or harmful changes.<br>
+ Improving modularity by keeping the data and methods that operate on the data together.<br>
+ Enhancing maintainability and flexibility of the code.<br>
+<h4>4. What is the difference between encapsulation and abstraction?</h4>
+o Encapsulation is about bundling the data and methods that operate on the data within a single unit
+and restricting access to some of the object’s components. Abstraction, on the other hand, is about
+hiding the complex implementation details and showing only the essential features of the object.<br>
+<h4>5. Can you give an example of encapsulation in Java?</h4>
+o Sure! Here’s a simple example:<br>
+Java
+public class Person {<br>
+private String name;<br>
+private int age;<br>
+public String getName() {<br>
+return name;<br>
+}<br>
+
+public void setName(String name) {<br>
+this.name = name;<br>
+}<br>
+In this example, the name and age variables are encapsulated within the Person class, and access to them
+is controlled through getter and setter methods.<br>
+<h4>6. What is a tightly encapsulated class?</h4>
+o A tightly encapsulated class is one where all the instance variables are declared as private and
+accessed only through public getter and setter methods.<br>
+<h4>7. How does encapsulation improve code maintainability?</h4>
+o Encapsulation improves maintainability by allowing changes to the internal implementation of a
+class without affecting other parts of the code that use the class. This makes it easier to update and
+manage the code.<br>
+<h4>8. What is the role of getter and setter methods in encapsulation?</h4>
+o Getter and setter methods provide controlled access to the private variables of a class. They allow
+you to read and modify the values of the variables while maintaining control over how the variables
+are accessed and updated.<br>
+<h4>9. Can encapsulation be violated using reflection?</h4>
+o Yes, encapsulation can be violated using Java Reflection API, which allows you to access private
+fields and methods of a class. However, this should be avoided as it breaks the principles of
+encapsulation and can lead to code that is difficult to maintain and debug.</h4>
+<h4>10.Which design pattern is based on encapsulation in Java?</h4>
+o The Singleton design pattern is based on encapsulation. It ensures that a class has only one instance
+and provides a global point of access to it, encapsulating the instance creation logic.</h4>
+</div>
+`
+              }
+            ]
+          },
+          {
+            id:`inheritance`,
+            name:`Inheritance`,
+            intermediate:[
+              {
+                content:`• The process of creating the new class by using the existing class functionality called as
+Inheritance.<br>
+• It is a mechanism in which one class acquires the property of another class.<br>
+• Inheritance means simply reusability.<br>
+• It is called as - (IS Relationship)<br><br>
+<h4>Example : </h4> IS Relationship<br>
+<div class="bg-secondary border border-primary p-2">
+package com.code_with_pankaj; <br>
+class Policy { // Policy = Super Class<br>
+}<br>
+class TermPolicy extends Policy { // TermPolicy = Sub Class wher TermPolicy is Policy<br>
+}<br>
+</div>
+`,
+codeExamples:[
+  `package com.code_with_pankaj;
+//Superclass
+public class Animal {
+public void eat() {
+System.out.println("This animal eats food.");
+}
+}
+//Subclass
+public class Dog extends Animal {
+public void bark() {
+System.out.println("The dog barks.");
+}
+@Override
+public void eat() {
+System.out.println("The dog eats kibble.");
+}
+}
+//Main Class
+public class Main {
+public static void main(String[] args) {
+Dog myDog = new Dog();
+myDog.eat(); // Calls overridden method in Dog class
+myDog.bark(); // Calls method in Dog class
+}
+}`
+]
+              },{
+                content:`<h4>Note-</h4>
+All the parent members are derived into child class but they are depending upon the below 2 condition as <br>
+• To check the access specifiers.<br>
+• Members does not exist into sub class.<br><br>
+
+<h4>UML Diagram</h4>
+<div class="bg-secondary border border-primary p-2">
+Parent -P // Where P = Parent Class & C is the Child Class<br>
+|<br>
+|<br>
+|<br>
+Child – C<br>
+</div>
+
+<h4>Note-</h4> Below are different names for super and sub class.<br>
+<div class="bg-secondary border border-primary p-2">
+Super Class->Parent Class->Base Class-> Old Class<br>
+Sub Class-> Child Class-> Derived Class -> New Class<br>
+</div>
+<h4>Note-</h4>
+1. Inherit the classes by using extends keywords.<br>
+2. Whenever we create the object of subclass then all the member will get called super class as well.<br>
+as sub class. Because reason is that super class members automatically inherited into sub class that’s why.<br>
+3. Why we use inheritance that is for code reusability, reusability means we can reuse existing class
+features such as variables and method, etc.<br>
+4. We cannot extend the final class.<br><br>
+
+<h3>When to use?</h3>
+If we want to extends or increase of features of class then go for inheritance.<br>
+<div class="bg-secondary border border-primary p-2">
+<h4>Advantages</h4>
+1. Modify the attributes / fields / variable in the existing class but this is not good option it will
+increase the testing efforts for that class.<br>
+2. Add the attributes / fields / variable in the new class, this is the good option we can also reduce
+the testing efforts for this.<br>
+</div><br><br>
+
+
+<h3>Why inheritance?</h3>
+
+Suppose we have 1 class which contain the fields like: firstname, lastname, address, city, mobile
+
+number and in future we got the requirement to add the email then what option we have below-<br>
+
+<h4>How the class will look like</h4>
+<div class="bg-secondary border border-primary p-2">
+package com.code_with_pankaj;<br
+class Parent {<br>
+String firstname;<br>
+String lastname;<br>
+String address;<br>
+String city;<br>
+String mobilenumber;<br>
+}<br>
+</div><br>
+<div class="bg-blue-100 border border-primary p-2 ">
+class Child extends Parent{<br>
+String email;<br>
+}<br>
+</div>
+<br>
+<h4>Note:</h4> We cannot assign parent class to child class- it means<br>
+Child c=new Parent(); => Here we can’t write new Parent();`
+              },
+          
+              {
+                content:`All the members of super class will be directly inherited into sub class and they are eligible and depends
+on access specifiers only. <br>
+<h3>Dynamic Dispatch</h3>
+The process of assigning the child class reference to parent class called as “Dynamic dispatch.”<br>
+
+<h4>Example : </h4>
+<div class="bg-secondary border border-primary p-2">
+package com.code_with_pankaj;<br>
+class X {<br>
+}<br>
+</div><br>
+<div class="bg-secondary border border-primary p-2">
+package com.code_with_pankaj;<br>
+class Y extends X {<br>
+}<br>
+</div><br>
+<div class="bg-secondary border border-primary p-2">
+package com.code_with_pankaj;<br>
+class Test {<br>
+public static void main(String[] args) {<br>
+X x = new Y(); // Here we are assigning the child reference new Y() to parent class as X.<br>
+}<br>
+}<br>
+</div><br>
+
+<div class="bg-blue-100 border border-primary p-2">
+Scenario 1 <br>
+package com.code_with_pankaj;<br>
+class X { // Super Class: X<br>
+int a = 10; // Initialization<br>
+int b = 20; // Initialization<br>
+void m1() {<br>
+System.out.println("Class X- m1() method");<br>
+}<br>
+void m2() {<br>
+System.out.println("Class X- m2() method");<br>
+}<br>
+}<br>
+</div><br>
+
+<div class="bg-blue-100 border border-primary p-2">
+package com.code_with_pankaj;<br>
+class Y extends X { // Sub Class: Y<br>
+int b = 30; // Initialization<br>
+int c = 40; // Initialization<br>
+void m2() {<br>
+System.out.println("Class Y- m2() method");<br>
+}<br>
+void m3() {<br>
+System.out.println("Class Y- m3() method");<br>
+}<br>
+}<br>
+
+</div>
+
+`,codeExamples:[
+  `package com.code_with_pankaj;
+public class Test { // Main Class: Test
+public static void main(String[] args) { // Main Method
+// Scenario 1
+X x=new X();
+System.out.println(x.a); // OUTPUT: 10
+System.out.println(x.b); // OUTPUT: 20
+// System.out.println(x.c);
+x.m1(); // Class X- m1() method
+x.m2(); // Class X- m2() method
+// x.m3();
+// Scenario 2
+Y y = new Y();
+System.out.println(y.a); // OUTPUT: 10
+System.out.println(y.b); // OUTPUT: 30
+System.out.println(y.c); // OUTPUT: 40
+y.m1(); // Class X- m1() method
+y.m2(); // Class Y- m2() method
+y.m3(); // Class Y- m3() method
+// Scenario 3: Dynamic Dispatch: Process of assigning child class reference to parent class
+X x = new Y();
+System.out.println(x.a); // OUTPUT: 10
+System.out.println(x.b); // OUTPUT: 20
+//System.out.println(x.c);
+x.m1(); // Class X- m1() method
+x.m2(); // Class Y- m2() method
+//x.m3();
+// Scenario 4: (Note: 3rd and 4th scenario are same)
+X x = new X();
+Y y = new Y();
+x = y;
+System.out.println(x.a); // OUTPUT: 10
+System.out.println(x.b); // OUTPUT: 20
+// System.out.println(x.c);
+
+x.m1(); // Class X- m1() method
+x.m2(); // Class Y- m2() method
+//x.m3();
+// Scenario 5: Note- this is equivalent to 2nd scenario
+X x = new Y();
+Y y = new Y();
+y = (Y) x; // Type casting
+System.out.println(y.a); // OUTPUT: 10
+System.out.println(y.b); // OUTPUT: 30
+System.out.println(y.c); // OUTPUT: 40
+y.m1(); // Class X- m1() method
+y.m2(); // Class Y- m2() method
+y.m3(); // Class Y- m3() method
+// Scenario 6:
+// Y y= new X(); // Not Allowed
+// We cannot assign parent class to child class =>> Child child = new Parent();
+}
+}
+  `
+]
+              },
+              {
+                content:`
+                <div class="bg-blue-100 border border-primary p-2">
+package com.code_with_pankaj;<br>
+public class Parent {<br>
+int Dheeraj = 5000;<br>
+int Sheru = 6000;<br>
+void x1() {<br>
+System.out.println("Dheeraj From Parent Class");<br>
+}<br>
+void x2() {<br>
+System.out.println("Sheru From Parent Class");<br>
+}<br>
+}<br>
+</div><br>
+
+<div class="bg-blue-100 border border-primary p-2">
+package com.code_with_pankaj;<br>
+public class Child extends Parent { // Step: 01<br>
+int Sheru = 10000;<br>
+int Omkar = 20000;<br>
+void x2() {<br>
+System.out.println("Sheru From Child Class");<br>
+}<br>
+void x3() {<br>
+System.out.println("Omkar From Child Class");<br>
+}<br>
+}<br>
+</div>
+`,
+codeExamples:[
+  `package com.code_with_pankaj;
+public class Test {
+public static void main(String[] args) {
+System.out.println("// +++++++++++++++++++++++++++++++++++++++++++++++++++++");
+System.out.println("Scenario: 01 =>> Parent Class Data Access");
+Parent p = new Parent();
+System.out.println(p.Dheeraj); // 5000
+System.out.println(p.Sheru); // 6000
+// System.out.println(p.Omkar); // No Access
+p.x1(); // Dheeraj From Parent Class
+p.x2(); // Sheru From Parent Class
+//p.x3();
+
+System.out.println("// +++++++++++++++++++++++++++++++++++++++++++++++++++++");
+System.out.println("Scenario: 02 ==>> Child Class Data Access");
+Child c = new Child();
+System.out.println(c.Dheeraj); // 5000 => Call from Parent Class
+System.out.println(c.Sheru); // 10000=> Call from Child Class
+System.out.println(c.Omkar); // 20000=> Call from Child Class
+c.x1(); // Dheeraj From Parent Class
+c.x2(); // Sheru From Child Class
+c.x3(); // Omkar From Child Class
+
+System.out.println("// +++++++++++++++++++++++++++++++++++++++++++++++++++++");
+System.out.println("Scenario: 03 ==>> Dynamic Dispatch");
+// Dynamic Dispatch: Process of assigning
+// child class reference to parent class
+Parent p3 = new Child();
+System.out.println(p3.Dheeraj); // 5000 => Call from Parent Class
+System.out.println(p3.Sheru); // 6000 => Call from Parent Class
+//System.out.println(p3.Omkar);
+p3.x1(); // Dheeraj From Parent Class
+p3.x2(); // Sheru From Child Class
+// p3.x3();
+System.out.println("// +++++++++++++++++++++++++++++++++++++++++++++++++++++");
+System.out.println("Scenario: 04 ==>> Note: 3rd Scenario and 4th Scenario are Same");
+Parent p4 = new Parent();
+Child c4 = new Child();
+p4=c4;
+System.out.println(p4.Dheeraj); // 5000 => Call from Parent Class
+System.out.println(p4.Sheru); // 6000 => Call from Parent Class
+//System.out.println(p4.Omkar);
+p4.x1(); // Dheeraj From Parent Class
+p4.x2(); // Sheru From Child Class
+//p4.x3();
+System.out.println("// +++++++++++++++++++++++++++++++++++++++++++++++++++++");
+System.out.println("Scenario: 05 ==>> Type Casting : This is Equivalent to 2nd Scenario");
+Parent p5 = new Child();
+Child c5 = new Child();
+c5 = (Child) p5;
+System.out.println(c5.Dheeraj); // 5000 => Call from Parent Class
+System.out.println(c5.Sheru); // 10000 => Call from Child Class
+System.out.println(c5.Omkar); // 20000 => Call from Child Class
+c5.x1(); // Dheeraj From Parent Class
+c5.x2(); // Sheru From Child Class
+c5.x3(); // Omkar From Child Class
+System.out.println("// +++++++++++++++++++++++++++++++++++++++++++++++++++++");
+System.out.println("Scenario: 06 ==>> Not Allowed in Java");
+// Child c6 = new Parent();
+// We can't assign Parent class to child class
+}
+} `
+]
+              }
+            ]
+          }
 
         ]
       }

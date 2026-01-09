@@ -93,7 +93,7 @@ export function Header({ onToggleSpeech, isSpeaking, onSearch, voiceGender, onVo
                 }`}
               title="Male Voice"
             >
-              Male
+              Female
             </button>
             <button
               onClick={() => onVoiceChange('female')}
@@ -103,7 +103,7 @@ export function Header({ onToggleSpeech, isSpeaking, onSearch, voiceGender, onVo
                 }`}
               title="Female Voice"
             >
-              Female
+              Male
             </button>
           </div>
 
