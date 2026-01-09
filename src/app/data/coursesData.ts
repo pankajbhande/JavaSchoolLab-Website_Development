@@ -1297,7 +1297,347 @@ constructor using the super() keyword.<br>
           }
 
             ]
-          }
+          },
+
+
+             {
+            id: 'static-keyword',
+            name: 'Static Keyword in Java',
+            beginner: [{
+              content: `
+STATIC KEYWORD IN JAVA
+
+Static is used for memory management. It can be applied to variables, methods, inner classes, and static blocks.
+
+KEY POINTS:
+
+• It means single copy storage
+• Local variables cannot be static
+• We cannot call non-static members from static members because static variables are stored in memory before object creation
+• Outer classes cannot be static, but inner classes can be static
+• Constructors cannot be static
+• The main method is static
+• this and super keywords are not allowed in static context
+
+WHY USE STATIC?
+
+Static keyword is used to create members that:
+• Belong to the class itself, not to objects
+• Are shared among all instances of the class
+• Should be accessed without creating an object
+• Represent common properties of all objects
+`,
+              codeExamples: [
+                `// Static Variable Example
+public class Student {
+    int id;
+    String name;
+    static String course = "Code_With_Pankaj";  // Common property
+    
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
+    void display() {
+        System.out.println("ID: " + id + ", Name: " + name + ", Course: " + course);
+    }
+    
+    public static void main(String[] args) {
+        Student st1 = new Student(1, "Omkar");
+        Student st2 = new Student(2, "Dheeraj");
+        Student st3 = new Student(3, "Shree");
+        
+        st1.display();
+        st2.display();
+        st3.display();
+    }
+}
+
+OUTPUT:
+ID: 1, Name: Omkar, Course: Code_With_Pankaj
+ID: 2, Name: Dheeraj, Course: Code_With_Pankaj
+ID: 3, Name: Shree, Course: Code_With_Pankaj`
+              ]
+            }],
+            intermediate:[ {
+              content: `
+1) STATIC VARIABLE / CLASS VARIABLE
+
+• A variable defined with the static keyword is called a static variable
+• Also known as class variables
+• Stored in Metaspace (Permanent Generation before JDK 1.8)
+• Loaded into memory at class loading time
+• Used to refer to common properties of all objects
+• Advantages: Makes programs memory efficient (saves memory)
+
+HOW TO ACCESS STATIC VARIABLES - 3 WAYS:
+
+1. By using class name (Recommended)
+2. By using object name
+3. Direct way (only in same class)
+
+EXAMPLE - Static vs Non-Static Variables:
+
+When you create multiple objects:
+• Static variables share the same memory for all objects (single copy)
+• Non-static variables create separate memory for each object
+
+2) STATIC METHOD / CLASS METHOD
+
+• A method defined with static keyword is called a static method
+• Also known as class methods
+• Belongs to the class rather than objects
+• Loads into memory before object creation
+• Can access only static data members
+• Can be called without creating an object
+
+HOW TO CALL STATIC METHODS - 3 WAYS:
+
+1. ClassName.methodName()  (Recommended)
+2. objectName.methodName()
+3. Direct method name (in same class)
+
+3) STATIC BLOCK
+
+• Group of statements executed when class is loaded
+• Executed before the main method
+• Used to initialize static variables
+• Executes only once during class loading
+• Cannot access non-static variables directly
+• Widely used to create static resources
+
+RESTRICTIONS:
+
+1. Cannot use non-static data members directly
+2. Cannot call non-static methods directly
+3. this and super cannot be used in static context
+
+WHY IS MAIN METHOD STATIC?
+
+The JVM calls main() without creating an object. If main() were non-static, the JVM would need to create an object first, leading to extra memory allocation and inefficiency.
+`,
+              codeExamples: [
+                `// Example 1: Static Method Access
+public class StaticDemo {
+    static int a = 10;
+    
+    public static void main(String[] args) {
+        // Access by class name (Recommended)
+        System.out.println("Using class name: " + StaticDemo.a);  // 10
+        
+        // Access by object name
+        StaticDemo obj = new StaticDemo();
+        System.out.println("Using object name: " + obj.a);  // 10
+        
+        // Direct access (same class only)
+        System.out.println("Direct way: " + a);  // 10
+    }
+}`,
+                `// Example 2: Non-static Calling Static
+public class StaticDemo {
+    void nonStaticMethod() {  // Non-static
+        System.out.println("This is non-static method");
+        staticMethod();  // Can call static from non-static
+    }
+    
+    static void staticMethod() {  // Static
+        System.out.println("This is static method");
+        // nonStaticMethod();  // ERROR: Cannot call non-static from static
+    }
+    
+    public static void main(String[] args) {
+        StaticDemo obj = new StaticDemo();
+        obj.nonStaticMethod();
+    }
+}
+
+OUTPUT:
+This is non-static method
+This is static method`,
+                `// Example 3: Static Block
+public class StaticBlockExample {
+    static int count = 0;
+    
+    static {  // Static Block 1
+        System.out.println("Static Block 1");
+        count = 10;
+    }
+    
+    static {  // Static Block 2
+        System.out.println("Static Block 2");
+        count = 20;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Main Method");
+        System.out.println("Count: " + count);
+    }
+}
+
+OUTPUT:
+Static Block 1
+Static Block 2
+Main Method
+Count: 20`
+              ]
+            }],
+            expert: [{
+              content: `
+STATIC VS NON-STATIC: DETAILED COMPARISON
+
+Static Members:
+• Single copy shared by all objects
+• Accessed using class name
+• Loaded at class loading time
+• Memory allocated in Metaspace
+• Cannot be overridden (can be hidden)
+
+Non-Static Members:
+• Separate copy for each object
+• Accessed using object reference
+• Loaded at object creation time
+• Memory allocated in Heap
+• Can be overridden
+
+MEMORY ALLOCATION EXAMPLE:
+
+Consider: int a = 5 (non-static) and static int b = 5
+
+Object 1: Creates separate memory for 'a'
+Object 2: Creates separate memory for 'a'
+Object 3: Creates separate memory for 'a'
+All Objects: Share same memory location for 'b'
+
+Result: After incrementing b three times, b = 8 (single shared value)
+Result: Each object's 'a' increments independently (separate copies)
+
+WHY CALLED "SINGLE COPY STORAGE"?
+
+Because:
+• Static members are loaded into memory only once at class loading time
+• Non-static members are loaded into memory every time an object is created
+• Only one copy of static members exists for all objects
+• This saves memory in Java programs
+
+STATIC INNER CLASSES:
+
+• Allowed in Java
+• Can be instantiated without an instance of outer class
+• Cannot access non-static members of outer class
+• Can access static members of outer class
+
+ADVANCED CONCEPTS:
+
+Static Import:
+• Allows direct access to static members without class name
+• Syntax: import static package.class.staticMember
+
+Static Initializer Order:
+1. All static blocks execute during class loading (top to bottom)
+2. Main method executes after class loading
+3. Instance initializers execute during object creation
+4. Constructors execute last during object creation
+
+PERFORMANCE CONSIDERATIONS:
+
+• Use static for utility methods (no object needed)
+• Use static for constants (single memory location)
+• Use static for shared counters/tracking
+• Avoid static for data that varies per object
+• Static method calls are slightly faster (no virtual dispatch)
+
+COMMON INTERVIEW QUESTIONS:
+
+Q: Can static methods be overridden?
+A: No, they cannot be overridden. They can only be hidden by defining a method with the same signature in subclass.
+
+Q: Can we access instance variables from static method?
+A: No, we cannot directly access instance variables from static methods.
+
+Q: Why is the main method static?
+A: So JVM can call it without creating an object, avoiding unnecessary memory allocation.
+
+Q: Can constructor be static?
+A: No, constructors cannot be static.
+
+Q: What is a static block used for?
+A: To initialize static variables when class is loaded.
+`,
+              codeExamples: [
+                `// Example 1: Understanding Static Copy Storage
+public class CopyStorageDemo {
+    int nonStaticVar = 5;      // Non-static
+    static int staticVar = 5;  // Static
+    
+    public static void main(String[] args) {
+        CopyStorageDemo obj1 = new CopyStorageDemo();
+        System.out.println("Object 1 - NonStatic: " + obj1.nonStaticVar++);  // 5
+        System.out.println("Object 1 - Static: " + CopyStorageDemo.staticVar++);  // 5
+        
+        CopyStorageDemo obj2 = new CopyStorageDemo();
+        System.out.println("Object 2 - NonStatic: " + obj2.nonStaticVar++);  // 5 (new copy)
+        System.out.println("Object 2 - Static: " + CopyStorageDemo.staticVar++);  // 6 (shared)
+        
+        CopyStorageDemo obj3 = new CopyStorageDemo();
+        System.out.println("Object 3 - NonStatic: " + obj3.nonStaticVar++);  // 5 (new copy)
+        System.out.println("Object 3 - Static: " + CopyStorageDemo.staticVar++);  // 7 (shared)
+    }
+}
+
+OUTPUT:
+Object 1 - NonStatic: 5
+Object 1 - Static: 5
+Object 2 - NonStatic: 5
+Object 2 - Static: 6
+Object 3 - NonStatic: 5
+Object 3 - Static: 7`,
+                `// Example 2: Static Inner Class
+public class OuterClass {
+    static int staticVar = 10;
+    int nonStaticVar = 20;
+    
+    static class StaticInnerClass {
+        void display() {
+            System.out.println("Static Var from inner: " + staticVar);  // OK
+            // System.out.println(nonStaticVar);  // ERROR
+        }
+    }
+    
+    public static void main(String[] args) {
+        // Can create static inner class without outer object
+        OuterClass.StaticInnerClass inner = new OuterClass.StaticInnerClass();
+        inner.display();
+    }
+}`,
+                `// Example 3: Static Block Execution Order
+public class ExecutionOrder {
+    static int a;
+    
+    static {
+        System.out.println("Static Block 1");
+        a = 10;
+    }
+    
+    static {
+        System.out.println("Static Block 2");
+        a = 20;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Main Method");
+        System.out.println("Value of a: " + a);
+    }
+}
+
+OUTPUT:
+Static Block 1
+Static Block 2
+Main Method
+Value of a: 20`
+              ]
+            }]
+          },
 
         ]
       },
