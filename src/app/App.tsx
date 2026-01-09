@@ -42,6 +42,15 @@ const currentTopicIndex = topicsList.findIndex(
   t => t.id === selectedTopicId
 );
 
+const prevTopicName =
+  currentTopicIndex > 0 ? topicsList[currentTopicIndex - 1].name : undefined;
+
+const nextTopicName =
+  currentTopicIndex < topicsList.length - 1
+    ? topicsList[currentTopicIndex + 1].name
+    : undefined;
+
+
 
   // Text-to-speech functionality with voice selection
   const toggleSpeech = () => {
@@ -276,6 +285,10 @@ const handleNextTopic = () => {
   onNextTopic={handleNextTopic}
   hasPrev={currentTopicIndex > 0}
   hasNext={currentTopicIndex < topicsList.length - 1}
+  prevTopicName={prevTopicName}
+  nextTopicName={nextTopicName}
+
+
           />
         )}
         

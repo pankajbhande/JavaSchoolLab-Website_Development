@@ -11,10 +11,12 @@ interface ContentAreaProps {
   onDifficultyChange: (difficulty: 'beginner' | 'intermediate' | 'expert') => void;
   contentRef: React.RefObject<HTMLDivElement>;
 
-   onPrevTopic: () => void;
+  onPrevTopic: () => void;
   onNextTopic: () => void;
   hasPrev: boolean;
   hasNext: boolean;
+  prevTopicName?: string;
+  nextTopicName?: string;
 }
 
 const handleAction = (code: string) => {
@@ -32,6 +34,8 @@ export function ContentArea({
 
    onPrevTopic,
   onNextTopic,
+  nextTopicName,
+  prevTopicName,
   hasPrev,
   hasNext
 }: ContentAreaProps) {
@@ -321,32 +325,43 @@ export function ContentArea({
         />
       )}
 
-      {/* Previous / Next Navigation */}
-<div className="flex justify-between items-center mt-12 border-t pt-6">
+     {/* Previous / Next Topic Navigation */}
+<div className="mt-12 flex justify-between items-center border-t pt-4 gap-4 p-2">
+
+  {/* Previous */}
   <button
     onClick={onPrevTopic}
     disabled={!hasPrev}
-    className={`px-6 py-2 rounded-lg font-semibold transition
+    className={`stext-center px-6 py-4 rounded-xl transition
       ${hasPrev
-        ? 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
-        : 'bg-gray-100 dark:bg-gray-800 opacity-50 cursor-not-allowed'}
+        ? 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
+        : 'opacity-40 cursor-not-allowed bg-gray-100 dark:bg-gray-800'}
     `}
   >
-    ⬅ Previous
+    <p className="text-sm text-gray-500 ">⬅ Previous</p>
+    <p className="font-semibold text-gray-800 dark:text-gray-200 ">
+      {prevTopicName || '—'}
+    </p>
   </button>
 
+  {/* Next */}
   <button
     onClick={onNextTopic}
     disabled={!hasNext}
-    className={`px-6 py-2 rounded-lg font-semibold transition
+    className={`text-center px-6 py-4 rounded-xl transition
       ${hasNext
-        ? 'bg-orange-600 text-white hover:bg-orange-500'
-        : 'bg-orange-300 text-white opacity-50 cursor-not-allowed'}
+        ? 'bg-orange-500 text-white hover:bg-orange-500'
+        : 'opacity-40 cursor-not-allowed bg-orange-300'}
     `}
   >
-    Next ➡
+    <p className="text-sm opacity-90">Next ➡</p>
+    <p className="font-semibold">
+      {nextTopicName || '—'}
+    </p>
   </button>
+
 </div>
+
 
     </main>
   );
