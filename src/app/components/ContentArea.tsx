@@ -213,7 +213,7 @@ export function ContentArea({
                     if (paragraph.startsWith('•')) {
                       const items = paragraph.split('\n').filter(item => item.trim());
                       return (
-                        <ul key={index} className="list-disc list-inside space-y-2 my-4">
+                        <ul key={index} className="list-disc list-inside space-y-2 my-2">
                           {items.map((item, idx2) => (
                             <li key={idx2} className="text-gray-700 dark:text-gray-300">
                               {item.replace('•', '').trim()}

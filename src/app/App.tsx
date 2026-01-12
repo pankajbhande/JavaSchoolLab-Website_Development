@@ -22,33 +22,33 @@ function AppContent() {
   const speechSynthesisRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   // Get selected course, subtopic, and topic
-  const selectedCourse = selectedCourseId 
-    ? coursesData.find(c => c.id === selectedCourseId) || null 
+  const selectedCourse = selectedCourseId
+    ? coursesData.find(c => c.id === selectedCourseId) || null
     : null;
-    
+
   const selectedSubTopic = selectedCourse && selectedSubTopicId
     ? selectedCourse.subTopics.find(st => st.id === selectedSubTopicId) || null
     : null;
-    
+
   const selectedTopic = selectedSubTopic && selectedTopicId
     ? selectedSubTopic.topics.find(t => t.id === selectedTopicId) || null
     : null;
 
-    // All topics of selected subtopic
-const topicsList = selectedSubTopic ? selectedSubTopic.topics : [];
+  // All topics of selected subtopic
+  const topicsList = selectedSubTopic ? selectedSubTopic.topics : [];
 
-// Current topic index
-const currentTopicIndex = topicsList.findIndex(
-  t => t.id === selectedTopicId
-);
+  // Current topic index
+  const currentTopicIndex = topicsList.findIndex(
+    t => t.id === selectedTopicId
+  );
 
-const prevTopicName =
-  currentTopicIndex > 0 ? topicsList[currentTopicIndex - 1].name : undefined;
+  const prevTopicName =
+    currentTopicIndex > 0 ? topicsList[currentTopicIndex - 1].name : undefined;
 
-const nextTopicName =
-  currentTopicIndex < topicsList.length - 1
-    ? topicsList[currentTopicIndex + 1].name
-    : undefined;
+  const nextTopicName =
+    currentTopicIndex < topicsList.length - 1
+      ? topicsList[currentTopicIndex + 1].name
+      : undefined;
 
 
 
@@ -63,24 +63,24 @@ const nextTopicName =
     } else {
       // Start speaking
       const textContent = contentRef.current.innerText;
-      
+
       if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(textContent);
         utterance.rate = 0.9;
         utterance.pitch = 1;
         utterance.volume = 1;
-        
+
         // Try to select Indian voice
         const voices = window.speechSynthesis.getVoices();
         const indianVoice = voices.find(voice => {
           const voiceName = voice.name.toLowerCase();
           const isIndian = voiceName.includes('indian') || voiceName.includes('hindi') || voiceName.includes('en-in');
-          const matchesGender = voiceGender === 'female' 
+          const matchesGender = voiceGender === 'female'
             ? voiceName.includes('female') || voiceName.includes('woman') || !voiceName.includes('male')
             : voiceName.includes('male') || voiceName.includes('man');
           return isIndian && matchesGender;
         });
-        
+
         if (indianVoice) {
           utterance.voice = indianVoice;
         } else {
@@ -95,15 +95,15 @@ const nextTopicName =
             utterance.voice = genderVoice;
           }
         }
-        
+
         utterance.onend = () => {
           setIsSpeaking(false);
         };
-        
+
         utterance.onerror = () => {
           setIsSpeaking(false);
         };
-        
+
         speechSynthesisRef.current = utterance;
         window.speechSynthesis.speak(utterance);
         setIsSpeaking(true);
@@ -163,48 +163,48 @@ const nextTopicName =
   // };
 
   const handleTopicSelect = (topicId: string) => {
-  // Find parent course and subtopic
-  let parentCourseId: string | null = null;
-  let parentSubTopicId: string | null = null;
+    // Find parent course and subtopic
+    let parentCourseId: string | null = null;
+    let parentSubTopicId: string | null = null;
 
-  for (const course of coursesData) {
-    for (const subTopic of course.subTopics) {
-      if (subTopic.topics.some(topic => topic.id === topicId)) {
-        parentCourseId = course.id;
-        parentSubTopicId = subTopic.id;
-        break;
+    for (const course of coursesData) {
+      for (const subTopic of course.subTopics) {
+        if (subTopic.topics.some(topic => topic.id === topicId)) {
+          parentCourseId = course.id;
+          parentSubTopicId = subTopic.id;
+          break;
+        }
       }
+      if (parentCourseId) break;
     }
-    if (parentCourseId) break;
-  }
 
-  if (parentCourseId) setSelectedCourseId(parentCourseId);
-  if (parentSubTopicId) setSelectedSubTopicId(parentSubTopicId);
-  
-  setSelectedTopicId(topicId);
-  setDifficulty('beginner');
+    if (parentCourseId) setSelectedCourseId(parentCourseId);
+    if (parentSubTopicId) setSelectedSubTopicId(parentSubTopicId);
 
-  // Smooth scroll to top
-  setTimeout(() => {
-    if (contentRef.current) {
-      contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setSelectedTopicId(topicId);
+    setDifficulty('beginner');
+
+    // Smooth scroll to top
+    setTimeout(() => {
+      if (contentRef.current) {
+        contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
+
+  const handlePrevTopic = () => {
+    if (currentTopicIndex > 0) {
+      const prevTopic = topicsList[currentTopicIndex - 1];
+      handleTopicSelect(prevTopic.id);
     }
-  }, 100);
-};
+  };
 
-const handlePrevTopic = () => {
-  if (currentTopicIndex > 0) {
-    const prevTopic = topicsList[currentTopicIndex - 1];
-    handleTopicSelect(prevTopic.id);
-  }
-};
-
-const handleNextTopic = () => {
-  if (currentTopicIndex < topicsList.length - 1) {
-    const nextTopic = topicsList[currentTopicIndex + 1];
-    handleTopicSelect(nextTopic.id);
-  }
-};
+  const handleNextTopic = () => {
+    if (currentTopicIndex < topicsList.length - 1) {
+      const nextTopic = topicsList[currentTopicIndex + 1];
+      handleTopicSelect(nextTopic.id);
+    }
+  };
 
 
   const handleDifficultyChange = (newDifficulty: 'beginner' | 'intermediate' | 'expert') => {
@@ -224,38 +224,38 @@ const handleNextTopic = () => {
   // Filter courses based on search query
   const filteredCourses = searchQuery
     ? coursesData.filter(course =>
-        course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        course.subTopics.some(subTopic =>
-          subTopic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          subTopic.topics.some(topic =>
-            topic.name.toLowerCase().includes(searchQuery.toLowerCase())
-          )
+      course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.subTopics.some(subTopic =>
+        subTopic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        subTopic.topics.some(topic =>
+          topic.name.toLowerCase().includes(searchQuery.toLowerCase())
         )
       )
+    )
     : coursesData;
 
   const showDashboard = !selectedCourseId;
 
-  
+
 
   return (
     <div className="h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
-      <Header 
-        onToggleSpeech={toggleSpeech} 
-        isSpeaking={isSpeaking} 
+      <Header
+        onToggleSpeech={toggleSpeech}
+        isSpeaking={isSpeaking}
         onSearch={handleSearch}
         voiceGender={voiceGender}
         onVoiceChange={setVoiceGender}
       />
-      
+
       {!showDashboard && (
-        <TopicsBar 
+        <TopicsBar
           courses={filteredCourses}
           onCourseSelect={handleCourseSelect}
           selectedCourseId={selectedCourseId}
         />
       )}
-      
+
       <div className="flex flex-1 overflow-hidden">
         {!showDashboard && (
           <Sidebar
@@ -271,7 +271,7 @@ const handleNextTopic = () => {
             onToggleMinimize={() => setLeftSidebarMinimized(!leftSidebarMinimized)}
           />
         )}
-        
+
         {showDashboard ? (
           <Dashboard onCourseSelect={handleCourseSelect} />
         ) : (
@@ -282,18 +282,18 @@ const handleNextTopic = () => {
             onDifficultyChange={handleDifficultyChange}
             contentRef={contentRef}
             onPrevTopic={handlePrevTopic}
-  onNextTopic={handleNextTopic}
-  hasPrev={currentTopicIndex > 0}
-  hasNext={currentTopicIndex < topicsList.length - 1}
-  prevTopicName={prevTopicName}
-  nextTopicName={nextTopicName}
+            onNextTopic={handleNextTopic}
+            hasPrev={currentTopicIndex > 0}
+            hasNext={currentTopicIndex < topicsList.length - 1}
+            prevTopicName={prevTopicName}
+            nextTopicName={nextTopicName}
 
 
           />
         )}
-        
+
         {!showDashboard && (
-          <RightSidebar 
+          <RightSidebar
             course={selectedCourse}
             isMinimized={rightSidebarMinimized}
             onToggleMinimize={() => setRightSidebarMinimized(!rightSidebarMinimized)}

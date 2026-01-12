@@ -668,7 +668,7 @@ If statement is true then if block is executed.
               public static void main(String[] args) {   // Main Method   
                int a = 10;      // Initialize Value   
                 if (a < 50) {  // 10<50 => True  // Condition    
-                   System.out.println("a is Smaller."); // OUTPUT: a is Greater   
+                   System.out.println("a is Smaller");  
                   }            
                 } 
               }`
@@ -725,7 +725,8 @@ The if-else-if ladder statement executes one condition from multiple statements.
                            else { <br>
                               statement 1 ;  // executed if all condition false <br>
                             }  <br>
-                       }; 
+                       }
+            }; 
                 </div>
                 <h2>Flowchart of IF-ELSE-IF LADDER</h2><br>
                  <img src="/src/assets/ifelseladder.png" alt="Online Image"class="d-block mx-auto h-90"/>
@@ -746,7 +747,8 @@ The if-else-if ladder statement executes one condition from multiple statements.
                            }else {      
                               System.out.println("incorrect input");   
                            }  
-                        }`
+                        }
+}`
               ]
             },
 
@@ -821,8 +823,8 @@ if (age >= 18) {     // Outer Condition
               codeExamples: [
                 `public class Code_With_Pankaj {    // Main Class: Code_With_Pankaj  
 public static void main(String[] args) {   // Main Method   
-int number = 2;     // Initialize Value   switch (number)
-{     // switch(expression) 
+int number = 2;     // Initialize Value   
+switch (number)  {    // switch(expression) 
 //----------------------------------------------------------------------------------------------------   
 case 1:     System.out.println("this is 1 number"); // Statement   
             break;      // break 
@@ -838,10 +840,6 @@ default:    System.out.println("Invalid input"); // Statement
       } 
     } 
   } `,
-
-                `
-    
-    `
               ]
             },
             ],
@@ -1358,11 +1356,7 @@ public class Student {
         st3.display();
     }
 }
-
-OUTPUT:
-ID: 1, Name: Omkar, Course: Code_With_Pankaj
-ID: 2, Name: Dheeraj, Course: Code_With_Pankaj
-ID: 3, Name: Shree, Course: Code_With_Pankaj`
+`
               ]
             }],
             intermediate: [{
@@ -1457,9 +1451,7 @@ public class StaticDemo {
     }
 }
 
-OUTPUT:
-This is non-static method
-This is static method`,
+`,
                 `// Example 3: Static Block
 public class StaticBlockExample {
     static int count = 0;
@@ -1479,12 +1471,7 @@ public class StaticBlockExample {
         System.out.println("Count: " + count);
     }
 }
-
-OUTPUT:
-Static Block 1
-Static Block 2
-Main Method
-Count: 20`
+`
               ]
             }],
             expert: [{
@@ -1830,11 +1817,11 @@ public class Computer {
           },
 
           {
-            id: `Encapsulation`,
-            name: `Encapsulation`,
-            beginner:[
+            id: `Encapsulation in Java`,
+            name: `Encapsulation in Java`,
+            beginner: [
               {
-                content:`• Encapsulation in Java is a core Object-Oriented Programming (OOP) concept where the data (variables) and the code (methods) that operate on that data are bundled together as a single unit, which is typically a class. <br>
+                content: `• Encapsulation in Java is a core Object-Oriented Programming (OOP) concept where the data (variables) and the code (methods) that operate on that data are bundled together as a single unit, which is typically a class. <br>
                 • This mechanism is also known as data hiding because it restricts direct access to the class's internal state. <br>
                 • The main idea is to hide the internal implementation details from the outside world and provide controlled access through well-defined public methods (getters and setters). <br><br>
                 
@@ -1846,36 +1833,59 @@ To implement encapsulation, you follow these steps: <br>
 4. Setter methods (setXXX()) are used to modify the values of the variables and can include validation logic to ensure data integrity. <br>
                 
                 `,
-                codeExamples:[
-                  `public class Person {
-    // 1. Private variables (data hiding)
-    private String name;
-    private int age;
-
-    // 2. Public getter method for name
-    public String getName() {
-        return name;
-    }
-
-    // 2. Public setter method for name
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    // 2. Public getter method for age
-    public int getAge() {
-        return age;
-    }
-
-    // 2. Public setter method for age with validation
-    public void setAge(int age) {
-        if (age >= 0 && age <= 120) { // Validation logic
-            this.age = age;
-        } else {
-            System.out.println("Invalid age provided.");
-        }
-    }
+                codeExamples: [
+                  `package com.code_with_pankaj;
+public class Person {
+//------------------------------------------------------
+// Private variables
+private String name;
+private int age;
+//------------------------------------------------------
+// Public getter method for name
+public String getName() {
+return name;
 }
+// Public setter method for name
+public void setName(String name) {
+this.name = name;
+}
+// Public getter method for age
+public int getAge() {
+return age;
+}
+// Public setter method for age
+public void setAge(int age) {
+if (age > 0) { // Simple validation
+this.age = age;
+} else {
+System.out.println("Age must be positive");
+}
+}
+//------------------------------------------------------
+// Method to display information
+public void displayInfo() {
+System.out.println("Name: " + name);
+System.out.println("Age: " + age);
+}
+//------------------------------------------------------
+}
+package com.code_with_pankaj;
+public class Main {
+public static void main(String[] args) {
+// Creating an object of Person class
+Person person = new Person();
+// Using setter methods to set values
+person.setName("Pankaj");
+person.setAge(100);
+// Using getter methods to access values
+System.out.println("Person's Name: " + person.getName());
+System.out.println("Person's Age: " + person.getAge());
+// Display information using displayInfo method
+person.displayInfo();
+}
+}
+
+   
 `
                 ]
               }
@@ -1910,8 +1920,8 @@ object, ensuring data integrity.<br>
  • Why: This allows controlled access to the internal state of the object. You can add logic to these
 methods to validate data before it is changed.<br>
 </div>`,
-codeExamples:[
-  `package com.code_with_pankaj;
+                codeExamples: [
+                  `package com.code_with_pankaj;
 public class Person {
 //------------------------------------------------------
 // Private variables
@@ -1960,12 +1970,12 @@ System.out.println("Person's Age: " + person.getAge());
 person.displayInfo();
 }
 }`
-]
+                ]
               }
             ],
-            expert:[
+            expert: [
               {
-                content:`Generally, variables of a class are declared as “private” whereas, methods of class are declared as “public”. <br>
+                content: `Generally, variables of a class are declared as “private” whereas, methods of class are declared as “public”. <br>
 This means that variables cannot be accessed from outside the class but methods can be accessed from anywhere outside the class.<br>
 • To use variables from outside, we will have to take the help of methods. <br>
 • Thus, encapsulation protects data of a class from members of another class.<br><br>
@@ -1992,8 +2002,8 @@ In this example, case 1, we are passing the 5000 salary to the employee that is 
 So salary cannot be negative.<br>
 <br>
 `,
-codeExamples:[
-  `//How we are going to achieve this by using Encapsulation:
+                codeExamples: [
+                  `//How we are going to achieve this by using Encapsulation:
 public class Employee { // Main Class: Employee
 private int salary;
 public void setSalary(int sal) {
@@ -2007,14 +2017,14 @@ public int getSalary() {
 return salary;
 }
 }`
-]
+                ]
               },
               {
-                content:`In this example, we are checking the whether the salary is greater than zero. Because salary cannot
+                content: `In this example, we are checking the whether the salary is greater than zero. Because salary cannot
 be negative so in this way, we are going to achieve the encapsulation.<br>
 <h4>Note-</h4> Always keeps global variables private & allows others to assign values through public
 methods.`,
-codeExamples:[`
+                codeExamples: [`
 //Program for Encapsulation Using Hard Coded Values
 package com.encapsulation;
 public class EncapsulationTest { // Main Class: EncapsulationTest
@@ -2024,7 +2034,7 @@ employee.setSalary(5000); // Hard Coded Value Pass
 System.out.println("salary>>"+employee.getSalary());
 }
 }
-  `,`Program for Encapsulation Using Dynamic values
+  `, `Program for Encapsulation Using Dynamic values
 package com.encapsulation;
 public class Employee { // Main Class: Employee
 //------------------------------------------------------
@@ -2053,7 +2063,7 @@ public void setEmployeeCity(String employeeCity) {
 this.employeeCity = employeeCity;
 }
 //------------------------------------------------------
-}`,`package com.encapsulation;
+}`, `package com.encapsulation;
 import java.util.Scanner;
 public class TestMain { // Main Class: TestMain
 public static void getUserInput() { // Method getUserInput
@@ -2080,7 +2090,7 @@ getUserInput(); // static = Call Data Using getUserInput Method
 }`]
               },
               {
-                content:`Through encapsulation, data is hidden and protected from access by outside non-member methods
+                content: `Through encapsulation, data is hidden and protected from access by outside non-member methods
 of a class. <br>Only member methods defined in a class will have access to the data.<br>
 A Java class is an example of encapsulation because class binds variables and methods together.<br>
 Generally, variables of a class are declared as “private” whereas, methods of class are declared as
@@ -2163,11 +2173,46 @@ and provides a global point of access to it, encapsulating the instance creation
             ]
           },
           {
-            id:`inheritance`,
-            name:`Inheritance`,
-            intermediate:[
+            id: `inheritance in Java`,
+            name: `Inheritance in Java`,
+             beginner:[
               {
-                content:`• The process of creating the new class by using the existing class functionality called as
+                content:`In Java, it is possible to inherit attributes and methods from one class to another. <br>
+                We group the "inheritance concept" into two categories:<br>
+
+> subclass (child) - the class that inherits from another class<br>
+> superclass (parent) - the class being inherited from<br><br>
+To inherit from a class, use the extends keyword.<br><br>
+
+In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):`,
+codeExamples:[
+  `class Vehicle {
+  protected String brand = "Ford";        // Vehicle attribute
+  public void honk() {                    // Vehicle method
+    System.out.println("Tuut, tuut!");
+  }
+}
+
+class Car extends Vehicle {
+  private String modelName = "Mustang";    // Car attribute
+  public static void main(String[] args) {
+
+    // Create a myCar object
+    Car myCar = new Car();
+
+    // Call the honk() method (from the Vehicle class) on the myCar object
+    myCar.honk();
+
+    // Display the value of the brand attribute (from the Vehicle class) and the value of the modelName from the Car class
+    System.out.println(myCar.brand + " " + myCar.modelName);
+  }
+}`
+]
+              }
+            ],
+            intermediate: [
+              {
+                content: `• The process of creating the new class by using the existing class functionality called as
 Inheritance.<br>
 • It is a mechanism in which one class acquires the property of another class.<br>
 • Inheritance means simply reusability.<br>
@@ -2181,8 +2226,8 @@ class TermPolicy extends Policy { // TermPolicy = Sub Class wher TermPolicy is P
 }<br>
 </div>
 `,
-codeExamples:[
-  `package com.code_with_pankaj;
+                codeExamples: [
+                  `package com.code_with_pankaj;
 //Superclass
 public class Animal {
 public void eat() {
@@ -2207,9 +2252,9 @@ myDog.eat(); // Calls overridden method in Dog class
 myDog.bark(); // Calls method in Dog class
 }
 }`
-]
-              },{
-                content:`<h4>Note-</h4>
+                ]
+              }, {
+                content: `<h4>Note-</h4>
 All the parent members are derived into child class but they are depending upon the below 2 condition as <br>
 • To check the access specifiers.<br>
 • Members does not exist into sub class.<br><br>
@@ -2236,7 +2281,13 @@ as sub class. Because reason is that super class members automatically inherited
 features such as variables and method, etc.<br>
 4. We cannot extend the final class.<br><br>
 
-<h3>When to use?</h3>
+`},
+              
+            ],
+            expert:[
+              {
+                content:`
+                <h3>When to use?</h3>
 If we want to extends or increase of features of class then go for inheritance.<br>
 <div class="bg-secondary border border-primary p-2">
 <h4>Advantages</h4>
@@ -2273,9 +2324,8 @@ String email;<br>
 <h4>Note:</h4> We cannot assign parent class to child class- it means<br>
 Child c=new Parent(); => Here we can’t write new Parent();`
               },
-          
               {
-                content:`All the members of super class will be directly inherited into sub class and they are eligible and depends
+                content: `All the members of super class will be directly inherited into sub class and they are eligible and depends
 on access specifiers only. <br>
 <h3>Dynamic Dispatch</h3>
 The process of assigning the child class reference to parent class called as “Dynamic dispatch.”<br>
@@ -2330,8 +2380,8 @@ System.out.println("Class Y- m3() method");<br>
 
 </div>
 
-`,codeExamples:[
-  `package com.code_with_pankaj;
+`, codeExamples: [
+                  `package com.code_with_pankaj;
 public class Test { // Main Class: Test
 public static void main(String[] args) { // Main Method
 // Scenario 1
@@ -2385,10 +2435,10 @@ y.m3(); // Class Y- m3() method
 }
 }
   `
-]
+                ]
               },
               {
-                content:`
+                content: `
                 <div class="bg-blue-100 border border-primary p-2">
 package com.code_with_pankaj;<br>
 public class Parent {<br>
@@ -2417,8 +2467,8 @@ System.out.println("Omkar From Child Class");<br>
 }<br>
 </div>
 `,
-codeExamples:[
-  `package com.code_with_pankaj;
+                codeExamples: [
+                  `package com.code_with_pankaj;
 public class Test {
 public static void main(String[] args) {
 System.out.println("// +++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -2480,8 +2530,1280 @@ System.out.println("Scenario: 06 ==>> Not Allowed in Java");
 // We can't assign Parent class to child class
 }
 } `
+                ]
+              }
+
+            ]
+          },
+          {
+            id: `Inheritance Types`,
+            name: `Inheritance Types`,
+            intermediate: [
+              {
+                content: `<h3>1. Single inheritance</h3>
+                 In this only one super class and only one sub class called as single.<br>
+                `,
+                codeExamples: [
+                  `package com.code_with_pankaj;
+public class Insurance { // Super Class ( Parent )
+void getInsuranceDetails() {
+System.out.println("this is insurance details..");
+}
+}
+public class HealthInsurance extends Insurance { // Sub Class (Child)
+void getHealthInsuranceDetails() {
+System.out.println("this is health insurance details.");
+}
+}
+public class Test {
+public static void main(String[] args) {
+HealthInsurance hi = new HealthInsurance(); // Create Object
+hi.getInsuranceDetails(); // this is insurance details..
+hi.getHealthInsuranceDetails(); // this is health insurance details
+}
+}`,
+                  `
+class Animal {
+void eat() {
+System.out.println("eating...");
+}
+}
+class Dog extends Animal {
+void bark() {
+System.out.println("barking...");
+}
+}
+class Test {
+public static void main(String args[]) {
+Dog obj = new Dog();
+obj.bark();
+obj.eat();
+}
+}
+`
+                ]
+              }, {
+                content: `<h3>2. Multilevel Inheritance</h3>
+                It has only one base class and multiple derived class called as multilevel.<br>
+Or
+It refers to the concept of one class extending (Or inherits) more than one base class.<br>
+                `,
+
+                codeExamples: [
+                  `package com.code_with_pankaj;
+public class Account {
+void getAccountDetails() {
+System.out.println("This is account details..");
+}
+}
+
+public class CurrentAccount extends Account {
+void getCurrentAccountDetails() {
+System.out.println("This is current account details");
+}
+}
+
+
+public class SavingAccount extends CurrentAccount {
+void getSavingAccountDetails() {
+System.out.println("This is saving account details");
+}
+}
+public class Test {
+public static void main(String[] args) {
+SavingAccount savingAccount = new SavingAccount();
+savingAccount.getAccountDetails();
+savingAccount.getCurrentAccountDetails();
+savingAccount.getSavingAccountDetails();
+}
+}
+                  `,
+                  `package com.code_with_pankaj;
+class Animal {
+void eat() {
+System.out.println("eating...");
+}
+}
+
+class Dog extends Animal {
+void bark() {
+System.out.println("barking...");
+}
+}
+class BabyDog extends Dog {
+void weep() {
+System.out.println("weeping...");
+}
+}
+class Test {
+public static void main(String args[]) {
+BabyDog d = new BabyDog();
+d.weep();
+d.bark();
+d.eat();
+}
+}`
+                ]
+              },
+              {
+                content: `<h3>3. Hierarchical Inheritance</h3>
+                Define: One Parent Class is inherited by many sub classes.<br>
+
+                `, codeExamples: [
+                  `package com.code_with_pankaj;
+public class Loan {
+void getLoanDetails() {
+System.out.println("this is loan details");
+}
+}
+public class HomeLoan extends Loan {
+void getHomeLoanDetails() {
+System.out.println("this is home loan details..");
+}
+}
+public class PersonalLoan extends Loan {
+void getPersonalLoanDetails() {
+System.out.println("this is personal loan details");
+}
+}
+public class CarLoan extends Loan {
+void getCarLoanDetails() {
+System.out.println("this is car loan details.");
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+HomeLoan homeLoan = new HomeLoan();
+CarLoan carLoan = new CarLoan();
+PersonalLoan personalLoan = new PersonalLoan();
+homeLoan.getHomeLoanDetails();
+carLoan.getCarLoanDetails();
+personalLoan.getPersonalLoanDetails();
+}
+}`,
+                  `package com.code_with_pankaj;
+class Animal {
+void eat() {
+System.out.println("eating...");
+}
+}
+class Dog extends Animal {
+void bark() {
+System.out.println("barking...");
+}
+}
+
+class Cat extends Animal {
+void meow() {
+System.out.println("meowing...");
+}
+}
+
+class Test{
+public static void main(String args[]) {
+Cat c = new Cat();
+c.meow();
+c.eat();
+// c.bark();
+                }
+                }
+
+`
+                ]
+              },
+              {
+                content: `<h3>4. Multiple Inheritance</h3>
+                One Sub class has many super classes called as multiple inheritance.<br>
+Why multiple inheritance not supported in java in case of classes?<br>
+Class base has test () method and class derived has also test () method. Class test extends Base, Derived,<br>
+which test method. It will called, so it create the ambiguity so that’s why multiple inheritance does not<br>
+supports in java.
+                `,
+                codeExamples: [
+                  `package com.multiple. code_with_pankaj;
+public class A {
+void m1() {
+}
+}
+
+public class B {
+void m1() {
+}
+}
+
+class C extends A,B {
+
+public static void main(String[] args) {
+C c= new C();
+c.m1();
+}
+}
+                  `
+                ]
+              }, {
+                content: `<h4>Note :- it will get the compile time error.</h4>`,
+                codeExamples: [
+                  `package com. code_with_pankaj;
+class A {
+void msg() {
+System.out.println("Hello");
+}
+}
+class B {
+void msg() {
+System.out.println("Welcome");
+}
+}
+
+
+class C extends A,B{//suppose if it were
+public static void main(String args[]) {
+C obj = new C();
+obj.msg();// Now which msg() method would be invoked?
+}
+}`
+                ]
+              },
+              {
+                content: `<h3>5. Hybrid Inheritance</h3>
+It is the combination of single and multiple inheritance. So it is not allowed in java.<br>
+
+<h4>Aggregation (Has Relationship)</h4>
+If class has entity reference, it is known as Aggregation. It represents Has-A relationship.<br>
+Consider a situation, Employee object contains many informations such as id, name, emailId etc. It
+contains one more object named address, which contains its own informations such as city, state,
+country, zipcode etc. as given below.<br>
+<div class='bg-secondary border border-primary p-2'>
+
+package com. code_with_pankaj;<br>
+class Employee {<br>
+int id;<br>
+String name;<br>
+Address address; // Address is a class<br>
+}<br>
+</div>
+In such case, Employee has an entity reference address, so relationship is Employee HAS-A address.<br><br>
+<h4>Why use Aggregation?</h4>
+o For Code Reusability.<br>
+
+Simple Example of Aggregation<br>
+<img>
+
+In this example, we have created the reference of Operation class in the Circle class<br>`,
+                codeExamples: [
+                  `package com. code_with_pankaj;
+class Operation {
+int square(int n) {
+return n * n;
+}
+}
+class Circle {
+Operation op;// aggregation
+double pi = 3.14;
+double area(int radius) {
+op = new Operation();
+int rsquare = op.square(radius);
+// code reusability (i.e. delegates the method call).
+return pi * rsquare;
+}
+public static void main(String args[]) {
+Circle c = new Circle();
+double result = c.area(5);
+System.out.println(result);
+}
+}`
+                ]
+              },
+              {
+                content: `<h4>When use Aggregation?</h4>
+o Code reuse is also best achieved by aggregation when there is no is-a relationship.<br>
+o Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of
+the objects involved; otherwise, aggregation is the best choice.<br>
+
+Understanding meaningful example of Aggregation<br>
+In this example, Employee has an object of Address, address object contains its own informations such
+as city, state, country etc. In such case relationship is Employee HAS-A address.<br>
+`, codeExamples: [
+                  `//Address.java
+public class Address {
+String city,state,country;
+public Address(String city, String state, String country) {
+this.city = city;
+this.state = state;
+this.country = country;
+}
+}
+
+//Emp.java
+public class Emp {
+int id;
+String name;
+Address address;
+public Emp(int id, String name,Address address) {
+this.id = id;
+this.name = name;
+this.address=address;
+}
+void display(){
+System.out.println(id+" "+name);
+System.out.println(address.city+" "+address.state+" "+address.country);
+}
+public static void main(String[] args) {
+Address address1=new Address("Mumbai","Maharashtra","india");
+Address address2=new Address("Udgir"," Maharashtra ","india");
+Emp e=new Emp(111,"sheru",address1);
+Emp e2=new Emp(112,"Moti",address2);
+e.display();
+e2.display();
+}
+}
+  `,
+                  `package com.code_with_pankaj;
+import java.util.Scanner;
+public class Employee {
+private int id;
+private String firstName;
+private String lastName;
+private String mobileNumber;
+private Address address;
+// Generate Getter and Setter
+public int getId() {
+return id;
+}
+public void setId(int id) {
+this.id = id;
+}
+public String getFirstName() {
+return firstName;
+}
+public void setFirstName(String firstName) {
+this.firstName = firstName;
+}
+public String getLastName() {
+return lastName;
+}
+public void setLastName(String lastName) {
+this.lastName = lastName;
+}
+public String getMobileNumber() {
+return mobileNumber;
+}
+public void setMobileNumber(String mobileNumber) {
+this.mobileNumber = mobileNumber;
+}
+public Address getAddress() {
+return address;
+}
+public void setAddress(Address address) {
+this.address = address;
+}
+}
+//Address
+public class Address {
+private String streetNo;
+private String city;
+private String state;
+private String country;
+// Generate Getter and Setter
+public String getStreetNo() {
+return streetNo;
+}
+public void setStreetNo(String streetNo) {
+this.streetNo = streetNo;
+}
+public String getCity() {
+return city;
+}
+public void setCity(String city) {
+this.city = city;
+}
+public String getState() {
+return state;
+}
+public void setState(String state) {
+this.state = state;
+}
+public String getCountry() {
+return country;
+}
+public void setCountry(String country) {
+this.country = country;
+}
+}
+//Test class
+public class Test {
+public void getUserDetails() {
+Scanner scanner = new Scanner(System.in);
+System.out.println("Enter employee id>>");
+
+int id = scanner.nextInt();
+System.out.println("Enter employee first name>>");
+String firstName = scanner.next();
+System.out.println("Enter employee last name>>");
+String lastName = scanner.next();
+System.out.println("Enter employee mobile number>>");
+String mobileNumber = scanner.next();
+System.out.println("Enter street no>>");
+String streetNo = scanner.next();
+System.out.println("Enter city>>");
+String city = scanner.next();
+System.out.println("Enter state>>");
+String state = scanner.next();
+System.out.println("Enter country>>");
+String country = scanner.next();
+// Set the value into employee object here
+Employee employee = new Employee();
+employee.setId(id);
+employee.setFirstName(firstName);
+employee.setLastName(lastName);
+employee.setMobileNumber(mobileNumber);
+// Set value into address object here
+Address address = new Address();
+address.setStreetNo(streetNo);
+address.setCity(city);
+address.setState(state);
+address.setCountry(country);
+// Set address object into employee object
+employee.setAddress(address);
+// get the value from employee object here
+System.out.println("Employee ID>>" + employee.getId());
+System.out.println("Employee First Name>>" + employee.getFirstName());
+System.out.println("Employee Last Name>>" + employee.getLastName());
+System.out.println("Employee Mobile Number>>"+employee.getMobileNumber());
+System.out.println("Employee Street No>>" + employee.getAddress().getStreetNo());
+System.out.println("Employee City>>" + employee.getAddress().getCity());
+System.out.println("Employee State>>" + employee.getAddress().getState());
+System.out.println("Employee Country>>" + employee.getAddress().getCountry());
+}
+public static void main(String[] args) { // Main Method
+Test test = new Test();
+test.getUserDetails();
+}
+}`
+                ]
+              },
+              {
+                content: `<div class='bg-secondary border border-primary p-2'>
+<h4 class='text-center'>Interview Questions</h4>
+<h4>1. What is inheritance in Java?</h4>
+o Inheritance is an object-oriented feature that allows a class to inherit properties and behaviors (fields and
+methods) from another class. The class that inherits is called the subclass (or derived class), and the class
+being inherited from is called the superclass (or base class).<br>
+<h4>2. What are the different types of inheritance in Java?</h4>
+o Java supports single inheritance (a class inherits from one superclass), multilevel inheritance (a class inherits<br>
+from a superclass, which in turn inherits from another superclass), and hierarchical inheritance (multiple
+classes inherit from a single superclass). <br>Java does not support multiple inheritance (a class inheriting from
+multiple superclasses) directly to avoid complexity and ambiguity.<br>
+<h4>3. Why is multiple inheritance not supported in Java?</h4>
+o Multiple inheritance is not supported in Java to avoid the “diamond problem,” where a class could inherit
+conflicting properties or methods from multiple superclasses.<br> Instead, Java uses interfaces to achieve
+multiple inheritance of type.<br>
+<h4>4. How do you implement inheritance in Java?</h4>
+o Inheritance is implemented using the extends keyword. For example:<br>
+Java<br>
+class Animal {<br>
+void eat() {<br>
+System.out.println("This animal eats food.");<br>
+}<br>
+}<br>
+class Dog extends Animal {<br>
+void bark() {<br>
+System.out.println("The dog barks.");<br>
+}<br>
+}<br>
+AI-generated code. Review and use carefully. More info on FAQ.<br>
+<h4>5. What is the super keyword in Java?</h4>
+o The super keyword is used to refer to the immediate superclass object. It can be used to access superclass
+methods and constructors. For example:<br>
+Java<br>
+class Animal {<br>
+void eat() {<br>
+System.out.println("This animal eats food.");<br>
+}<br>
+}<br>
+class Dog extends Animal {<br>
+void eat() {<br>
+super.eat(); // Calls the eat method of Animal class<br>
+System.out.println("The dog eats bones.");<br>
+}<br>
+}<br>
+<h4>6. Can you override a private or static method in Java?</h4>
+o No, private methods cannot be overridden because they are not accessible outside the class they are
+defined in. <br> Static methods cannot be overridden but can be hidden by defining a static method with the
+same signature in the subclass.<br>
+<h4>7. What is method overriding in Java?</h4>
+o Method overriding occurs when a subclass provides a specific implementation for a method that is already
+defined in its superclass.<br> The method in the subclass must have the same name, return type, and
+parameters as the method in the superclass.<br>
+<h4>8. What is the difference between method overloading and method overriding?</h4>
+o Method overloading is when multiple methods in the same class have the same name but different
+parameters. <br>Method overriding is when a subclass provides a specific implementation for a method that is
+already defined in its superclass.<br>
+<h4>9. What is the use of the instanceof keyword in Java?</h4>
+o The instanceof keyword is used to test whether an object is an<br>
+</div>`
+              }
+
+            ]
+          },
+          {
+            id: `Abstraction in Java`,
+            name: `Abstraction in Java`,
+            beginner:[
+              {
+                content:`Data abstraction is the process of hiding certain details and showing only essential information to the user.<br>
+Abstraction can be achieved with either abstract classes or interfaces (which you will learn more about in the next chapter).<br>
+<br>
+The abstract keyword is a non-access modifier, used for classes and methods:<br>
+
+• Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).<br>
+
+• Abstract method: can only be used in an abstract class, and it does not have a body. <br>
+The body is provided by the subclass (inherited from).<br>`,
+codeExamples:[
+  `abstract class Animal {
+  public abstract void animalSound();
+  public void sleep() {
+    System.out.println("Zzz");
+  }
+}
+  `
 ]
               }
+            ],
+            intermediate: [
+              {
+                content: `It is the process of hiding the some details & showing the important information / functionalities to
+the end user called as “Abstraction”.<br>
+Example:<br>
+1. Car<br>
+2. ATM Machine<br>
+3. TV Remote<br>
+4. A real-time example of abstraction is “Sending SMS”. When you need to send SMS from your
+mobile, you only type the text and send the message. But you don’t know the internal processing of the
+message delivery.<br><br>
+
+<h4>How to achieve the Abstraction in java?</h4>
+There are 2 ways to achieve the abstraction in java.<br>
+1. Abstract class (0 to 100%)<br>
+2. Interface (100%)<br><br>
+
+<h4>1. Abstract Class</h4>
+• It contains abstract methods or concrete methods or empty class or combination of both
+methods.<br>
+• An abstract class is a class that is declared with an abstract keyword.<br>
+• Abstract class have constructor.<br>
+
+<h4>Note: Multiple inheritances are not allowed in abstract class but allowed in interfaces.</h4><br>
+
+<div class='bg-secondary p-2'>
+Example 1 <br>
+package com. code_with_pankaj;<br>
+public class Test { // this is abstract class<br>
+// Abstract Method (does not have a body)<br>
+public abstract void x1(); // this is Abstract Method<br>
+public static final int a=10; // Variable<br>
+}<br>
+</div>`
+              },
+              {
+                content: `Here, method is the abstract then class should be abstract only as per below example:<br>
+                <div class='bg-secondary p-2'>
+                package com. code_with_pankaj;<br>
+public abstract class Test { // this is abstract class<br>
+abstract void x1(); // this is abstract method<br>
+public abstract void x2 (); // Automatic JVM add here abstract during compilation<br>
+public abstract void x3(); // we can also write that<br>
+}<br>
+                </div><br>
+
+                <div class='bg-secondary p-2'>
+                Example 2 //we can write multiple abstract method into abstract class as per below<br>
+package com. code_with_pankaj;<br>
+public abstract class Test {<br>
+// Write Multiple Abstract Method<br>
+abstract void x1(); // abstract method<br>
+abstract void x2(); // abstract method<br>
+}<br>
+                </div>
+
+                <h4>How to implement abstract methods?</4>
+                We need to create the class which extends from abstract class as shown in below.<br>
+                `,
+                codeExamples: [
+                  `package com.code_with_pankaj;
+//this is the implementation class
+public class Example extends Test {
+@Override
+void x1() {
+System.out.println("x1 method..");
+}
+@Override
+void x2() {
+System.out.println("x2 method..");
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+Example example = new Example();
+example.x1();
+example.x2();
+}
+}`
+                ]
+              },
+              {
+                content: `Note- Suppose in the sub class, I don’t want to override the abstract methods then make that subclass as
+abstract.<br><br>
+
+<h4>2. Interface</h4>
+• It contains public abstract methods & public static final variables by default.<br>
+• We must follow I to C design principle in java. It means every class should be implemented by
+some interfaces.<br>
+
+<div>
+Example-1<br>
+public interface Demo {<br>
+public abstract void x1();<br>
+public static final int a=5;<br>
+// public abstract void x1(); // Here No Body so java restrict that<br>
+}<br>
+</div>
+<div>
+Example-2<br>
+public interface A {<br>
+public abstract void x1(); // allowed<br>
+public void x2(); // allowed<br>
+abstract void x3(); // allowed<br>
+void x4(); // allowed<br>
+}<br>
+</div>
+Note- if we don’t write public or abstract in interface then JVM will insert it automatically.<br>
+
+<div class='bg-secondary p-2'>
+Example 3<br>
+package com.abstraction;<br>
+public interface A {<br>
+}<br>
+
+package com.abstraction;<br>
+public interface B {<br>
+}<br>
+
+package com.abstraction;<br>
+public interface C extends A,B {<br>
+}<br>
+</div><br>
+<h4>Multiple Inheritance Supported in Java or allowed in java. ?? -- NO</h4>
+
+Below are the list of possible scenario regarding the interface and<br>
+<h4>Note-</h4> 
+• Try this from your end on laptop or desktop.<br>
+• interface can extend interface1 and interface2<br>
+• Interface can extends interface<br>
+• Interface can extends the multiple interface<br>
+• class extends class implements interface<br>
+• class implements interface<br>
+• class extends class implements interface1 and interface2<br>
+<br>
+<div class='bg-blue-200 p-3 '>
+<h3 class='text-center'>Interview Questions </h3>
+<h4>1. What is Abstraction in Java?</h4>
+<h4>2. How to achieve or implement Abstraction in Java?</h4>
+<h4>3. What is Abstract class in Java? How to define it?</h4>
+<h4>4. What is the difference between abstract class and concrete class?</h4>
+Ans: There are mainly 2 differences between an abstract class & concrete class.
+They are:<br>
+a) We cannot create an object of abstract class. Only objects of its non-abstract (or concrete) sub classes
+can be created.<br>
+b) It can have zero or more abstract methods that are not allowed in a non-abstract class (concrete class).<br>
+<h4>5. What is Abstract in Java?</h4>
+Ans: Abstract is a non-access modifier in java that is applicable for classes, interfaces, methods, and
+inner classes.<br>
+<h4>6. Can abstract modifier applicable for variables? - NO</h4>
+<h4>7. What is Abstract method in Java?</h4>
+Ans: A method which is declared with abstract modifier and has no implementation (means no body) is
+called abstract method in java.<br>
+It does not contain any body. It has simply a signature declaration followed by a semicolon. It has the
+following general form as given below.<br>
+Syntax: abstract type MethodName(arguments); // No body<br>
+For example: abstract void msg(); // No body.<br>
+<h4>8. Can an abstract method be declared as static? - No</h4>
+<h4>9. Can an abstract method be declared with private modifier?</h4>
+Ans: No, it cannot be private because the abstract method must be implemented in the child class.<br> If we
+declare it as private, we cannot implement it from outside the class.<br>
+<h4>10. What is Concrete method in Java?</h4>
+Ans: A concrete method in Java is a method which has always the body. It is also called a complete
+method in java.<br>
+</div>
+`
+              }
+            ],
+            expert: [
+              {
+                content: `
+                <h4>1. Abstract Class</h4>
+• Abstract method can only be used in an abstract class, and it does not have a body. The body is
+provided by the subclass (inherited from).<br>
+• Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be
+inherited from another class).<br>
+
+• We cannot create the object of abstract class.<br>
+• To use abstract method of class, we should extends the abstract class and use that methods.<br>
+• If we don't want to implement or override that method, make that class as abstract.<br>
+• A method-defined abstract must always be redefined in the subclass, thus making overriding
+compulsory or making the subclass itself abstract.<br>
+• If any method is abstract in a class then that class must be declared as abstract<br><br>
+
+<div class='bg-secondary p-2'>
+<h4>Advantages of Abstraction</h4>
+1. It reduces the complexity of viewing things.<br>
+2. Avoids code duplication and increases reusability.<br>
+3. Helps to increase the security of an application or program as only essential details are provided to
+the user.<br>
+4. It improves the maintainability of the application.<br>
+5. It improves the modularity of the application.<br>
+6. The enhancement will become very easy because without affecting end-users we can able to perform
+any type of changes in our internal system.<br>
+7. Improves code reusability & maintainability.<br>
+8. Hides implementation details and exposes only relevant information.<br>
+9. Provides a clear and simple interface to the user.<br>
+10. Increases security by preventing access to internal class details.<br>
+11. Supports modularity, as complex systems can be divided into smaller and more manageable parts.<br>
+12. Abstraction provides a way to hide the complexity of implementation details from the user, making
+it easier to understand and use.<br>
+13. Abstraction allows for flexibility in the implementation of a program, as changes to the underlying
+implementation details can be made without affecting the user-facing interface.<br>
+14. Abstraction enables modularity and separation of concerns, making code more maintainable and
+easier to debug.<br>
+15. Abstraction helps to hide complexities from the user to give a simple user interface.<br>
+16. It improves security just by showing essential details.<br>
+17. Due to abstraction, the user only focuses on what the object does instead of how it does.<br>
+18. Because of abstraction we can update the internal implementation by keeping the same interface so
+users will not have to adjust.<br> For example, disk brakes and drum brakes have different internal
+working but both of them are accessed with a similar interface.<br>
+</div><br>
+
+<div class='bg-blue-100 p-2'>
+<h4>Disadvantages of Abstraction in Java</h4>
+1. Abstraction can make it more difficult to understand how the system works.<br>
+2. It can lead to increased complexity, especially if not used properly.<br>
+3. This may limit the flexibility of the implementation.<br>
+4. Abstraction can add unnecessary complexity to code if not used appropriately, leading to increased
+development time and effort.<br>
+5. Abstraction can make it harder to debug and understand code, particularly for those unfamiliar with
+the abstraction layers and implementation details.<br>
+6. Overuse of abstraction can result in decreased performance due to the additional layers of code and
+indirection.<br>
+</div><br>
+
+<h4>2. Interface</h4>
+• In company, Senior Software Engineer or Team Lead or Manager level people can design the
+interface then give it to developer then developer will implement it by writing the business logic into
+it.<br>
+• We cannot create the object of interface.<br>
+• In interface, we can just define the method only but implemented those methods into
+implemented class.<br>
+• Before JDK 1.7, interface does not have any method body.<br>
+• In JDK 1.8 Declare the default & static method with body in interface.<br>
+• In JDK1.9 we can define the private methods in interface also.<br>
+• Java supports multiple inheritance in the terms of interfaces but not classes.<br>
+• Interface does not have constructor.<br>
+
+<div class='bg-secondary p-2'>
+Example 1<br>
+package com.abstraction;<br>
+public interface A {<br>
+public abstract void x1(); // allowed<br>
+}<br>
+
+package com.abstraction;<br>
+//this is the implementation class<br>
+public class Test implements A {<br>
+@Override<br>
+public void x1() {<br>
+System.out.println("Test-x1 method");<br>
+}<br>
+}<br>
+
+package com.abstraction;<br>
+public class TestExample {<br>
+public static void main(String[] args) {<br>
+Test test= new Test();<br>
+test.x1();<br>
+}<br>
+}<br>
+</div><br>
+
+<div class='bg-secondary p-2'>
+Example 2 // Java Supports multiple inheritance in the terms of interfaces but not classes.<br>
+package com.abstraction;<br>
+public interface A {<br>
+public abstract void x1(); // allowed<br>
+}<br>
+
+package com.abstraction;<br>
+public interface B {<br>
+public abstract void x1(); // allowed<br>
+}<br>
+
+package com.abstraction;<br>
+public class Test implements A,B { // Output depend on Sequence<br>
+@Override<br>
+public void x1() {<br>
+System.out.println("Test-x1 method");<br>
+}<br>
+}<br>
+
+package com.abstraction;<br>
+public class TestExample {<br>
+public static void main(String[] args) {<br>
+Test test= new Test();<br>
+test.x1();<br>
+}<br>
+}<br>
+Output:<br>
+Test-x1 method<br>
+</div><br>
+
+<h4>Why interface?</h4>
+Suppose there is a requirement for Amazon to integrate SBI bank code into their shopping cart.<br>
+Their customers want to make payment for products they purchased.<br>
+
+<div class='bg-secondary p-2'>
+Let's say SBI develops code like below:<br>
+Class: 01<br>
+class Transaction {<br>
+void withdrawAmt(int amtToWithdraw) {<br>
+//logic of withdraw<br>
+// SBI DB connection and updating in their DB<br>
+}<br>
+}<br>
+</div><br>
+
+Amazon needs this class so they request SBI bank for the same. The problem with SBI is that if they
+give this complete code to amazon they risk exposing everything of their own database to them as well
+as their logic, which cause a security violation.<br>
+Now the solution is for SBI to develop an Interface of Transaction class as shown below:<br>
+<div class='bg-secondary p-2'>
+Interface: 02<br>
+interface Transactionid {<br>
+void withdrawAmt(int amtToWithdraw) ;<br>
+}<br>
+
+Class: 03<br>
+class TransactionImpl implements Transactionid {<br>
+void withdrawAmt(int amtToWithdraw) {<br>
+//logic of withdraw<br>
+//SBI DB connection and updating in their DB<br>
+}<br>
+}<br>
+</div><br>
+Now how amazon will do this as below as-<br>
+<div class='bg-secondary p-2'>
+Class: 04<br>
+class Test {<br>
+// Main Method<br>
+Transactionid ti = new TransactionImpl();<br>
+ti.withdrawAmt(500);<br>
+In this case, both application can achieve their aims.<br>
+</div><br>
+
+<div class='bg-blue-200 p-2'>
+<h3 class='text-center'>Interview Questions</h3>
+<h4>1. When to use Abstract class in Java?</h4>
+<h4>2. When to use Abstract method in Java?</h4>
+Ans: An abstract method can be used.<br>
+a) When the same method has to perform different tasks depending on the object calling it.<br>
+b) When you need to be overridden in its non-abstract subclasses.<br>
+<h4>3. is abstract class a pure abstraction in Java?</h4>
+Ans: No, It provides 0 to 100% abstraction.<br>
+<h4>4. Is it possible to create an object of abstract class in Java?</h4>
+Ans: No. It is not possible but we can create an object of its subclass.<br>
+<h4>5. Is it possible that an abstract class can have without any abstract method?</h4>
+Ans: Yes.<br>
+<h4>6. Can an abstract class have constructor?</h4>
+Ans: Yes.<br>
+<h4>7. Is it possible to achieve multiple inheritance through abstract class?</h4>
+Ans: No.<br>
+<h4>8. Can we make an abstract class without abstract keyword?</h4>
+Ans: No, a class must be declared with abstract keyword to make an abstract class.<br>
+<h4>9. Can we define an abstract method inside non-abstract class (concrete class)?</h4>
+Ans: No, we cannot define an abstract method in non-abstract class.<br>
+For example:<br>
+class Test {<br>
+abstract void show();<br>
+}<br>
+The above code will generate a compile-time error.<br>
+<h4>10. What is the difference between Abstraction and Encapsulation?</h4>
+Ans: Abstraction hides the implementation details from users whereas, encapsulation wraps (binds) data
+and code into a single unit.<br>
+<h4>11. Why abstract class has constructor even though you cannot create object?</h4>
+Ans: We cannot create an object of abstract class but we can create an object of subclass of abstract
+class.<br> When we create an object of subclass of an abstract class, it calls the constructor of subclass.<br>
+This subclass constructor has a super keyword in the first line that calls constructor of an abstract class.<br>
+Thus, the constructors of an abstract class are used from constructor of its subclass.<br>
+If the abstract class doesn’t have constructor, a class that extends that abstract class will not get
+compiled.<br>
+<h4>12. What is the advantage of Abstract class in Java?</h4>
+Ans: The main advantages of using abstract class are as follows:<br>
+• Abstract class makes programming better & more flexible by giving the scope of implementing
+abstract methods.<br>
+• Programmer can implement abstract method to perform different tasks depending on the need.<br>
+• We can easily manage code.<br>
+</div>`
+              }
+            ]
+          },
+          {
+            id:`Polymorphism in java`,
+            name:`Polymorphism in Java`,
+            intermediate:[
+              {
+                content:`
+                One entity that behaves differently in different cases called as polymorphism.
+
+Example:
+
+1. Light button, we are using that button to on or off the lights.
+2. A person acts as an employee in the office, a customer in the shopping mall, a passenger in bus/train.
+a student in school, and a son at home.
+3. Smartphone is entity that behaves different such as text message, calling, send mail, video call etc.
+
+How to Achieve Polymorphism in Java?
+
+We can achieve polymorphism by using 2 ways.
+
+1. Method Overloading / Compile Time Polymorphism / Early Binding / Static Binding:
+2. Method Overriding / Runtime Polymorphism / Late Binding / Dynamic Binding:
+
+
+1. Method Overloading / Compile Time Polymorphism /Early Binding / Static Binding:
+
+• It is the Same Method Name with Different Argument called as Method overloading.
+
+• There is No Need of Super & Sub Class Relationship.
+
+• If we have to perform only one operation, having same method Name which increases the
+readability of the program.
+
+• Suppose you have to perform addition of the given numbers but there can be any number of
+arguments, if you write the method such as a(int, int) for 2 parameters, and b(int, int, int) for 3
+parameters then it may be difficult for you as well as other programmers to understand the
+behaviour of the method because its name differs.
+
+• So, we perform method overloading to figure out the program quickly.
+
+Rules-
+o Method Name must be Same.
+
+o Parameter or Argument must be Different.
+o Return Type is Anything
+o Access specifier is Anything
+
+Advantage of method overloading:
+
+• Method overloading => Increases the Readability of the Program.
+
+Different ways to overload the method
+
+There are 2 ways to overload the method in java
+
+• By changing number of arguments.
+
+• By changing the data type`,
+
+codeExamples:[
+  `package com. code_with_pankaj;
+public class TestMain {
+void add(int a, int b) {
+System.out.println(a + b);
+}
+void add(double a, double b) {
+System.out.println(a + b);
+}
+void add(double a) {
+System.out.println(a);
+}
+void add(int a, int b, int c) {
+System.out.println(a + b + c);
+}
+}
+public class ExampleMain { // Test Class
+public static void main(String[] args) { // Main Method
+TestMain obj = new TestMain(); // Creating Object
+obj.add(10,5);
+obj.add(10.5, 11.5);
+obj.add(4.0);
+obj.add(5, 10, 15);
+}
+}
+  `
+]
+              },{
+                content:`Why?:
+
+Suppose we got the business requirement from the client in last year
+
+Class Employee {
+
+void addStudent (String firstname, String lastname, String city) { // 3 Arguments
+
+}
+
+Employee employee=new Employee (); // Object Create
+
+// End user is calling the class as below
+
+employee. addStudent (“Pankaj”, “Bhande”, “Udgir”); //End User 1
+
+employee. addStudent (“Dheeraj”, “Patil”, “Mumbai”); //End User 2
+
+After that I got the new requirement from the client in current year, to update the pan card details.
+
+What options we have in this case.
+
+> Modified field/Attributes/Variable into the existing method
+
+1st way modifying attributes/field/variable into existing method is not good approach, it will increase
+testing efforts of this class. If we are making the changes into existing method, then how end user calls
+the method I mean they need to add one more extra field / variable / attributes, in future again, you got
+requirement to add one more field / variable / attributes, so every time user need to change at their side,
+this is not the good thing.
+
+> Design new method and add new parameter into it
+
+2nd way, design the same method in that class and add the new field into it. If client second want Pan
+Card details so he can call that method otherwise calls the first method if pan card is not required.
+`,
+codeExamples:[
+  `Example - 02
+package com.code_with_pankaj;
+public class A{ // Main Class: A
+void test(Object object) { // Method: 01
+System.out.println("test- Object");
+}
+void test(String string) { // Method: 02
+System.out.println("test- String");
+}
+public static void main(String[] args) { // Main Method
+A a = new A(); // Object Create
+a.test(new Object());
+a.test("ram");
+a.test(new A());
+a.test(new String());
+}
+}`
+]
+              },
+           
+              {
+                content:`Why it is Called as Compile Time Polymorphism?
+
+Because it is decided at compile time which one method should get called that’s why it is called as
+Compile Time Polymorphism.
+
+Method Overloading: Example - 01
+
+Class MobilePattern{
+
+void getMobilePattern(Thumb thumb){
+
+// logic here
+
+}
+
+void getMobilePattern(int number){
+
+// logic here
+
+}
+
+void getMobilePattern(int x1, int y1, int x2, int y2){
+
+// logic here
+
+}
+}
+
+
+Method Overloading: Example - 02
+
+Class Banking{
+
+void getBanking(CreditCard creditCard){
+
+// logic here
+
+}
+
+void getBanking(Netbanking netBanking){
+
+// logic here
+
+}
+
+void getBanking(DebitCard debitCard){ 
+
+// logic here
+
+}
+
+void getBanking(UPI upi){
+
+// logic here
+
+}
+
+}
+
+Method Overriding / Run Time Polymorphism / Late Binding / Dynamic Binding:
+
+• It is the Same Method Name with Same Argument called as method overriding.
+
+• There is Need of Super & Sub Relationship.
+
+>Rules:
+o Method name must be Same.
+
+o Parameters must be Same.
+
+o Return type must be Same or Different.
+
+o Access specifier is Anything.
+
+Note- We can extend the method scope in overriding but not reduce the visibility of it:
+
+Why?
+
+• Maintainability
+
+• Readability of code.
+`,
+codeExamples:[
+  `Example - 01
+package com.code_with_pankaj;
+public class A { // Main Class: A
+void m1() { // Method: m1
+System.out.println("class - A- m1 () method");
+}
+}
+
+public class B extends A {
+@Override
+void m1() { // Method: m1
+System.out.println("class - B- m1 () method");
+}
+void m7() { // Method: m7
+System.out.println("class- B- m7() method");
+}
+}
+public class TestMain { // Test Class
+public static void main(String[] args) { // Main Method
+B b = new B(); // Object Create: b
+b.m1(); // Call m1 Method: ObjectName.MethodName
+b.m7(); // Call m7 Method: ObjectName.MethodName
+}
+}`
+  
+]
+              },
+              {
+                content:`Program Explanation:
+
+• In the above program, B is implementing the method m1 () with the same signature as super class A
+i.e. m1 () of class B is overriding m1() of class A.
+
+• If you want to add new features (variable or method) to existing class, then you should not disturb
+the existing class. You should always write the subclass of that class that is the best practice.
+
+Note: Why we need to write the sub class.
+
+• To add the new features.
+
+• To inherit the existing functionality.
+
+Subclass method's access modifier must be the same or higher than the superclass method access
+modifier
+
+superclass In subclass, we can have access specifier
+
+• public Public
+
+• protected protected, public
+
+• default default, protected, public
+
+• private We cannot override the private
+
+Method Overriding: Example: 01
+
+Class SBI {
+
+void getSimpleIntereset(float simpleRate){
+
+// logic here
+
+}
+
+}
+
+Class Axis extends SBI{
+
+void getSimpleIntereset(float simpleRate){
+
+// logic here
+
+}
+
+}
+
+Class HDFC extends Axis {
+
+void getSimpleIntereset(float simpleRate){
+
+// logic here
+
+}
+
+}
+
+Method Overriding: Example: 02
+
+Class FirstTier {
+
+void getSeatAvailability(int seat){
+
+// logic here
+
+}
+
+}
+
+Class SecondTier extends FirstTier{
+
+void getSeatAvailability(int seat){
+
+// logic here
+
+}
+
+}
+
+Class ThirdTier extends SecondTier {
+
+void getSeatAvailability(int seat){
+
+// logic here
+
+}
+
+}
+`
+              }
+
             ]
           }
 
