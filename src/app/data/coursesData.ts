@@ -1634,6 +1634,461 @@ Value of a: 20`
         ]
       },
 
+    {
+      id: 'wrapper-class',
+      name: 'Wrapper Class',
+      topics: [
+        {
+          id: 'wrapper-class-basics',
+          name: 'Wrapper Classes',
+          beginner: [
+            {
+              content: `
+• Wrapper Class provides the mechanism to convert primitive data types into objects and objects into primitive data types.<br><br>
+
+<h4>Wrapper Class – Definition</h4>
+Wrapper classes are predefined classes in <b>java.lang</b> package that wrap primitive data into objects.<br><br>
+
+<h4>Types of Conversion</h4>
+1. <b>Autoboxing:</b> Process of converting Primitive Data Type into Object. (PDT → Object)<br>
+   Example: int → Integer, long → Long, double → Double<br><br>
+
+2. <b>Unboxing:</b> Process of converting Object into Primitive Data Type. (Object → PDT)<br>
+   Example: Integer → int, Long → long, Double → double
+              `,
+              codeExamples: [
+`package com.object;
+public class Code_With_Pankaj {
+    public static void main(String[] args) {
+        int a = 20; // Primitive data type
+        Integer i = new Integer(a); // Autoboxing
+        System.out.println("i>>" + i);
+
+        int b = i.intValue(); // Unboxing
+        System.out.println("b>>" + b);
+    }
+}`
+              ]
+            }
+          ],
+          intermediate: [
+            {
+              content: `
+<h4>Need of Wrapper Classes</h4>
+There are certain needs for using Wrapper Classes in Java:<br><br>
+
+1. Wrapper classes convert primitive data types into objects, which are required to modify arguments passed into methods.<br>
+2. Classes in <b>java.util</b> package handle only objects.<br>
+3. Collection framework classes like ArrayList and Vector store only objects, not primitive types.<br>
+4. Objects are required to support synchronization in multithreading.<br><br>
+
+<h4>Advantages of Wrapper Classes</h4>
+1. Collections & Serialization allow only object data.<br>
+2. Object data supports methods like compareTo(), equals(), toString().<br>
+3. Cloning is possible only for objects.<br>
+4. Wrapper objects can store null values.
+              `,
+              codeExamples: [
+`import java.util.ArrayList;
+
+class Autoboxing {
+    public static void main(String[] args) {
+        char ch = 'a';
+        Character c = ch; // Autoboxing
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(25); // Autoboxing
+
+        System.out.println(list.get(0));
+    }
+}`
+              ]
+            },
+            {
+              content: `
+<h4>Primitive Data Types and Corresponding Wrapper Classes</h4>
+
+byte → Byte <br>
+short → Short <br>
+int → Integer <br>
+long → Long <br>
+float → Float <br>
+double → Double <br>
+char → Character <br>
+boolean → Boolean
+              `,
+              codeExamples: [
+`package com.inheritance;
+class Code_With_Pankaj {
+    public static void main(String[] args) {
+        int x = 5;
+        float y = 3.14f;
+        long z = 6000;
+
+        Integer intObj = x;
+        Float floatObj = y;
+        Long longObj = z;
+
+        System.out.println(intObj);
+        System.out.println(floatObj);
+        System.out.println(longObj);
+    }
+}`
+              ]
+            },
+            {
+              content: `
+<h4>Wrapper Class Methods</h4>
+Wrapper classes provide useful methods like valueOf(), intValue(), parseInt(), compareTo().<br><br>
+
+<h4>Example Explanation</h4>
+• Converting float wrapper object to primitive int<br>
+• Converting binary string into decimal number using Integer.valueOf()<br>
+              `,
+              codeExamples: [
+`class Code_With_Pankaj {
+    public static void main(String[] args) {
+        Float floatWrap = Float.valueOf(45.158f);
+        int floatToInt = floatWrap.intValue();
+        System.out.println(floatToInt);
+
+        Integer five = Integer.valueOf("101", 2);
+        System.out.println(five);
+    }
+}`
+              ]
+            },
+            {
+              content: `
+<h4>UNBOXING</h4>
+Unboxing is the automatic conversion of wrapper object into primitive data type.<br>
+This happens when assigning wrapper object to primitive variable.<br><br>
+
+<h4>Example</h4>
+              `,
+              codeExamples: [
+`import java.util.ArrayList;
+
+class Unboxing {
+    public static void main(String[] args) {
+        Character ch = 'a';
+        char a = ch; // Unboxing
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        list.add(24);
+
+        int num = list.get(0); // Unboxing
+        System.out.println(num);
+    }
+}`
+              ]
+            },
+            {
+              content: `
+<h4>Interview Questions & Answers</h4>
+
+<b>1. Which are the wrapper classes in Java?</b><br>
+Wrapper classes are classes whose objects wrap primitive data types.<br><br>
+
+<b>2. Why use wrapper classes in Java?</b><br>
+Wrapper classes convert primitive data into objects required for collections, synchronization, and object manipulation.<br><br>
+
+<b>3. What are the 8 wrapper classes in Java?</b><br>
+Boolean, Byte, Short, Character, Integer, Long, Float, Double.
+              `
+            }
+          ]
+        }
+      ]
+    },
+
+{
+  id: 'this-super-keyword',
+  name: 'This and Super Keywords',
+  topics: [
+    {
+      id: 'this-super',
+      name: 'This and Super Keywords',
+      beginner: [
+        {
+          content: `
+<h4>What is Super Keyword?</h4>
+• Super keyword is used to refer to the parent class (superclass) object.<br>
+• It helps access parent class members that might be hidden by child class.<br>
+• Super keyword can be used with variables, methods, and constructors.<br><br>
+
+<h4>What is This Keyword?</h4>
+• This keyword refers to the current object instance.<br>
+• It is used to distinguish between instance variables and local variables.<br>
+• This keyword can be used with variables, methods, and constructors.<br><br>
+
+<h4>Key Differences Between Super and This</h4>
+<table border="2" cellpadding="15" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <tr style="background-color: #4CAF50; color: white;">
+    <th style="border: 2px solid #333;">Super Keyword</th>
+    <th style="border: 2px solid #333;">This Keyword</th>
+  </tr>
+  <tr style="background-color: #f2f2f2;">
+    <td style="border: 2px solid #333;">Refers to parent class object</td>
+    <td style="border: 2px solid #333;">Refers to current class object</td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333;">Used to access parent class members</td>
+    <td style="border: 2px solid #333;">Used to access current class members</td>
+  </tr>
+  <tr style="background-color: #f2f2f2;">
+    <td style="border: 2px solid #333;">Must be used in child class</td>
+    <td style="border: 2px solid #333;">Can be used in any class</td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333;">Calls parent class constructor using super()</td>
+    <td style="border: 2px solid #333;">Calls current class constructor using this()</td>
+  </tr>
+</table>
+          `,
+          codeExamples: [
+`// Simple Example of Super Keyword
+class Animal {
+    String name = "Dog";
+}
+
+class Pet extends Animal {
+    String name = "Puppy";
+    
+    void display() {
+        System.out.println("This name: " + this.name);    // Output: Puppy
+        System.out.println("Super name: " + super.name);  // Output: Dog
+    }
+}`,
+`// Simple Example of This Keyword
+class Student {
+    String name;
+    int age;
+    
+    Student(String name, int age) {
+        this.name = name;  // this refers to instance variable
+        this.age = age;
+    }
+    
+    void display() {
+        System.out.println("Name: " + this.name);
+        System.out.println("Age: " + this.age);
+    }
+}`
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          content: `
+<h6><b>🔹 Super Keyword</b></h6>
+• It is used to refer immediate parent class object, method and constructor.<br><br>
+
+<h4>Why use super keyword?</h4>
+• To access parent class members directly<br>
+• To avoid unnecessary object creation<br>
+• To improve memory utilization<br>
+          `,
+          codeExamples: [
+`// Program 1: Use of immediate parent class variable
+class Parent {
+    int x = 20;
+}
+
+class Child extends Parent {
+    int x = 25;
+
+    public void test() {
+        int x = 30;
+
+        // Scenario 1: Using object
+        Parent p = new Parent();
+        System.out.println("Parent class x variable=" + p.x);
+
+        // Scenario 2: Using super keyword
+        System.out.println("Immediate super class of child class x variable=" + super.x);
+    }
+}
+
+public class TestMain {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.test();
+    }
+}`
+          ]
+        },
+        {
+          content: `
+<h4>🔹 Super Keyword with Method</h4>
+• Used to call immediate parent class method when child class overrides it.
+          `,
+          codeExamples: [
+`// Program 2: Use of immediate super class method
+class Parent {
+    void test() {
+        System.out.println("Parent class method.");
+    }
+}
+
+class Child extends Parent {
+    void test() {
+        super.test();
+    }
+}
+
+public class TestMain {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.test();
+    }
+}`
+          ]
+        },
+        {
+          content: `
+<h4>🔹 Super Keyword with Constructor</h4>
+• Used to invoke immediate parent class constructor.
+          `,
+          codeExamples: [
+`// Program 3: Use of immediate super class constructor
+class Parent {
+
+    Parent() {
+        System.out.println("Parent class constructor.");
+    }
+}
+
+class Child extends Parent {
+    Child() {
+        super();
+    }
+}
+
+public class TestMain {
+    public static void main(String[] args) {
+        new Child();
+    }
+}`
+          ]
+        },
+        {
+          content: `
+<h4>🔹 This Keyword</h4>
+• It is used to refer current class variables, methods and constructors.<br>
+• This keyword is not used in static context.
+          `,
+          codeExamples: [
+`// Program 4: Use of current class variable
+class Parent {
+    int x = 20;
+}
+
+class Child extends Parent {
+    int x = 25;
+
+    void test() {
+        int x = 30;
+
+        // Scenario 1
+        Child c = new Child();
+        System.out.println("By creating objects=" + c.x);
+
+        // Scenario 2
+        System.out.println("By using this keyword=" + this.x);
+    }
+}
+
+public class TestMain {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.test();
+    }
+}`
+          ]
+        },
+        {
+          content: `
+<h4>🔹 This Keyword with Method</h4>
+• Used to call current class method.
+          `,
+          codeExamples: [
+`// Program 5: Use of current class method
+class Parent {
+    void test() {
+        System.out.println("Parent class method.");
+    }
+}
+
+class Child extends Parent {
+    void test() {
+        System.out.println("Child class method");
+    }
+
+    void demo() {
+        this.test();
+    }
+}
+
+public class TestMain {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.demo();
+    }
+}`
+          ]
+        },
+        {
+          content: `
+<h6><b>🔹 This Keyword with Constructor</b></h6>
+• Used for constructor chaining within the same class.
+          `,
+          codeExamples: [
+`// Program 6: Use of current class constructor
+class Test {
+
+    public Test() {
+        System.out.println("Test constructor called using this keyword..");
+    }
+
+    public Test(int x) {
+        this();
+    }
+
+    public static void main(String[] args) {
+        new Test(10);
+    }
+}`
+          ]
+        },
+        {
+          content: `
+<h4>🔹 Constructor Chaining using this</h4>
+• One constructor calls another constructor of the same class.
+          `,
+          codeExamples: [
+`// Program 7: Constructor chaining example
+class Example {
+
+    Example() {
+        this("Java");
+        System.out.println("Inside Constructor without parameter");
+    }
+
+    Example(String str) {
+        System.out.println("Inside Constructor with parameter " + str);
+    }
+
+    public static void main(String[] args) {
+        new Example();
+    }
+}`
+          ]
+        }
+      ]
+    }
+  ]
+},
       {
         id: 'oop',
         name: 'Object-Oriented Programming',
