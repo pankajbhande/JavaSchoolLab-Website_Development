@@ -988,6 +988,578 @@ Best Practices
               }
             ]
           },
+          
+
+          {
+  id: `Array in java`,
+  name: `Array in Java`,
+
+  intermediate: [
+
+    {
+      content: `
+<b>Array</b><br>
+• Array is a collection of similar type of elements stored in contiguous memory locations.<br>
+• Java array is an object that contains elements of the same data type.<br>
+• Array size is fixed and cannot grow at runtime.<br>
+• Array is index-based, starting from index <b>0</b>.<br>
+<img src="./src/assets/array1.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+`
+    },
+
+    {
+      content: `
+<h4>Advantages of Array</h4>
+• Code Optimization – efficient data access and sorting<br>
+• Random Access – direct access using index<br><br>
+
+<h4>Disadvantages of Array</h4>
+• Fixed size – cannot grow dynamically<br>
+• Memory wastage may occur<br>
+• Collection framework overcomes this limitation<br>
+`
+    },
+
+    {
+      content: `
+<h4>Types of Arrays in Java</h4>
+1. Single Dimensional Array<br>
+2. Multidimensional Array<br>
+`
+    },
+
+    {
+      content: `
+<h4>Single Dimensional Array</h4>
+<b>Declaration Syntax</b><br>
+1. dataType[] arr;<br>
+2. dataType []arr;<br>
+3. dataType arr[];<br>
+`
+    },
+
+    {
+      content: `
+<h4>Array Declaration, Instantiation & Initialization</h4>
+`,
+      codeExamples: [
+`int a[] = new int[5];
+a[0] = 10;
+a[1] = 20;
+a[2] = 30;
+a[3] = 40;
+a[4] = 50;
+
+for(int i=0;i<a.length;i++){
+    System.out.println(a[i]);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Array Initialization in Single Line</h4>
+`,
+      codeExamples: [
+`int a[] = {10, 20, 30};
+
+for(int i=0;i<a.length;i++){
+    System.out.println(a[i]);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>For-each Loop with Array</h4>
+We can also print the Java array using for-each loop. The Java for-each loop prints the array elements
+one by one. It holds an array element in a variable, then executes the body of the loop.
+`,
+      codeExamples: [
+`int arr[] = {10, 20, 30, 40};
+
+for(int i : arr){
+    System.out.println(i);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Passing Array to Method</h4>
+We can pass the java array to method so that we can reuse the same logic on any array.
+`,
+      codeExamples: [
+`static void min(int arr[]){
+    int min = arr[0];
+    for(int i=1;i<arr.length;i++){
+        if(min > arr[i])
+            min = arr[i];
+    }
+    System.out.println(min);
+}
+
+int a[] = {33, 3, 4, 5};
+min(a);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Anonymous Array</h4>
+Java supports the feature of an anonymous array, so you don't need to declare the array while passing an
+array to the method.
+`,
+      codeExamples: [
+`printArray(new int[]{10, 22, 44, 66});`
+      ]
+    },
+
+    {
+      content: `
+<h4>Returning Array from Method</h4>
+We can also return an array from the method in Java.
+`,
+      codeExamples: [
+`static int[] get(){
+    return new int[]{10, 30, 50, 90, 60};
+}
+
+int arr[] = get();
+for(int i : arr){
+    System.out.println(i);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>ArrayIndexOutOfBoundsException</h4>
+The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException if length of the array in
+negative, equal to the array size or greater than the array size while traversing the array.`,
+      codeExamples: [
+`int arr[] = {50, 60, 70, 80};
+for(int i=0;i<=arr.length;i++){
+    System.out.println(arr[i]);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Multidimensional Array</h4>
+• Stored in row and column format (matrix)<br>
+`,
+      codeExamples: [
+`int arr[][] = {
+    {1,2,3},
+    {2,4,5},
+    {4,4,5}
+};
+
+for(int i=0;i<3;i++){
+    for(int j=0;j<3;j++){
+        System.out.print(arr[i][j]+" ");
+    }
+    System.out.println();
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Jagged Array</h4>
+If we are creating odd number of columns in a 2D array, it is known as a jagged array. In other words, it
+is an array of arrays with different number of columns.`,
+      codeExamples: [
+`int arr[][] = new int[3][];
+arr[0] = new int[3];
+arr[1] = new int[4];
+arr[2] = new int[2];`
+      ]
+    },
+
+    {
+      content: `
+<h4>Copying an Array</h4>
+We can copy an array to another by the arraycopy() method of System class.
+`,
+      codeExamples: [
+`char[] src = {'d','e','c','a','f','f','e','i','n'};
+char[] dest = new char[7];
+
+System.arraycopy(src, 2, dest, 0, 7);
+System.out.println(String.valueOf(dest));`
+      ]
+    },
+
+    {
+      content: `
+<h4>Cloning an Array</h4>
+Since, Java array implements the Cloneable interface, we can create the clone of the Java array. If we
+create the clone of a single-dimensional array, it creates the deep copy of the Java array. It means, it will
+copy the actual value. But, if we create the clone of a multidimensional array, it creates the shallow copy
+of the Java array which means it copies the references.
+`,
+      codeExamples: [
+`int arr[] = {33, 3, 4, 5};
+int clone[] = arr.clone();
+
+System.out.println(arr == clone); // false`
+      ]
+    },
+
+    {
+      content: `
+<h4>Matrix Addition</h4>
+In the case of matrix multiplication, a one-row element of the first matrix is multiplied by all the
+columns of the second matrix which can be understood by the image given below.
+`,
+      codeExamples: [
+`int a[][] = {{1,3,4},{3,4,5}};
+int b[][] = {{1,3,4},{3,4,5}};
+int c[][] = new int[2][3];
+
+for(int i=0;i<2;i++){
+    for(int j=0;j<3;j++){
+        c[i][j] = a[i][j] + b[i][j];
+        System.out.print(c[i][j]+" ");
+    }
+    System.out.println();
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Matrix Multiplication</h4>
+`,
+      codeExamples: [
+`int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
+int b[][] = {{1,1,1},{2,2,2},{3,3,3}};
+int c[][] = new int[3][3];
+
+for(int i=0;i<3;i++){
+    for(int j=0;j<3;j++){
+        c[i][j]=0;
+        for(int k=0;k<3;k++){
+            c[i][j]+=a[i][k]*b[k][j];
+        }
+        System.out.print(c[i][j]+" ");
+    }
+    System.out.println();
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Find 3rd Largest Element</h4>
+`,
+      codeExamples: [
+`Arrays.sort(a);
+System.out.println(a[a.length-3]);`
+      ]
+    },
+
+    {
+      content: `
+<div class="bg-secondary p-2 rounded-md">
+<h4>Important Interview Questions</h4>
+1. What is array?<br>
+2. Why array size is fixed?<br>
+3. Difference between array & collection<br>
+4. What is jagged array?<br>
+5. Array vs ArrayList<br>
+</div>
+`
+    }
+
+  ]
+},
+
+
+
+
+
+         {
+  id: `String in java`,
+  name: `String in Java`,
+
+  intermediate: [
+
+    {
+      content: `
+      String: 
+      It is the class that represents sequence of character.<br>
+Package: Java.lang.<br>
+Strings in Java are a sequence of characters, and they are one of the most commonly used data types
+for storing and manipulating text.<br>
+<img src="./src/assets/string.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+
+
+<b>Q. Why String is Immutable in Java?</b><br>
+• String is immutable, once a String object is created it cannot be changed.<br>
+• Any modification creates a <b>new String object</b>.<br>
+• Improves <b>security, memory efficiency, and thread safety</b>.<br><br>
+
+<b>CharSequence Interface</b><br>
+• Represents a sequence of characters.<br>
+• Implemented by String, StringBuffer, StringBuilder.<br>
+• Allows treating all three uniformly.<br>
+<img src="./src/assets/string2.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+
+`
+    },
+
+    {
+      content: `
+<h4>Creating String Objects</h4>
+1. String Literal<br>
+2. Using new keyword<br>
+3. Using Character Array<br>
+4. Using String Methods<br>
+`
+    },
+
+    {
+      content: `
+<h4>1. String Literal</h4>
+• Created using double quotes.<br>
+• Stored in <b>String Constant Pool</b>.<br>
+• JVM reuses existing objects for memory efficiency.<br>
+`,
+      codeExamples: [
+`String s1 = "pankaj";
+String s2 = "pankaj";
+System.out.println(s1 == s2); // true`
+      ]
+    },
+
+    {
+      content: `
+<h4>2. Using new Keyword</h4>
+• Always creates a new object in heap memory.<br>
+• Even if value exists in String Pool.<br>
+`,
+      codeExamples: [
+`String s1 = "pankaj";
+String s2 = new String("pankaj");
+
+System.out.println(s1 == s2);      // false
+System.out.println(s1.equals(s2)); // true`
+      ]
+    },
+
+    {
+      content: `
+<h4>String Immutability Example</h4>
+• concat() does not modify original String.<br>
+• New object is created.<br>
+`,
+      codeExamples: [
+`String s = "pankaj";
+s = s.concat("bhande");
+System.out.println(s); // pankajbhande`
+      ]
+    },
+
+    {
+      content: `
+<h4>String Manipulation Methods</h4>
+• length()<br>
+• concat()<br>
+• charAt()<br>
+• substring()<br>
+• toUpperCase()<br>
+• trim()<br>
+• replace()<br>
+`,
+      codeExamples: [
+`String original = "Code With Pankaj";
+
+System.out.println("Length: " + original.length());
+System.out.println("Concatenated: " + original.concat(" is fun!"));
+System.out.println("First Char: " + original.charAt(0));
+System.out.println("Substring: " + original.substring(5, 16));
+System.out.println("Uppercase: " + original.toUpperCase());
+System.out.println("Trimmed: " + " Java ".trim());
+System.out.println("Replaced: " + original.replace('a', '@'));`
+      ]
+    },
+
+    {
+      content: `
+<h4>String Comparison</h4>
+<b>3 Ways:</b><br>
+1. equals() → Content comparison<br>
+2. == → Reference comparison<br>
+3. compareTo() → Lexicographical comparison<br>
+<img src="./src/assets/string6.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+
+`,
+      codeExamples: [
+`String s1 = "Pankaj";
+String s2 = "Pankaj";
+String s3 = new String("Pankaj");
+
+System.out.println(s1.equals(s2)); // true
+System.out.println(s1 == s3);      // false`
+      ]
+    },
+
+    {
+      content: `
+<h4>compareTo() Example</h4>
+`,
+      codeExamples: [
+`String s1 = "Pankaj";
+String s2 = "Pankaj";
+String s3 = "Dheeraj";
+
+System.out.println(s1.compareTo(s2)); // 0
+System.out.println(s1.compareTo(s3)); // positive
+System.out.println(s3.compareTo(s1)); // negative`
+      ]
+    },
+
+    {
+      content: `
+<h4>String Concatenation Techniques</h4>
+1. + operator<br>
+2. concat() method<br>
+3. StringBuilder<br>
+4. String.format()<br>
+5. String.join()<br>
+`,
+      codeExamples: [
+`String s = "Pankaj" + " Bhande";
+System.out.println(s);`,
+
+`StringBuilder sb = new StringBuilder("Hello");
+sb.append(" Pankaj");
+System.out.println(sb.toString());`
+      ]
+    },
+
+    {
+      content: `
+<h4>Concatenation Using format()</h4>
+`,
+      codeExamples: [
+`String s1 = "Hello";
+String s2 = " Pankaj";
+String s = String.format("%s%s", s1, s2);
+System.out.println(s);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Concatenation Using String.join()</h4>
+`,
+      codeExamples: [
+`String s = String.join("", "Hello", " Pankaj");
+System.out.println(s);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Concatenation Using StringJoiner</h4>
+`,
+      codeExamples: [
+`StringJoiner sj = new StringJoiner(", ");
+sj.add("Hello");
+sj.add("Pankaj");
+System.out.println(sj.toString());`
+      ]
+    },
+
+    {
+      content: `
+<h4>Character Array to String</h4>
+• String can be created from char array.<br>
+• Char array is mutable, String is immutable.<br>
+`,
+      codeExamples: [
+`char[] arr = {'H','e','l','l','o'};
+String str = new String(arr);
+System.out.println(str);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Counting Spaces in String</h4>
+`,
+      codeExamples: [
+`String str = "Code With Pankaj";
+int count = 0;
+
+for(int i=0;i<str.length();i++){
+    if(str.charAt(i)==' '){
+        count++;
+    }
+}
+System.out.println("Total spaces: " + count);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Why String is Immutable? (Interview)</h4>
+1. ClassLoader safety<br>
+2. Thread safety<br>
+3. Security (passwords, DB URLs)<br>
+4. Heap memory optimization<br>
+`
+    },
+
+    {
+      content: `
+<h4>Difference Between String, StringBuffer, StringBuilder</h4>
+• String → Immutable, Thread-safe<br>
+• StringBuffer → Mutable, Thread-safe<br>
+• StringBuilder → Mutable, Fastest, Not Thread-safe<br>
+`
+    },
+
+    {
+      content: `
+<div class="bg-secondary p-2 rounded-md">
+<h4>Important Interview Questions</h4>
+1. Why String is immutable?<br>
+2. What is String Constant Pool?<br>
+3. == vs equals()<br>
+4. StringBuffer vs StringBuilder<br>
+5. How JVM handles + operator?<br>
+</div>
+`
+    }
+  ]
+},
+
+
+           
+          
+
+
+
+
+
+
+
+
+
           {
             id: `Contructor in java`,
             name: `Constructor in Java`,
@@ -1302,345 +1874,393 @@ constructor using the super() keyword.<br>
             ]
           },
 
+        {
+  id: 'constructor-chaining',
+  name: 'Constructor Chaining',
 
-          {
-            id: 'static-keyword',
-            name: 'Static Keyword in Java',
-            beginner: [{
-              content: `
-STATIC KEYWORD IN JAVA
+  beginner: [
+    {
+      content: `
+<h4>What is Constructor Chaining?</h4>
+• <b>Constructor Chaining</b> is the process of calling one constructor from another constructor.<br>
+• It is used to <b>reuse constructor logic</b> and reduce code duplication.<br>
+• Constructor chaining can happen <b>within the same class</b> or <b>between parent and child classes</b>.<br><br>
 
-Static is used for memory management. It can be applied to variables, methods, inner classes, and static blocks.
+<b>Why use Constructor Chaining?</b><br>
+• Improves code reusability<br>
+• Maintains proper initialization sequence<br>
+• Makes code clean and manageable
+      `,
+      codeExamples: []
+    },
 
-🔹 KEY POINTS:
+    {
+      content: `
+<h4>Rules of Constructor Chaining</h4>
+• <b>this()</b> or <b>super()</b> must be the <b>first statement</b> inside constructor.<br>
+• We cannot use both <b>this()</b> and <b>super()</b> together.<br>
+• At least <b>one constructor must not use this()</b>.
+      `,
+      codeExamples: []
+    },
 
-• Local variables cannot be static
-• It means single copy storage
-• We cannot call non-static members from static members because static variables are stored in memory before object creation
-• Outer classes cannot be static, but inner classes can be static
-• Constructors cannot be static
-• The main method is static
-• this and super keywords are not allowed in static context
+    {
+      content: `
+<h4>Constructor Chaining Within Same Class</h4>
+• If constructors belong to the <b>same class</b>, we use <b>this()</b> keyword.<br>
+• One constructor can call another constructor of the same class.
+      `,
+      codeExamples: [
+`package com.test;
 
-WHY USE STATIC?
+public class Chaining {
 
-Static keyword is used to create members that:
-• Belong to the class itself, not to objects
-• Are shared among all instances of the class
-• Should be accessed without creating an object
-• Represent common properties of all objects
-`,
-              codeExamples: [
-                `// Static Variable Example
-public class Student {
+    Chaining() {
+        this(5);
+        System.out.println("This is Default constructor");
+    }
+
+    Chaining(int x) {
+        this("Java");
+        System.out.println(x);
+    }
+
+    Chaining(String str) {
+        System.out.println(str);
+    }
+
+    public static void main(String args[]) {
+        new Chaining();
+    }
+}
+
+/*
+Output:
+Java
+5
+This is Default constructor
+*/`
+      ]
+    }
+  ],
+
+  intermediate: [
+
+    {
+      content: `
+<h4>Constructor Chaining Using super()</h4>
+• When constructor chaining happens between <b>parent and child classes</b>, we use <b>super()</b>.<br>
+• Parent class constructor executes <b>before</b> child class constructor.
+      `,
+      codeExamples: [
+`package com.test;
+
+public class Base {
+    String name;
+
+    Base() {
+        this("");
+        System.out.println("No-argument constructor of base class....");
+    }
+
+    Base(String name) {
+        this.name = name;
+        System.out.println("Calling parameterized constructor of base class....");
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Derived Class Constructor</h4>
+• <b>super()</b> is used to call base class constructor.<br>
+• If super() is not written, Java adds it implicitly.<br>
+• super() must be the first statement.
+      `,
+      codeExamples: [
+`package com.test;
+
+public class Derived extends Base {
+
+    Derived() {
+        System.out.println("No-argument constructor of derived class");
+    }
+
+    Derived(String name) {
+        super(name);
+        System.out.println("Calling parameterized constructor of derived class");
+    }
+
+    public static void main(String args[]) {
+        new Derived("test");
+    }
+}
+
+/*
+Output:
+Calling parameterized constructor of base class....
+Calling parameterized constructor of derived class
+*/`
+      ]
+    },
+
+    {
+      content: `
+<h4>Important Points (Interview)</h4>
+• Constructor chaining works automatically with inheritance.<br>
+• Constructors are not inherited, but they are executed.<br>
+• Helps in proper object initialization.
+      `
+    }
+  ]
+},
+
+
+{
+  id: 'static-keyword',
+  name: 'Static Keyword',
+
+  beginner: [
+    {
+      content: `
+<h4>What is Static Keyword?</h4>
+• The <b>static</b> keyword is used to create class-level members.<br>
+• Static members belong to the class, not to objects.<br>
+• Only one copy of static members is created in memory.<br><br>
+
+<b>Why use static?</b><br>
+• Saves memory<br>
+• Shares common data among objects<br><br>
+
+<b>Basic Rules</b><br>
+• Static variables are shared<br>
+• Static methods can be called without object creation<br>
+• main() method is static
+      `,
+      codeExamples: [
+`class HelloStatic {
+    static int number = 100;
+
+    public static void main(String[] args) {
+        System.out.println(number);
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Very Simple Static Example</h4>
+Accessing static variable without creating an object.
+      `,
+      codeExamples: [
+`class SimpleStatic {
+    static String message = "Welcome to Java";
+
+    public static void main(String[] args) {
+        System.out.println(message);
+    }
+}`
+      ]
+    }
+  ],
+
+  intermediate: [
+
+    // ===== CORE STATIC CONCEPTS =====
+
+    {
+      content: `
+<h4>Static Keyword – Introduction</h4>
+• The <b>static</b> keyword is used for memory management.<br>
+• Static members belong to the class, not to objects.<br>
+• Only one copy of static members is created and shared.<br><br>
+
+<h4>Where can we use static?</h4>
+• Static Variable<br>
+• Static Method<br>
+• Static Block<br>
+• Static Inner Class<br><br>
+
+<h4>Important Rules</h4>
+• Local variables cannot be static.<br>
+• Constructor cannot be static.<br>
+• Outer class cannot be static.<br>
+• this and super are not allowed in static context.
+      `,
+      codeExamples: [
+`class StaticBasic {
+    static int x = 10;
+
+    public static void main(String[] args) {
+        System.out.println(x);
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Static Variable</h4>
+A variable declared using <b>static</b> keyword.<br><br>
+
+<b>Why use static variable?</b><br>
+When a value is common for all objects.<br><br>
+
+<b>Examples:</b><br>
+College name, company name, course name.
+      `,
+      codeExamples: [
+`class Student {
     int id;
     String name;
-    static String course = "Code_With_Pankaj";  // Common property
-    
-    public Student(int id, String name) {
-        this.id = id;
-        this.name = name;
+    static String college = "ABC College";
+
+    Student(int i, String n) {
+        id = i;
+        name = n;
     }
-    
+
     void display() {
-        System.out.println("ID: " + id + ", Name: " + name + ", Course: " + course);
+        System.out.println(id + " " + name + " " + college);
     }
-    
+
     public static void main(String[] args) {
-        Student st1 = new Student(1, "Omkar");
-        Student st2 = new Student(2, "Dheeraj");
-        Student st3 = new Student(3, "Shree");
-        
-        st1.display();
-        st2.display();
-        st3.display();
+        Student s1 = new Student(1, "A");
+        Student s2 = new Student(2, "B");
+
+        s1.display();
+        s2.display();
     }
-}
-`
-              ]
-            }],
-            intermediate: [{
-              content: `
-1) STATIC VARIABLE / CLASS VARIABLE
+}`
+      ]
+    },
 
-• A variable defined with the static keyword is called a static variable
-• Also known as class variables
-• Stored in Metaspace (Permanent Generation before JDK 1.8)
-• Loaded into memory at class loading time
-• Used to refer to common properties of all objects
-• Advantages: Makes programs memory efficient (saves memory)
+    {
+      content: `
+<h4>Static Method</h4>
+A method declared using <b>static</b> keyword.<br><br>
 
-HOW TO ACCESS STATIC VARIABLES - 3 WAYS:
+<b>Key Points:</b><br>
+• Belongs to class<br>
+• No object required<br>
+• Can access only static members
+      `,
+      codeExamples: [
+`class StaticMethodExample {
+    static void show() {
+        System.out.println("Static Method Called");
+    }
 
-1. By using class name (Recommended)
-2. By using object name
-3. Direct way (only in same class)
+    public static void main(String[] args) {
+        show();
+        StaticMethodExample.show();
+    }
+}`
+      ]
+    },
 
-EXAMPLE - Static vs Non-Static Variables:
+    {
+      content: `
+<h4>Static Block</h4>
+Executed when class is loaded into memory.<br><br>
 
-When you create multiple objects:
-• Static variables share the same memory for all objects (single copy)
-• Non-static variables create separate memory for each object
+<b>Uses:</b><br>
+• Initialize static variables<br>
+• Executes before main method
+      `,
+      codeExamples: [
+`class StaticBlockExample {
+    static {
+        System.out.println("Static Block Executed");
+    }
 
-2) STATIC METHOD / CLASS METHOD
+    public static void main(String[] args) {
+        System.out.println("Main Method Executed");
+    }
+}`
+      ]
+    },
 
-• A method defined with static keyword is called a static method
-• Also known as class methods
-• Belongs to the class rather than objects
-• Loads into memory before object creation
-• Can access only static data members
-• Can be called without creating an object
+    // ===== ADVANCED / INTERVIEW LEVEL =====
 
-HOW TO CALL STATIC METHODS - 3 WAYS:
-
-1. ClassName.methodName()  (Recommended)
-2. objectName.methodName()
-3. Direct method name (in same class)
-
-3) STATIC BLOCK
-
-• Group of statements executed when class is loaded
-• Executed before the main method
-• Used to initialize static variables
-• Executes only once during class loading
-• Cannot access non-static variables directly
-• Widely used to create static resources
-
-RESTRICTIONS:
-
-1. Cannot use non-static data members directly
-2. Cannot call non-static methods directly
-3. this and super cannot be used in static context
-
-WHY IS MAIN METHOD STATIC?
-
-The JVM calls main() without creating an object. If main() were non-static, the JVM would need to create an object first, leading to extra memory allocation and inefficiency.
-`,
-              codeExamples: [
-                `// Example 1: Static Method Access
-public class StaticDemo {
+    {
+      content: `
+<h4>Static Keyword – Overview</h4>
+• Represents single copy storage<br>
+• Loaded during class loading<br>
+• Improves memory efficiency<br>
+• Inner class can be static
+      `,
+      codeExamples: [
+`class StaticIntro {
     static int a = 10;
-    
+
     public static void main(String[] args) {
-        // Access by class name (Recommended)
-        System.out.println("Using class name: " + StaticDemo.a);  // 10
-        
-        // Access by object name
-        StaticDemo obj = new StaticDemo();
-        System.out.println("Using object name: " + obj.a);  // 10
-        
-        // Direct access (same class only)
-        System.out.println("Direct way: " + a);  // 10
+        System.out.println(a);
     }
-}`,
-                `// Example 2: Non-static Calling Static
-public class StaticDemo {
-    void nonStaticMethod() {  // Non-static
-        System.out.println("This is non-static method");
-        staticMethod();  // Can call static from non-static
-    }
-    
-    static void staticMethod() {  // Static
-        System.out.println("This is static method");
-        // nonStaticMethod();  // ERROR: Cannot call non-static from static
-    }
-    
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Difference Between Static and Non-Static</h4>
+Static variables share memory, non-static variables get separate memory.
+      `,
+      codeExamples: [
+`class Test {
+    int x = 5;
+    static int y = 5;
+
     public static void main(String[] args) {
-        StaticDemo obj = new StaticDemo();
-        obj.nonStaticMethod();
+        Test a = new Test();
+        Test b = new Test();
+
+        a.x++;
+        y++;
+
+        System.out.println(a.x); // 6
+        System.out.println(b.x); // 5
+        System.out.println(y);   // 6
     }
-}
+}`
+      ]
+    },
 
-`,
-                `// Example 3: Static Block
-public class StaticBlockExample {
-    static int count = 0;
-    
-    static {  // Static Block 1
-        System.out.println("Static Block 1");
-        count = 10;
+    {
+      content: `
+<h4>Static Method Rules</h4>
+• Cannot access non-static members<br>
+• this and super not allowed<br>
+• Static methods are not overridden (method hiding)
+      `
+    },
+
+    {
+      content: `
+<h4>Interview Questions</h4>
+
+<b>1. Why is main() static?</b><br>
+JVM can call it without object creation.<br><br>
+
+<b>2. Can static methods be overridden?</b><br>
+No, they are hidden.<br><br>
+
+<b>3. Can Java program run without main?</b><br>
+Possible till JDK 1.6 using static block.
+      `
     }
-    
-    static {  // Static Block 2
-        System.out.println("Static Block 2");
-        count = 20;
-    }
-    
-    public static void main(String[] args) {
-        System.out.println("Main Method");
-        System.out.println("Count: " + count);
-    }
-}
-`
-              ]
-            }],
-            expert: [{
-              content: `
-STATIC VS NON-STATIC: DETAILED COMPARISON
+  ]
+},
 
-Static Members:
-• Single copy shared by all objects
-• Accessed using class name
-• Loaded at class loading time
-• Memory allocated in Metaspace
-• Cannot be overridden (can be hidden)
 
-Non-Static Members:
-• Separate copy for each object
-• Accessed using object reference
-• Loaded at object creation time
-• Memory allocated in Heap
-• Can be overridden
-
-MEMORY ALLOCATION EXAMPLE:
-
-Consider: int a = 5 (non-static) and static int b = 5
-
-Object 1: Creates separate memory for 'a'
-Object 2: Creates separate memory for 'a'
-Object 3: Creates separate memory for 'a'
-All Objects: Share same memory location for 'b'
-
-Result: After incrementing b three times, b = 8 (single shared value)
-Result: Each object's 'a' increments independently (separate copies)
-
-WHY CALLED "SINGLE COPY STORAGE"?
-
-Because:
-• Static members are loaded into memory only once at class loading time
-• Non-static members are loaded into memory every time an object is created
-• Only one copy of static members exists for all objects
-• This saves memory in Java programs
-
-STATIC INNER CLASSES:
-
-• Allowed in Java
-• Can be instantiated without an instance of outer class
-• Cannot access non-static members of outer class
-• Can access static members of outer class
-
-ADVANCED CONCEPTS:
-
-Static Import:
-• Allows direct access to static members without class name
-• Syntax: import static package.class.staticMember
-
-Static Initializer Order:
-1. All static blocks execute during class loading (top to bottom)
-2. Main method executes after class loading
-3. Instance initializers execute during object creation
-4. Constructors execute last during object creation
-
-PERFORMANCE CONSIDERATIONS:
-
-• Use static for utility methods (no object needed)
-• Use static for constants (single memory location)
-• Use static for shared counters/tracking
-• Avoid static for data that varies per object
-• Static method calls are slightly faster (no virtual dispatch)
-
-COMMON INTERVIEW QUESTIONS:
-
-Q: Can static methods be overridden?
-A: No, they cannot be overridden. They can only be hidden by defining a method with the same signature in subclass.
-
-Q: Can we access instance variables from static method?
-A: No, we cannot directly access instance variables from static methods.
-
-Q: Why is the main method static?
-A: So JVM can call it without creating an object, avoiding unnecessary memory allocation.
-
-Q: Can constructor be static?
-A: No, constructors cannot be static.
-
-Q: What is a static block used for?
-A: To initialize static variables when class is loaded.
-`,
-              codeExamples: [
-                `// Example 1: Understanding Static Copy Storage
-public class CopyStorageDemo {
-    int nonStaticVar = 5;      // Non-static
-    static int staticVar = 5;  // Static
-    
-    public static void main(String[] args) {
-        CopyStorageDemo obj1 = new CopyStorageDemo();
-        System.out.println("Object 1 - NonStatic: " + obj1.nonStaticVar++);  // 5
-        System.out.println("Object 1 - Static: " + CopyStorageDemo.staticVar++);  // 5
-        
-        CopyStorageDemo obj2 = new CopyStorageDemo();
-        System.out.println("Object 2 - NonStatic: " + obj2.nonStaticVar++);  // 5 (new copy)
-        System.out.println("Object 2 - Static: " + CopyStorageDemo.staticVar++);  // 6 (shared)
-        
-        CopyStorageDemo obj3 = new CopyStorageDemo();
-        System.out.println("Object 3 - NonStatic: " + obj3.nonStaticVar++);  // 5 (new copy)
-        System.out.println("Object 3 - Static: " + CopyStorageDemo.staticVar++);  // 7 (shared)
-    }
-}
-
-OUTPUT:
-Object 1 - NonStatic: 5
-Object 1 - Static: 5
-Object 2 - NonStatic: 5
-Object 2 - Static: 6
-Object 3 - NonStatic: 5
-Object 3 - Static: 7`,
-                `// Example 2: Static Inner Class
-public class OuterClass {
-    static int staticVar = 10;
-    int nonStaticVar = 20;
-    
-    static class StaticInnerClass {
-        void display() {
-            System.out.println("Static Var from inner: " + staticVar);  // OK
-            // System.out.println(nonStaticVar);  // ERROR
-        }
-    }
-    
-    public static void main(String[] args) {
-        // Can create static inner class without outer object
-        OuterClass.StaticInnerClass inner = new OuterClass.StaticInnerClass();
-        inner.display();
-    }
-}`,
-                `// Example 3: Static Block Execution Order
-public class ExecutionOrder {
-    static int a;
-    
-    static {
-        System.out.println("Static Block 1");
-        a = 10;
-    }
-    
-    static {
-        System.out.println("Static Block 2");
-        a = 20;
-    }
-    
-    public static void main(String[] args) {
-        System.out.println("Main Method");
-        System.out.println("Value of a: " + a);
-    }
-}
-
-OUTPUT:
-Static Block 1
-Static Block 2
-Main Method
-Value of a: 20`
-              ]
-            }]
-          },
-
-        ]
-      },
 
     {
       id: 'wrapper-class',
       name: 'Wrapper Class',
-      topics: [
-        {
-          id: 'wrapper-class-basics',
-          name: 'Wrapper Classes',
+      
           beginner: [
             {
               content: `
@@ -1801,6 +2421,300 @@ Boolean, Byte, Short, Character, Integer, Long, Float, Double.
         }
       ]
     },
+
+ {
+  id: 'final-keyword',
+  name: 'Final Keyword',
+  topics: [
+    {
+      id: 'final-keyword',
+      name: 'Final Keyword',
+
+      beginner: [
+        {
+          content: `
+• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>
+• The final keyword is used to <b>restrict modification</b>.<br><br>
+
+<h4>Final Variable</h4>
+• A variable declared with the <b>final</b> keyword is called a final variable.<br>
+• Once a value is assigned, it <b>cannot be changed</b>.<br>
+• Final variables work like <b>constants</b> in Java.<br><br>
+
+<h4>Declaration</h4>
+final int a = 5;
+          `,
+          codeExamples: [
+`package com.test;
+
+public class Code_With_Pankaj {
+    public static void main(String[] args) {
+        final int a = 5;
+        System.out.println(a);
+    }
+}
+// Output: 5`
+          ]
+        },
+        {
+          content: `
+<h4>Final Variable – Compile Time Error Example</h4>
+• Final variable values cannot be modified.<br>
+• Any attempt to change the value will cause a <b>compile-time error</b>.
+          `,
+          codeExamples: [
+`package com.test;
+
+public class Code_With_Pankaj {
+    public static void main(String[] args) {
+        final int a = 5;
+        a++;   // ❌ Error
+    }
+}
+// Compile Time Error`
+          ]
+        }
+      ],
+
+      intermediate: [
+        // 🔹 Beginner data added here
+        {
+          content: `
+• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>
+• The final keyword is used to <b>restrict modification</b>.<br><br>
+
+<h4>Final Variable</h4>
+• A variable declared with the <b>final</b> keyword is called a final variable.<br>
+• Once a value is assigned, it <b>cannot be changed</b>.
+          `,
+          codeExamples: [
+`final int a = 5;
+// a++; ❌ Compile Time Error`
+          ]
+        },
+
+        // 🔹 Intermediate original content
+        {
+          content: `
+<h4>Final Method</h4>
+• A method declared with the <b>final</b> keyword is called a final method.<br>
+• Final methods <b>cannot be overridden</b>.
+          `,
+          codeExamples: [
+`class X {
+    public final void x1() {
+        System.out.println("Class X method");
+    }
+}
+
+class Y extends X {
+    public void x1() { } // ❌ Compile Time Error
+}`
+          ]
+        },
+        {
+          content: `
+<h4>Final Class</h4>
+• A class declared with the <b>final</b> keyword cannot be inherited.
+          `,
+          codeExamples: [
+`final class Demo { }
+
+class Test extends Demo { } // ❌ Compile Time Error`
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+{
+  id: 'return-object-method',
+  name: 'Return Object from Method',
+  topics: [
+    {
+      id: 'return-object',
+      name: 'Different Ways to Return Object from Method',
+
+      beginner: [
+        {
+          content: `
+• In industry, methods usually return <b>objects</b> instead of primitive data types.<br>
+• Returning objects makes code more <b>scalable, reusable, and maintainable</b>.<br><br>
+
+<h4>Basic Object Return</h4>
+A method can return an object of its class type.
+          `,
+          codeExamples: [
+`package com.test;
+
+public class Employee {
+
+    public Employee addEmployee() {
+        Employee employee = new Employee();
+        return employee;   // returning object
+    }
+}`
+          ]
+        },
+        {
+          content: `
+<h4>Printing Returned Object (Without toString)</h4>
+If toString() is not overridden, object reference is printed.
+          `,
+          codeExamples: [
+`package com.test;
+
+public class Employee {
+
+    int id = 101;
+    String name = "Pankaj";
+    String city = "Pune";
+
+    public Employee addEmployee() {
+        Employee emp = new Employee();
+        System.out.println(emp);
+        return emp;
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee();
+        e.addEmployee();
+    }
+}
+
+// Output:
+// com.test.Employee@7852e922`
+          ]
+        }
+      ],
+
+      intermediate: [
+        {
+          content: `
+<h4>Returning Object with toString()</h4>
+Override toString() to return meaningful data.
+          `,
+          codeExamples: [
+`package com.test;
+
+public class Employee {
+
+    int id = 101;
+    String name = "Pankaj";
+    String city = "Pune";
+
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", name=" + name + ", city=" + city + "]";
+    }
+
+    public Employee addEmployee() {
+        Employee emp = new Employee();
+        System.out.println(emp);
+        return emp;
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee();
+        e.addEmployee();
+    }
+}
+
+// Output:
+// Employee [id=101, name=Pankaj, city=Pune]`
+          ]
+        },
+        {
+          content: `
+<h4>Returning Object with Single Value (empId)</h4>
+Instead of returning int, return object containing id.
+          `,
+          codeExamples: [
+`package com.test;
+
+public class Test {
+
+    public static Employee getEmployeeById() {
+        int id = 10;
+        return new Employee(id);
+    }
+
+    public static void main(String[] args) {
+        Employee e = getEmployeeById();
+        System.out.println(e.id);
+    }
+}
+
+package com.test;
+
+public class Employee {
+    int id;
+
+    public Employee(int id) {
+        this.id = id;
+    }
+}
+
+// Output:
+// 10`
+          ]
+        },
+        {
+          content: `
+<h4>Returning Multiple Values Using Object</h4>
+Industry-standard way to return multiple values.
+          `,
+          codeExamples: [
+`package com.test;
+
+public class Test {
+
+    public static Employee getEmployeeDetails() {
+
+        int id = 10;
+        String name = "Pankaj";
+        String city = "Pune";
+
+        return new Employee(id, name, city);
+    }
+
+    public static void main(String[] args) {
+
+        Employee e = getEmployeeDetails();
+
+        System.out.println("id=" + e.id);
+        System.out.println("name=" + e.name);
+        System.out.println("city=" + e.city);
+    }
+}
+
+package com.test;
+
+public class Employee {
+
+    int id;
+    String name;
+    String city;
+
+    public Employee(int id, String name, String city) {
+        this.id = id;
+        this.name = name;
+        this.city = city;
+    }
+}
+
+`
+          ]
+        }
+      ]
+    }
+  ]
+},
+
+
+    
+
 
 {
   id: 'this-super-keyword',
@@ -4265,6 +5179,8 @@ void getSeatAvailability(int seat){
         ]
       }
     ],
+
+    
 
 
     cheatNotes: [
