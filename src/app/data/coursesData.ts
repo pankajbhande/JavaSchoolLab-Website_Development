@@ -284,346 +284,229 @@ public class PerformanceExample {
             id: "operators",
             name: "Operators in Java",
 
-            beginner: [
-              {
-                content: `
-OPERATORS IN JAVA
+           intermediate: [
 
-Operators in Java are symbols used to perform operations on variables and values.
+  {
+    content: `
+<h4>1) Arithmetic Operators</h4>
+Used to perform mathematical calculations.<br>
 
-
-TYPES OF OPERATORS
-
-1) Arithmetic Operators:
-
-Used for mathematical calculations.
-
-Symbols
-
-• +  Addition 
-
-• -  Subtraction
-
-• *  Multiplication
-
-• /  Division 
-
+Operators:<br>
+• +  Addition  
+• -  Subtraction  
+• *  Multiplication  
+• /  Division  
 • %  Modulus  
+`,
+    codeExamples: [
+`int a = 10, b = 3;
 
+System.out.println(a + b); // 13
+System.out.println(a - b); // 7
+System.out.println(a * b); // 30
+System.out.println(a / b); // 3
+System.out.println(a % b); // 1`
+    ]
+  },
 
-2) Logical Operators:
+  {
+    content: `
+<h4>2) Logical AND (&&) Operator</h4>
+• Returns true only if BOTH conditions are true  
+• Second condition is skipped if first is false 
+<img src="./src/assets/operator1.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" /> 
+`,
+    codeExamples: [
+`int x = 10, y = 20;
 
-Used to perform logical AND (&&) and OR (||) operations.
+System.out.println(x < y && x > 5);   // true
+System.out.println(x > y && x > 5);   // false`
+    ]
+  },
 
-I).Logical AND (&&) Operator
+  {
+    content: `
+<h4>3) Logical OR (||) Operator</h4>
+• Returns true if ANY one condition is true  
+• Second condition is skipped if first is true 
+<img src="./src/assets/operator2.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" /> 
+`,
+    codeExamples: [
+`int x = 10, y = 20;
 
-• The && operator does NOT check the second condition if the first condition is FALSE.
-• It checks the second condition ONLY if the first condition is TRUE.
-Logical AND (&&)
+System.out.println(x > y || x < y);   // true
+System.out.println(x > y || x > 30);  // false`
+    ]
+  },
 
-true  &&  true   → true
+  {
+    content: `
+<h4>4) Relational Operators</h4>
+Used to compare two values.<br>
 
-true  &&  false  → false
+Operators:<br>
+• >   Greater than  
+• <   Less than  
+• >=  Greater than or equal to  
+• <=  Less than or equal to  
+• ==  Equal to  
+• !=  Not equal to  
+`,
+    codeExamples: [
+`int a = 10, b = 20;
 
-false &&  true   → false
+System.out.println(a > b);   // false
+System.out.println(a < b);   // true
+System.out.println(a == b);  // false
+System.out.println(a != b);  // true`
+    ]
+  },
 
-false &&  false  → false
+  {
+    content: `
+<h4>5) Assignment Operator</h4>
+Used to assign value to a variable.
 
-II).Logical OR (||) Operator
+Syntax:
+variable = value;
+`,
+    codeExamples: [
+`int x = 50;
+System.out.println(x); // 50`
+    ]
+  },
 
-• The || operator does NOT check the second condition if the first condition is TRUE.
+  {
+    content: `
+<h4>6) Bitwise AND (&) Operator</h4>
+• Always checks BOTH conditions  
+• Executes even if first condition is false 
+<img src="./src/assets/operator3.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" /> 
+`,
+    codeExamples: [
+`int x = 10, y = 20;
 
-• It checks the second condition ONLY if the first condition is FALSE.
+System.out.println(x < y & x > 5);  // true
+System.out.println(x > y & x > 5);  // false`
+    ]
+  },
 
-Truth Table – Logical OR (||)
+  {
+    content: `
+<h4>7) Bitwise OR (|) Operator</h4>
+• Always checks BOTH conditions  
+• Executes even if first condition is true 
+<img src="./src/assets/operator4.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" /> 
+`,
+    codeExamples: [
+`int x = 10, y = 20;
 
-Expression1   Expression2   Result
+System.out.println(x < y | x > 50); // true
+System.out.println(x > y | x > 50); // false`
+    ]
+  },
 
-true    ||      true    →      true
-
-true     ||     false   →      true
-
-false    ||     true     →     true
-
-false    ||     false     →    false
-
-
-3) Relational Operators:
-
-Used to compare two values.
+  {
+    content: `
+<h4>8) Unary Operators</h4>
+Used to increment or decrement value.
 
 Operators:
+• ++ Increment  
+• -- Decrement  
+`,
+    codeExamples: [
+`int a = 10;
 
-• >   Greater than 
+a++;
+System.out.println(a); // 11
 
-• <   Less than  
+a--;
+System.out.println(a); // 10`
+    ]
+  },
 
-• >=  Greater than or equal to
-
-• <=  Less than or equal to
-
-• ==  Equal to  
-
-• !=  Not equal to  
-
-
-4) Assignment Operator:
-
-Used to assign values to variables.
-
-Syntax→
-variable = value;
-
-5) Bitwise Operators:
-
-Used to perform bitwise AND (&) and OR (|) operations.
-
-I).Bitwise AND (&)
-
-• Always checks both conditions
-• Executes even if the first condition is FALSE
-
-Truth Table – Bitwise AND (&)
-
-true  &  true   → true
-
-true  &  false  → false
-
-false &  true   → false
-
-false &  false  → false
-
-
-II).Bitwise OR (|)
-
-• Always checks both conditions
-• Executes even if the first condition is TRUE
-
-Truth Table – Bitwise OR (|)
-
-true  |  true   → true
-
-true  |  false  → true
-
-false |  true   → true
-
-false |  false  → false
-
-
-6) Unary Operators:
-
-Used to increment or decrement a variable.
-
-• ++  Increment  
-• --  Decrement  
-
-7) Ternary Operator:
-
+  {
+    content: `
+<h4>9) Ternary Operator</h4>
 Shorthand for if-else statement.
 
-
-Syntax -  condition ? value_if_true ; value_if_false
-
-8) Shift Operators:
-
-• <<  Left Shift  
-• >>  Right Shift  
-
-
-9) Dot Operator (.):
-
-Used to access class members (variables or methods).
-
-
-10) New Operator:
-
-Used to create an object of a class.
+Syntax:
+condition ? value_if_true : value_if_false
 `,
+    codeExamples: [
+`int a = 10, b = 20;
 
-                codeExamples: [
-                  `// Java Operators - Complete Example
-package com.test;
+int max = (a > b) ? a : b;
+System.out.println(max); // 20`
+    ]
+  },
 
-public class Operator {
+  {
+    content: `
+<h4>10) Shift Operators</h4>
+• Right shift operator >> is used to move left operands value to right by the number of bits specified 
+by the right operand. <br>
+• Left shift operator << is used to shift all of the bits in a value to the left side of a specified number 
+of times. 
 
-    public static void main(String[] args) {
+`,
+    codeExamples: [
+`int x = 10;
 
-        int x = 10, y = 20, z = 30;
+System.out.println(x << 2); // 40
+System.out.println(x >> 1); // 5`
+    ]
+  },
 
-        // Arithmetic Operators
-        System.out.println(x + y);
-        System.out.println(x - y);
-        System.out.println(x * y);
-        System.out.println(x / y);
-        System.out.println(x % y);
-
-        // Logical Operators
-        System.out.println(x < y && x < z);
-        System.out.println(x > y || x < z);
-
-        // Relational Operators
-        System.out.println(x > y);
-        System.out.println(x == y);
-
-        // Bitwise Operators
-        System.out.println(x < y & x < z);
-        System.out.println(x > y | x < z);
-
-        // Unary Operator
-        int m = 10;
-        m++;
-        System.out.println(m);
-
-        // Ternary Operator
-        int max = (x > y) ? x : y;
-        System.out.println(max);
-
-        // Shift Operators
-        System.out.println(x << 2);
-        System.out.println(x >> 2);
-
-        // Dot & New Operator
-        Operator obj = new Operator();
-        obj.demo();
-    }
-
-    void demo() {
+  {
+    content: `
+<h4>11) Dot (.) Operator</h4>
+Used to access class variables and methods.
+`,
+    codeExamples: [
+`class Demo {
+    void show() {
         System.out.println("Dot operator example");
     }
-}`
-                ]
-              }
-            ],
 
-
-
-            intermediate: [
-              {
-                content: `2) Logical Operators:
-Used to perform logical AND and OR operations.
-
-Logical AND (&&):
-• Returns true only if both conditions are true
-• Skips second condition if first is false
-
-Logical OR (||):
-• Returns true if any one condition is true
-• Skips second condition if first is true
-
-3) Relational Operators:
-Used to compare values.
-• >, <, >=, <=, ==, !=
-
-4) Assignment Operators:
-Used to assign values to variables.
-Syntax: variable = value;`,
-
-                codeExamples: [
-                  `// Logical, Relational & Assignment Operators
-package com.test;
-
-public class Operator {
     public static void main(String[] args) {
-        int x = 10;
-        int y = 20;
-        int z = 30;
-
-        // Logical AND
-        System.out.println(x < y && x < z);
-        System.out.println(x > y && x < z);
-
-        // Logical OR
-        System.out.println(x < y || x < z);
-        System.out.println(x > y || x > z);
-
-        // Relational Operators
-        System.out.println(x > y);
-        System.out.println(x < y);
-        System.out.println(x >= y);
-        System.out.println(x <= y);
-        System.out.println(x == y);
-        System.out.println(x != y);
-
-        // Assignment Operator
-        System.out.println("value of x is>>> " + x);
+        Demo obj = new Demo();
+        obj.show(); // using dot operator
     }
 }`
-                ]
-              }
-            ],
+    ]
+  },
 
-            expert: [
-              {
-                content: `5) Bitwise Operators:
-• &  Bitwise AND (checks both conditions)
-• |  Bitwise OR  (checks both conditions)
+  {
+    content: `
+<h4>12) new Operator</h4>
+Used to create an object of a class.
+`,
+    codeExamples: [
+`class Test {
+    Test() {
+        System.out.println("Object created");
+    }
 
-6) Unary Operators:
-• ++ Increment
-• -- Decrement
-
-7) Ternary Operator:
-condition ? value_if_true : value_if_false
-
-8) Shift Operators:
-• << Left Shift (multiplication by 2^n)
-• >> Right Shift (division by 2^n)
-
-9) Dot (.) Operator:
-Used to access class variables and methods.
-
-10) new Operator:
-Used to create an object of a class.`,
-
-                codeExamples: [
-                  `// Bitwise, Unary, Ternary & Shift Operators
-package com.test;
-
-public class Operator {
     public static void main(String[] args) {
-
-        int x = 10, y = 20, z = 30;
-
-        // Bitwise AND
-        System.out.println(x < y & x < z);
-        System.out.println(x > y & x < z);
-
-        // Bitwise OR
-        System.out.println(x > y | x < z);
-        System.out.println(x > y | x > z);
-
-        // Unary Operators
-        int m = 10;
-        m++;
-        System.out.println("value of m is>> " + m);
-        m--;
-        System.out.println("value of m is>> " + m);
-
-        // Ternary Operator
-        int A = 10;
-        int B = 20;
-        int num = (A > B) ? A : B;
-        System.out.println(num);
-
-        // Shift Operators
-        int K = 10;
-        System.out.println(K << 2);
-        System.out.println(K << 3);
-
-        // new Operator & Dot Operator
-        Code_With_Pankaj obj = new Code_With_Pankaj();
-        obj.demo();
-    }
-
-    void demo() {
-        System.out.println("Dot and new operator example");
-         swap(5, 10);
+        Test t = new Test(); // new operator
     }
 }`
-                ]
-              }
-            ]
-          },
+    ]
+  }
+
+]
+},
+
           {
             id: "Control Statements in Java",
             name: "Control Statements in Java",
@@ -2034,9 +1917,9 @@ Calling parameterized constructor of derived class
 • Shares common data among objects<br><br>
 
 <b>Basic Rules</b><br>
-• Static variables are shared<br>
+• Static variables are shared among all objects<br>
 • Static methods can be called without object creation<br>
-• main() method is static
+• The main() method is static
       `,
       codeExamples: [
 `class HelloStatic {
@@ -2047,158 +1930,84 @@ Calling parameterized constructor of derived class
     }
 }`
       ]
-    },
-
-    {
-      content: `
-<h4>Very Simple Static Example</h4>
-Accessing static variable without creating an object.
-      `,
-      codeExamples: [
-`class SimpleStatic {
-    static String message = "Welcome to Java";
-
-    public static void main(String[] args) {
-        System.out.println(message);
-    }
-}`
-      ]
     }
   ],
 
   intermediate: [
 
-    // ===== CORE STATIC CONCEPTS =====
-
     {
       content: `
-<h4>Static Keyword – Introduction</h4>
-• The <b>static</b> keyword is used for memory management.<br>
-• Static members belong to the class, not to objects.<br>
-• Only one copy of static members is created and shared.<br><br>
-
-<h4>Where can we use static?</h4>
-• Static Variable<br>
-• Static Method<br>
-• Static Block<br>
-• Static Inner Class<br><br>
-
-<h4>Important Rules</h4>
-• Local variables cannot be static.<br>
-• Constructor cannot be static.<br>
-• Outer class cannot be static.<br>
-• this and super are not allowed in static context.
-      `,
-      codeExamples: [
-`class StaticBasic {
-    static int x = 10;
-
-    public static void main(String[] args) {
-        System.out.println(x);
-    }
-}`
-      ]
+<h4>Static Keyword – Detailed Rules</h4>
+• Used for memory management<br>
+• Can be applied to variable, method, static block and inner class<br>
+• Represents single-copy storage<br>
+• Local variables cannot be static<br>
+• Constructors cannot be static<br>
+• Outer class cannot be static, but inner class can be static<br>
+• main() method is static<br>
+• this and super are not allowed in static context
+      `
     },
 
     {
       content: `
-<h4>Static Variable</h4>
-A variable declared using <b>static</b> keyword.<br><br>
-
-<b>Why use static variable?</b><br>
-When a value is common for all objects.<br><br>
+<h4>Static Variable / Class Variable</h4>
+A variable declared using the <b>static</b> keyword is called a static variable.<br>
+• Also known as class variable<br>
+• Stored in <b>Metaspace</b> (since JDK 1.8)<br>
+• Represents common properties shared by all objects<br>
+• Loaded into memory at class loading time<br><br>
 
 <b>Examples:</b><br>
-College name, company name, course name.
+• College name<br>
+• Company name
       `,
       codeExamples: [
-`class Student {
-    int id;
-    String name;
-    static String college = "ABC College";
-
-    Student(int i, String n) {
-        id = i;
-        name = n;
-    }
-
-    void display() {
-        System.out.println(id + " " + name + " " + college);
-    }
-
-    public static void main(String[] args) {
-        Student s1 = new Student(1, "A");
-        Student s2 = new Student(2, "B");
-
-        s1.display();
-        s2.display();
-    }
-}`
+`static int a;     // Declaration
+static int b = 10; // Initialization`
       ]
     },
 
     {
       content: `
-<h4>Static Method</h4>
-A method declared using <b>static</b> keyword.<br><br>
-
-<b>Key Points:</b><br>
-• Belongs to class<br>
-• No object required<br>
-• Can access only static members
+<h4>Accessing Static Variable (Same Class)</h4>
+Three ways:<br>
+1. Using class name<br>
+2. Using object name<br>
+3. Directly (same class only)
       `,
       codeExamples: [
-`class StaticMethodExample {
-    static void show() {
-        System.out.println("Static Method Called");
-    }
-
-    public static void main(String[] args) {
-        show();
-        StaticMethodExample.show();
-    }
-}`
-      ]
-    },
-
-    {
-      content: `
-<h4>Static Block</h4>
-Executed when class is loaded into memory.<br><br>
-
-<b>Uses:</b><br>
-• Initialize static variables<br>
-• Executes before main method
-      `,
-      codeExamples: [
-`class StaticBlockExample {
-    static {
-        System.out.println("Static Block Executed");
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Main Method Executed");
-    }
-}`
-      ]
-    },
-
-    // ===== ADVANCED / INTERVIEW LEVEL =====
-
-    {
-      content: `
-<h4>Static Keyword – Overview</h4>
-• Represents single copy storage<br>
-• Loaded during class loading<br>
-• Improves memory efficiency<br>
-• Inner class can be static
-      `,
-      codeExamples: [
-`class StaticIntro {
+`public class StaticDemo {
+    int z = 30;
     static int a = 10;
 
     public static void main(String[] args) {
-        System.out.println(a);
+        System.out.println("Using class name >> " + StaticDemo.a);
+
+        StaticDemo obj = new StaticDemo();
+        System.out.println("Using object name >> " + obj.a);
+
+        System.out.println("Direct way >> " + a);
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Static Variable – Different Class</h4>
+      `,
+      codeExamples: [
+`class StaticDemo {
+    static int a = 10;
+}
+
+class Demo {
+    public static void main(String[] args) {
+        System.out.println(StaticDemo.a);
+
+        StaticDemo obj = new StaticDemo();
+        System.out.println(obj.a);
     }
 }`
       ]
@@ -2207,7 +2016,7 @@ Executed when class is loaded into memory.<br><br>
     {
       content: `
 <h4>Difference Between Static and Non-Static</h4>
-Static variables share memory, non-static variables get separate memory.
+Non-static variables have separate memory for each object, static variables share memory.
       `,
       codeExamples: [
 `class Test {
@@ -2231,29 +2040,705 @@ Static variables share memory, non-static variables get separate memory.
 
     {
       content: `
-<h4>Static Method Rules</h4>
-• Cannot access non-static members<br>
-• this and super not allowed<br>
-• Static methods are not overridden (method hiding)
-      `
+<h4>Static Method / Class Method</h4>
+•If you define any method with static keyword then it is called as static method.<br>
+•Static Method is known as class method.<br>
+•Static Method belongs to class rather than object of class.<br>
+•Static Method loads into memory before object creation.<br>
+•Static Method can access only static data member only & it can change the value of it.<br>
+      `,
+      codeExamples: [
+`class StaticMethodDemo {
+
+    static void show() {
+        System.out.println("This is static method");
+    }
+
+    public static void main(String[] args) {
+        show();
+        StaticMethodDemo.show();
+
+        StaticMethodDemo obj = new StaticMethodDemo();
+        obj.show();
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Calling Static Members from Non-Static Method</h4>
+      `,
+      codeExamples: [
+`class StaticDemo {
+
+    static void x1() {
+        System.out.println("This is static method");
+    }
+
+    void x2() {
+        System.out.println("This is non-static method");
+        x1();
+    }
+
+    public static void main(String[] args) {
+        StaticDemo obj = new StaticDemo();
+        obj.x2();
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Static Block</h4>
+1. It is group of statements that are executed when class is loading into memory by
+Classloader.<br>
+2. Static Block widely used to create the static resource.<br>
+3. We cannot access non-static variable into static block.<br>
+4. Static Block always executed first.<br>
+5. Static Block used to initialize the static data member.<br>
+6. Static Block executed before the main method at the time of classloading.<br>
+      `,
+      codeExamples: [
+`class StaticBlockExample {
+    static {
+        System.out.println("This is static block");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("This is main method");
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Multiple Static Blocks</h4>
+      `,
+      codeExamples: [
+`class StaticExample {
+
+    static {
+        System.out.println("Static block 1");
+    }
+
+    static {
+        System.out.println("Static block 2");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Main method");
+    }
+}`
+      ]
     },
 
     {
       content: `
 <h4>Interview Questions</h4>
 
-<b>1. Why is main() static?</b><br>
-JVM can call it without object creation.<br><br>
-
-<b>2. Can static methods be overridden?</b><br>
-No, they are hidden.<br><br>
-
-<b>3. Can Java program run without main?</b><br>
-Possible till JDK 1.6 using static block.
-      `
+<b>1.What is the purpose of the static keyword in Java?</b><br>
+o The static keyword is used to indicate that a member (variable, method, or nested class) belongs
+to the class itself rather than to instances of the class. This means that static members are shared
+among all instances of the class.<br>
+<b>2. What is a static variable?</b><br>
+o A static variable is a class-level variable that is shared among all instances of the class. It is
+initialized only once, at the start of the program, and retains its value between different instances
+of the class.<br>
+<b>3. What is a static method?</b><br>
+o A static method belongs to the class rather than any specific instance. It can be called without
+creating an instance of the class. Static methods can only access other static members (variables
+and methods) directly.<br>
+<b>4. What is a static block?</b><br>
+o A static block, also known as a static initializer, is used to initialize static variables. It is executed
+when the class is loaded into memory, before any objects are created or any static methods are
+called.<br>
+<b>5. Can you differentiate between a static block and a constructor in Java?</b><br>
+o A static block is used to initialize static variables and is executed once when the class is loaded. A
+constructor is used to initialize instance variables and is executed each time an instance of the
+class is created.<br>
+<b>6. Can you create a static inner class in Java?</b><br>
+o Yes, a static inner class (also known as a static nested class) is a nested class that does not have
+access to the instance variables and methods of the outer class. It can be instantiated without an
+instance of the outer class.<br>
+<b>7. Why do we use static keywords in Java?</b><br>
+o The static keyword is used for memory management and to create utility or helper methods that
+do not require an instance of the class. It is also used to define constants and to implement the
+Singleton design pattern.<br>
+<b>8. Can we override static methods in Java?</b><br>
+o No, static methods cannot be overridden because they belong to the class, not to instances of the
+class. However, they can be hidden by defining a static method with the same signature in a
+subclass.<br>
+<b>9. What is the difference between a static method and an instance method?</b><br>
+o A static method belongs to the class and can be called without creating an instance, while an
+instance method belongs to an object and requires an instance to be called. Static methods can
+only access static members, whereas instance methods can access both static and instance
+members.<br>
+<b>10. Can a static method access instance variables or methods?</b><br>
+o No, a static method cannot directly access instance variables or methods because it does not have
+a reference to any instance of the class. It can only access static variables and methods.<br>      `
     }
   ]
 },
+
+{
+  id: `Input and Output Stream in Java`,
+  name: `Input and Output Stream in Java`,
+
+  intermediate: [
+
+    {
+      content: `
+<b>Input and Output Stream in Java</b><br>
+• Java I/O (Input and Output) is used to process the input and produce the output.<br>
+• Java uses the concept of a <b>stream</b> to make I/O operation fast.<br>
+• The <b>java.io</b> package contains all the classes required for input and output operations.<br>
+• We can perform file handling in Java by using Java I/O API.<br>
+`
+    },
+
+    {
+      content: `
+<h4>Stream</h4>
+• A stream is a sequence of data.<br>
+• In Java, a stream is composed of bytes.<br>
+`
+    },
+
+    {
+      content: `
+<h4>Automatically Created Streams</h4>
+In Java, three streams are created automatically and attached to the console.<br><br>
+
+1) <b>System.out</b> – Standard Output Stream<br>
+2) <b>System.in</b> – Standard Input Stream<br>
+3) <b>System.err</b> – Standard Error Stream<br>
+`
+    },
+
+    {
+      content: `
+<h4>Printing Output and Error Message</h4>
+`
+      ,
+      codeExamples: [
+`System.out.println("simple message");
+System.err.println("error message");`
+      ]
+    },
+
+    {
+      content: `
+<h4>OutputStream</h4>
+• OutputStream is used to write data to a destination.<br>
+• Destination may be a file, array, peripheral device, or socket.<br>
+`
+    },
+
+    {
+      content: `
+<h4>InputStream</h4>
+• InputStream is used to read data from a source.<br>
+• Source may be a file, array, peripheral device, or socket.<br>
+<img src="./src/assets/IO1.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+     <br>
+     <img src="./src/assets/IO2.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+     <br>
+     <img src="./src/assets/IO3.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+`
+    },
+
+    {
+      content: `
+<h4>Read a File Line by Line using Scanner</h4>
+`
+      ,
+      codeExamples: [
+`import java.io.*;
+import java.util.Scanner;
+
+public class ReadLineByLineExample2 {
+
+    public static void main(String args[]) {
+
+        try {
+            FileInputStream fis = new FileInputStream("Demo.txt");
+            Scanner sc = new Scanner(fis);
+
+            while (sc.hasNextLine()) {
+                System.out.println(sc.nextLine());
+            }
+
+            sc.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Write Data into File using FileWriter</h4>
+In this example, data is written into a file using the FileWriter class.<br>
+`
+      ,
+      codeExamples: [
+`package com.test;
+
+import java.io.FileWriter;
+
+public class FileWriterExample {
+
+    public static void main(String args[]) {
+
+        try {
+            FileWriter fw = new FileWriter("D:\\\\testout.txt");
+            fw.write("Pankaj Dnyanoba Bhande.");
+            fw.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        System.out.println("Success...");
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<div class="bg-secondary p-2 rounded-md">
+<h4>Important Interview Questions</h4>
+1. What is Java I/O?<br>
+2. What is a stream in Java?<br>
+3. Difference between InputStream and OutputStream<br>
+4. What are System.in, System.out, and System.err?<br>
+5. Difference between FileInputStream and FileReader<br>
+</div>
+`
+    }
+
+  ]
+},
+
+{
+  id: `Serialization in Java`,
+  name: `Serialization in Java`,
+
+  intermediate: [
+
+    {
+      content: `
+<b>Serialization</b><br>
+• Serialization is the process of storing the state of an object into a file.<br>
+• Deserialization is the process of reading the state of an object from a file.<br>
+• Serialization in Java is implemented using input and output streams.<br>
+`
+    },
+
+    {
+      content: `
+<h4>How to Implement Serialization in Java</h4>
+• A class must implement the <b>Serializable</b> interface.<br>
+• ObjectOutputStream is used for serialization.<br>
+• ObjectInputStream is used for deserialization.<br>
+`
+    },
+
+    {
+      content: `
+<h4>Example 01: Student Class</h4>
+`
+      ,
+      codeExamples: [
+`package com.test;
+
+import java.io.Serializable;
+
+public class Student implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    String firstname;
+    String lastname;
+    String city;
+
+    // Getter & Setter
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Serialization Code</h4>
+`
+      ,
+      codeExamples: [
+`package com.test;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
+public class SerializeStudent {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+        s.setFirstname("pankaj");
+        s.setLastname("bhande");
+        s.setCity("pune");
+
+        try {
+            FileOutputStream fos =
+                new FileOutputStream("C:\\\\Users\\\\ThisPC\\\\Desktop\\\\demo.txt");
+
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(s);
+
+            fos.close();
+            oos.close();
+
+            System.out.println("Serialization is done...");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Deserialization Code</h4>
+`
+      ,
+      codeExamples: [
+`package com.test;
+
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+public class DeserializeStudent {
+
+    public static void main(String[] args) {
+
+        try {
+            FileInputStream fis =
+                new FileInputStream("C:\\\\Users\\\\ThisPC\\\\Desktop\\\\demo.txt");
+
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Object o = ois.readObject();
+
+            Student s = (Student) o;
+
+            System.out.println(s.getFirstname());
+            System.out.println(s.getLastname());
+            System.out.println(s.getCity());
+
+            fis.close();
+            ois.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Output</h4>
+pankaj<br>
+bhande<br>
+pune<br>
+`
+    },
+
+    {
+      content: `
+<h4>Important Points of Serialization</h4>
+• ObjectOutputStream and ObjectInputStream are used for serialization and deserialization.<br>
+• Static variables are not serialized because they belong to the class.<br>
+• If superclass implements Serializable, all subclasses are serializable by default.<br>
+• Every Serializable class has a unique version number called <b>serialVersionUID</b>.<br>
+• serialVersionUID is used to verify compatibility during deserialization.<br>
+`
+    },
+
+    {
+      content: `
+<h4>Transient Keyword</h4>
+• If a variable is declared as <b>transient</b>, it will not be serialized.<br>
+• After deserialization, transient variables get default values.<br>
+`
+    },
+
+    {
+      content: `
+<h4>Example 02: Transient Variable</h4>
+`
+      ,
+      codeExamples: [
+`package com.test;
+
+import java.io.Serializable;
+
+public class Student implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    String firstname;
+    String lastname;
+    transient int salary;
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Serialization with Transient Field</h4>
+`
+      ,
+      codeExamples: [
+`package com.test;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
+public class SerializeStudent {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+        s.setFirstname("pankaj");
+        s.setLastname("bhande");
+        s.setSalary(5000); // won't be serialized
+
+        try {
+            FileOutputStream fos =
+                new FileOutputStream("C:\\\\Users\\\\ThisPC\\\\Desktop\\\\demo.txt");
+
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(s);
+
+            fos.close();
+            oos.close();
+
+            System.out.println("Serialization is done...");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Deserialization with Transient Field</h4>
+`
+      ,
+      codeExamples: [
+`package com.test;
+
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+public class DeserializeStudent {
+
+    public static void main(String[] args) {
+
+        try {
+            FileInputStream fis =
+                new FileInputStream("C:\\\\Users\\\\ThisPC\\\\Desktop\\\\demo.txt");
+
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Object o = ois.readObject();
+
+            Student s = (Student) o;
+
+            System.out.println(s.getFirstname());
+            System.out.println(s.getLastname());
+            System.out.println(s.getSalary()); // default value 0
+
+            fis.close();
+            ois.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}`
+      ]
+    },
+
+    {
+      content: `
+<div class="bg-secondary p-2 rounded-md">
+<h4>Important Interview Questions</h4>
+1. What is serialization and deserialization?<br>
+2. Why Serializable interface is marker interface?<br>
+3. What is transient keyword?<br>
+4. Why static variables are not serialized?<br>
+5. What is serialVersionUID?<br>
+</div>
+`
+    }
+
+  ]
+},
+
+{
+  id: "final-keyword",
+  name: "Final Keyword",
+
+  beginner: [
+    {
+      content:
+        "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
+        "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
+
+        "<h4>Final Variable</h4>" +
+        "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
+        "• Once a value is assigned, it <b>cannot be changed</b>.<br>" +
+        "• Final variables work like <b>constants</b> in Java.<br><br>" +
+
+        "<h4>Declaration</h4>" +
+        "final int a = 5;",
+      codeExamples: [
+        "package com.test;\n\n" +
+        "public class Code_With_Pankaj {\n" +
+        "    public static void main(String[] args) {\n" +
+        "        final int a = 5;\n" +
+        "        System.out.println(a);\n" +
+        "    }\n" +
+        "}\n" +
+        "// Output: 5"
+      ]
+    },
+    {
+      content:
+        "<h4>Final Variable – Compile Time Error Example</h4>" +
+        "• Final variable values cannot be modified.<br>" +
+        "• Any attempt to change the value will cause a <b>compile-time error</b>.",
+      codeExamples: [
+        "package com.test;\n\n" +
+        "public class Code_With_Pankaj {\n" +
+        "    public static void main(String[] args) {\n" +
+        "        final int a = 5;\n" +
+        "        // a++;   Compile-time error\n" +
+        "    }\n" +
+        "}"
+      ]
+    }
+  ],
+
+  intermediate: [
+    {
+      content:
+        "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
+        "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
+
+        "<h4>Final Variable</h4>" +
+        "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
+        "• Once a value is assigned, it <b>cannot be changed</b>.",
+      codeExamples: [
+        "final int a = 5;\n" +
+        "// a++; Compile Time Error"
+      ]
+    },
+    {
+      content:
+        "<h4>Final Method</h4>" +
+        "• A method declared with the <b>final</b> keyword is called a final method.<br>" +
+        "• Final methods <b>cannot be overridden</b>.",
+      codeExamples: [
+        "class X {\n" +
+        "    public final void x1() {\n" +
+        "        System.out.println(\"Class X method\");\n" +
+        "    }\n" +
+        "}\n\n" +
+        "class Y extends X {\n" +
+        "    // Cannot override final method\n" +
+        "}"
+      ]
+    },
+    {
+      content:
+        "<h4>Final Class</h4>" +
+        "• A class declared with the <b>final</b> keyword cannot be inherited.",
+      codeExamples: [
+        "final class Demo {\n" +
+        "}\n\n" +
+        "// Cannot inherit from final class"
+      ]
+    }
+  ]
+},
+
+
+
 
 
 
@@ -2418,123 +2903,11 @@ Boolean, Byte, Short, Character, Integer, Long, Float, Double.
               `
             }
           ]
-        }
-      ]
-    },
-
- {
-  id: 'final-keyword',
-  name: 'Final Keyword',
-  topics: [
-    {
-      id: 'final-keyword',
-      name: 'Final Keyword',
-
-      beginner: [
-        {
-          content: `
-• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>
-• The final keyword is used to <b>restrict modification</b>.<br><br>
-
-<h4>Final Variable</h4>
-• A variable declared with the <b>final</b> keyword is called a final variable.<br>
-• Once a value is assigned, it <b>cannot be changed</b>.<br>
-• Final variables work like <b>constants</b> in Java.<br><br>
-
-<h4>Declaration</h4>
-final int a = 5;
-          `,
-          codeExamples: [
-`package com.test;
-
-public class Code_With_Pankaj {
-    public static void main(String[] args) {
-        final int a = 5;
-        System.out.println(a);
-    }
-}
-// Output: 5`
-          ]
         },
-        {
-          content: `
-<h4>Final Variable – Compile Time Error Example</h4>
-• Final variable values cannot be modified.<br>
-• Any attempt to change the value will cause a <b>compile-time error</b>.
-          `,
-          codeExamples: [
-`package com.test;
-
-public class Code_With_Pankaj {
-    public static void main(String[] args) {
-        final int a = 5;
-        a++;   // ❌ Error
-    }
-}
-// Compile Time Error`
-          ]
-        }
-      ],
-
-      intermediate: [
-        // 🔹 Beginner data added here
-        {
-          content: `
-• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>
-• The final keyword is used to <b>restrict modification</b>.<br><br>
-
-<h4>Final Variable</h4>
-• A variable declared with the <b>final</b> keyword is called a final variable.<br>
-• Once a value is assigned, it <b>cannot be changed</b>.
-          `,
-          codeExamples: [
-`final int a = 5;
-// a++; ❌ Compile Time Error`
-          ]
-        },
-
-        // 🔹 Intermediate original content
-        {
-          content: `
-<h4>Final Method</h4>
-• A method declared with the <b>final</b> keyword is called a final method.<br>
-• Final methods <b>cannot be overridden</b>.
-          `,
-          codeExamples: [
-`class X {
-    public final void x1() {
-        System.out.println("Class X method");
-    }
-}
-
-class Y extends X {
-    public void x1() { } // ❌ Compile Time Error
-}`
-          ]
-        },
-        {
-          content: `
-<h4>Final Class</h4>
-• A class declared with the <b>final</b> keyword cannot be inherited.
-          `,
-          codeExamples: [
-`final class Demo { }
-
-class Test extends Demo { } // ❌ Compile Time Error`
-          ]
-        }
-      ]
-    }
-  ]
-},
-
-{
-  id: 'return-object-method',
-  name: 'Return Object from Method',
-  topics: [
-    {
+      
+         {
       id: 'return-object',
-      name: 'Different Ways to Return Object from Method',
+      name: 'Return Object from Method',
 
       beginner: [
         {
@@ -2708,20 +3081,9 @@ public class Employee {
           ]
         }
       ]
-    }
-  ]
-},
-
-
-    
-
-
-{
-  id: 'this-super-keyword',
-  name: 'This and Super Keywords',
-  topics: [
+    },
     {
-      id: 'this-super',
+ id: 'this-super',
       name: 'This and Super Keywords',
       beginner: [
         {
@@ -3002,7 +3364,15 @@ class Example {
       ]
     }
   ]
-},
+      
+    },
+ 
+  
+
+
+
+
+
       {
         id: 'oop',
         name: 'Object-Oriented Programming',
