@@ -284,10 +284,10 @@ public class PerformanceExample {
             id: "operators",
             name: "Operators in Java",
 
-           intermediate: [
+            intermediate: [
 
-  {
-    content: `
+              {
+                content: `
 <h4>1) Arithmetic Operators</h4>
 Used to perform mathematical calculations.<br>
 
@@ -298,19 +298,19 @@ Operators:<br>
 • /  Division  
 • %  Modulus  
 `,
-    codeExamples: [
-`int a = 10, b = 3;
+                codeExamples: [
+                  `int a = 10, b = 3;
 
 System.out.println(a + b); // 13
 System.out.println(a - b); // 7
 System.out.println(a * b); // 30
 System.out.println(a / b); // 3
 System.out.println(a % b); // 1`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>2) Logical AND (&&) Operator</h4>
 • Returns true only if BOTH conditions are true  
 • Second condition is skipped if first is false 
@@ -318,16 +318,16 @@ System.out.println(a % b); // 1`
      alt="String in Java" 
      class="d-block mx-auto" /> 
 `,
-    codeExamples: [
-`int x = 10, y = 20;
+                codeExamples: [
+                  `int x = 10, y = 20;
 
 System.out.println(x < y && x > 5);   // true
 System.out.println(x > y && x > 5);   // false`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>3) Logical OR (||) Operator</h4>
 • Returns true if ANY one condition is true  
 • Second condition is skipped if first is true 
@@ -335,16 +335,16 @@ System.out.println(x > y && x > 5);   // false`
      alt="String in Java" 
      class="d-block mx-auto" /> 
 `,
-    codeExamples: [
-`int x = 10, y = 20;
+                codeExamples: [
+                  `int x = 10, y = 20;
 
 System.out.println(x > y || x < y);   // true
 System.out.println(x > y || x > 30);  // false`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>4) Relational Operators</h4>
 Used to compare two values.<br>
 
@@ -356,32 +356,32 @@ Operators:<br>
 • ==  Equal to  
 • !=  Not equal to  
 `,
-    codeExamples: [
-`int a = 10, b = 20;
+                codeExamples: [
+                  `int a = 10, b = 20;
 
 System.out.println(a > b);   // false
 System.out.println(a < b);   // true
 System.out.println(a == b);  // false
 System.out.println(a != b);  // true`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>5) Assignment Operator</h4>
 Used to assign value to a variable.
 
 Syntax:
 variable = value;
 `,
-    codeExamples: [
-`int x = 50;
+                codeExamples: [
+                  `int x = 50;
 System.out.println(x); // 50`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>6) Bitwise AND (&) Operator</h4>
 • Always checks BOTH conditions  
 • Executes even if first condition is false 
@@ -389,16 +389,16 @@ System.out.println(x); // 50`
      alt="String in Java" 
      class="d-block mx-auto" /> 
 `,
-    codeExamples: [
-`int x = 10, y = 20;
+                codeExamples: [
+                  `int x = 10, y = 20;
 
 System.out.println(x < y & x > 5);  // true
 System.out.println(x > y & x > 5);  // false`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>7) Bitwise OR (|) Operator</h4>
 • Always checks BOTH conditions  
 • Executes even if first condition is true 
@@ -406,16 +406,16 @@ System.out.println(x > y & x > 5);  // false`
      alt="String in Java" 
      class="d-block mx-auto" /> 
 `,
-    codeExamples: [
-`int x = 10, y = 20;
+                codeExamples: [
+                  `int x = 10, y = 20;
 
 System.out.println(x < y | x > 50); // true
 System.out.println(x > y | x > 50); // false`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>8) Unary Operators</h4>
 Used to increment or decrement value.
 
@@ -423,35 +423,35 @@ Operators:
 • ++ Increment  
 • -- Decrement  
 `,
-    codeExamples: [
-`int a = 10;
+                codeExamples: [
+                  `int a = 10;
 
 a++;
 System.out.println(a); // 11
 
 a--;
 System.out.println(a); // 10`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>9) Ternary Operator</h4>
 Shorthand for if-else statement.
 
 Syntax:
 condition ? value_if_true : value_if_false
 `,
-    codeExamples: [
-`int a = 10, b = 20;
+                codeExamples: [
+                  `int a = 10, b = 20;
 
 int max = (a > b) ? a : b;
 System.out.println(max); // 20`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>10) Shift Operators</h4>
 • Right shift operator >> is used to move left operands value to right by the number of bits specified 
 by the right operand. <br>
@@ -459,21 +459,21 @@ by the right operand. <br>
 of times. 
 
 `,
-    codeExamples: [
-`int x = 10;
+                codeExamples: [
+                  `int x = 10;
 
 System.out.println(x << 2); // 40
 System.out.println(x >> 1); // 5`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>11) Dot (.) Operator</h4>
 Used to access class variables and methods.
 `,
-    codeExamples: [
-`class Demo {
+                codeExamples: [
+                  `class Demo {
     void show() {
         System.out.println("Dot operator example");
     }
@@ -483,16 +483,16 @@ Used to access class variables and methods.
         obj.show(); // using dot operator
     }
 }`
-    ]
-  },
+                ]
+              },
 
-  {
-    content: `
+              {
+                content: `
 <h4>12) new Operator</h4>
 Used to create an object of a class.
 `,
-    codeExamples: [
-`class Test {
+                codeExamples: [
+                  `class Test {
     Test() {
         System.out.println("Object created");
     }
@@ -501,11 +501,11 @@ Used to create an object of a class.
         Test t = new Test(); // new operator
     }
 }`
-    ]
-  }
+                ]
+              }
 
-]
-},
+            ]
+          },
 
           {
             id: "Control Statements in Java",
@@ -871,16 +871,16 @@ Best Practices
               }
             ]
           },
-          
+
 
           {
-  id: `Array in java`,
-  name: `Array in Java`,
+            id: `Array in java`,
+            name: `Array in Java`,
 
-  intermediate: [
+            intermediate: [
 
-    {
-      content: `
+              {
+                content: `
 <b>Array</b><br>
 • Array is a collection of similar type of elements stored in contiguous memory locations.<br>
 • Java array is an object that contains elements of the same data type.<br>
@@ -890,10 +890,10 @@ Best Practices
      alt="String in Java" 
      class="d-block mx-auto" />
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Advantages of Array</h4>
 • Code Optimization – efficient data access and sorting<br>
 • Random Access – direct access using index<br><br>
@@ -903,32 +903,32 @@ Best Practices
 • Memory wastage may occur<br>
 • Collection framework overcomes this limitation<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Types of Arrays in Java</h4>
 1. Single Dimensional Array<br>
 2. Multidimensional Array<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Single Dimensional Array</h4>
 <b>Declaration Syntax</b><br>
 1. dataType[] arr;<br>
 2. dataType []arr;<br>
 3. dataType arr[];<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Array Declaration, Instantiation & Initialization</h4>
 `,
-      codeExamples: [
-`int a[] = new int[5];
+                codeExamples: [
+                  `int a[] = new int[5];
 a[0] = 10;
 a[1] = 20;
 a[2] = 30;
@@ -938,44 +938,44 @@ a[4] = 50;
 for(int i=0;i<a.length;i++){
     System.out.println(a[i]);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Array Initialization in Single Line</h4>
 `,
-      codeExamples: [
-`int a[] = {10, 20, 30};
+                codeExamples: [
+                  `int a[] = {10, 20, 30};
 
 for(int i=0;i<a.length;i++){
     System.out.println(a[i]);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>For-each Loop with Array</h4>
 We can also print the Java array using for-each loop. The Java for-each loop prints the array elements
 one by one. It holds an array element in a variable, then executes the body of the loop.
 `,
-      codeExamples: [
-`int arr[] = {10, 20, 30, 40};
+                codeExamples: [
+                  `int arr[] = {10, 20, 30, 40};
 
 for(int i : arr){
     System.out.println(i);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Passing Array to Method</h4>
 We can pass the java array to method so that we can reuse the same logic on any array.
 `,
-      codeExamples: [
-`static void min(int arr[]){
+                codeExamples: [
+                  `static void min(int arr[]){
     int min = arr[0];
     for(int i=1;i<arr.length;i++){
         if(min > arr[i])
@@ -986,27 +986,27 @@ We can pass the java array to method so that we can reuse the same logic on any 
 
 int a[] = {33, 3, 4, 5};
 min(a);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Anonymous Array</h4>
 Java supports the feature of an anonymous array, so you don't need to declare the array while passing an
 array to the method.
 `,
-      codeExamples: [
-`printArray(new int[]{10, 22, 44, 66});`
-      ]
-    },
+                codeExamples: [
+                  `printArray(new int[]{10, 22, 44, 66});`
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Returning Array from Method</h4>
 We can also return an array from the method in Java.
 `,
-      codeExamples: [
-`static int[] get(){
+                codeExamples: [
+                  `static int[] get(){
     return new int[]{10, 30, 50, 90, 60};
 }
 
@@ -1014,29 +1014,29 @@ int arr[] = get();
 for(int i : arr){
     System.out.println(i);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>ArrayIndexOutOfBoundsException</h4>
 The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException if length of the array in
 negative, equal to the array size or greater than the array size while traversing the array.`,
-      codeExamples: [
-`int arr[] = {50, 60, 70, 80};
+                codeExamples: [
+                  `int arr[] = {50, 60, 70, 80};
 for(int i=0;i<=arr.length;i++){
     System.out.println(arr[i]);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Multidimensional Array</h4>
 • Stored in row and column format (matrix)<br>
 `,
-      codeExamples: [
-`int arr[][] = {
+                codeExamples: [
+                  `int arr[][] = {
     {1,2,3},
     {2,4,5},
     {4,4,5}
@@ -1048,60 +1048,60 @@ for(int i=0;i<3;i++){
     }
     System.out.println();
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Jagged Array</h4>
 If we are creating odd number of columns in a 2D array, it is known as a jagged array. In other words, it
 is an array of arrays with different number of columns.`,
-      codeExamples: [
-`int arr[][] = new int[3][];
+                codeExamples: [
+                  `int arr[][] = new int[3][];
 arr[0] = new int[3];
 arr[1] = new int[4];
 arr[2] = new int[2];`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Copying an Array</h4>
 We can copy an array to another by the arraycopy() method of System class.
 `,
-      codeExamples: [
-`char[] src = {'d','e','c','a','f','f','e','i','n'};
+                codeExamples: [
+                  `char[] src = {'d','e','c','a','f','f','e','i','n'};
 char[] dest = new char[7];
 
 System.arraycopy(src, 2, dest, 0, 7);
 System.out.println(String.valueOf(dest));`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Cloning an Array</h4>
 Since, Java array implements the Cloneable interface, we can create the clone of the Java array. If we
 create the clone of a single-dimensional array, it creates the deep copy of the Java array. It means, it will
 copy the actual value. But, if we create the clone of a multidimensional array, it creates the shallow copy
 of the Java array which means it copies the references.
 `,
-      codeExamples: [
-`int arr[] = {33, 3, 4, 5};
+                codeExamples: [
+                  `int arr[] = {33, 3, 4, 5};
 int clone[] = arr.clone();
 
 System.out.println(arr == clone); // false`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Matrix Addition</h4>
 In the case of matrix multiplication, a one-row element of the first matrix is multiplied by all the
 columns of the second matrix which can be understood by the image given below.
 `,
-      codeExamples: [
-`int a[][] = {{1,3,4},{3,4,5}};
+                codeExamples: [
+                  `int a[][] = {{1,3,4},{3,4,5}};
 int b[][] = {{1,3,4},{3,4,5}};
 int c[][] = new int[2][3];
 
@@ -1112,15 +1112,15 @@ for(int i=0;i<2;i++){
     }
     System.out.println();
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Matrix Multiplication</h4>
 `,
-      codeExamples: [
-`int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
+                codeExamples: [
+                  `int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
 int b[][] = {{1,1,1},{2,2,2},{3,3,3}};
 int c[][] = new int[3][3];
 
@@ -1134,21 +1134,21 @@ for(int i=0;i<3;i++){
     }
     System.out.println();
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Find 3rd Largest Element</h4>
 `,
-      codeExamples: [
-`Arrays.sort(a);
+                codeExamples: [
+                  `Arrays.sort(a);
 System.out.println(a[a.length-3]);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. What is array?<br>
@@ -1158,23 +1158,23 @@ System.out.println(a[a.length-3]);`
 5. Array vs ArrayList<br>
 </div>
 `
-    }
+              }
 
-  ]
-},
-
-
+            ]
+          },
 
 
 
-         {
-  id: `String in java`,
-  name: `String in Java`,
 
-  intermediate: [
 
-    {
-      content: `
+          {
+            id: `String in java`,
+            name: `String in Java`,
+
+            intermediate: [
+
+              {
+                content: `
       String: 
       It is the class that represents sequence of character.<br>
 Package: Java.lang.<br>
@@ -1199,62 +1199,62 @@ for storing and manipulating text.<br>
      class="d-block mx-auto" />
 
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Creating String Objects</h4>
 1. String Literal<br>
 2. Using new keyword<br>
 3. Using Character Array<br>
 4. Using String Methods<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>1. String Literal</h4>
 • Created using double quotes.<br>
 • Stored in <b>String Constant Pool</b>.<br>
 • JVM reuses existing objects for memory efficiency.<br>
 `,
-      codeExamples: [
-`String s1 = "pankaj";
+                codeExamples: [
+                  `String s1 = "pankaj";
 String s2 = "pankaj";
 System.out.println(s1 == s2); // true`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>2. Using new Keyword</h4>
 • Always creates a new object in heap memory.<br>
 • Even if value exists in String Pool.<br>
 `,
-      codeExamples: [
-`String s1 = "pankaj";
+                codeExamples: [
+                  `String s1 = "pankaj";
 String s2 = new String("pankaj");
 
 System.out.println(s1 == s2);      // false
 System.out.println(s1.equals(s2)); // true`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>String Immutability Example</h4>
 • concat() does not modify original String.<br>
 • New object is created.<br>
 `,
-      codeExamples: [
-`String s = "pankaj";
+                codeExamples: [
+                  `String s = "pankaj";
 s = s.concat("bhande");
 System.out.println(s); // pankajbhande`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>String Manipulation Methods</h4>
 • length()<br>
 • concat()<br>
@@ -1264,8 +1264,8 @@ System.out.println(s); // pankajbhande`
 • trim()<br>
 • replace()<br>
 `,
-      codeExamples: [
-`String original = "Code With Pankaj";
+                codeExamples: [
+                  `String original = "Code With Pankaj";
 
 System.out.println("Length: " + original.length());
 System.out.println("Concatenated: " + original.concat(" is fun!"));
@@ -1274,11 +1274,11 @@ System.out.println("Substring: " + original.substring(5, 16));
 System.out.println("Uppercase: " + original.toUpperCase());
 System.out.println("Trimmed: " + " Java ".trim());
 System.out.println("Replaced: " + original.replace('a', '@'));`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>String Comparison</h4>
 <b>3 Ways:</b><br>
 1. equals() → Content comparison<br>
@@ -1289,33 +1289,33 @@ System.out.println("Replaced: " + original.replace('a', '@'));`
      class="d-block mx-auto" />
 
 `,
-      codeExamples: [
-`String s1 = "Pankaj";
+                codeExamples: [
+                  `String s1 = "Pankaj";
 String s2 = "Pankaj";
 String s3 = new String("Pankaj");
 
 System.out.println(s1.equals(s2)); // true
 System.out.println(s1 == s3);      // false`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>compareTo() Example</h4>
 `,
-      codeExamples: [
-`String s1 = "Pankaj";
+                codeExamples: [
+                  `String s1 = "Pankaj";
 String s2 = "Pankaj";
 String s3 = "Dheeraj";
 
 System.out.println(s1.compareTo(s2)); // 0
 System.out.println(s1.compareTo(s3)); // positive
 System.out.println(s3.compareTo(s1)); // negative`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>String Concatenation Techniques</h4>
 1. + operator<br>
 2. concat() method<br>
@@ -1323,69 +1323,69 @@ System.out.println(s3.compareTo(s1)); // negative`
 4. String.format()<br>
 5. String.join()<br>
 `,
-      codeExamples: [
-`String s = "Pankaj" + " Bhande";
+                codeExamples: [
+                  `String s = "Pankaj" + " Bhande";
 System.out.println(s);`,
 
-`StringBuilder sb = new StringBuilder("Hello");
+                  `StringBuilder sb = new StringBuilder("Hello");
 sb.append(" Pankaj");
 System.out.println(sb.toString());`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Concatenation Using format()</h4>
 `,
-      codeExamples: [
-`String s1 = "Hello";
+                codeExamples: [
+                  `String s1 = "Hello";
 String s2 = " Pankaj";
 String s = String.format("%s%s", s1, s2);
 System.out.println(s);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Concatenation Using String.join()</h4>
 `,
-      codeExamples: [
-`String s = String.join("", "Hello", " Pankaj");
+                codeExamples: [
+                  `String s = String.join("", "Hello", " Pankaj");
 System.out.println(s);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Concatenation Using StringJoiner</h4>
 `,
-      codeExamples: [
-`StringJoiner sj = new StringJoiner(", ");
+                codeExamples: [
+                  `StringJoiner sj = new StringJoiner(", ");
 sj.add("Hello");
 sj.add("Pankaj");
 System.out.println(sj.toString());`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Character Array to String</h4>
 • String can be created from char array.<br>
 • Char array is mutable, String is immutable.<br>
 `,
-      codeExamples: [
-`char[] arr = {'H','e','l','l','o'};
+                codeExamples: [
+                  `char[] arr = {'H','e','l','l','o'};
 String str = new String(arr);
 System.out.println(str);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Counting Spaces in String</h4>
 `,
-      codeExamples: [
-`String str = "Code With Pankaj";
+                codeExamples: [
+                  `String str = "Code With Pankaj";
 int count = 0;
 
 for(int i=0;i<str.length();i++){
@@ -1394,30 +1394,30 @@ for(int i=0;i<str.length();i++){
     }
 }
 System.out.println("Total spaces: " + count);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Why String is Immutable? (Interview)</h4>
 1. ClassLoader safety<br>
 2. Thread safety<br>
 3. Security (passwords, DB URLs)<br>
 4. Heap memory optimization<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Difference Between String, StringBuffer, StringBuilder</h4>
 • String → Immutable, Thread-safe<br>
 • StringBuffer → Mutable, Thread-safe<br>
 • StringBuilder → Mutable, Fastest, Not Thread-safe<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. Why String is immutable?<br>
@@ -1427,13 +1427,13 @@ System.out.println("Total spaces: " + count);`
 5. How JVM handles + operator?<br>
 </div>
 `
-    }
-  ]
-},
+              }
+            ]
+          },
 
 
-           
-          
+
+
 
 
 
@@ -1757,13 +1757,13 @@ constructor using the super() keyword.<br>
             ]
           },
 
-        {
-  id: 'constructor-chaining',
-  name: 'Constructor Chaining',
+          {
+            id: 'constructor-chaining',
+            name: 'Constructor Chaining',
 
-  beginner: [
-    {
-      content: `
+            beginner: [
+              {
+                content: `
 <h4>What is Constructor Chaining?</h4>
 • <b>Constructor Chaining</b> is the process of calling one constructor from another constructor.<br>
 • It is used to <b>reuse constructor logic</b> and reduce code duplication.<br>
@@ -1774,27 +1774,27 @@ constructor using the super() keyword.<br>
 • Maintains proper initialization sequence<br>
 • Makes code clean and manageable
       `,
-      codeExamples: []
-    },
+                codeExamples: []
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Rules of Constructor Chaining</h4>
 • <b>this()</b> or <b>super()</b> must be the <b>first statement</b> inside constructor.<br>
 • We cannot use both <b>this()</b> and <b>super()</b> together.<br>
 • At least <b>one constructor must not use this()</b>.
       `,
-      codeExamples: []
-    },
+                codeExamples: []
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Constructor Chaining Within Same Class</h4>
 • If constructors belong to the <b>same class</b>, we use <b>this()</b> keyword.<br>
 • One constructor can call another constructor of the same class.
       `,
-      codeExamples: [
-`package com.test;
+                codeExamples: [
+                  `package com.test;
 
 public class Chaining {
 
@@ -1823,20 +1823,20 @@ Java
 5
 This is Default constructor
 */`
-      ]
-    }
-  ],
+                ]
+              }
+            ],
 
-  intermediate: [
+            intermediate: [
 
-    {
-      content: `
+              {
+                content: `
 <h4>Constructor Chaining Using super()</h4>
 • When constructor chaining happens between <b>parent and child classes</b>, we use <b>super()</b>.<br>
 • Parent class constructor executes <b>before</b> child class constructor.
       `,
-      codeExamples: [
-`package com.test;
+                codeExamples: [
+                  `package com.test;
 
 public class Base {
     String name;
@@ -1851,18 +1851,18 @@ public class Base {
         System.out.println("Calling parameterized constructor of base class....");
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Derived Class Constructor</h4>
 • <b>super()</b> is used to call base class constructor.<br>
 • If super() is not written, Java adds it implicitly.<br>
 • super() must be the first statement.
       `,
-      codeExamples: [
-`package com.test;
+                codeExamples: [
+                  `package com.test;
 
 public class Derived extends Base {
 
@@ -1885,28 +1885,28 @@ Output:
 Calling parameterized constructor of base class....
 Calling parameterized constructor of derived class
 */`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Important Points (Interview)</h4>
 • Constructor chaining works automatically with inheritance.<br>
 • Constructors are not inherited, but they are executed.<br>
 • Helps in proper object initialization.
       `
-    }
-  ]
-},
+              }
+            ]
+          },
 
 
-{
-  id: 'static-keyword',
-  name: 'Static Keyword',
+          {
+            id: 'static-keyword',
+            name: 'Static Keyword',
 
-  beginner: [
-    {
-      content: `
+            beginner: [
+              {
+                content: `
 <h4>What is Static Keyword?</h4>
 • The <b>static</b> keyword is used to create class-level members.<br>
 • Static members belong to the class, not to objects.<br>
@@ -1921,22 +1921,22 @@ Calling parameterized constructor of derived class
 • Static methods can be called without object creation<br>
 • The main() method is static
       `,
-      codeExamples: [
-`class HelloStatic {
+                codeExamples: [
+                  `class HelloStatic {
     static int number = 100;
 
     public static void main(String[] args) {
         System.out.println(number);
     }
 }`
-      ]
-    }
-  ],
+                ]
+              }
+            ],
 
-  intermediate: [
+            intermediate: [
 
-    {
-      content: `
+              {
+                content: `
 <h4>Static Keyword – Detailed Rules</h4>
 • Used for memory management<br>
 • Can be applied to variable, method, static block and inner class<br>
@@ -1947,10 +1947,10 @@ Calling parameterized constructor of derived class
 • main() method is static<br>
 • this and super are not allowed in static context
       `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Static Variable / Class Variable</h4>
 A variable declared using the <b>static</b> keyword is called a static variable.<br>
 • Also known as class variable<br>
@@ -1962,22 +1962,22 @@ A variable declared using the <b>static</b> keyword is called a static variable.
 • College name<br>
 • Company name
       `,
-      codeExamples: [
-`static int a;     // Declaration
+                codeExamples: [
+                  `static int a;     // Declaration
 static int b = 10; // Initialization`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Accessing Static Variable (Same Class)</h4>
 Three ways:<br>
 1. Using class name<br>
 2. Using object name<br>
 3. Directly (same class only)
       `,
-      codeExamples: [
-`public class StaticDemo {
+                codeExamples: [
+                  `public class StaticDemo {
     int z = 30;
     static int a = 10;
 
@@ -1990,15 +1990,15 @@ Three ways:<br>
         System.out.println("Direct way >> " + a);
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Static Variable – Different Class</h4>
       `,
-      codeExamples: [
-`class StaticDemo {
+                codeExamples: [
+                  `class StaticDemo {
     static int a = 10;
 }
 
@@ -2010,16 +2010,16 @@ class Demo {
         System.out.println(obj.a);
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Difference Between Static and Non-Static</h4>
 Non-static variables have separate memory for each object, static variables share memory.
       `,
-      codeExamples: [
-`class Test {
+                codeExamples: [
+                  `class Test {
     int x = 5;
     static int y = 5;
 
@@ -2035,11 +2035,11 @@ Non-static variables have separate memory for each object, static variables shar
         System.out.println(y);   // 6
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Static Method / Class Method</h4>
 •If you define any method with static keyword then it is called as static method.<br>
 •Static Method is known as class method.<br>
@@ -2047,8 +2047,8 @@ Non-static variables have separate memory for each object, static variables shar
 •Static Method loads into memory before object creation.<br>
 •Static Method can access only static data member only & it can change the value of it.<br>
       `,
-      codeExamples: [
-`class StaticMethodDemo {
+                codeExamples: [
+                  `class StaticMethodDemo {
 
     static void show() {
         System.out.println("This is static method");
@@ -2062,15 +2062,15 @@ Non-static variables have separate memory for each object, static variables shar
         obj.show();
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Calling Static Members from Non-Static Method</h4>
       `,
-      codeExamples: [
-`class StaticDemo {
+                codeExamples: [
+                  `class StaticDemo {
 
     static void x1() {
         System.out.println("This is static method");
@@ -2086,11 +2086,11 @@ Non-static variables have separate memory for each object, static variables shar
         obj.x2();
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Static Block</h4>
 1. It is group of statements that are executed when class is loading into memory by
 Classloader.<br>
@@ -2100,8 +2100,8 @@ Classloader.<br>
 5. Static Block used to initialize the static data member.<br>
 6. Static Block executed before the main method at the time of classloading.<br>
       `,
-      codeExamples: [
-`class StaticBlockExample {
+                codeExamples: [
+                  `class StaticBlockExample {
     static {
         System.out.println("This is static block");
     }
@@ -2110,15 +2110,15 @@ Classloader.<br>
         System.out.println("This is main method");
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Multiple Static Blocks</h4>
       `,
-      codeExamples: [
-`class StaticExample {
+                codeExamples: [
+                  `class StaticExample {
 
     static {
         System.out.println("Static block 1");
@@ -2132,11 +2132,11 @@ Classloader.<br>
         System.out.println("Main method");
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Interview Questions</h4>
 
 <b>1.What is the purpose of the static keyword in Java?</b><br>
@@ -2179,36 +2179,36 @@ members.<br>
 <b>10. Can a static method access instance variables or methods?</b><br>
 o No, a static method cannot directly access instance variables or methods because it does not have
 a reference to any instance of the class. It can only access static variables and methods.<br>      `
-    }
-  ]
-},
+              }
+            ]
+          },
 
-{
-  id: `Input and Output Stream in Java`,
-  name: `Input and Output Stream in Java`,
+          {
+            id: `Input and Output Stream in Java`,
+            name: `Input and Output Stream in Java`,
 
-  intermediate: [
+            intermediate: [
 
-    {
-      content: `
+              {
+                content: `
 <b>Input and Output Stream in Java</b><br>
 • Java I/O (Input and Output) is used to process the input and produce the output.<br>
 • Java uses the concept of a <b>stream</b> to make I/O operation fast.<br>
 • The <b>java.io</b> package contains all the classes required for input and output operations.<br>
 • We can perform file handling in Java by using Java I/O API.<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Stream</h4>
 • A stream is a sequence of data.<br>
 • In Java, a stream is composed of bytes.<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Automatically Created Streams</h4>
 In Java, three streams are created automatically and attached to the console.<br><br>
 
@@ -2216,29 +2216,29 @@ In Java, three streams are created automatically and attached to the console.<br
 2) <b>System.in</b> – Standard Input Stream<br>
 3) <b>System.err</b> – Standard Error Stream<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Printing Output and Error Message</h4>
 `
-      ,
-      codeExamples: [
-`System.out.println("simple message");
+                ,
+                codeExamples: [
+                  `System.out.println("simple message");
 System.err.println("error message");`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>OutputStream</h4>
 • OutputStream is used to write data to a destination.<br>
 • Destination may be a file, array, peripheral device, or socket.<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>InputStream</h4>
 • InputStream is used to read data from a source.<br>
 • Source may be a file, array, peripheral device, or socket.<br>
@@ -2254,15 +2254,15 @@ System.err.println("error message");`
      alt="String in Java" 
      class="d-block mx-auto" />
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Read a File Line by Line using Scanner</h4>
 `
-      ,
-      codeExamples: [
-`import java.io.*;
+                ,
+                codeExamples: [
+                  `import java.io.*;
 import java.util.Scanner;
 
 public class ReadLineByLineExample2 {
@@ -2284,17 +2284,17 @@ public class ReadLineByLineExample2 {
         }
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Write Data into File using FileWriter</h4>
 In this example, data is written into a file using the FileWriter class.<br>
 `
-      ,
-      codeExamples: [
-`package com.test;
+                ,
+                codeExamples: [
+                  `package com.test;
 
 import java.io.FileWriter;
 
@@ -2313,11 +2313,11 @@ public class FileWriterExample {
         System.out.println("Success...");
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. What is Java I/O?<br>
@@ -2327,42 +2327,42 @@ public class FileWriterExample {
 5. Difference between FileInputStream and FileReader<br>
 </div>
 `
-    }
+              }
 
-  ]
-},
+            ]
+          },
 
-{
-  id: `Serialization in Java`,
-  name: `Serialization in Java`,
+          {
+            id: `Serialization in Java`,
+            name: `Serialization in Java`,
 
-  intermediate: [
+            intermediate: [
 
-    {
-      content: `
+              {
+                content: `
 <b>Serialization</b><br>
 • Serialization is the process of storing the state of an object into a file.<br>
 • Deserialization is the process of reading the state of an object from a file.<br>
 • Serialization in Java is implemented using input and output streams.<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>How to Implement Serialization in Java</h4>
 • A class must implement the <b>Serializable</b> interface.<br>
 • ObjectOutputStream is used for serialization.<br>
 • ObjectInputStream is used for deserialization.<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Example 01: Student Class</h4>
 `
-      ,
-      codeExamples: [
-`package com.test;
+                ,
+                codeExamples: [
+                  `package com.test;
 
 import java.io.Serializable;
 
@@ -2399,16 +2399,16 @@ public class Student implements Serializable {
         this.city = city;
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Serialization Code</h4>
 `
-      ,
-      codeExamples: [
-`package com.test;
+                ,
+                codeExamples: [
+                  `package com.test;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
@@ -2439,16 +2439,16 @@ public class SerializeStudent {
         }
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Deserialization Code</h4>
 `
-      ,
-      codeExamples: [
-`package com.test;
+                ,
+                codeExamples: [
+                  `package com.test;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -2478,20 +2478,20 @@ public class DeserializeStudent {
         }
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Output</h4>
 pankaj<br>
 bhande<br>
 pune<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Important Points of Serialization</h4>
 • ObjectOutputStream and ObjectInputStream are used for serialization and deserialization.<br>
 • Static variables are not serialized because they belong to the class.<br>
@@ -2499,23 +2499,23 @@ pune<br>
 • Every Serializable class has a unique version number called <b>serialVersionUID</b>.<br>
 • serialVersionUID is used to verify compatibility during deserialization.<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Transient Keyword</h4>
 • If a variable is declared as <b>transient</b>, it will not be serialized.<br>
 • After deserialization, transient variables get default values.<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Example 02: Transient Variable</h4>
 `
-      ,
-      codeExamples: [
-`package com.test;
+                ,
+                codeExamples: [
+                  `package com.test;
 
 import java.io.Serializable;
 
@@ -2551,16 +2551,16 @@ public class Student implements Serializable {
         this.salary = salary;
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Serialization with Transient Field</h4>
 `
-      ,
-      codeExamples: [
-`package com.test;
+                ,
+                codeExamples: [
+                  `package com.test;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
@@ -2591,16 +2591,16 @@ public class SerializeStudent {
         }
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Deserialization with Transient Field</h4>
 `
-      ,
-      codeExamples: [
-`package com.test;
+                ,
+                codeExamples: [
+                  `package com.test;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -2630,11 +2630,11 @@ public class DeserializeStudent {
         }
     }
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. What is serialization and deserialization?<br>
@@ -2644,111 +2644,111 @@ public class DeserializeStudent {
 5. What is serialVersionUID?<br>
 </div>
 `
-    }
+              }
 
-  ]
-},
+            ]
+          },
 
-{
-  id: "final-keyword",
-  name: "Final Keyword",
+          {
+            id: "final-keyword",
+            name: "Final Keyword",
 
-  beginner: [
-    {
-      content:
-        "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
-        "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
+            beginner: [
+              {
+                content:
+                  "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
+                  "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
 
-        "<h4>Final Variable</h4>" +
-        "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
-        "• Once a value is assigned, it <b>cannot be changed</b>.<br>" +
-        "• Final variables work like <b>constants</b> in Java.<br><br>" +
+                  "<h4>Final Variable</h4>" +
+                  "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
+                  "• Once a value is assigned, it <b>cannot be changed</b>.<br>" +
+                  "• Final variables work like <b>constants</b> in Java.<br><br>" +
 
-        "<h4>Declaration</h4>" +
-        "final int a = 5;",
-      codeExamples: [
-        "package com.test;\n\n" +
-        "public class Code_With_Pankaj {\n" +
-        "    public static void main(String[] args) {\n" +
-        "        final int a = 5;\n" +
-        "        System.out.println(a);\n" +
-        "    }\n" +
-        "}\n" +
-        "// Output: 5"
-      ]
-    },
-    {
-      content:
-        "<h4>Final Variable – Compile Time Error Example</h4>" +
-        "• Final variable values cannot be modified.<br>" +
-        "• Any attempt to change the value will cause a <b>compile-time error</b>.",
-      codeExamples: [
-        "package com.test;\n\n" +
-        "public class Code_With_Pankaj {\n" +
-        "    public static void main(String[] args) {\n" +
-        "        final int a = 5;\n" +
-        "        // a++;   Compile-time error\n" +
-        "    }\n" +
-        "}"
-      ]
-    }
-  ],
+                  "<h4>Declaration</h4>" +
+                  "final int a = 5;",
+                codeExamples: [
+                  "package com.test;\n\n" +
+                  "public class Code_With_Pankaj {\n" +
+                  "    public static void main(String[] args) {\n" +
+                  "        final int a = 5;\n" +
+                  "        System.out.println(a);\n" +
+                  "    }\n" +
+                  "}\n" +
+                  "// Output: 5"
+                ]
+              },
+              {
+                content:
+                  "<h4>Final Variable – Compile Time Error Example</h4>" +
+                  "• Final variable values cannot be modified.<br>" +
+                  "• Any attempt to change the value will cause a <b>compile-time error</b>.",
+                codeExamples: [
+                  "package com.test;\n\n" +
+                  "public class Code_With_Pankaj {\n" +
+                  "    public static void main(String[] args) {\n" +
+                  "        final int a = 5;\n" +
+                  "        // a++;   Compile-time error\n" +
+                  "    }\n" +
+                  "}"
+                ]
+              }
+            ],
 
-  intermediate: [
-    {
-      content:
-        "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
-        "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
+            intermediate: [
+              {
+                content:
+                  "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
+                  "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
 
-        "<h4>Final Variable</h4>" +
-        "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
-        "• Once a value is assigned, it <b>cannot be changed</b>.",
-      codeExamples: [
-        "final int a = 5;\n" +
-        "// a++; Compile Time Error"
-      ]
-    },
-    {
-      content:
-        "<h4>Final Method</h4>" +
-        "• A method declared with the <b>final</b> keyword is called a final method.<br>" +
-        "• Final methods <b>cannot be overridden</b>.",
-      codeExamples: [
-        "class X {\n" +
-        "    public final void x1() {\n" +
-        "        System.out.println(\"Class X method\");\n" +
-        "    }\n" +
-        "}\n\n" +
-        "class Y extends X {\n" +
-        "    // Cannot override final method\n" +
-        "}"
-      ]
-    },
-    {
-      content:
-        "<h4>Final Class</h4>" +
-        "• A class declared with the <b>final</b> keyword cannot be inherited.",
-      codeExamples: [
-        "final class Demo {\n" +
-        "}\n\n" +
-        "// Cannot inherit from final class"
-      ]
-    }
-  ]
-},
-
-
+                  "<h4>Final Variable</h4>" +
+                  "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
+                  "• Once a value is assigned, it <b>cannot be changed</b>.",
+                codeExamples: [
+                  "final int a = 5;\n" +
+                  "// a++; Compile Time Error"
+                ]
+              },
+              {
+                content:
+                  "<h4>Final Method</h4>" +
+                  "• A method declared with the <b>final</b> keyword is called a final method.<br>" +
+                  "• Final methods <b>cannot be overridden</b>.",
+                codeExamples: [
+                  "class X {\n" +
+                  "    public final void x1() {\n" +
+                  "        System.out.println(\"Class X method\");\n" +
+                  "    }\n" +
+                  "}\n\n" +
+                  "class Y extends X {\n" +
+                  "    // Cannot override final method\n" +
+                  "}"
+                ]
+              },
+              {
+                content:
+                  "<h4>Final Class</h4>" +
+                  "• A class declared with the <b>final</b> keyword cannot be inherited.",
+                codeExamples: [
+                  "final class Demo {\n" +
+                  "}\n\n" +
+                  "// Cannot inherit from final class"
+                ]
+              }
+            ]
+          },
 
 
 
 
-    {
-      id: 'wrapper-class',
-      name: 'Wrapper Class',
-      
-          beginner: [
-            {
-              content: `
+
+
+          {
+            id: 'wrapper-class',
+            name: 'Wrapper Class',
+
+            beginner: [
+              {
+                content: `
 • Wrapper Class provides the mechanism to convert primitive data types into objects and objects into primitive data types.<br><br>
 
 <h4>Wrapper Class – Definition</h4>
@@ -2761,8 +2761,8 @@ Wrapper classes are predefined classes in <b>java.lang</b> package that wrap pri
 2. <b>Unboxing:</b> Process of converting Object into Primitive Data Type. (Object → PDT)<br>
    Example: Integer → int, Long → long, Double → double
               `,
-              codeExamples: [
-`package com.object;
+                codeExamples: [
+                  `package com.object;
 public class Code_With_Pankaj {
     public static void main(String[] args) {
         int a = 20; // Primitive data type
@@ -2773,12 +2773,12 @@ public class Code_With_Pankaj {
         System.out.println("b>>" + b);
     }
 }`
-              ]
-            }
-          ],
-          intermediate: [
-            {
-              content: `
+                ]
+              }
+            ],
+            intermediate: [
+              {
+                content: `
 <h4>Need of Wrapper Classes</h4>
 There are certain needs for using Wrapper Classes in Java:<br><br>
 
@@ -2793,8 +2793,8 @@ There are certain needs for using Wrapper Classes in Java:<br><br>
 3. Cloning is possible only for objects.<br>
 4. Wrapper objects can store null values.
               `,
-              codeExamples: [
-`import java.util.ArrayList;
+                codeExamples: [
+                  `import java.util.ArrayList;
 
 class Autoboxing {
     public static void main(String[] args) {
@@ -2807,10 +2807,10 @@ class Autoboxing {
         System.out.println(list.get(0));
     }
 }`
-              ]
-            },
-            {
-              content: `
+                ]
+              },
+              {
+                content: `
 <h4>Primitive Data Types and Corresponding Wrapper Classes</h4>
 
 byte → Byte <br>
@@ -2822,8 +2822,8 @@ double → Double <br>
 char → Character <br>
 boolean → Boolean
               `,
-              codeExamples: [
-`package com.inheritance;
+                codeExamples: [
+                  `package com.inheritance;
 class Code_With_Pankaj {
     public static void main(String[] args) {
         int x = 5;
@@ -2839,10 +2839,10 @@ class Code_With_Pankaj {
         System.out.println(longObj);
     }
 }`
-              ]
-            },
-            {
-              content: `
+                ]
+              },
+              {
+                content: `
 <h4>Wrapper Class Methods</h4>
 Wrapper classes provide useful methods like valueOf(), intValue(), parseInt(), compareTo().<br><br>
 
@@ -2850,8 +2850,8 @@ Wrapper classes provide useful methods like valueOf(), intValue(), parseInt(), c
 • Converting float wrapper object to primitive int<br>
 • Converting binary string into decimal number using Integer.valueOf()<br>
               `,
-              codeExamples: [
-`class Code_With_Pankaj {
+                codeExamples: [
+                  `class Code_With_Pankaj {
     public static void main(String[] args) {
         Float floatWrap = Float.valueOf(45.158f);
         int floatToInt = floatWrap.intValue();
@@ -2861,18 +2861,18 @@ Wrapper classes provide useful methods like valueOf(), intValue(), parseInt(), c
         System.out.println(five);
     }
 }`
-              ]
-            },
-            {
-              content: `
+                ]
+              },
+              {
+                content: `
 <h4>UNBOXING</h4>
 Unboxing is the automatic conversion of wrapper object into primitive data type.<br>
 This happens when assigning wrapper object to primitive variable.<br><br>
 
 <h4>Example</h4>
               `,
-              codeExamples: [
-`import java.util.ArrayList;
+                codeExamples: [
+                  `import java.util.ArrayList;
 
 class Unboxing {
     public static void main(String[] args) {
@@ -2886,10 +2886,10 @@ class Unboxing {
         System.out.println(num);
     }
 }`
-              ]
-            },
-            {
-              content: `
+                ]
+              },
+              {
+                content: `
 <h4>Interview Questions & Answers</h4>
 
 <b>1. Which are the wrapper classes in Java?</b><br>
@@ -2901,25 +2901,25 @@ Wrapper classes convert primitive data into objects required for collections, sy
 <b>3. What are the 8 wrapper classes in Java?</b><br>
 Boolean, Byte, Short, Character, Integer, Long, Float, Double.
               `
-            }
-          ]
-        },
-      
-         {
-      id: 'return-object',
-      name: 'Return Object from Method',
+              }
+            ]
+          },
 
-      beginner: [
-        {
-          content: `
+          {
+            id: 'return-object',
+            name: 'Return Object from Method',
+
+            beginner: [
+              {
+                content: `
 • In industry, methods usually return <b>objects</b> instead of primitive data types.<br>
 • Returning objects makes code more <b>scalable, reusable, and maintainable</b>.<br><br>
 
 <h4>Basic Object Return</h4>
 A method can return an object of its class type.
           `,
-          codeExamples: [
-`package com.test;
+                codeExamples: [
+                  `package com.test;
 
 public class Employee {
 
@@ -2928,15 +2928,15 @@ public class Employee {
         return employee;   // returning object
     }
 }`
-          ]
-        },
-        {
-          content: `
+                ]
+              },
+              {
+                content: `
 <h4>Printing Returned Object (Without toString)</h4>
 If toString() is not overridden, object reference is printed.
           `,
-          codeExamples: [
-`package com.test;
+                codeExamples: [
+                  `package com.test;
 
 public class Employee {
 
@@ -2958,18 +2958,18 @@ public class Employee {
 
 // Output:
 // com.test.Employee@7852e922`
-          ]
-        }
-      ],
+                ]
+              }
+            ],
 
-      intermediate: [
-        {
-          content: `
+            intermediate: [
+              {
+                content: `
 <h4>Returning Object with toString()</h4>
 Override toString() to return meaningful data.
           `,
-          codeExamples: [
-`package com.test;
+                codeExamples: [
+                  `package com.test;
 
 public class Employee {
 
@@ -2996,15 +2996,15 @@ public class Employee {
 
 // Output:
 // Employee [id=101, name=Pankaj, city=Pune]`
-          ]
-        },
-        {
-          content: `
+                ]
+              },
+              {
+                content: `
 <h4>Returning Object with Single Value (empId)</h4>
 Instead of returning int, return object containing id.
           `,
-          codeExamples: [
-`package com.test;
+                codeExamples: [
+                  `package com.test;
 
 public class Test {
 
@@ -3031,15 +3031,15 @@ public class Employee {
 
 // Output:
 // 10`
-          ]
-        },
-        {
-          content: `
+                ]
+              },
+              {
+                content: `
 <h4>Returning Multiple Values Using Object</h4>
 Industry-standard way to return multiple values.
           `,
-          codeExamples: [
-`package com.test;
+                codeExamples: [
+                  `package com.test;
 
 public class Test {
 
@@ -3078,16 +3078,16 @@ public class Employee {
 }
 
 `
-          ]
-        }
-      ]
-    },
-    {
- id: 'this-super',
-      name: 'This and Super Keywords',
-      beginner: [
-        {
-          content: `
+                ]
+              }
+            ]
+          },
+          {
+            id: 'this-super',
+            name: 'This and Super Keywords',
+            beginner: [
+              {
+                content: `
 <h4>What is Super Keyword?</h4>
 • Super keyword is used to refer to the parent class (superclass) object.<br>
 • It helps access parent class members that might be hidden by child class.<br>
@@ -3122,8 +3122,8 @@ public class Employee {
   </tr>
 </table>
           `,
-          codeExamples: [
-`// Simple Example of Super Keyword
+                codeExamples: [
+                  `// Simple Example of Super Keyword
 class Animal {
     String name = "Dog";
 }
@@ -3136,7 +3136,7 @@ class Pet extends Animal {
         System.out.println("Super name: " + super.name);  // Output: Dog
     }
 }`,
-`// Simple Example of This Keyword
+                  `// Simple Example of This Keyword
 class Student {
     String name;
     int age;
@@ -3151,12 +3151,12 @@ class Student {
         System.out.println("Age: " + this.age);
     }
 }`
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          content: `
+                ]
+              }
+            ],
+            intermediate: [
+              {
+                content: `
 <h6><b>🔹 Super Keyword</b></h6>
 • It is used to refer immediate parent class object, method and constructor.<br><br>
 
@@ -3165,8 +3165,8 @@ class Student {
 • To avoid unnecessary object creation<br>
 • To improve memory utilization<br>
           `,
-          codeExamples: [
-`// Program 1: Use of immediate parent class variable
+                codeExamples: [
+                  `// Program 1: Use of immediate parent class variable
 class Parent {
     int x = 20;
 }
@@ -3192,15 +3192,15 @@ public class TestMain {
         c.test();
     }
 }`
-          ]
-        },
-        {
-          content: `
+                ]
+              },
+              {
+                content: `
 <h4>🔹 Super Keyword with Method</h4>
 • Used to call immediate parent class method when child class overrides it.
           `,
-          codeExamples: [
-`// Program 2: Use of immediate super class method
+                codeExamples: [
+                  `// Program 2: Use of immediate super class method
 class Parent {
     void test() {
         System.out.println("Parent class method.");
@@ -3219,15 +3219,15 @@ public class TestMain {
         c.test();
     }
 }`
-          ]
-        },
-        {
-          content: `
+                ]
+              },
+              {
+                content: `
 <h4>🔹 Super Keyword with Constructor</h4>
 • Used to invoke immediate parent class constructor.
           `,
-          codeExamples: [
-`// Program 3: Use of immediate super class constructor
+                codeExamples: [
+                  `// Program 3: Use of immediate super class constructor
 class Parent {
 
     Parent() {
@@ -3246,16 +3246,16 @@ public class TestMain {
         new Child();
     }
 }`
-          ]
-        },
-        {
-          content: `
+                ]
+              },
+              {
+                content: `
 <h4>🔹 This Keyword</h4>
 • It is used to refer current class variables, methods and constructors.<br>
 • This keyword is not used in static context.
           `,
-          codeExamples: [
-`// Program 4: Use of current class variable
+                codeExamples: [
+                  `// Program 4: Use of current class variable
 class Parent {
     int x = 20;
 }
@@ -3281,15 +3281,15 @@ public class TestMain {
         c.test();
     }
 }`
-          ]
-        },
-        {
-          content: `
+                ]
+              },
+              {
+                content: `
 <h4>🔹 This Keyword with Method</h4>
 • Used to call current class method.
           `,
-          codeExamples: [
-`// Program 5: Use of current class method
+                codeExamples: [
+                  `// Program 5: Use of current class method
 class Parent {
     void test() {
         System.out.println("Parent class method.");
@@ -3312,15 +3312,15 @@ public class TestMain {
         c.demo();
     }
 }`
-          ]
-        },
-        {
-          content: `
+                ]
+              },
+              {
+                content: `
 <h6><b>🔹 This Keyword with Constructor</b></h6>
 • Used for constructor chaining within the same class.
           `,
-          codeExamples: [
-`// Program 6: Use of current class constructor
+                codeExamples: [
+                  `// Program 6: Use of current class constructor
 class Test {
 
     public Test() {
@@ -3335,15 +3335,15 @@ class Test {
         new Test(10);
     }
 }`
-          ]
-        },
-        {
-          content: `
+                ]
+              },
+              {
+                content: `
 <h4>🔹 Constructor Chaining using this</h4>
 • One constructor calls another constructor of the same class.
           `,
-          codeExamples: [
-`// Program 7: Constructor chaining example
+                codeExamples: [
+                  `// Program 7: Constructor chaining example
 class Example {
 
     Example() {
@@ -3359,18 +3359,13 @@ class Example {
         new Example();
     }
 }`
-          ]
-        }
-      ]
-    }
-  ]
-      
-    },
- 
-  
+                ]
+              }
+            ]
+          }
+        ]
 
-
-
+      },
 
 
       {
@@ -3914,9 +3909,9 @@ and provides a global point of access to it, encapsulating the instance creation
           {
             id: `inheritance in Java`,
             name: `Inheritance in Java`,
-             beginner:[
+            beginner: [
               {
-                content:`In Java, it is possible to inherit attributes and methods from one class to another. <br>
+                content: `In Java, it is possible to inherit attributes and methods from one class to another. <br>
                 We group the "inheritance concept" into two categories:<br>
 
 > subclass (child) - the class that inherits from another class<br>
@@ -3924,8 +3919,8 @@ and provides a global point of access to it, encapsulating the instance creation
 To inherit from a class, use the extends keyword.<br><br>
 
 In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):`,
-codeExamples:[
-  `class Vehicle {
+                codeExamples: [
+                  `class Vehicle {
   protected String brand = "Ford";        // Vehicle attribute
   public void honk() {                    // Vehicle method
     System.out.println("Tuut, tuut!");
@@ -3946,7 +3941,7 @@ class Car extends Vehicle {
     System.out.println(myCar.brand + " " + myCar.modelName);
   }
 }`
-]
+                ]
               }
             ],
             intermediate: [
@@ -4021,11 +4016,11 @@ features such as variables and method, etc.<br>
 4. We cannot extend the final class.<br><br>
 
 `},
-              
+
             ],
-            expert:[
+            expert: [
               {
-                content:`
+                content: `
                 <h3>When to use?</h3>
 If we want to extends or increase of features of class then go for inheritance.<br>
 <div class="bg-secondary border border-primary p-2">
@@ -4789,9 +4784,9 @@ o The instanceof keyword is used to test whether an object is an<br>
           {
             id: `Abstraction in Java`,
             name: `Abstraction in Java`,
-            beginner:[
+            beginner: [
               {
-                content:`Data abstraction is the process of hiding certain details and showing only essential information to the user.<br>
+                content: `Data abstraction is the process of hiding certain details and showing only essential information to the user.<br>
 Abstraction can be achieved with either abstract classes or interfaces (which you will learn more about in the next chapter).<br>
 <br>
 The abstract keyword is a non-access modifier, used for classes and methods:<br>
@@ -4800,15 +4795,15 @@ The abstract keyword is a non-access modifier, used for classes and methods:<br>
 
 • Abstract method: can only be used in an abstract class, and it does not have a body. <br>
 The body is provided by the subclass (inherited from).<br>`,
-codeExamples:[
-  `abstract class Animal {
+                codeExamples: [
+                  `abstract class Animal {
   public abstract void animalSound();
   public void sleep() {
     System.out.println("Zzz");
   }
 }
   `
-]
+                ]
               }
             ],
             intermediate: [
@@ -5197,11 +5192,11 @@ abstract methods.<br>
             ]
           },
           {
-            id:`Polymorphism in java`,
-            name:`Polymorphism in Java`,
-            intermediate:[
+            id: `Polymorphism in java`,
+            name: `Polymorphism in Java`,
+            intermediate: [
               {
-                content:`
+                content: `
                 One entity that behaves differently in different cases called as polymorphism.
 
 Example:
@@ -5254,8 +5249,8 @@ There are 2 ways to overload the method in java
 
 • By changing the data type`,
 
-codeExamples:[
-  `package com. code_with_pankaj;
+                codeExamples: [
+                  `package com. code_with_pankaj;
 public class TestMain {
 void add(int a, int b) {
 System.out.println(a + b);
@@ -5280,9 +5275,9 @@ obj.add(5, 10, 15);
 }
 }
   `
-]
-              },{
-                content:`Why?:
+                ]
+              }, {
+                content: `Why?:
 
 Suppose we got the business requirement from the client in last year
 
@@ -5317,8 +5312,8 @@ this is not the good thing.
 2nd way, design the same method in that class and add the new field into it. If client second want Pan
 Card details so he can call that method otherwise calls the first method if pan card is not required.
 `,
-codeExamples:[
-  `Example - 02
+                codeExamples: [
+                  `Example - 02
 package com.code_with_pankaj;
 public class A{ // Main Class: A
 void test(Object object) { // Method: 01
@@ -5335,11 +5330,11 @@ a.test(new A());
 a.test(new String());
 }
 }`
-]
+                ]
               },
-           
+
               {
-                content:`Why it is Called as Compile Time Polymorphism?
+                content: `Why it is Called as Compile Time Polymorphism?
 
 Because it is decided at compile time which one method should get called that’s why it is called as
 Compile Time Polymorphism.
@@ -5421,8 +5416,8 @@ Why?
 
 • Readability of code.
 `,
-codeExamples:[
-  `Example - 01
+                codeExamples: [
+                  `Example - 01
 package com.code_with_pankaj;
 public class A { // Main Class: A
 void m1() { // Method: m1
@@ -5446,11 +5441,11 @@ b.m1(); // Call m1 Method: ObjectName.MethodName
 b.m7(); // Call m7 Method: ObjectName.MethodName
 }
 }`
-  
-]
+
+                ]
               },
               {
-                content:`Program Explanation:
+                content: `Program Explanation:
 
 • In the above program, B is implementing the method m1 () with the same signature as super class A
 i.e. m1 () of class B is overriding m1() of class A.
@@ -5547,10 +5542,770 @@ void getSeatAvailability(int seat){
           }
 
         ]
+      },
+
+
+      {
+        id: `Multithreading and multitasking`,
+        name: `Multithreading and multitasking`,
+        topics: [
+          {
+            id: `Multitasking in Java`,
+            name: `Multitasking in Java`,
+            beginner: [
+              {
+                content: `Multitasking in Java refers to the system's ability to run multiple tasks concurrently, primarily achieved through
+                Process-based multitasking (running different Java apps or OS apps simultaneously) and Thread-based multitasking (multithreading), 
+                where a single Java program performs multiple tasks (threads) concurrently, sharing resources for better efficiency and responsiveness, 
+                using java.lang.Thread and Runnable for implementation.<br>
+
+                Multithreading is Java's key to efficient resource use, allowing tasks like UI updates and background processing to run in parallel<br><br>
+                <h4>🔹 Types of Multitasking in Java</h4>
+1. Process-based Multitasking: <br>
+• Definition: Running multiple independent programs (processes) at the same time, managed by the Operating System (OS). 
+• Example: Using a web browser, media player, and code editor simultaneously. <br>
+• Key Feature: Each process has its own memory space, providing isolation. <br><br>
+2. Thread-based Multitasking (Multithreading):<br>
+• Definition: Executing multiple threads (lightweight sub-processes) within a single Java program concurrently, within the same memory space. <br>
+• Example: Formatting text while printing in a word processor, or a server handling multiple client requests. <br>
+• Key Feature: Threads share resources, leading to faster execution and better CPU utilization for complex tasks. <br>`
+
+              }
+            ],
+            intermediate: [
+              {
+                content: `Process of executing multiple tasks simultaneously. We use multitasking to utilize the CPU.<br>
+• Multitasking is when a single CPU performs several tasks (program, process, task, threads) at the
+same time. To perform multitasking, the CPU switches among these tasks very frequently so that
+user can interact with each program simultaneously.<br>
+• In a multitasking operating system, several users can share the system simultaneously. CPU rapidly
+switches among the tasks, so a little time is needed to switch from one user to the next user. This
+puts an impression on a user that entire computer system is dedicated to him.<br><br>
+ <img src="/src/assets/multitasking.jpg" alt="Image"class="d-block mx-auto"/><br>
+
+• When several users are sharing a multitasking operating system, CPU scheduling and
+multiprogramming makes it possible for each user to have at least a small portion of Multitasking
+OS and let each user have at least one program in the memory for execution.<br>
+
+<h4>Multitasking can be achieved in two ways:</h4>
+• Process-based Multitasking (Multiprocessing)<br>
+• Thread-based Multitasking (Multithreading)<br>
+Example:<br> In online session, what are the different activities done by students as?<br>
+• Listen the class<br>
+• Taking running notes<br>
+• Checking mobile<br>
+
+<h4>1. Process Based / Process Based Multitasking (Multiprocessing):</h4>
+• Executing several tasks simultaneously where each task is separate independent process such
+as multitasking is called as Process Based.<br>
+Example <br> 
+1: Typing java program into eclipse, also listening the audio songs, download a file from
+internet.<br>
+2. In this every activity is independent process here.<br>
+
+Example<br> 
+2: Task manager, see the multiple process list. (Control+Shift+Esc key)<br>
+• Cost of communication between the process is high.<br>
+• Switching from one process to another requires some time for saving and loading registers, memory
+maps, updating lists, etc.<br>
+• Process is heavy weight components.<br>
+• Each process has an own address in memory. In other words, each process allocates a separate
+memory area.<br>
+
+<h4>2. Thread Based / Thread Based Multitasking (Multithreading):</h4>
+
+• Executing several tasks simultaneously where each task is separate part of same program called as
+thread based.<br>
+Example-<br> suppose I have 1000 lines of code into java program and it will takes 4 hours to execute it
+where first 500 line is executed after that remaining 500 lines is executed but there is no any
+dependency between them so I can run that tasks simultaneously to minimize the execution time.<br>
+• Thread shares the same address space.<br>
+• Thread is light weight components.<br>
+• Cost of communication between the thread is low.<br>
+
+
+<table border="2" cellpadding="15" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <tr style="background-color: #4CAF50; color: white;">
+    <th style="border: 2px solid #333;">Process-Based Multitasking</th>
+    <th style="border: 2px solid #333;">Thread-Based Multitasking</th>
+  </tr>
+  <tr style="background-color: #f2f2f2;">
+    <td style="border: 2px solid #333;">This deals with "Big Picture"</td>
+    <td style="border: 2px solid #333;">This deals with Details</td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333;">These are Heavyweight tasks</td>
+    <td style="border: 2px solid #333;">These are Lightweight tasks</td>
+  </tr>
+  <tr style="background-color: #f2f2f2;">
+    <td style="border: 2px solid #333;">Inter-process communication is expensive and limited </td>
+    <td style="border: 2px solid #333;">Inter-thread communication is inexpensive</td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333;">Context switching from one process to another is costly in terms of memory</td>
+    <td style="border: 2px solid #333;">Context switching is low cost in terms of memory , because they run on the same address space</td>
+  </tr>
+  <tr style="background-color: #f2f2f2;">
+    <td style="border: 2px solid #333;">This is not under the control of Java </td>
+    <td style="border: 2px solid #333;">This is controlled by Java</td>
+  </tr>
+</table>
+
+`,
+              }
+            ]
+          },
+          {
+            id: `MultiThreading in Java`,
+            name: `Multithreading in Java`,
+            beginner: [
+              {
+                content: `• Multithreading in Java is a programming concept that allows multiple threads (smaller units of a process) to run concurrently within a single Java program. <br>
+                • Each thread represents a separate path of execution, enabling tasks to be performed simultaneously, which enhances the efficiency and responsiveness of applications.<br>
+                • Java provides built-in support for multithreading through the java.lang.Thread class and the Runnable interface, allowing developers to create and manage threads easily.<br> 
+                • Multithreading is particularly useful for tasks that require parallel processing, such as handling user interfaces, performing background operations, or managing multiple client requests in server applications.<br><br>
+                `
+              }
+
+            ],
+            intermediate: [
+
+              {
+                content: `<h4>Process of executing multiple threads simultaneously.</h4>
+• Multithreading is different from multitasking in a sense that multitasking allows multiple tasks at the
+same time, whereas, the Multithreading allows multiple threads of a single task (program, process) to be
+processed by CPU at the same time.<br>
+• A thread is a basic execution unit which has its own program counter, set of the register and stack. But it
+shares the code, data, and file of the process to which it belongs.<br>
+• A process can have multiple threads simultaneously, and the CPU switches among these threads so
+frequently making an impression on the user that all threads are running simultaneously.<br><br>
+
+
+<h4>🔹 Benefits of Multithreading</h4>
+• Multithreading increases the responsiveness of system as, if one thread of the application is not
+responding, the other would respond in that sense the user would not have to sit idle.<br>
+• Multithreading allows resource sharing as threads belonging to the same process can share code and
+data of the process and it allows a process to have multiple threads at the same time active in same
+address space.<br>
+• Creating a different process is costlier as the system has to allocate different memory and resources
+to each process, but creating threads is easy as it does not require allocating separate memory and
+resources for threads of the same process.<br><br>
+
+<img src="/src/assets/multi.png" alt="Image"class="d-block mx-auto" style="height:250px"/><br>`,
+              },
+              {
+                content: `<h4>What is Thread?</h4>
+• It is the smallest unit of program called as Thread.<br>
+• A thread is a lightweight subprocess, the smallest unit of processing. It runs within the context of a larger
+process & it is a separate path of execution.<br>
+• Threads are independent. If there occurs exception in one thread, it doesn't affect other threads. It
+uses a shared memory area.<br>
+
+<img src="/src/assets/multithreading.png" alt="Image"class="d-block mx-auto" style="height:380px" /><br>
+
+As shown in the above figure, a thread is executed inside the process. There is context-switching 
+between the threads. There can be multiple processes inside the OS, and one process can have multiple 
+threads. <br>
+<h4>Note: At a time one thread is executed only</h4>
+How to Create the Thread? <br>
+There are 2 ways to create the thread as <br>
+1. By extending Thread class <br>
+2. By implementing Runnable interface.<br> <br>
+
+<h4> 1. By Extending Thread Class </h4>
+
+Thread class provide constructors & methods to create and perform Operations on a thread. <br>
+Thread class extends Object class & implements Runnable interface. <br>
+Constructors <br>
+• Thread() <br>
+• Thread(String name) <br>
+• Thread(Runnable r) <br>
+• Thread(Runnable r,String name)<br> <br>
+
+🔹 Methods with Description: <br>
+1. public void run(): It is used to perform action for a thread. <br>
+2. public void start(): starts the execution of the thread. JVM calls the run() method on the thread. <br>
+3. public void sleep(long miliseconds): Causes the currently executing thread to sleep (temporarily 
+cease execution) for the specified number of milliseconds. <br>
+4. public void join(): waits for a thread to die. <br>
+5. public void join(long miliseconds): waits for a thread to die for the specified miliseconds. <br>
+6. public int getPriority(): returns the priority of the thread. <br>
+7. public int setPriority(int priority): changes the priority of the thread.<br> 
+8. public String getName(): returns the name of the thread.<br>
+9. public void setName(String name): changes the name of the thread. <br>
+10. public hread currenthread(): returns the reference of currently executing thread. <br>
+11. public int getd(): returns the id of the thread. <br>
+12. public hread.tate gettate(): returns the state of the thread. <br>
+13. public boolean islive(): tests if the thread is alive.<br> 
+14. public void yield(): causes the currently executing thread object to temporarily pause and allow 
+other threads to execute. <br>
+15. public void suspend(): is used to suspend the thread(depricated).<br> 
+16. public void resume(): is used to resume the suspended thread(depricated).<br> 
+17. public void stop(): is used to stop the thread(depricated). <br>
+18. public boolean isaemon(): tests if the thread is a daemon thread. <br>
+19. public void setaemon(boolean b): marks the thread as daemon or user thread. <br>
+20. public void interrupt(): interrupts the thread. <br>
+21. public boolean isnterrupted(): tests if the thread has been interrupted. <br>
+22. public static boolean interrupted(): tests if the current thread has been interrupted .<br>`,
+
+                codeExamples: [
+                  `Program: 01 Program for Thread
+package com.code_with_pankaj; 
+public class ThreadDemo extends Thread { 
+public void run() { 
+ for (int i = 1; i <= 5; i++) { // 1 to 5 
+ System.out.println(i); 
+ } 
+ } 
+public static void main(String[] args) { 
+ ThreadDemo thread = new ThreadDemo(); 
+ thread.start(); // Starts the new thread
+ } 
+}`,
+
+                  `Program: 02 
+package com.code_with_pankaj; 
+class MyThread extends Thread { 
+public void run() { 
+ System.out.println("Thread is running."); 
+ } 
+} 
+public class Main { 
+public static void main(String[] args) { 
+ MyThread thread = new MyThread(); 
+ thread.start(); // Starts the new thread
+ } 
+}`
+                ]
+              },
+              {
+                content: `<h4>2. By implementing Runnable interface. </h4>
+The Runnable interface should be implemented by any class whose instances are intended to be 
+executed by a thread.<br> Runnable interface have only one method named run().`,
+
+                codeExamples: [
+                  `package com.threads; 
+public class ThreadDemo implements Runnable { 
+public static void main(String[] args) { // Main Method
+ ThreadDemo thread = new ThreadDemo(); // Create Object
+ Thread t = new Thread(thread); // Create Thread Object
+ t.start(); // Start Thread => run() method Invoked
+ } 
+@Override
+public void run() { 
+ for (int i = 1; i <= 10; i++) { 
+ System.out.println(i); 
+ } 
+ } 
+} 
+  `,
+                  `package com.code_with_pankaj; 
+  class MyRunnable implements Runnable { 
+public void run() { 
+ System.out.println("Thread is running."); 
+ } 
+} 
+public class Main { 
+public static void main(String[] args) { 
+ MyRunnable myRunnable = new MyRunnable(); 
+ Thread thread = new Thread(myRunnable); 
+ thread.start(); // Starts the new thread
+ } 
+}
+  `
+                ]
+              },
+              {
+                content: `<h4>Note- </h4>If you are not extending the Thread class, your class object would not be treated as a thread 
+object. So you need to explicitely create Thread class object. We are passing the object of your class that 
+implements Runnable so that your class run() method may execute. <br><br>
+
+When? <br>
+Extending thread class- if the class is not extending another class then we should go for thread 
+class. <br>
+Implementing runnable interface- if our class is already extending another class then we could 
+not use extend keyword due to multiple inheritance. So best way to go for runnable interface<br><br>
+
+<h3>Difference between thread class & runnable interface (Self assignments) </h3>
+<h4>Thread (C)</h4>
+• It is a class. <br>
+• It can be used to create a thread.<br> 
+• It has multiple methods such as ‘start’ and ‘run’. <br>
+• It requires more memory space.<br>
+• Since multiple inheritance is not allowed in Java, 
+hence, after a class extends the Thread class, it can’t 
+extend to any other class. <br>
+• Every thread creates a unique object and associates 
+with it. <br><br>
+
+<h4>Runnable (I)</h4>
+• It is a functional interface. <br>
+• It can be used to create a thread.<br> 
+• It has a single abstract method ‘run’.<br>
+• It requires less memory space. <br>
+• When a class implements the ‘runnable’ interface, 
+the class can extend to other classes.<br>
+• Multiple threads can share the same objects.<br>
+
+<table border="2" cellpadding="15" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+
+  <tr style="background-color: #4CAF50; color: white;">
+    <th style="border: 2px solid #333;" class="p-2">Sr.no</th>
+    <th style="border: 2px solid #333;" class="p-2">Key</th>
+    <th style="border: 2px solid #333;">Thread </th>
+    <th style="border: 2px solid #333;">Runnable</th>
+  </tr>
+
+  <tr>
+    <td style="border: 2px solid #333;">1.</td>
+    <td style="border: 2px solid #333;" class="p-2">Basic</td>
+    <td style="border: 2px solid #333;">Thread is a class. It is used to create a thread</td>
+    <td style="border: 2px solid #333;">Runnable is a functional interface which is used to create a thread</td>
+  </tr>
+
+   <tr>
+    <td style="border: 2px solid #333;">2.</td>
+    <td style="border: 2px solid #333;" class="p-2">Method</td>
+    <td style="border: 2px solid #333;">It has multiple methods including start() and run()</td>
+    <td style="border: 2px solid #333;">It has only abstract method run() </td>
+  </tr>
+
+  <tr>
+    <td style="border: 2px solid #333;">3.</td>
+    <td style="border: 2px solid #333;" class="p-2">Object</td>
+    <td style="border: 2px solid #333;">Each thread creates a unique object and gets associated with it</td>
+    <td style="border: 2px solid #333;">Multiple threads share the same objects. </td>
+  </tr>
+
+  <tr>
+    <td style="border: 2px solid #333;">4.</td>
+    <td style="border: 2px solid #333;" class="p-2" >Memory</td>
+    <td style="border: 2px solid #333;">More memory required</td>
+    <td style="border: 2px solid #333;">Less memory required</td>
+  </tr>
+
+  <tr>
+    <td style="border: 2px solid #333;">5.</td>
+    <td style="border: 2px solid #333;" class="p-2" >Limitation</td>
+    <td style="border: 2px solid #333;">Multiple Inheritance is not allowed in java hence after a class extends Thread class, after this same class can’t extend any other class</td>
+    <td style="border: 2px solid #333;">If a class is implementing the runnable interface then your class can extend another class. </td>
+  </tr>
+
+</table>
+
+
+`,
+                codeExamples: [
+                  `Example of Runnable
+package com.code_with_pankaj; 
+public class RunnableExample implements Runnable { 
+public void run() { 
+ System.out.println("Thread is running for Runnable Implementation"); 
+ } 
+public static void main(String args[]) { 
+ RunnableExample runnable = new RunnableExample(); 
+ Thread t1 = new Thread(runnable); 
+ t1.start(); 
+ } 
+} `,
+
+                  `Example of Thread
+package com.code_with_pankaj; 
+ 
+public class ThreadExample extends Thread { 
+public void run() { 
+ System.out.println("Thread is running"); 
+ } 
+public static void main(String args[]) { 
+ ThreadExample t1 = new ThreadExample(); 
+ t1.start(); 
+ }
+ `,
+                  `Example for MultiThreading 
+package com.multi; 
+public class MultithreadingExample extends Thread { 
+public void run() { 
+ for (int i = 1; i <= 5; i++) { 
+ try { 
+ Thread.sleep(500);// it will pause the thread execution for particular milliseconds
+ } catch (Exception e) { 
+ System.out.println(e.getMessage()); 
+ } 
+ System.out.println(i); 
+ } 
+ } 
+public static void main(String[] args) { 
+ MultithreadingExample thread1 = new MultithreadingExample(); 
+ MultithreadingExample thread2 = new MultithreadingExample(); 
+ thread1.start(); 
+ thread2.start(); 
+ } 
+}`        ]
+              },
+              {
+                content: `<h4>Advantages for Multithreading in Java</h4>
+• The users are not blocked because threads are independent, and we can perform multiple operations 
+at same times.<br>
+• You can perform many operations together, so it saves time. <br>
+• Threads are independent, so it doesn't affect other threads if an exception occurs in a single thread. <br><br>
+Here are some key benefits: <br>
+1. Improved Performance: By allowing multiple threads to run concurrently, multithreading can 
+significantly improve the performance of applications, especially on multi-core processors.<br> 
+2. Better Resource Utilization: Multithreading helps in better utilization of CPU resources by 
+ensuring that idle time (e.g., waiting for I/O operations to complete) is minimized and other threads 
+can continue executing. <br>
+3. Responsive User Interface: In GUI applications, multithreading allows the user interface to remain 
+responsive by performing time-consuming tasks in the background. <br>
+4. Simplified Program Structure: Using multiple threads can simplify the program structure, making 
+it easier to manage tasks like asynchronous I/O, periodic tasks, or background processing.<br> 
+5. Parallel Execution: Multithreading enables parallel execution of tasks, which is useful for tasks that 
+can be performed simultaneously, leading to faster completion times. <br>
+6. Scalability: Multithreaded applications can easily scale with the increasing number of CPU cores, 
+providing better performance and efficiency. <br>
+7. Concurrency Handling: Multithreading allows for more efficient handling of multiple tasks at the 
+same time, such as processing multiple client requests in a server application. <br><br>
+These advantages make multithreading a valuable technique for developing high-performance, 
+responsive, and scalable applications in Java.<br>`,
+
+                codeExamples: [
+                  `package com.threads; 
+public class ThreadDemo extends Thread { 
+public static void main(String[] args) { 
+ ThreadDemo thread = new ThreadDemo(); 
+ System.out.println(thread.getId());
+ System.out.println(thread.getName()); 
+ System.out.println(thread.getPriority()); 
+ System.out.println(thread.getState()); 
+ } 
+}`
+                ]
+              }
+            ]
+          },
+          {
+            id: `Life Cycle of Thread`,
+            name: `Life Cycle of Thread`,
+            beginner: [
+              {
+                content: `
+<img src="/src/assets/lifecycle.png" alt="Image"class="d-block mx-auto" style="height:300px" /><br>
+                
+• A thread goes through various stages in its life cycle. <br>
+• For example: A thread is born, started, runs, and then dies.<br> 
+• The following diagram shows the complete life cycle of a thread.<br><br>
+<h4>There are different types of thread state are as follows as</h4>
+1. New or Born State <br>
+• The thread is in new state if you create an instance of Thread class but before the invocation of 
+start () method. <br>
+2. Runnable State <br>
+• The thread is in runnable state after invocation of start () method, but the thread scheduler has not 
+selected it to be the running thread. <br> 
+3. Running State <br>
+• The thread is in running state if the thread scheduler has selected it. <br>
+4. Dead State <br>
+• A thread is in terminated or dead state when its run () method exits. <br>
+5. Waiting State <br>
+• When a thread is temporarily inactive, then it’s in one of the following states: Blocked and 
+Waiting state. Or Running thread calls join method then it will enter into waiting state (Blocking 
+for joining). <br>
+6. Sleep State <br>
+• If running thread calls sleep method then it will enter into sleep state. If sleeping thread got 
+interrupted or time expire then it will enter into ready state. <br>
+7. Waiting State <br>
+• If running thread calls wait method then it will enter into waiting state. If waiting state got 
+notification then it will enter into another wating state. <br>
+8. Suspended State <br>
+• If running state called suspend method then thread will enter into suspended state. <br>
+9. Resume State <br>
+• If we call thread from resume () method then it will enter into ready state. <br>
+<br>
+
+<img src="/src/assets/thread.png" alt="Image"class="d-block mx-auto border border-primary" style="height:300px" /><br>
+
+`,
+              }
+            ],
+
+          },
+          {
+            id: `Synchronization in Java `,
+            name: `Synchronization in Java `,
+            beginner: [
+              {
+                content: `• Synchronization in java is the capability to control the access of multiple threads to any shared resource. <br>
+                • In the Multithreading concept, multiple threads try to access the shared resources at a time to produce inconsistent results. <br>
+                • The synchronization is necessary for reliable communication between threads.<br>
+                `,
+                codeExamples: [
+                  `package com.synchronizaitons; 
+public class Account { 
+private int balance=5000; 
+//-------------------------------------- 
+// Generate Getter Method 
+public int getBalance() { 
+ return balance; 
+ } 
+public int withdraw(int amount) { // Method: Withdraw 
+ balance= balance-amount; 
+ return balance; 
+ } 
+} `
+                ]
+              }
+            ],
+            intermediate: [
+              {
+                content: `We can apply synchronization on method and block only. We cannot apply it on variables and 
+class. <br>
+• Multiple threads is accessing the one resource at the same time called as Synchronization.<br>
+• The main purpose of this is we need to ensure that resource will be used by only one thread at a time. <br>
+• The process by which this is achieved is called synchronization.<br><br>
+
+<h4>Why?</h4>
+`,
+                codeExamples: [`
+package com.synchronizaitons; 
+public class AccountDetails implements Runnable{ 
+Account account = new Account(); 
+@Override 
+public void run() { 
+ for (int x = 0; x < 5; x++) { 
+ makeWithdrawal(500); 
+ if (account.getBalance() <= 0) { 
+ System.out.println("Account is overdrawn..."); 
+ } 
+ } 
+ } 
+private void makeWithdrawal(int amt) { 
+ if (account.getBalance() >= amt) { 
+ System.out.println(Thread.currentThread().getName() +"is going to withdraw=>"); 
+ } 
+ try { 
+ Thread.sleep(100); 
+ } catch (InterruptedException e) { 
+ System.out.println(e.getMessage()); 
+ } 
+ int bal = account.withdraw(amt); 
+ System.out.println(Thread.currentThread().getName()+"complete withdrawal=>" + bal); 
+ } 
+} 
+`,
+                  `package com.synchronizaitons; 
+public class MainTest { 
+public static void main(String[] args) { 
+ AccountDetails accountDetails= new AccountDetails(); 
+ Thread thread1=new Thread(accountDetails); 
+ Thread thread2= new Thread(accountDetails); 
+ thread1.setName("Pankaj"); 
+ thread2.setName("bhande"); 
+ thread1.start(); 
+ thread2.start(); 
+ } 
+}`
+                ]
+              },
+              {
+                content: `In this Example => there are 2 thread which are executed randomly but I want to execute one by one 
+thread at a time then go for synchronization. <br>
+<h4>Note:</h4> Just make the makeWithdrawal method as synchronized, so you will get the output like as <br>
+
+<div class="p-2 bg-secondary">
+<h4>Output- Using Synchronization</h4>
+bhande>>is going to withdraw=> <br>
+bhande>>complete the withdrawal=>4500 <br>
+bhande>>is going to withdraw=> <br>
+bhande>>complete the withdrawal=>4000 <br>
+bhande>>is going to withdraw=> <br>
+bhande>>complete the withdrawal=>3500 <br>
+bhande>>is going to withdraw=> <br>
+bhande>>complete the withdrawal=>3000 <br>
+bhande>>is going to withdraw=> <br>
+bhande>>complete the withdrawal=>2500 <br>
+Pankaj>>is going to withdraw=> <br>
+Pankaj>>complete the withdrawal=>2000 <br>
+Pankaj>>is going to withdraw=> <br>
+Pankaj>>complete the withdrawal=>1500 <br>
+Pankaj>>is going to withdraw=> <br>
+Pankaj>>complete the withdrawal=>1000 <br>
+Pankaj>>is going to withdraw=> <br>
+Pankaj>>complete the withdrawal=>500 <br>
+Pankaj>>is going to withdraw=> <br>
+Pankaj>>complete the withdrawal=>0 <br>
+Account is overdrawn... <br>
+</div>
+<br>
+<div class="p-2 bg-secondary">
+<h4>Output- without synchronization </h4>
+Pankaj>>is going to withdraw=> <br>
+bhande>>is going to withdraw=> <br>
+bhande>>complete the withdrawal=>4500<br> 
+Pankaj>>complete the withdrawal=>4000 <br>
+bhande>>is going to withdraw=> <br>
+Pankaj>>is going to withdraw=> <br>
+Pankaj>>complete the withdrawal=>3500 <br>
+Pankaj>>is going to withdraw=> <br>
+bhande>>complete the withdrawal=>3000 <br>
+bhande>>is going to withdraw=> <br>
+Pankaj>>complete the withdrawal=>2000 <br>
+bhande>>complete the withdrawal=>2500 <br>
+bhande>>is going to withdraw=> <br>
+Pankaj>>is going to withdraw=> <br>
+Pankaj>>complete the withdrawal=>1500 <br>
+bhande>>complete the withdrawal=>1000 <br>
+Pankaj>>is going to withdraw=> <br>
+bhande>>is going to withdraw=> <br>
+bhande>>complete the withdrawal=>0 <br>
+Account is overdrawn... <br>
+Pankaj>>complete the withdrawal=>500 <br>
+Account is overdrawn... <br>
+</div><br>
+
+<h4>Types 01=> Synchronized Method: </h4>
+
+• If you declare any method as synchronized, it is known as Synchronized Method.<br>
+• Synchronized method is used to lock an object for any shared resource.<br>
+• When a thread invokes a synchronized method, it automatically acquires the lock for that object and 
+releases it when the thread completes its task.<br>
+
+<div class="p-2 bg-secondary">
+Example- <br>
+ synchronized void test (){ <br>
+// write code here <br>
+} <br>
+</div><br>
+
+<h4>Types 02=> Synchronized Block: </h4>
+• Synchronized block can be used to perform synchronization on any specific resource of the 
+method.<br>
+• Suppose you have 50 lines of code in your method, but you want to synchronize only 5 lines, you 
+can use synchronized block. <br>
+• If you put all the codes of the method in the synchronized block, it will work same as the 
+synchronized method.<br>
+ 
+<h4>Note </h4>
+• Synchronized block is used to lock an object for any shared resource. <br>
+• Scope of synchronized block is smaller than the method.<br>
+
+<div class="p-2 bg-secondary">
+Syntax synchronized (object reference) { <br>
+ // code block <br>
+} <br>
+ </div>
+
+<br><br>
+
+<h3>Synchronization Interview Question & Answer</h3>
+<br>
+
+<h4> Explain Synchronization? How to achieve synchronization? </h4>
+Synchronization:<br>
+• Multiple threads are accessing the same resource at the same time. <br>
+• Synchronize keyword is used to achieve Synchronization in Java. <br>
+• Synchronize keyword used for methods or blocks, or objects but cannot be used with classes and 
+variables. <br>
+
+Type 01 => Synchronized Method:<br>
+• If you declare any method with synchronize keyword, it is known as Synchronized Method. <br>
+
+Type 02 => Synchronized Block: <br>
+• If you declare any block with synchronize keyword, it is known as Synchronized Block. <br>
+• Suppose you have 50 lines of code in your method, but you want to synchronize only 5 lines, then 
+we can use synchronized block. <br>
+
+
+`
+              }
+            ]
+          },
+          {
+            id: `Interview Questions`,
+            name: `Interview Questions`,
+            beginner: [
+              {
+                content: `
+               <h4>1. What is multithreading in Java?</h4>
+• Multithreading is a process of executing multiple threads simultaneously to maximize CPU 
+utilization. <br>
+• It allows multiple operations to run concurrently within a single program.<br><br>
+
+<h4>2. How do you create a thread in Java?</h4>
+ • There are two main ways to create a thread in Java<br>
+1. By extending the Thread class: <br>
+Java<br>
+class MyThread extends Thread { <br>
+ public void run() { <br>
+ System.out.println("Thread is running");<br> 
+ } <br>
+} <br>
+MyThread t1 = new MyThread(); <br>
+t1.start();<br> 
+2. By implementing the Runnable interface: <br>
+Java<br>
+class MyRunnable implements Runnable {<br> 
+ public void run() { <br>
+ System.out.println("Thread is running"); <br>
+ } <br>
+} <br>
+Thread t1 = new Thread(new MyRunnable()); <br>
+t1.start(); <br><br>
+
+<h4>3. What is the difference between start() and run() methods in Java threads?</h4>
+• The start() method creates a new thread and executes the run() method in that new thread. <br>
+• The run() method, when called directly, does not create a new thread and runs in the current thread. <br><br>
+
+<h4>4. What are the different states of a thread in Java?</h4>
+• A thread can be in one of the following states: <br>
+• New: The thread is created but not yet started. <br>
+• Runnable: The thread is ready to run and waiting for CPU time. <br>
+• Blocked: The thread is blocked and waiting for a monitor lock. <br>
+• Waiting: The thread is waiting indefinitely for another thread to perform a particular action. <br>
+• Timed Waiting: The thread is waiting for another thread to perform an action for up to a specified waiting 
+time. <br>
+• Terminated: The thread has finished its execution.<br>
+                
+                `
+              }
+            ],
+            intermediate: [
+              {
+                content: `<h4>1. What is synchronization in Java?</h4>
+• Synchronization is a mechanism that ensures that two or more concurrent threads do not simultaneously 
+execute some particular program segment known as a critical section.<br>
+• It is used to prevent thread interference and memory consistency errors.<br> <br>
+
+<h4>2. What is a deadlock in Java?</h4>
+• A deadlock is a situation where two or more threads are blocked forever, waiting for each other.<br> 
+• This usually happens when two threads have a circular dependency on a pair of synchronized objects. <br><br>
+
+<h4>3. How can you avoid deadlock in Java?</h4>
+- Deadlock can be avoided by: <br>
+• Avoiding nested locks. <br>
+• Using a timeout while waiting for locks. <br>
+• Using a lock ordering or lock hierarchy.<br> <br>
+
+<h4>4. What is the difference between wait() and sleep() methods in Java?</h4>
+• The wait() method releases the lock on the object and waits until another thread calls notify() or notifyAll() on that object. 
+• The sleep() method pauses the current thread for a specified period but does not release the lock. <br><br>
+
+<h4>5. What is the volatile keyword in Java?</h4>
+• The volatile keyword is used to indicate that a variable’s value will be modified by different threads. <br>
+• It ensures that the value of the volatile variable is always read from the main memory, and not from the 
+thread’s local cache. <br><br>
+
+<h4>6. What is the ThreadLocal class in Java?</h4>
+• The ThreadLocal class provides thread-local variables. <br>
+• Each thread accessing such a variable has its own, independently initialized copy of the variable.`
+              }
+            ]
+          }
+        ]
       }
+
+
+
     ],
 
-    
+
 
 
     cheatNotes: [
