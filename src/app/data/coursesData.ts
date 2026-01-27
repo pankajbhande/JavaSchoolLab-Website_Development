@@ -3770,13 +3770,379 @@ class Example {
               }
             ]
           }
-          
+
         ]
       },
 
       {
+        id: 'access specifiers',
+        name: 'Access Specifiers',
+        topics: [
+
+          {
+            id:'default',
+            name:'Default',
+            intermediate:[
+              {
+                content:`• It apply to Global Variable (GV), Local Variable (LV), Constructors (C), Method (M),
+Inner Class (IC) & Outer Class (OC).<br><br>
+
+<div class='border border-primary p-2'>
+package p1; <br>
+class A { // Apply to Outter Class<br>
+int a = 10; // Apply to Global Variable<br>
+ // ( Global Variable: Inside Class but Outside Main Method ) <br>
+ 
+public static void main(String args[]) { <br>
+ int b = 20; // Apply to Local Variable<br>
+ // ( Local Variable: Inside Class & Inside Main Method ) <br>
+} <br>
+ 
+A{ // Apply to Constructor<br>
+System.out.println("Default Acees Specifier We Can Apply to Constructor"); <br>
+ } <br>
+void x1{ // Apply to Method<br>
+ System.out.println("Code_with_Pankaj"); <br>
+} <br>
+ 
+class Demo { // Apply to Inner Class<br>
+ } <br>
+} <br>
+</div><br>
+
+• It can be accessible within the same package only.<br>
+• When the access specifier is not specified then it will be treated as default members. <br>
+• No need to use keyword default like private. <br>
+• It provides more accessibility than private. But, it is more restrictive than protected, and public. <br><br>
+
+ In Below Code, trying to access default method of another class <br>`,
+codeExamples:[`package com.p1;
+public class A { 
+void display() {
+ System.out.println("Code_With_Pankaj");
+ } 
+} 
+OUTPUT: Code_With_Pankaj
+----------------------------------------------
+package com.p1; 
+public class B { 
+public static void main(String args[]) { 
+ A obj = new A(); // Create Object 
+ obj.display(); // ObjectName.Method 
+ } 
+} `]
+              }
+            ]
+          },
+
+          {
+            id:'public',
+            name:'Public',
+            intermediate:[
+              {
+                content:`• It apply to Global Variable, Constructor, Method, Class, Static Variable, Inner Class, 
+Outer Class. <br>
+• It can access anywhere in the class or outside the class or same package or different package. <br>
+• Local variables cannot public because they have limited scope within the method only. If we 
+make it public then getting error only. “Illegal modifier for parameter”. <br>
+• The public access modifier has the widest/largest scope among all other access modifiers. <br><br>
+
+
+<div class='border border-primary p-2'>
+package p1; // Package: p1 <br>
+public class A { // Class: A<br>
+public void display() { // Method: display <br>
+ System.out.println("Code_with_Pankaj "); <br>
+ } <br>
+} <br>
+Output: Code_with_Pankaj<br>
+</div><br>
+
+<div class='border border-primary p-2'>
+package p2; // Package: p2 <br>
+import p1.*; <br>
+class B { // Class: B <br>
+public static void main(String args[]) { <br>
+ A a = new A(); // Create Object <br>
+ a.display(); // ObjName.Method<br>
+ } <br>
+} <br>
+</div><br>
+
+<h4>Important Points:</h4>
+• If other programmers use your class, try to use the most restrictive access level that makes sense 
+for a particular member. Use private unless you have a good reason not to. <br>
+• Avoid public fields except for constants. <br>
+
+Why we use Access Specifiers? <br>
+
+If we have a business requirement where we need to perform the employee CRUD operations and all the 
+methods need to be called from getEmployeeData() only. <br><br>
+
+<h4>Scenario ( Using Public Access Specifier ) </h4>`,
+codeExamples:[`package com.test; 
+public class Employee {
+public void addOperation() { 
+ System.out.println("Add operation"); 
+ } 
+public void editOperation() { 
+ System.out.println("Edit operation"); 
+ } 
+public void getOperation() { 
+ System.out.println("Get operation"); 
+ } 
+public void deleteOperation() { 
+ System.out.println("Delete operation"); 
+ } 
+public void getEmployeeData() { 
+ addOperation(); // calling the methods
+ editOperation(); 
+ getOperation(); 
+ deleteOperation(); 
+ } 
+} 
+ -------------------------------------------
+package com.test; 
+public class Test { 
+ public static void main(String[] args) { 
+ // Create 2 object 
+ Employee employee = new Employee(); 
+ Employee employee2 = new Employee();
+ employee.getEmployeeData(); 
+ } 
+} 
+----------------------------------------------
+OUTPUT: 
+Add operation
+Edit operation
+Get operation
+Delete operation
+
+`]
+              },
+
+              {
+                content:`Here we are directly call any method from outside class because scope is public. Hence requirement is 
+not fulfilled here. 
+`
+              }
+            ]
+          },
+
+          {
+            id: 'private',
+            name: 'Private',
+            intermediate: [
+              {
+                content: `• Access specifier’s plays very important role while performing the operation on variable, methods, 
+classes, etc. <br>
+In other words, it is simply used to restrict the access. <br><br>
+
+<h4> Private: </h4>
+• It apply to Global Variable (GV), Method (M), Constructor (C) & Inner Class (IC) only.<br> 
+• Outside Class cannot be private. <br>
+• Local variables cannot private. <br>
+`,
+                codeExamples: [
+                  `package p1; 
+public class A { // Outter class cannot be private 
+//-------------------------------------------------------------------------------------------------------- 
+private int a = 10; // Apply to Global Variable
+ // (Global Variable: Inside Class but Outside Main Method) 
+//-------------------------------------------------------------------------------------------------------- 
+private void x1(){ // Apply to Method
+ System.out.println("Code_with_Pankaj"); 
+} 
+//-------------------------------------------------------------------------------------------------------- 
+private A() { // Apply to Constructor
+ System.out.println("Default Constructor"); 
+ } 
+//-------------------------------------------------------------------------------------------------------- 
+ private class Demo { // Apply to Inner Class
+ } 
+public static void main(String args[]) { 
+ 
+ // private int b = 20; // Can’t Apply to Local Variable 
+ // ( Local Variable: Inside Class & Inside Main Method ) 
+} 
+} 
+`]
+              },
+
+              {
+                content: `• It can access within class only, not outside class or outside package as scope is very limited. 
+                
+                <div class='border border-primary p-2'>
+                package com.test;<br>
+                // Class: 01st<br>
+                public class Example { <br>
+                private void x1 () { // Method: x1 <br>
+                System.out.println("This is x1 Method"); <br>
+                } <br>
+                 private int a = 20; // Variable <br>
+                }<br>
+
+                </div><br>
+
+                <div class='border border-primary p-2'>
+                package com.test;<br>
+                // Class 02nd<br>
+                public class Test { <br>
+                public static void main(String[] args) { <br>
+                Example example = new Example (); <br>
+                example.x1(); // ObjectName.MethodName <br>
+                System.out.println(example.a); <br>
+                } <br>
+                } <br>
+              </div><br>
+          
+                <h4>Note: Here x1 method and a=20 both are Private so we can’t access outside of class.</h4><br>
+
+<div class='border border-primary p-2'>
+package com.p1; <br>
+public class A { <br>
+private void display() { <br>
+ System.out.println("Code_With_Pankaj"); <br>
+ } <br>
+} <br>
+  </div><br>
+
+<div class='border border-primary p-2'>
+package com.p2; <br>
+import com.p1.A; <br>
+public class B { <br>
+public static void main(String args[]) { <br>
+ A obj = new A(); <br>
+ // Trying to access private method of another class<br>
+ obj.display(); // object.Method_Name <br>
+ } <br>
+} <br><br>
+
+OUTPUT:<br>
+error: display() has private access in A <br>
+ obj.display(); 
+</div><br>
+
+• Top-level classes or interfaces cannot be declared as private because <br>
+- private means “only visible within the enclosing class”. <br>
+- protected means “only visible within the enclosing class and any subclasses.”<br><br>
+
+<h4>Scenario ( Using private Access Specifier )</h4>
+                `,
+                codeExamples:[`package com.code_with_pankaj; 
+public class Employee { 
+private void addOperation() { 
+ System.out.println("Add operation"); 
+ } 
+private void editOperation() { 
+ System.out.println("Edit operation"); 
+ } 
+private void getOperation() { 
+ System.out.println("Get operation"); 
+ } 
+private void deleteOperation() { 
+ System.out.println("Delete operation"); 
+ } 
+public void getEmployeeData() { 
+ addOperation(); 
+ editOperation(); 
+ getOperation(); 
+ deleteOperation(); 
+ } 
+} 
+---------------------------------------
+package com.test; 
+public class Test { 
+public static void main(String[] args) { 
+ Employee employee = new Employee(); 
+ Employee employee2 = new Employee(); 
+ employee.getEmployeeData(); 
+ } 
+}
+---------------------------------------
+OUTPUT: 
+Add operation
+Edit operation
+Get operation
+Delete operation
+`]
+              },
+              {
+                content:`<h4>• Here we cannot directly call any method except getEmployeeData() because scope is private. <br>
+• So it cannot be directly accessible from outside. We need to access it from by calling 
+getEmployeeData (). <br>
+• We not able to access addOperation(), editOperaation(), getOpeartion(), deleteOpearation() 
+method because these methods are private not public.</h4>`
+              }
+            ]
+          },
+
+          {
+            id:'protected',
+            name:'Protected',
+            intermediate:[
+              {
+                content:`• It apply to Global Variables (GV), Constructor (C), Methods (M), & Inner Class. <br>
+• It cannot apply to Local Variables & Outer Class.
+
+`,
+codeExamples:[`package p1; 
+public class A { // Protected: Can’t Apply to Outter Class
+ protected class Demo { // Apply to Inner Class
+ } 
+protected void x1{ // Apply to Method
+ System.out.println("Code_with_Pankaj"); 
+} 
+ protected int a = 10; // Apply to Global Variable
+// ( Global Variable: Inside Class but Outside Main Method ) 
+public static void main(String args[]) { 
+ int b = 20; // Protected: Can’t Apply to Local Variable 
+// ( Local Variable: Inside Class & Inside Main Method ) 
+} 
+} `]
+              },
+              {
+                content:`• It is accessible within the same package and also possible into another package if inheritance is 
+happened while calling. <br><br>
+
+In this example, we will create 2 packages p1 and p2. Class A in p1 is made public, 
+to access it in p2. The method display in class A is protected and class B is inherited from class A and 
+this protected method is then accessed by creating an object of class B. 
+`,
+                codeExamples:[
+                  `package p1; 
+// Class A 
+protected class A { 
+protected void display() { 
+ // Method
+ System.out.println("Code_With_Pankaj "); 
+ } 
+} 
+OUTPUT: Code_With_Pankaj 
+--------------------------------------------
+// protected modifier import p1.*; 
+// importing all classes in package p1 
+// Class B is subclass of A 
+protected B extends A { 
+public static void main(String args[]) { 
+ B obj = new B(); 
+ obj.display(); 
+ } 
+} 
+`
+                ]
+              }
+            ]
+          },
+
+
+        ]
+      },
+
+
+      {
         id: 'oop',
-        name: 'Object-Oriented Programming',
+        name: 'OOPS Concept',
         topics: [
           {
             id: 'classes-objects',
@@ -6018,8 +6384,8 @@ void getSeatAvailability(int seat){
       },
 
       {
-        id: `Multithreading and multitasking`,
-        name: `Multithreading and multitasking`,
+        id: `multithreading and multitasking`,
+        name: `Multithreading&Multitasking`,
         topics: [
           {
             id: `Multitasking in Java`,
