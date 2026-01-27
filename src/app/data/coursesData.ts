@@ -6823,11 +6823,10 @@ public static void main(String[] args) {
           {
             id: `Life Cycle of Thread`,
             name: `Life Cycle of Thread`,
-            beginner: [
+            intermediate: [
               {
-                content: `
-<img src="/src/assets/lifecycle.png" alt="Image"class="d-block mx-auto" style="height:300px" /><br>
-                
+                content: `<img src="/src/assets/lifecycle.png" alt="Image"class="d-block mx-auto" style="height:280px" /><br>
+
 • A thread goes through various stages in its life cycle. <br>
 • For example: A thread is born, started, runs, and then dies.<br> 
 • The following diagram shows the complete life cycle of a thread.<br><br>
@@ -6859,7 +6858,6 @@ notification then it will enter into another wating state. <br>
 <br>
 
 <img src="/src/assets/thread.png" alt="Image"class="d-block mx-auto border border-primary" style="height:300px" /><br>
-
 `,
               }
             ],
