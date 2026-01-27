@@ -296,6 +296,7 @@ public class PerformanceExample {
               }],
 
           },
+
           {
             id: "operators",
             name: "Operators in Java",
@@ -308,11 +309,11 @@ public class PerformanceExample {
 Used to perform mathematical calculations.<br>
 
 Operators:<br>
-• +  Addition  
-• -  Subtraction  
-• *  Multiplication  
-• /  Division  
-• %  Modulus  
+• +  Addition  <br>
+• -  Subtraction  <br>
+• *  Multiplication  <br>
+• /  Division  <br>
+• %  Modulus  <br>
 `,
                 codeExamples: [
                   `int a = 10, b = 3;
@@ -328,11 +329,11 @@ System.out.println(a % b); // 1`
               {
                 content: `
 <h4>2) Logical AND (&&) Operator</h4>
-• Returns true only if BOTH conditions are true  
-• Second condition is skipped if first is false 
+• Returns true only if BOTH conditions are true  <br>
+• Second condition is skipped if first is false <br>
 <img src="./src/assets/operator1.png" 
      alt="String in Java" 
-     class="d-block mx-auto" /> 
+     class="d-block mx-auto" /> <br>
 `,
                 codeExamples: [
                   `int x = 10, y = 20;
@@ -345,11 +346,11 @@ System.out.println(x > y && x > 5);   // false`
               {
                 content: `
 <h4>3) Logical OR (||) Operator</h4>
-• Returns true if ANY one condition is true  
-• Second condition is skipped if first is true 
+• Returns true if ANY one condition is true  <br>
+• Second condition is skipped if first is true <br>
 <img src="./src/assets/operator2.png" 
      alt="String in Java" 
-     class="d-block mx-auto" /> 
+     class="d-block mx-auto" /> <br>
 `,
                 codeExamples: [
                   `int x = 10, y = 20;
@@ -365,12 +366,12 @@ System.out.println(x > y || x > 30);  // false`
 Used to compare two values.<br>
 
 Operators:<br>
-• >   Greater than  
-• <   Less than  
-• >=  Greater than or equal to  
-• <=  Less than or equal to  
-• ==  Equal to  
-• !=  Not equal to  
+• >   Greater than  <br>
+• <   Less than  <br>
+• >=  Greater than or equal to  <br>
+• <=  Less than or equal to  <br>
+• ==  Equal to  <br>
+• !=  Not equal to  <br>
 `,
                 codeExamples: [
                   `int a = 10, b = 20;
@@ -385,10 +386,10 @@ System.out.println(a != b);  // true`
               {
                 content: `
 <h4>5) Assignment Operator</h4>
-Used to assign value to a variable.
+Used to assign value to a variable.<br>
 
-Syntax:
-variable = value;
+Syntax:<br>
+variable = value;<br>
 `,
                 codeExamples: [
                   `int x = 50;
@@ -399,11 +400,11 @@ System.out.println(x); // 50`
               {
                 content: `
 <h4>6) Bitwise AND (&) Operator</h4>
-• Always checks BOTH conditions  
-• Executes even if first condition is false 
+• Always checks BOTH conditions  <br>
+• Executes even if first condition is false <br>
 <img src="./src/assets/operator3.png" 
      alt="String in Java" 
-     class="d-block mx-auto" /> 
+     class="d-block mx-auto" /> <br>
 `,
                 codeExamples: [
                   `int x = 10, y = 20;
@@ -416,11 +417,11 @@ System.out.println(x > y & x > 5);  // false`
               {
                 content: `
 <h4>7) Bitwise OR (|) Operator</h4>
-• Always checks BOTH conditions  
-• Executes even if first condition is true 
+• Always checks BOTH conditions  <br>
+• Executes even if first condition is true <br>
 <img src="./src/assets/operator4.png" 
      alt="String in Java" 
-     class="d-block mx-auto" /> 
+     class="d-block mx-auto" /> <br>
 `,
                 codeExamples: [
                   `int x = 10, y = 20;
@@ -433,11 +434,11 @@ System.out.println(x > y | x > 50); // false`
               {
                 content: `
 <h4>8) Unary Operators</h4>
-Used to increment or decrement value.
+Used to increment or decrement value.<br>
 
-Operators:
-• ++ Increment  
-• -- Decrement  
+Operators:<br>
+• ++ Increment  <br>
+• -- Decrement  <br>
 `,
                 codeExamples: [
                   `int a = 10;
@@ -453,10 +454,10 @@ System.out.println(a); // 10`
               {
                 content: `
 <h4>9) Ternary Operator</h4>
-Shorthand for if-else statement.
+Shorthand for if-else statement.<br>
 
-Syntax:
-condition ? value_if_true : value_if_false
+Syntax:<br>
+condition ? value_if_true : value_if_false<br>
 `,
                 codeExamples: [
                   `int a = 10, b = 20;
@@ -472,7 +473,7 @@ System.out.println(max); // 20`
 • Right shift operator >> is used to move left operands value to right by the number of bits specified 
 by the right operand. <br>
 • Left shift operator << is used to shift all of the bits in a value to the left side of a specified number 
-of times. 
+of times. <br>
 
 `,
                 codeExamples: [
@@ -486,7 +487,7 @@ System.out.println(x >> 1); // 5`
               {
                 content: `
 <h4>11) Dot (.) Operator</h4>
-Used to access class variables and methods.
+Used to access class variables and methods.<br>
 `,
                 codeExamples: [
                   `class Demo {
@@ -753,6 +754,7 @@ Best Practices
               }
             ]
           },
+
           {
             id: 'Jumping Statement',
             name: 'Jumping Statement',
@@ -887,7 +889,6 @@ Best Practices
               }
             ]
           },
-
 
           {
             id: `Array in java`,
@@ -1179,10 +1180,6 @@ System.out.println(a[a.length-3]);`
             ]
           },
 
-
-
-
-
           {
             id: `String in java`,
             name: `String in Java`,
@@ -1446,18 +1443,6 @@ System.out.println("Total spaces: " + count);`
               }
             ]
           },
-
-
-
-
-
-
-
-
-
-
-
-
 
           {
             id: `Contructor in java`,
@@ -1914,7 +1899,6 @@ Calling parameterized constructor of derived class
               }
             ]
           },
-
 
           {
             id: 'static-keyword',
@@ -2753,11 +2737,6 @@ public class DeserializeStudent {
             ]
           },
 
-
-
-
-
-
           {
             id: 'wrapper-class',
             name: 'Wrapper Class',
@@ -3098,6 +3077,7 @@ public class Employee {
               }
             ]
           },
+
           {
             id: 'this-super',
             name: 'This and Super Keywords',
@@ -3379,10 +3359,10 @@ class Example {
               }
             ]
           }
+
         ]
 
       },
-
 
       {
         id: 'oop',
@@ -5560,7 +5540,6 @@ void getSeatAvailability(int seat){
         ]
       },
 
-      
       {
         id: `Multithreading and multitasking`,
         name: `Multithreading and multitasking`,
