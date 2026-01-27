@@ -156,11 +156,301 @@ public class CustomClassLoader extends ClassLoader {
           },
 
           {
+            id: 'feautures of java',
+            name: 'Features of Java',
+            beginner: [
+
+            ],
+
+            intermediate: [
+              {
+                content: `• The primary objective of Java programming language creation was to make it portable, simple and
+secure programming language. <br>
+
+• Apart from this, there are also some excellent features which play an important role in the popularity of this language. <br>
+
+• The features of Java are also known as Java buzzwords.<br><br>
+
+A list of the most important features of the Java language is given below.<br>
+  <img src="/src/assets/feauture.png" alt="Online Image"class="d-block mx-auto" style="height: 450px;"/><br>
+
+1. Simple<br>
+2. Object-Oriented<br>
+3. Portable<br>
+4. Platform independent<br>
+5. Secured<br>
+6. Robust<br>
+7. Architecture neutral<br>
+8. Interpreted<br>
+9. High Performance<br>
+10. Multithreaded<br>
+11. Distributed<br>
+12. Dynamic<br><br>
+
+<div class="border border-primary p-2">
+<h3>Simple</h3>
+
+Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun 
+Microsystem, Java language is a simple programming language because: <br>
+
+• Java syntax is based on C++ (so easier for programmers to learn it after C++). <br>
+• Java has removed many complicated and rarely-used features, for example, explicit pointers, 
+operator overloading, etc. <br>
+• There is no need to remove unreferenced objects because there is an Automatic Garbage Collection 
+in Java. <br>
+</div><br>
+
+<div class="border border-primary p-2">
+<h3>Object-oriented</h3>
+
+• Java is an object-oriented programming language. 
+• Everything in Java is an object. Object-oriented means we organize our software as a combination of different types of objects that incorporate both 
+data and behaviour. <br>
+• Object-oriented programming (OOPs) is a methodology that simplifies software development and 
+maintenance by providing some rules. <br>
+
+<h4>Basic concepts of OOPs are: </h4>
+1. Object<br>
+2. Class<br>
+3. Inheritance<br>
+4. Polymorphism<br>
+5. Abstraction<br>
+6. Encapsulation<br>
+
+</div><br>
+
+<div class="border border-primary p-2">
+<h3>Platform Independent</h3>
+ <img src="/src/assets/platformindependent.png" alt="Online Image"class="d-block mx-auto" style="height: 280px;"/><br>
+
+Java is platform independent because it is different from other languages like C, C++, etc. which are 
+compiled into platform specific machines while Java is a write once, run anywhere language. A 
+platform is the hardware or software environment in which a program runs. <br> <br>
+
+There are 2 types of platforms software-based and hardware-based. Java provides a software-based 
+platform. <br> <br>
+The Java platform differs from most other platforms in the sense that it is a software-based platform 
+that runs on top of other hardware-based platforms. It has 2 components: <br>
+1. Runtime Environment  <br>
+2. API(Application Programming Interface)  <br> <br>
+
+Java code can be executed on multiple platforms, for example, Windows, Linux, Sun Solaris, Mac/OS, 
+etc. Java code is compiled by the compiler and converted into bytecode. This bytecode is a platformindependent code because it can be run on multiple platforms, i.e., Write Once and Run Anywhere 
+(WORA).  <br>
+</div><br>
+
+<div class="border border-primary p-2">
+<h3>Secured</h3>
+
+Java is best known for its security. With Java, we can develop virus-free systems. Java is secured 
+because:  <br>
+• No explicit pointer <br>
+• Java Programs run inside a virtual machine sandbox <br>
+  <img src="/src/assets/secured.png" alt="Online Image"class="d-block mx-auto" style="height: 280px;"/><br>
+
+• Classloader: Classloader in Java is a part of the Java Runtime Environment (JRE) which is used to load Java 
+classes into the Java Virtual Machine dynamically. It adds security by separating the package for the classes of 
+the local file system from those that are imported from network sources. <br>
+• Bytecode Verifier: It checks the code fragments for illegal code that can violate access rights to objects.<br> 
+• Security Manager: It determines what resources a class can access such as reading and writing to the local disk. <br><br>
+Java language provides these securities by default. Some security can also be provided by an 
+application developer explicitly through SSL, JAAS, Cryptography, etc. <br>
+
+</div><br>
+
+<div class="border border-primary p-2">
+<h3>Robust</h3>
+The English mining of Robust is strong. Java is robust because: <br>
+• It uses strong memory management. <br>
+• There is a lack of pointers that avoids security problems.<br> 
+• Java provides automatic garbage collection which runs on the Java Virtual Machine to get rid of 
+objects which are not being used by a Java application anymore. <br>
+• There are exception handling and the type checking mechanism in Java. All these points make Java 
+robust. <br>
+
+</div><br>
+
+<div class="border border-primary p-2">
+<h3>Architecture-neutral</h3>
+• Java is architecture neutral because there are no implementation dependent features, for example, the 
+size of primitive types is fixed. <br>
+
+• In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of 
+memory for 64-bit architecture. <br>
+• However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java. 
+ 
+</div><br>
+<div class="border border-primary p-2">
+<h3>Portable </h3>
+• Java is portable because it facilitates you to carry the Java bytecode to any platform. <br>
+• It doesn't require any implementation.
+</div><br> 
+
+<div class="border border-primary p-2">
+<h3>High-performance</h3>
+• Java is faster than other traditional interpreted programming languages because Java bytecode is "close" to native code.<br> 
+• It is still a little bit slower than a compiled language (e.g., C++).<br> 
+• Java is an interpreted language that is why it is slower than compiled languages, e.g., C, C++, etc. 
+
+</div><br>
+
+<div class="border border-primary p-2">
+<h3>Distributed</h3>
+• Java is distributed because it facilitates users to create distributed applications in Java. 
+RMI and EJB are used for creating distributed applications.<br>
+• This feature of Java makes us able to access files by calling the methods from any machine on the internet.
+</div><br>
+
+<div class="border border-primary p-2">
+<h3>Multi-threaded</h3>
+• A thread is like a separate program, executing concurrently. We can write Java programs that deal with 
+many tasks at once by defining multiple threads. <br>
+•The main advantage of multi-threading is that it doesn't occupy memory for each thread. It shares a common memory area. Threads are important for 
+multi-media, Web applications, etc. 
+</div><br>
+<div class="border border-primary p-2">
+<h3>Dynamic</h3>
+• Java is a dynamic language. It supports the dynamic loading of classes. It means classes are loaded on 
+demand. <br>
+• It also supports functions from its native languages, i.e., C and C++. <br>
+• Java supports dynamic compilation and automatic memory management (garbage collection).
+
+</div>
+
+
+`
+              }
+            ]
+
+          },
+
+          {
+            id: 'difference between JVM JDK JRE',
+            name: `Difference between JVM, JDK, JRE`,
+            intermediate: [
+              {
+                content: `1. A summary of JVM <br>
+2. Java Runtime Environment (JRE) <br>
+3. Java Development Kit (JDK)<br><br>
+
+We must understand the differences between JDK, JRE, and JVM before proceeding further to Java. <br>
+See the brief overview of JVM here. <br> <br>
+If you want to get the detailed knowledge of Java Virtual Machine, move to the next page. Firstly, let's 
+see the differences between the JDK, JRE, and JVM. <br><br>
+
+<h3> JVM : </h3>
+• JVM (Java Virtual Machine) is an abstract machine. <br>
+• It is called a virtual machine because it doesn't physically exist. <br>
+• It is a specification that provides a runtime environment in which Java bytecode can be executed. <br>
+• It can also run those programs which are written in other languages and compiled to Java bytecode. <br>
+• JVMs are available for many hardware and software platforms. <br>
+• JVM, JRE, and JDK are platform dependent because the configuration of each OS is different from 
+each other. However, Java is platform independent. <br><br>
+
+There are 3 notions of the JVM: specification, implementation, and instance. <br>
+
+The JVM performs the following main tasks: <br>
+• Loads code <br>
+• Verifies code <br>
+• Executes code <br>
+• Provides runtime environment <br><br>
+
+<h3> JRE : </h3>
+• JRE is an acronym for Java Runtime Environment. <br>
+• It is also written as Java RTE.<br>
+• The Java Runtime Environment is a set of software tools which are used for developing Java applications. <br>
+• It is used to provide the runtime environment. <br>
+• It is the implementation of JVM. <br>
+• It physically exists. <br>
+• It contains a set of libraries + other files that JVM uses at runtime. <br>
+• The implementation of JVM is also actively released by other companies besides Sun Micro Systems.<br><br>
+            
+<img src="/src/assets/jre.png" alt="Online Image"class="d-block mx-auto" style="height:300px"/><br>
+
+<h3 > JDK : </h3>
+JDK is an acronym for Java Development Kit. The Java Development Kit (JDK) is a software 
+development environment which is used to develop Java applications and applets. It physically exists. 
+It contains JRE + development tools. <br><br>
+JDK is an implementation of any one of the below given Java Platforms released by Oracle 
+Corporation: <br>
+• Standard Edition Java Platform <br>
+• Enterprise Edition Java Platform <br>
+• Micro Edition Java Platform <br><br>
+ 
+The JDK contains a private Java Virtual Machine (JVM) and a few other resources such as an 
+interpreter/loader (java), a compiler (javac), an archiver (jar), a documentation generator (Javadoc), 
+etc. to complete the development of a Java Application.
+<img src="/src/assets/jdk.png" alt="Online Image"class="d-block mx-auto" style="height:300px"/>
+<br><br><br>
+
+<table class="w-full border border-gray-700 border-collapse [&_th]:border [&_td]:border [&_td]:px-2  [&_th]:py-2  ">
+  <tr>
+    <th> JDK </th>
+    <th> JRE </th>
+    <th> JVM </th>
+  </tr>
+
+  <tr>
+  <td>The full form of JDK is Java Develoment Kit</td>
+  <td>The full form of JRE is Java Runtime Environment</td>
+  <td>The full form of JDK is Java Develoment Kit</td>
+
+  </tr>
+
+  <tr>
+  <td>JDK is software development kit to develop applications in java</td>
+  <td>It is a software bundle which provides Java class Libraries with necessary components to run Java code.</td>
+  <td>JVM executes Java byte code and provides an environment for executing it.</td>
+  </tr>
+
+  <tr>
+  <td>JDK is platform dependent</td>
+  <td>JRE is also platform dependent</td>
+  <td>JVM is platform independent</td>
+  </tr>
+
+  <tr>
+  <td>It contains tools for developing,debugging,and monitoring java code.</td>
+  <td>It contains class libraries and other supporting files that JVM requires to execute the program.</td>
+  <td>Software development tools are not included in JVM</td>
+  </tr>
+
+  <tr>
+  <td>It is the superset of JRE</td>
+  <td>It is the subset of JDK</td>
+  <td>It is the subset of JRE</td>
+  </tr>
+
+  <tr>
+  <td>The JDk enables developers to create Java programs that can be executed and run by the JRE and JVM</td>
+  <td>The JRE is the part of Java that creates the JVM.</td>
+  <td>It is the Java platform component that executes source code </td>
+  </tr>
+
+  <tr>
+  <td>JDK comes with the installer.</td>
+  <td>JRE only contain environment to execute source code</td>
+  <td>JVM bundled in both software JDK and JRE</td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+                `
+              }
+            ]
+          },
+
+          {
             id: 'data-types',
             name: 'Data Types and Variables',
             beginner: [
               {
-                content: `Java has two categories of data types: Primitive and Reference types.
+                content: `Java has two categories of data types : Primitive and Reference types.
 
 🔹 Primitive Data Types (8 types):
 
@@ -174,6 +464,7 @@ public class CustomClassLoader extends ClassLoader {
 • boolean: true or false
 
 Variables:
+
 A variable is a container that holds data. In Java, you must declare a variable before using it.`,
                 codeExamples: [
                   `// Variable Declaration and Initialization
@@ -202,7 +493,7 @@ public class DataTypesExample {
               }],
             intermediate: [
               {
-                content: `Understanding wrapper classes, autoboxing, type casting, and variable scope.
+                content: `Understanding wrapper classes, autoboxing, type casting, and variable scope:
 
 Wrapper Classes:
 
@@ -247,7 +538,7 @@ public class AdvancedDataTypes {
               }],
             expert: [
               {
-                content: `Memory management, immutability, and performance considerations for data types.
+                content: `Memory management, immutability, and performance considerations for data types:
 
 Memory Allocation:
 
@@ -534,11 +825,11 @@ Used to create an object of a class.
             ],
 
             intermediate: [{
-              content: `-This is the most fundamental concepts required for java programmer. <br>
+              content: `• This is the most fundamental concepts required for java programmer. <br>
 
- -It allows smooth flow of execution of program. <br>
+ • It allows smooth flow of execution of program. <br>
 
- -It controls the flow of program.<br>
+ • It controls the flow of program.<br>
 <br>
 🔹 There are 5 types of control statements in java:<br>
 1. If statements<br>
@@ -743,21 +1034,12 @@ default:    System.out.println("Invalid input"); // Statement
               ]
             },
             ],
-            expert: [
-              {
-                content: `
-Best Practices 
-• Avoid deep nesting
-• Prefer switch for fixed values
-• Use early returns
-`
-              }
-            ]
+
           },
 
           {
             id: 'Jumping Statement',
-            name: 'Jumping Statement',
+            name: 'Jumping Statements in Java',
             beginner: [
               {
                 content: `
@@ -886,6 +1168,462 @@ Best Practices
                       }
                    }`
                 ]
+              }
+            ]
+          },
+
+          {
+            id: `Contructor in java`,
+            name: `Constructor in Java`,
+            beginner: [
+              {
+                content: `A constructor in Java is a special block of code used to initialize objects when they are created. It is automatically called when an instance of a class is created using the new keyword.<br>
+<h4>🔹 Key Characteristics :-</h4> 
+• Same Name as Class: A constructor must have the exact same name as the class it belongs to.<br>
+• No Return Type: It does not have a return type, not even void. Adding a return type makes it a regular method.<br>
+• Automatic Invocation: Constructors are invoked implicitly by the Java runtime when an object is instantiated.<br>
+• Initialization Logic: The primary purpose is to set initial values for the object's instance variables and perform any necessary setup tasks (like opening a file or database connection) to ensure the object is in a valid state. <br>`,
+
+              }
+            ],
+            intermediate: [
+              {
+                content: `- Constructor name it is same like as class name. <br>
+                - It is invoked by JVM automatically when you create the object of class.<br>
+                - It does not return anything even void also.<br>
+                
+                
+                🔹 There are 2 types of constructor are as <br>
+                1. Default constructor (No- argument constructor)<br>
+                2. Parameterized constructor ( Argument constructor)<br><br>
+
+               <h2> 1. Default Constructor (No-Argument constructor)</h2><br>
+                - A constructor that does not accept any arguments called as default constructor.<br>
+                - If we do not create any constructor, the Java compiler automatically create a Default.<br>
+                - Constructor (no-argument constructor) during the execution of the program. This constructor is called Default Constructor.<br>
+
+                `,
+                codeExamples: [
+                  `package com.test;
+public class Test {
+String name; // Global
+public Test() { // Default Constructor
+name = "Default_Constructor";
+}
+public static void main(String[] args) {
+Test test = new Test(); // Calling Constructor (Test)
+System.out.println ("Name is>>" + test.name);
+}
+}
+                  `,
+
+                  `package com.test;
+class Main {
+int a;
+boolean b;
+public static void main(String[] args) {
+Main obj = new Main();
+System.out.println("a" + obj.a);
+System.out.println("b" + obj.b);
+}
+}
+                        `
+
+                ]
+
+              },
+              {
+
+                content: `
+                <h4>- Here, we haven't created any constructors. Hence, the Java compiler automatically creates the
+default constructor.</h4>
+The default constructor initializes any uninitialized instance variables with default values.
+<img src="/src/assets/defaulttable.png" alt="Online Image"class="d-block mx-auto" style="height: 350px;" /><br>
+<p class="text-center"> In the above program, the variables a and b are initialized with default value 0 and false respectively.</p>
+   
+
+`
+              },
+
+              {
+                content: `
+                <h2> 2. Parameterized Constructor </h2><br>
+                A constructor with arguments called as parameterized constructor.<br>
+
+                `,
+                codeExamples: [
+                  `package com.test;
+public class Example {
+int id;
+String name;
+String city;
+public Example (int userId, String userName, String userCity) {
+id = userId;
+name = userName;
+city = userCity;
+System.out.println("id>>" + id);
+System.out.println("name>>" + name);
+System.out.println("city>>" + city);
+}
+public static void main(String[] args) {
+Example example = new Example(10, "Pankaj", "Udgir");
+}
+}`
+                ]
+              },
+              {
+                content: `
+                <h3>Note -</h3>
+1. When you do not write any constructor in the class then default constructor will be added by JVM automatically at the compile time. <br>
+2. When you write any constructor in the class then default constructor will not added by JVM.<br>
+3. Constructor does not have any return type. If you write any return type, then it will be called as method. <br>
+4. Java constructor cannot be abstract, static, final, and synchronized.<br><br>
+
+<h3>What is the Use of Constructor-? </h3>
+If you want to execute some code at object creation. In other words, it is used for generally initialization
+of global variables.
+There are 5 ways to calling the constructor as <br>
+- Employee e= new Employee(); <br>
+- super(); <br>
+- this(); <br>
+- new Employee(); <br>
+- class.forName(“com.test”).newInstance(); <br>
+<h4>Constructor can be overloaded because we can write same name with different arguments.</h4>`,
+                codeExamples: [
+                  `package com.test;
+public class Example {
+// id,name,city
+int id;
+String name;
+String city;
+// Parameterized Constructor: 01
+public Example(int id, String name, String city) {
+System.out.println(id);
+System.out.println(name);
+System.out.println(city);
+// OR
+// System.out.println("ID>>"+ id +"Name>>"+ name + "City>>"+ city);
+id = id; //10
+name = name; // Pankaj // Dheeraj
+city = city; // Udgir // Latur
+}
+public Example(String name,String city) {
+System.out.println(name);
+System.out.println(city);
+name=name;
+city=city;
+}
+public static void main(String[] args) {
+Example example=new Example(10,"Pankaj","Udgir"); // calling the constructor
+Example example1=new Example("Dheeraj", "Latur");
+}
+}`
+                ]
+              },
+              {
+                content: `
+                <h4>Note:</h4>
+1. Constructor cannot be overridden because we can’t write multiple constructors with same
+arguments.If you are tried to write it then you will get compiler time error “Duplicate method
+Employee”.<br>
+
+2. Private Constructor is mostly used in singleton design pattern in java.`
+              },
+
+              {
+                content: `<h4>1. What is a Constructor ?</h4>
+  - Constructors are used to initialize the object’s state. <br>
+  - Like methods, a constructor also contains collection of statements(i.e. instructions) that are executed at time of Object creation.
+  <br><br>
+
+  <h4>2. Do we have Copy Constructor in Java?</h4>
+- Like C++, Java also supports copy constructor. But, unlike C++, Java doesn’t create a default copy constructor if you don’t write your own. <br>
+- To copy the values of one object into another in java, you can use: <br>
+- Constructor
+- Assigning the values of one object into another. <br>
+- Clone() method of object class.<br> <br>
+
+
+<h4>3. What is Constructor Chaining ?</h4>
+Constructor Chaining: <br>
+A constructor is called from another constructor in the same class this process is known as constructor
+chaining. <br>
+When we create an instance of a derived class, all the constructors of base class are first invoked, after
+that the constructor of derived class is invoked.<br>
+
+Rules for constructor chaining<br>
+1. must be use this keyword in first line of the constructor.<br>
+2. Order does not matter in constructor chaining.<br>
+3. There must exist at least one constructor that does not use this keyword.<br>
+  `,
+                codeExamples: [
+                  `//Java program to illustrate Constructor Chaining
+// within same class Using this() keyword
+class Temp {
+// default constructor 1
+// default constructor will call another constructor
+// using this keyword from same class
+
+Temp() { // calls constructor 2
+this(5);
+System.out.println("The Default constructor");
+}
+
+Temp(int x) { // parameterized constructor 2
+// calls constructor 3
+this(5, 15);
+System.out.println(x);
+}
+// parameterized constructor 3
+Temp(int x, int y) {
+System.out.println(x * y);
+}
+public static void main(String args[]) {
+// invokes default constructor first
+new Temp();
+}
+}`
+                ]
+              },
+              {
+                content: `<h4>4. Can we call sub class constructor from super class constructor?</h4>
+No. There is no way in java to call sub class constructor from a super class constructor. <br><br>
+
+<h4>5. What happens if you keep a return type for a constructor?</h4>
+Ideally, Constructor must not have a return type. By definition, if a method has a return type, it’s not a
+constructor. (JLS8.8 Declaration). It will be treated as a normal method. But compiler gives a warning
+saying that method has a constructor name.<br>`,
+                codeExamples: [
+                  `Example:
+package com.test;
+public class Test {
+int Test() {
+return 0; // Warning for the return type
+}
+}
+  `
+                ]
+              },
+              {
+                content: `<h4>6. What is No-arg constructor?</h4>
+Constructor without arguments is called no-arg constructor. <br>
+Default constructor in java is always a no-arg constructor.`,
+                codeExamples: [
+                  `Example:
+public class ABC {
+public ABC(){ // No-arg constructor
+}
+}`
+                ]
+              },
+              {
+                content: `<h4>7. How a no – argument constructor is different from default Constructor?</h4>
+- If a class contains no constructor declarations, then a default constructor with no formal parameters
+and no throws clause is implicitly declared.<br>
+- If the class being declared is the primordial class Object, then the default constructor has an empty
+body. <br>
+- Otherwise, the default constructor simply invokes the superclass constructor with no arguments.<br><br>
+
+<h4>8. What are private constructors and where are they used?</h4>
+- Like any method we can provide access specifier to the constructor. <br>
+- If it’s made private, then it can only be accessed inside the class. <br>
+- The major scenarios where we use private constructor:<br>
+a. Internal Constructor chaining. <br>
+b. Singleton class design pattern.<br><br>
+
+<h4>9. When do we need Constructor Overloading?</h4>
+- Sometimes there is a need of initializing an object in different ways. <br>
+- This can be done using constructor overloading. <br>
+- Different constructors can do different work by implementing different line of codes and are called
+based on the type and no of parameters passed. <br>
+According to the situation , a constructor is called with specific number of parameters among
+overloaded constructors. <br><br>
+
+<h4>10. Do we have destructors in Java?</h4>
+- No, Because Java is a garbage collected language you cannot predict when (or even if) an object will
+be destroyed. Hence there is no direct equivalent of a destructor.<br><br>
+
+<h4>11. Can we override constructor?</h4>
+-NO, Constructor cannot be overridden because we can’t write multiple constructors with same arguments.<br>
+If we tried to write it then we will get compiler time error “Duplicate method Employee”.<br><br><br>
+
+<div class="bg-secondary p-2 rounded-md border-radius: var(--radius-md);">
+<h4>1. What is a constructor in Java?</h4>
+o A constructor is a special method used to initialize objects. It is called when an instance of a class is
+created and has the same name as the class. Constructors do not have a return type.<br>
+<h4>2. What is the difference between a default constructor and a parameterized constructor?</h4>
+o A default constructor has no parameters and initializes objects with default values. A parameterized
+constructor takes arguments, allowing you to initialize objects with specific values.<br>
+<h4>3. Can a constructor be private or final?</h4>
+o Yes, a constructor can be private, which is often used in Singleton design patterns to prevent the
+creation of more than one instance. Constructors cannot be final because they are not inherited.<br>
+<h4>4. What is constructor overloading?</h4>
+o Constructor overloading is the process of having more than one constructor in a class, each with
+different parameters. This allows the creation of objects in different ways.<br>
+<h4>5. What is constructor chaining?</h4>
+o Constructor chaining is the process of calling one constructor from another within the same class or
+from a superclass. This is done using this() for the same class and super() for the superclass.<br>
+<h4>6. How do you handle exceptions in constructors?</h4>
+o Exceptions in constructors can be handled using try-catch blocks within the constructor. If an
+exception occurs, it can be caught and handled appropriately.<br>
+<h4>7. Can a constructor call a method?</h4>
+o Yes, a constructor can call methods. However, it is generally advised to avoid calling overridable
+methods from constructors to prevent unexpected behavior.<br>
+<h4>8. What is the purpose of a copy constructor in Java?</h4>
+o A copy constructor is used to create a new object as a copy of an existing object. Java does not
+provide a default copy constructor, so you need to define it explicitly.<br>
+<h4>9. What is the difference between a constructor and a method?</h4>
+o A constructor is used to initialize an object, has the same name as the class, and does not have a
+return type. A method performs a specific task, can have any name, and must have a return type.<br>
+<h4>10.Can you explain constructor inheritance in Java?</h4>
+o Constructors are not inherited in Java. However, a subclass constructor can call a superclass
+constructor using the super() keyword.<br>
+</div>
+
+            `
+              }
+
+            ]
+          },
+
+          {
+            id: 'constructor-chaining',
+            name: 'Constructor Chaining',
+
+            beginner: [
+              {
+                content: `
+<h4>What is Constructor Chaining?</h4>
+• <b>Constructor Chaining</b> is the process of calling one constructor from another constructor.<br>
+• It is used to <b>reuse constructor logic</b> and reduce code duplication.<br>
+• Constructor chaining can happen <b>within the same class</b> or <b>between parent and child classes</b>.<br><br>
+
+<b>Why use Constructor Chaining?</b><br>
+• Improves code reusability<br>
+• Maintains proper initialization sequence<br>
+• Makes code clean and manageable
+      `,
+                codeExamples: []
+              },
+
+              {
+                content: `
+<h4>Rules of Constructor Chaining</h4>
+• <b>this()</b> or <b>super()</b> must be the <b>first statement</b> inside constructor.<br>
+• We cannot use both <b>this()</b> and <b>super()</b> together.<br>
+• At least <b>one constructor must not use this()</b>.
+      `,
+                codeExamples: []
+              },
+
+              {
+                content: `
+<h4>Constructor Chaining Within Same Class</h4>
+• If constructors belong to the <b>same class</b>, we use <b>this()</b> keyword.<br>
+• One constructor can call another constructor of the same class.
+      `,
+                codeExamples: [
+                  `package com.test;
+
+public class Chaining {
+
+    Chaining() {
+        this(5);
+        System.out.println("This is Default constructor");
+    }
+
+    Chaining(int x) {
+        this("Java");
+        System.out.println(x);
+    }
+
+    Chaining(String str) {
+        System.out.println(str);
+    }
+
+    public static void main(String args[]) {
+        new Chaining();
+    }
+}
+
+/*
+Output:
+Java
+5
+This is Default constructor
+*/`
+                ]
+              }
+            ],
+
+            intermediate: [
+
+              {
+                content: `
+<h4>Constructor Chaining Using super()</h4>
+• When constructor chaining happens between <b>parent and child classes</b>, we use <b>super()</b>.<br>
+• Parent class constructor executes <b>before</b> child class constructor.
+      `,
+                codeExamples: [
+                  `package com.test;
+
+public class Base {
+    String name;
+
+    Base() {
+        this("");
+        System.out.println("No-argument constructor of base class....");
+    }
+
+    Base(String name) {
+        this.name = name;
+        System.out.println("Calling parameterized constructor of base class....");
+    }
+}`
+                ]
+              },
+
+              {
+                content: `
+<h4>Derived Class Constructor</h4>
+• <b>super()</b> is used to call base class constructor.<br>
+• If super() is not written, Java adds it implicitly.<br>
+• super() must be the first statement.
+      `,
+                codeExamples: [
+                  `package com.test;
+
+public class Derived extends Base {
+
+    Derived() {
+        System.out.println("No-argument constructor of derived class");
+    }
+
+    Derived(String name) {
+        super(name);
+        System.out.println("Calling parameterized constructor of derived class");
+    }
+
+    public static void main(String args[]) {
+        new Derived("test");
+    }
+}
+
+/*
+Output:
+Calling parameterized constructor of base class....
+Calling parameterized constructor of derived class
+*/`
+                ]
+              },
+
+              {
+                content: `
+<h4>Important Points (Interview)</h4>
+• Constructor chaining works automatically with inheritance.<br>
+• Constructors are not inherited, but they are executed.<br>
+• Helps in proper object initialization.
+      `
               }
             ]
           },
@@ -1440,462 +2178,6 @@ System.out.println("Total spaces: " + count);`
 5. How JVM handles + operator?<br>
 </div>
 `
-              }
-            ]
-          },
-
-          {
-            id: `Contructor in java`,
-            name: `Constructor in Java`,
-            beginner: [
-              {
-                content: `A constructor in Java is a special block of code used to initialize objects when they are created. It is automatically called when an instance of a class is created using the new keyword.<br>
-<h4>🔹 Key Characteristics :-</h4> 
-• Same Name as Class: A constructor must have the exact same name as the class it belongs to.<br>
-• No Return Type: It does not have a return type, not even void. Adding a return type makes it a regular method.<br>
-• Automatic Invocation: Constructors are invoked implicitly by the Java runtime when an object is instantiated.<br>
-• Initialization Logic: The primary purpose is to set initial values for the object's instance variables and perform any necessary setup tasks (like opening a file or database connection) to ensure the object is in a valid state. <br>`,
-
-              }
-            ],
-            intermediate: [
-              {
-                content: `- Constructor name it is same like as class name. <br>
-                - It is invoked by JVM automatically when you create the object of class.<br>
-                - It does not return anything even void also.<br>
-                
-                
-                🔹 There are 2 types of constructor are as <br>
-                1. Default constructor (No- argument constructor)<br>
-                2. Parameterized constructor ( Argument constructor)<br><br>
-
-               <h2> 1. Default Constructor (No-Argument constructor)</h2><br>
-                - A constructor that does not accept any arguments called as default constructor.<br>
-                - If we do not create any constructor, the Java compiler automatically create a Default.<br>
-                - Constructor (no-argument constructor) during the execution of the program. This constructor is called Default Constructor.<br>
-
-                `,
-                codeExamples: [
-                  `package com.test;
-public class Test {
-String name; // Global
-public Test() { // Default Constructor
-name = "Default_Constructor";
-}
-public static void main(String[] args) {
-Test test = new Test(); // Calling Constructor (Test)
-System.out.println ("Name is>>" + test.name);
-}
-}
-                  `,
-
-                  `package com.test;
-class Main {
-int a;
-boolean b;
-public static void main(String[] args) {
-Main obj = new Main();
-System.out.println("a" + obj.a);
-System.out.println("b" + obj.b);
-}
-}
-                        `
-
-                ]
-
-              },
-              {
-
-                content: `
-                <h4>- Here, we haven't created any constructors. Hence, the Java compiler automatically creates the
-default constructor.</h4>
-The default constructor initializes any uninitialized instance variables with default values.
-<img src="/src/assets/defaulttable.png" alt="Online Image"class="d-block mx-auto" style="height: 350px;" /><br>
-<p class="text-center"> In the above program, the variables a and b are initialized with default value 0 and false respectively.</p>
-   
-
-`
-              },
-
-              {
-                content: `
-                <h2> 2. Parameterized Constructor </h2><br>
-                A constructor with arguments called as parameterized constructor.<br>
-
-                `,
-                codeExamples: [
-                  `package com.test;
-public class Example {
-int id;
-String name;
-String city;
-public Example (int userId, String userName, String userCity) {
-id = userId;
-name = userName;
-city = userCity;
-System.out.println("id>>" + id);
-System.out.println("name>>" + name);
-System.out.println("city>>" + city);
-}
-public static void main(String[] args) {
-Example example = new Example(10, "Pankaj", "Udgir");
-}
-}`
-                ]
-              },
-              {
-                content: `
-                <h3>Note -</h3>
-1. When you do not write any constructor in the class then default constructor will be added by JVM automatically at the compile time. <br>
-2. When you write any constructor in the class then default constructor will not added by JVM.<br>
-3. Constructor does not have any return type. If you write any return type, then it will be called as method. <br>
-4. Java constructor cannot be abstract, static, final, and synchronized.<br><br>
-
-<h3>What is the Use of Constructor-? </h3>
-If you want to execute some code at object creation. In other words, it is used for generally initialization
-of global variables.
-There are 5 ways to calling the constructor as <br>
-- Employee e= new Employee(); <br>
-- super(); <br>
-- this(); <br>
-- new Employee(); <br>
-- class.forName(“com.test”).newInstance(); <br>
-<h4>Constructor can be overloaded because we can write same name with different arguments.</h4>`,
-                codeExamples: [
-                  `package com.test;
-public class Example {
-// id,name,city
-int id;
-String name;
-String city;
-// Parameterized Constructor: 01
-public Example(int id, String name, String city) {
-System.out.println(id);
-System.out.println(name);
-System.out.println(city);
-// OR
-// System.out.println("ID>>"+ id +"Name>>"+ name + "City>>"+ city);
-id = id; //10
-name = name; // Pankaj // Dheeraj
-city = city; // Udgir // Latur
-}
-public Example(String name,String city) {
-System.out.println(name);
-System.out.println(city);
-name=name;
-city=city;
-}
-public static void main(String[] args) {
-Example example=new Example(10,"Pankaj","Udgir"); // calling the constructor
-Example example1=new Example("Dheeraj", "Latur");
-}
-}`
-                ]
-              },
-              {
-                content: `
-                <h4>Note:</h4>
-1. Constructor cannot be overridden because we can’t write multiple constructors with same
-arguments.If you are tried to write it then you will get compiler time error “Duplicate method
-Employee”.<br>
-
-2. Private Constructor is mostly used in singleton design pattern in java.`
-              },
-
-              {
-                content: `<h4>1. What is a Constructor ?</h4>
-  - Constructors are used to initialize the object’s state. <br>
-  - Like methods, a constructor also contains collection of statements(i.e. instructions) that are executed at time of Object creation.
-  <br><br>
-
-  <h4>2. Do we have Copy Constructor in Java?</h4>
-- Like C++, Java also supports copy constructor. But, unlike C++, Java doesn’t create a default copy constructor if you don’t write your own. <br>
-- To copy the values of one object into another in java, you can use: <br>
-- Constructor
-- Assigning the values of one object into another. <br>
-- Clone() method of object class.<br> <br>
-
-
-<h4>3. What is Constructor Chaining ?</h4>
-Constructor Chaining: <br>
-A constructor is called from another constructor in the same class this process is known as constructor
-chaining. <br>
-When we create an instance of a derived class, all the constructors of base class are first invoked, after
-that the constructor of derived class is invoked.<br>
-
-Rules for constructor chaining<br>
-1. must be use this keyword in first line of the constructor.<br>
-2. Order does not matter in constructor chaining.<br>
-3. There must exist at least one constructor that does not use this keyword.<br>
-  `,
-                codeExamples: [
-                  `//Java program to illustrate Constructor Chaining
-// within same class Using this() keyword
-class Temp {
-// default constructor 1
-// default constructor will call another constructor
-// using this keyword from same class
-
-Temp() { // calls constructor 2
-this(5);
-System.out.println("The Default constructor");
-}
-
-Temp(int x) { // parameterized constructor 2
-// calls constructor 3
-this(5, 15);
-System.out.println(x);
-}
-// parameterized constructor 3
-Temp(int x, int y) {
-System.out.println(x * y);
-}
-public static void main(String args[]) {
-// invokes default constructor first
-new Temp();
-}
-}`
-                ]
-              },
-              {
-                content: `<h4>4. Can we call sub class constructor from super class constructor?</h4>
-No. There is no way in java to call sub class constructor from a super class constructor. <br><br>
-
-<h4>5. What happens if you keep a return type for a constructor?</h4>
-Ideally, Constructor must not have a return type. By definition, if a method has a return type, it’s not a
-constructor. (JLS8.8 Declaration). It will be treated as a normal method. But compiler gives a warning
-saying that method has a constructor name.<br>`,
-                codeExamples: [
-                  `Example:
-package com.test;
-public class Test {
-int Test() {
-return 0; // Warning for the return type
-}
-}
-  `
-                ]
-              },
-              {
-                content: `<h4>6. What is No-arg constructor?</h4>
-Constructor without arguments is called no-arg constructor. <br>
-Default constructor in java is always a no-arg constructor.`,
-                codeExamples: [
-                  `Example:
-public class ABC {
-public ABC(){ // No-arg constructor
-}
-}`
-                ]
-              },
-              {
-                content: `<h4>7. How a no – argument constructor is different from default Constructor?</h4>
-- If a class contains no constructor declarations, then a default constructor with no formal parameters
-and no throws clause is implicitly declared.<br>
-- If the class being declared is the primordial class Object, then the default constructor has an empty
-body. <br>
-- Otherwise, the default constructor simply invokes the superclass constructor with no arguments.<br><br>
-
-<h4>8. What are private constructors and where are they used?</h4>
-- Like any method we can provide access specifier to the constructor. <br>
-- If it’s made private, then it can only be accessed inside the class. <br>
-- The major scenarios where we use private constructor:<br>
-a. Internal Constructor chaining. <br>
-b. Singleton class design pattern.<br><br>
-
-<h4>9. When do we need Constructor Overloading?</h4>
-- Sometimes there is a need of initializing an object in different ways. <br>
-- This can be done using constructor overloading. <br>
-- Different constructors can do different work by implementing different line of codes and are called
-based on the type and no of parameters passed. <br>
-According to the situation , a constructor is called with specific number of parameters among
-overloaded constructors. <br><br>
-
-<h4>10. Do we have destructors in Java?</h4>
-- No, Because Java is a garbage collected language you cannot predict when (or even if) an object will
-be destroyed. Hence there is no direct equivalent of a destructor.<br><br>
-
-<h4>11. Can we override constructor?</h4>
--NO, Constructor cannot be overridden because we can’t write multiple constructors with same arguments.<br>
-If we tried to write it then we will get compiler time error “Duplicate method Employee”.<br><br><br>
-
-<div class="bg-secondary p-2 rounded-md border-radius: var(--radius-md);">
-<h4>1. What is a constructor in Java?</h4>
-o A constructor is a special method used to initialize objects. It is called when an instance of a class is
-created and has the same name as the class. Constructors do not have a return type.<br>
-<h4>2. What is the difference between a default constructor and a parameterized constructor?</h4>
-o A default constructor has no parameters and initializes objects with default values. A parameterized
-constructor takes arguments, allowing you to initialize objects with specific values.<br>
-<h4>3. Can a constructor be private or final?</h4>
-o Yes, a constructor can be private, which is often used in Singleton design patterns to prevent the
-creation of more than one instance. Constructors cannot be final because they are not inherited.<br>
-<h4>4. What is constructor overloading?</h4>
-o Constructor overloading is the process of having more than one constructor in a class, each with
-different parameters. This allows the creation of objects in different ways.<br>
-<h4>5. What is constructor chaining?</h4>
-o Constructor chaining is the process of calling one constructor from another within the same class or
-from a superclass. This is done using this() for the same class and super() for the superclass.<br>
-<h4>6. How do you handle exceptions in constructors?</h4>
-o Exceptions in constructors can be handled using try-catch blocks within the constructor. If an
-exception occurs, it can be caught and handled appropriately.<br>
-<h4>7. Can a constructor call a method?</h4>
-o Yes, a constructor can call methods. However, it is generally advised to avoid calling overridable
-methods from constructors to prevent unexpected behavior.<br>
-<h4>8. What is the purpose of a copy constructor in Java?</h4>
-o A copy constructor is used to create a new object as a copy of an existing object. Java does not
-provide a default copy constructor, so you need to define it explicitly.<br>
-<h4>9. What is the difference between a constructor and a method?</h4>
-o A constructor is used to initialize an object, has the same name as the class, and does not have a
-return type. A method performs a specific task, can have any name, and must have a return type.<br>
-<h4>10.Can you explain constructor inheritance in Java?</h4>
-o Constructors are not inherited in Java. However, a subclass constructor can call a superclass
-constructor using the super() keyword.<br>
-</div>
-
-            `
-              }
-
-            ]
-          },
-
-          {
-            id: 'constructor-chaining',
-            name: 'Constructor Chaining',
-
-            beginner: [
-              {
-                content: `
-<h4>What is Constructor Chaining?</h4>
-• <b>Constructor Chaining</b> is the process of calling one constructor from another constructor.<br>
-• It is used to <b>reuse constructor logic</b> and reduce code duplication.<br>
-• Constructor chaining can happen <b>within the same class</b> or <b>between parent and child classes</b>.<br><br>
-
-<b>Why use Constructor Chaining?</b><br>
-• Improves code reusability<br>
-• Maintains proper initialization sequence<br>
-• Makes code clean and manageable
-      `,
-                codeExamples: []
-              },
-
-              {
-                content: `
-<h4>Rules of Constructor Chaining</h4>
-• <b>this()</b> or <b>super()</b> must be the <b>first statement</b> inside constructor.<br>
-• We cannot use both <b>this()</b> and <b>super()</b> together.<br>
-• At least <b>one constructor must not use this()</b>.
-      `,
-                codeExamples: []
-              },
-
-              {
-                content: `
-<h4>Constructor Chaining Within Same Class</h4>
-• If constructors belong to the <b>same class</b>, we use <b>this()</b> keyword.<br>
-• One constructor can call another constructor of the same class.
-      `,
-                codeExamples: [
-                  `package com.test;
-
-public class Chaining {
-
-    Chaining() {
-        this(5);
-        System.out.println("This is Default constructor");
-    }
-
-    Chaining(int x) {
-        this("Java");
-        System.out.println(x);
-    }
-
-    Chaining(String str) {
-        System.out.println(str);
-    }
-
-    public static void main(String args[]) {
-        new Chaining();
-    }
-}
-
-/*
-Output:
-Java
-5
-This is Default constructor
-*/`
-                ]
-              }
-            ],
-
-            intermediate: [
-
-              {
-                content: `
-<h4>Constructor Chaining Using super()</h4>
-• When constructor chaining happens between <b>parent and child classes</b>, we use <b>super()</b>.<br>
-• Parent class constructor executes <b>before</b> child class constructor.
-      `,
-                codeExamples: [
-                  `package com.test;
-
-public class Base {
-    String name;
-
-    Base() {
-        this("");
-        System.out.println("No-argument constructor of base class....");
-    }
-
-    Base(String name) {
-        this.name = name;
-        System.out.println("Calling parameterized constructor of base class....");
-    }
-}`
-                ]
-              },
-
-              {
-                content: `
-<h4>Derived Class Constructor</h4>
-• <b>super()</b> is used to call base class constructor.<br>
-• If super() is not written, Java adds it implicitly.<br>
-• super() must be the first statement.
-      `,
-                codeExamples: [
-                  `package com.test;
-
-public class Derived extends Base {
-
-    Derived() {
-        System.out.println("No-argument constructor of derived class");
-    }
-
-    Derived(String name) {
-        super(name);
-        System.out.println("Calling parameterized constructor of derived class");
-    }
-
-    public static void main(String args[]) {
-        new Derived("test");
-    }
-}
-
-/*
-Output:
-Calling parameterized constructor of base class....
-Calling parameterized constructor of derived class
-*/`
-                ]
-              },
-
-              {
-                content: `
-<h4>Important Points (Interview)</h4>
-• Constructor chaining works automatically with inheritance.<br>
-• Constructors are not inherited, but they are executed.<br>
-• Helps in proper object initialization.
-      `
               }
             ]
           },
@@ -3079,6 +3361,135 @@ public class Employee {
           },
 
           {
+            id: 'Different way to return to the method in java.',
+            name: 'Different way to return to the method in java.',
+            intermediate: [{
+              content: `• In industry, No one use float and integer return type as method even void and string are also very rarely used in 
+now a days. <br>
+• The most preferable way is return object to method or value from object in java. <br>
+In industry, how the method looks like as below<br>
+
+<div class='border border-primary p-2'>
+package com.test; <br>
+public class Employee { <br>
+public Employee addEmployee() { <br>
+ //here you need to return the employee class object <br>
+ } <br>
+} <br>
+</div><br>
+
+<h4> Note  </h4> If you have Department class as return type for method then it must return the department class object 
+not employee class objects.<br>
+
+How to return the object to method? <br>
+
+<div class='border border-primary p-2'>
+package com.test; <br>
+public class Employee { <br>
+public Employee addEmployee() { <br>
+ Employee employee = new Employee(); <br>
+ return employee; <br>
+ } <br>
+}<br>
+</div><br>
+In this example, we are returning the object as emp to method.<br>`,
+              codeExamples: [`package com.test; 
+public class Employee { // Main Class: Employee 
+int id = 101; 
+ String name = "Pankaj"; 
+ String city = "Pune"; 
+public Employee addEmployee() { 
+ Employee emp = new Employee(); 
+ System.out.println(emp); 
+ return emp; // return object as emp to Employee type method
+ } 
+public static void main(String[] args) { // Main Method 
+ Employee e = new Employee(); 
+ e.addEmployee(); 
+ } 
+} `, `package com.test; 
+public class Employee { 
+int id = 101; 
+ String name = "Pankaj"; 
+ String city = "Pune"; 
+@Override
+public String toString() { 
+ return "Employee [id=" + id + ", name=" + name + ", city=" + city + "]"; 
+ } 
+public Employee addEmployee() { 
+ Employee emp = new Employee(); 
+ System.out.println(emp); 
+ return emp; // return object as emp to Employee type method
+ } 
+public static void main(String[] args) { 
+ Employee e = new Employee(); 
+ e.addEmployee(); 
+ } 
+} 
+`]
+            },
+            {
+              content: `How to return the empId only`,
+              codeExamples: [`package com.test; 
+public class Test { 
+public static Employee getEmployeeById() { 
+ int id = 10; 
+ return new Employee(id); // return empid here
+ } 
+public static void main(String[] args) { 
+ Employee e = getEmployeeById(); 
+ System.out.println(e.id); 
+ } 
+}`]
+            }, {
+              content: `
+              <div class='border border-primary p-2'>
+              package com.test; <br>
+public class Employee { <br>
+int id; <br>
+public Employee(int id) {<br> 
+ this.id = id;<br> 
+ } <br>
+} <br>
+              </div><br>
+
+              How to return the multiple values from object to method? <br>
+              
+              `, codeExamples: [`package com.test; 
+public class Test { 
+public static Employee getEmployeeDetails() { 
+ int id = 10; 
+ String name = "Pankaj"; 
+ String city = "Pune"; 
+ return new Employee(id, name, city); // return multiple values from object here
+ } 
+public static void main(String[] args) { 
+ Employee e = getEmployeeDetails(); 
+ System.out.println("id=" + e.id); 
+ System.out.println("name=" + e.name); 
+ System.out.println("city=" + e.city); 
+ } 
+}`]
+            }, {
+              content: `<div class='border border-primary p-2'>
+              package com.test; <br>
+public class Employee { <br>
+int id; <br>
+ String name; <br>
+ String city; <br>
+public Employee(int id, String name, String city) { <br>
+ this.id = id; <br>
+ this.name = name; <br>
+ this.city = city; <br>
+ } <br>
+}<br>
+              </div>`
+            }
+
+            ]
+          },
+
+          {
             id: 'this-super',
             name: 'This and Super Keywords',
             beginner: [
@@ -3359,9 +3770,8 @@ class Example {
               }
             ]
           }
-
+          
         ]
-
       },
 
       {
@@ -3373,9 +3783,10 @@ class Example {
             name: 'Classes and Objects',
             beginner: [
               {
-                content: `A class is a blueprint for creating objects. An object is an instance of a class.
+                content: `A class is a blueprint for creating objects. An object is an instance of a class:
 
 🔹 Key Concepts:
+
 • Class: Template that defines properties and behaviors
 • Object: Instance of a class
 • Fields: Variables that hold the state
@@ -3411,138 +3822,197 @@ public class Student {
             ],
             intermediate: [
               {
-                content: `Understanding encapsulation, access modifiers, static members, and inner classes.
+                content: `• It is the parent class of all the classes in java. <br>
+• It is called as topmost class of java which is present in java.lang package. <br>
+• Every class in Java is directly or indirectly derived from the object class. If a Class does not extend any 
+other class then it is direct child class of object. <br><br>
 
-Access Modifiers:
-• private: Accessible only within the class
-• default: Accessible within the package
-• protected: Accessible within package and subclasses
-• public: Accessible everywhere
+<h3>🔹 There are different methods of object class are as follows. </h3>
+1. public final Class getClass() <br>
+2. public int hashCode() <br>
+3. public boolean equals(Object obj) <br>
+4. protected Object clone() throws CloneNotSupportedException <br>
+5. public String toString() <br>
+6. public final void notify() <br>
+7. public final void notifyAll() <br>
+8. public final void wait() <br>
+9. public final void wait(long timeout) <br>
+10. public final void wait(long timeout, int nanos) <br>
+11. protected void finalize()throws Throwable <br><br>
 
-Static Members:
-• Belong to class, not to instance
-• Shared among all objects
-• Can be accessed without creating object
 
-Types of Inner Classes:
-• Member inner class
-• Static nested class
-• Local inner class
-• Anonymous inner class`,
+<h3>1. Public final Class getClass() </h3>
+This class is used to get the metadata of class. <br>
+`,
                 codeExamples: [
-                  `// Encapsulation Example
-public class BankAccount {
-    private double balance; // Private field
-
-    public BankAccount(double initialBalance) {
-        this.balance = initialBalance;
-    }
-
-    // Getter
-    public double getBalance() {
-        return balance;
-    }
-
-    // Setter with validation
-    public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-        }
-    }
-
-    public boolean withdraw(double amount) {
-        if (amount > 0 && balance >= amount) {
-            balance -= amount;
-            return true;
-        }
-        return false;
-    }
-
-    // Static method
-    public static void displayBankInfo() {
-        System.out.println("Welcome to JavaBank");
-    }
-}`
+                  `package com.test; 
+public class Test { 
+public static void main(String[] args) { 
+ Test test = new Test(); 
+ System.out.println(test.getClass().getName()); 
+ System.out.println(test.getClass().getSimpleName()); 
+ } 
+} `
                 ]
+              },
+              {
+                content: `<h3>2. public int hashCode()</h3>
+                
+For every object unique number is generated by JVM called as hashcode. <br>
+It does not represent object of address then what is the use of hashcode. it will store into bucket based on hashcode.  <br>
+Note- The most of java native method are written in c or c++ that why not able show the body. <br>
+                `,
+                codeExamples: [
+                  `package com.test;. 
+public class Test1 { 
+public static void main(String[] args) { 
+ Test1 test2 = new Test1(); 
+ Test1 test3 = new Test1(); 
+ System.out.println(test2.hashCode()); 
+ System.out.println(test3.hashCode()); 
+ } 
+} 
+`
+                ]
+              },
+              {
+                content: `<h3>3. public boolean equals (Object obj) </h3>
+               It compares the given object to this object. There are two equals method, this equals method is used to check 
+the address of string not contents. `,
+                codeExamples: [`package com.test; 
+public class Test3 { // Main Class: Test3 
+int empId; 
+ String empName; 
+public static void main(String[] args) { // Main Method 
+ Test3 test3 = new Test3(); 
+ test3.empId = 1; 
+ test3.empName = "ashok"; 
+ Test3 test4 = new Test3(); 
+ test4.empId = 2; 
+ test4.empName = "ram"; 
+ System.out.println(test3.equals(test4)); 
+ } 
+} 
+`, `package com.test; 
+public class Test3 { // Main Class: Test3 
+int empId; 
+ String empName; 
+public static void main(String[] args) { // Main Method 
+ Test3 test3 = new Test3(); 
+ test3.empId = 1; 
+ test3.empName = "ashok"; 
+ Test3 test4 = new Test3(); 
+ test4.empId = 2; 
+ test4.empName = "ram"; 
+ test3 = test4; 
+ System.out.println(test3.equals(test4)); 
+ } 
+} 
+`
+                ]
+              },
+              {
+                content: `<h3>4. protected Object clone() throws CloneNotSupportedException</h3>
+                It creates and returns the exact copy (clone) of this object. 
+                `,
+                codeExamples: [
+                  `package com.test; 
+//clone method- create copy of objects 
+public class Test4 implements Cloneable { 
+int x; 
+public static void main(String[] args) throws CloneNotSupportedException { 
+ Test4 test4 = new Test4(); 
+ test4.x = 50; 
+ System.out.println("first object is>>" + test4.x); 
+ Object test5 = test4.clone(); 
+ System.out.println("second object is>>" + test5.toString()); 
+ } 
+} 
+`
+                ]
+              }, {
+                content: `Here, second output line, we will get address instead of value. To solve this issue, we should override toString 
+method.`,
+                codeExamples: [`package com.test; 
+//clone method- create copy of objects 
+public class Test4 implements Cloneable { 
+int x; 
+public static void main(String[] args) throws CloneNotSupportedException { 
+ Test4 test4 = new Test4(); 
+ test4.x = 50; 
+ System.out.println("first object is>>" + test4.x); 
+ Object test5 = test4.clone(); 
+ System.out.println("second object is>>" + test5.toString()); 
+ } 
+@Override
+public String toString() { 
+ return "Test4 [x=" + x + "]"; 
+ } 
+} 
+`]
+              },
+              {
+                content: `<h3>5. public String toString() </h3>
+                It returns the string representation of this object. 
+`,
+                codeExamples: [`package com.test; 
+public class Employee { // Main Class: Employee 
+int id; // Declaration 
+ String employeeName; // Declaration 
+ String employeeCity; // Declaration 
+@Override
+public String toString() { 
+return "Employee [id=" + id + ", employeeName=" + employeeName + ", employeeCity=" + 
+employeeCity + "]"; 
+ } 
+public static void main(String[] args) { // Main Method 
+ Employee employee = new Employee(); 
+ employee.id = 10; 
+ employee.employeeName = "ajay"; 
+ employee.employeeCity = "pune"; 
+ System.out.println(employee); 
+ } 
+} `]
+              },
+              {
+                content: `
+                <div class='bg-secondary border border-primary p-2'>
+                <h4>public final void notify()</h4>
+                It wakes up single thread, waiting on this object's monitor.
+                </div><br>
+
+                <div class='bg-secondary border border-primary p-2'>
+                <h4>public final void notifyAll() </h4>
+                It wakes up all the threads, waiting on this object's monitor.
+                </div><br>
+
+                <div class='bg-secondary border border-primary p-2'>
+                <h4>public final void wait(long timeout)throws InterruptedException() </h4>
+                It causes the current thread to wait for the specified milliseconds, until another thread notifies (invokes 
+                notify() or notifyAll() method). 
+                </div><br>
+
+                <div class='bg-secondary border border-primary p-2'>
+                <h4>public final void wait(long timeout,int nanos)throws InterruptedException </h4>
+                It causes the current thread to wait for the specified milliseconds and nanoseconds, until another thread 
+                notifies (invokes notify() or notifyAll() method). 
+                </div><br>
+
+                <div class='bg-secondary border border-primary p-2'>
+                <h4>public final void wait()throws InterruptedException </h4>
+                It causes the current thread to wait, until another thread notifies (invokes notify() or notifyAll() method).
+                </div><br>
+
+                <div class='bg-secondary border border-primary p-2'>
+                <h4>protected void finalize()throws Throwable </h4>
+                 It is invoked by the garbage collector before object is being garbage collected. 
+                </div>
+                `
               }
             ],
             expert: [
-              {
-                content: `Advanced OOP concepts: Design patterns, SOLID principles, and memory management.
 
-SOLID Principles:
-• Single Responsibility: Class should have one reason to change
-• Open/Closed: Open for extension, closed for modification
-• Liskov Substitution: Derived classes must be substitutable for base classes
-• Interface Segregation: Many specific interfaces better than one general
-• Dependency Inversion: Depend on abstractions, not concretions
 
-Design Considerations:
-• Favor composition over inheritance
-• Program to interfaces, not implementations
-• Immutable objects for thread safety
-• Lazy initialization for performance
-
-Memory Implications:
-• Object overhead: ~12-16 bytes per object
-• Reference size: 4 bytes (32-bit) or 8 bytes (64-bit)
-• Array overhead: ~16 bytes + element storage`,
-                codeExamples: [
-                  `// Builder Pattern Example
-public class Computer {
-    // Required parameters
-    private final String CPU;
-    private final String RAM;
-
-    // Optional parameters
-    private final String storage;
-    private final String GPU;
-
-    private Computer(Builder builder) {
-        this.CPU = builder.CPU;
-        this.RAM = builder.RAM;
-        this.storage = builder.storage;
-        this.GPU = builder.GPU;
-    }
-
-    public static class Builder {
-        // Required
-        private final String CPU;
-        private final String RAM;
-
-        // Optional
-        private String storage;
-        private String GPU;
-
-        public Builder(String CPU, String RAM) {
-            this.CPU = CPU;
-            this.RAM = RAM;
-        }
-
-        public Builder storage(String storage) {
-            this.storage = storage;
-            return this;
-        }
-
-        public Builder GPU(String GPU) {
-            this.GPU = GPU;
-            return this;
-        }
-
-        public Computer build() {
-            return new Computer(this);
-        }
-    }
-
-    public static void main(String[] args) {
-        Computer pc = new Computer.Builder("Intel i7", "16GB")
-            .storage("1TB SSD")
-            .GPU("RTX 3080")
-            .build();
-    }
-}`
-                ]
-              }
             ]
           },
 
@@ -3910,8 +4380,8 @@ and provides a global point of access to it, encapsulating the instance creation
                 content: `In Java, it is possible to inherit attributes and methods from one class to another. <br>
                 We group the "inheritance concept" into two categories:<br>
 
-> subclass (child) - the class that inherits from another class<br>
-> superclass (parent) - the class being inherited from<br><br>
+• subclass (child) - the class that inherits from another class<br>
+• superclass (parent) - the class being inherited from<br><br>
 To inherit from a class, use the extends keyword.<br><br>
 
 In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):`,
@@ -4272,6 +4742,8 @@ System.out.println("Scenario: 06 ==>> Not Allowed in Java");
               {
                 content: `<h3>1. Single inheritance</h3>
                  In this only one super class and only one sub class called as single.<br>
+                  <img src="/src/assets/singleinheritance.png" alt="Online Image"class="d-block mx-auto" style="height:300px"/>
+                 
                 `,
                 codeExamples: [
                   `package com.code_with_pankaj;
@@ -4317,6 +4789,7 @@ obj.eat();
                 It has only one base class and multiple derived class called as multilevel.<br>
 Or
 It refers to the concept of one class extending (Or inherits) more than one base class.<br>
+ <img src="/src/assets/multilevelinheritance.png" alt="Online Image"class="d-block mx-auto" style="height:300px"/>
                 `,
 
                 codeExamples: [
@@ -4378,6 +4851,7 @@ d.eat();
               {
                 content: `<h3>3. Hierarchical Inheritance</h3>
                 Define: One Parent Class is inherited by many sub classes.<br>
+                 <img src="/src/assets/hireachicalinheritance.png" alt="Online Image"class="d-block mx-auto" style="height:300px"/>
 
                 `, codeExamples: [
                   `package com.code_with_pankaj;
@@ -4445,6 +4919,7 @@ c.eat();
               {
                 content: `<h3>4. Multiple Inheritance</h3>
                 One Sub class has many super classes called as multiple inheritance.<br>
+                 <img src="/src/assets/multipleinheritance.png" alt="Online Image"class="d-block mx-auto"style="height:300px"/><br>
 Why multiple inheritance not supported in java in case of classes?<br>
 Class base has test () method and class derived has also test () method. Class test extends Base, Derived,<br>
 which test method. It will called, so it create the ambiguity so that’s why multiple inheritance does not<br>
@@ -4498,14 +4973,16 @@ obj.msg();// Now which msg() method would be invoked?
               {
                 content: `<h3>5. Hybrid Inheritance</h3>
 It is the combination of single and multiple inheritance. So it is not allowed in java.<br>
+<img src="/src/assets/hybridinheritance.png" alt="Online Image"class="d-block mx-auto" style="height:350px"/><br>
 
 <h4>Aggregation (Has Relationship)</h4>
+
 If class has entity reference, it is known as Aggregation. It represents Has-A relationship.<br>
 Consider a situation, Employee object contains many informations such as id, name, emailId etc. It
 contains one more object named address, which contains its own informations such as city, state,
 country, zipcode etc. as given below.<br>
-<div class='bg-secondary border border-primary p-2'>
 
+<div class='bg-secondary border border-primary p-2'>
 package com. code_with_pankaj;<br>
 class Employee {<br>
 int id;<br>
@@ -4514,11 +4991,11 @@ Address address; // Address is a class<br>
 }<br>
 </div>
 In such case, Employee has an entity reference address, so relationship is Employee HAS-A address.<br><br>
-<h4>Why use Aggregation?</h4>
-o For Code Reusability.<br>
 
+<h4>Why use Aggregation?</h4>
+• For Code Reusability.<br>
 Simple Example of Aggregation<br>
-<img>
+<img src="/src/assets/1.png" alt="Online Image"class="d-block mx-auto" style="height:200px"/><br>
 
 In this example, we have created the reference of Operation class in the Circle class<br>`,
                 codeExamples: [
@@ -4547,11 +5024,11 @@ System.out.println(result);
               },
               {
                 content: `<h4>When use Aggregation?</h4>
-o Code reuse is also best achieved by aggregation when there is no is-a relationship.<br>
-o Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of
-the objects involved; otherwise, aggregation is the best choice.<br>
+• Code reuse is also best achieved by aggregation when there is no is-a relationship.<br>
+• Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of
+the objects involved; otherwise, aggregation is the best choice.<br><br>
 
-Understanding meaningful example of Aggregation<br>
+Understanding meaningful example of Aggregation:<br>
 In this example, Employee has an object of Address, address object contains its own informations such
 as city, state, country etc. In such case relationship is Employee HAS-A address.<br>
 `, codeExamples: [
@@ -5202,7 +5679,7 @@ Example:
 a student in school, and a son at home.
 3. Smartphone is entity that behaves different such as text message, calling, send mail, video call etc.
 
-How to Achieve Polymorphism in Java?
+How to Achieve Polymorphism in Java?:
 
 We can achieve polymorphism by using 2 ways.
 
