@@ -50,6 +50,7 @@ export const coursesData: Course[] = [
                 content: `Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. It was developed by James Gosling at Sun Microsystems (now owned by Oracle Corporation) and released in 1995.
 
 🔹 Key Features of Java:
+
 • Platform Independent: Write Once, Run Anywhere (WORA)
 • Object-Oriented: Everything is an object
 • Simple and Easy to Learn
@@ -71,15 +72,18 @@ public class HelloWorld {
                 content: `Deep dive into Java Architecture and JVM internals. Understanding the compilation and execution process in detail.
 
 Java Architecture Components:
+
 • JDK (Java Development Kit): Complete development environment
 • JRE (Java Runtime Environment): Runtime environment for Java applications
 • JVM (Java Virtual Machine): Abstract machine that executes Java bytecode
 
 Compilation Process:
+
 1. Source code (.java) → Java Compiler → Bytecode (.class)
 2. Bytecode → JVM → Machine Code → Execution
 
 JVM Memory Areas:
+
 • Heap: Object allocation
 • Stack: Method execution and local variables
 • Method Area: Class structures, constants
@@ -107,6 +111,7 @@ public class ClassLoadingExample {
                 content: `Advanced JVM tuning, performance optimization, and understanding garbage collection algorithms.
 
 Garbage Collection Algorithms:
+
 • Serial GC: Single-threaded, suitable for small applications
 • Parallel GC: Multiple threads for GC, high throughput
 • CMS (Concurrent Mark Sweep): Low pause time
@@ -115,13 +120,15 @@ Garbage Collection Algorithms:
 • Shenandoah: Concurrent GC with predictable pause times
 
 JVM Tuning Parameters:
--Xms: Initial heap size
--Xmx: Maximum heap size
--XX:NewRatio: Ratio of old/new generation
--XX:SurvivorRatio: Ratio of eden/survivor space
--XX:+UseG1GC: Enable G1 garbage collector
+
+• Xms: Initial heap size
+• Xmx: Maximum heap size
+• XX:NewRatio: Ratio of old/new generation
+• XX:SurvivorRatio: Ratio of eden/survivor space
+• XX:+UseG1GC: Enable G1 garbage collector
 
 Performance Profiling Tools:
+
 • JConsole: Monitor JVM performance
 • VisualVM: Profiling and monitoring
 • JProfiler: Commercial profiler
@@ -156,6 +163,7 @@ public class CustomClassLoader extends ClassLoader {
                 content: `Java has two categories of data types: Primitive and Reference types.
 
 🔹 Primitive Data Types (8 types):
+
 • byte: 8-bit integer (-128 to 127)
 • short: 16-bit integer (-32,768 to 32,767)
 • int: 32-bit integer (-2^31 to 2^31-1)
@@ -197,16 +205,20 @@ public class DataTypesExample {
                 content: `Understanding wrapper classes, autoboxing, type casting, and variable scope.
 
 Wrapper Classes:
+
 Convert primitive types to objects and vice versa.
+
 • Byte, Short, Integer, Long
 • Float, Double
 • Character, Boolean
 
 Type Casting:
+
 • Widening (Implicit): byte → short → int → long → float → double
 • Narrowing (Explicit): Requires manual casting
 
 Variable Scope:
+
 • Instance Variables: Belong to object
 • Class Variables (static): Belong to class
 • Local Variables: Belong to method/block
@@ -238,17 +250,21 @@ public class AdvancedDataTypes {
                 content: `Memory management, immutability, and performance considerations for data types.
 
 Memory Allocation:
+
 • Primitive types: Stored in stack (faster access)
 • Objects: Stored in heap (slower access)
 • String Pool: Special memory region for strings
 
 Immutability:
+
 Wrapper classes and String are immutable for:
+
 • Thread safety
 • Security
 • Performance (caching)
 
 Performance Considerations:
+
 • Use primitives when possible (less memory overhead)
 • Avoid unnecessary boxing/unboxing
 • String concatenation: Use StringBuilder for loops
@@ -5544,7 +5560,7 @@ void getSeatAvailability(int seat){
         ]
       },
 
-
+      
       {
         id: `Multithreading and multitasking`,
         name: `Multithreading and multitasking`,
@@ -6299,8 +6315,7 @@ thread’s local cache. <br><br>
             ]
           }
         ]
-      }
-
+      },
 
 
     ],
