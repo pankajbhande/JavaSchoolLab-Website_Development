@@ -47,17 +47,17 @@ export const coursesData: Course[] = [
             name: 'Introduction to Java',
             beginner: [
               {
-                content: `Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. It was developed by James Gosling at Sun Microsystems (now owned by Oracle Corporation) and released in 1995.
+                content: `Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. <br>
+                It was developed by James Gosling at Sun Microsystems (now owned by Oracle Corporation) and released in 1995. <br> <br>
+ <h4>Key Features of Java: </h4>
 
-🔹 Key Features of Java:
-
-• Platform Independent: Write Once, Run Anywhere (WORA)
-• Object-Oriented: Everything is an object
-• Simple and Easy to Learn
-• Secure: No explicit pointers
-• Robust: Strong memory management
-• Multi-threaded: Supports concurrent programming
-• Architecture Neutral: Portable across platforms`,
+• Platform Independent: Write Once, Run Anywhere (WORA) <br>
+• Object-Oriented: Everything is an object <br>
+• Simple and Easy to Learn <br>
+• Secure: No explicit pointers <br>
+• Robust: Strong memory management <br>
+• Multi-threaded: Supports concurrent programming <br>
+• Architecture Neutral: Portable across platforms <br>`,
                 codeExamples: [
                   `// First Java Program
 public class HelloWorld {
@@ -69,26 +69,26 @@ public class HelloWorld {
             ],
             intermediate: [
               {
-                content: `Deep dive into Java Architecture and JVM internals. Understanding the compilation and execution process in detail.
+                content: ` Deep dive into Java Architecture and JVM internals.
+                Understanding the compilation and execution process in detail.<br><br>
 
-Java Architecture Components:
+<h4>Java Architecture Components:</h4>
+• JDK (Java Development Kit): Complete development environment<br>
+• JRE (Java Runtime Environment): Runtime environment for Java applications<br>
+• JVM (Java Virtual Machine): Abstract machine that executes Java bytecode<br><br>
 
-• JDK (Java Development Kit): Complete development environment
-• JRE (Java Runtime Environment): Runtime environment for Java applications
-• JVM (Java Virtual Machine): Abstract machine that executes Java bytecode
+<h4>Compilation Process:</h4>
 
-Compilation Process:
+1. Source code (.java) → Java Compiler → Bytecode (.class)<br>
+2. Bytecode → JVM → Machine Code → Execution<br><br>
 
-1. Source code (.java) → Java Compiler → Bytecode (.class)
-2. Bytecode → JVM → Machine Code → Execution
+<h4>JVM Memory Areas:</h4>
 
-JVM Memory Areas:
-
-• Heap: Object allocation
-• Stack: Method execution and local variables
-• Method Area: Class structures, constants
-• PC Register: Current instruction address
-• Native Method Stack: Native method execution`,
+• Heap: Object allocation<br>
+• Stack: Method execution and local variables<br>
+• Method Area: Class structures, constants<br>
+• PC Register: Current instruction address<br>
+• Native Method Stack: Native method execution<br>`,
                 codeExamples: [
                   `// Understanding Class Loading
 public class ClassLoadingExample {
@@ -108,31 +108,31 @@ public class ClassLoadingExample {
               }],
             expert: [
               {
-                content: `Advanced JVM tuning, performance optimization, and understanding garbage collection algorithms.
+                content: `Advanced JVM tuning, performance optimization, and understanding garbage collection algorithms.<br><br>
 
-Garbage Collection Algorithms:
+<h4>Garbage Collection Algorithms:</h4>
 
-• Serial GC: Single-threaded, suitable for small applications
-• Parallel GC: Multiple threads for GC, high throughput
-• CMS (Concurrent Mark Sweep): Low pause time
-• G1 (Garbage First): Balanced throughput and latency
-• ZGC: Scalable low-latency GC
-• Shenandoah: Concurrent GC with predictable pause times
+• Serial GC: Single-threaded, suitable for small applications<br>
+• Parallel GC: Multiple threads for GC, high throughput<br>
+• CMS (Concurrent Mark Sweep): Low pause time<br>
+• G1 (Garbage First): Balanced throughput and latency<br>
+• ZGC: Scalable low-latency GC<br>
+• Shenandoah: Concurrent GC with predictable pause times<br><br>
 
-JVM Tuning Parameters:
+<h4>JVM Tuning Parameters:</h4>
 
-• Xms: Initial heap size
-• Xmx: Maximum heap size
-• XX:NewRatio: Ratio of old/new generation
-• XX:SurvivorRatio: Ratio of eden/survivor space
-• XX:+UseG1GC: Enable G1 garbage collector
+• Xms: Initial heap size<br>
+• Xmx: Maximum heap size<br>
+• XX:NewRatio: Ratio of old/new generation<br>
+• XX:SurvivorRatio: Ratio of eden/survivor space<br>
+• XX:+UseG1GC: Enable G1 garbage collector<br><br>
 
-Performance Profiling Tools:
+<h4>Performance Profiling Tools:</h4>
 
-• JConsole: Monitor JVM performance
-• VisualVM: Profiling and monitoring
-• JProfiler: Commercial profiler
-• YourKit: Advanced profiling`,
+• JConsole: Monitor JVM performance<br>
+• VisualVM: Profiling and monitoring<br>
+• JProfiler: Commercial profiler<br>
+• YourKit: Advanced profiling<br>`,
                 codeExamples: [
                   `// Custom ClassLoader Example
 public class CustomClassLoader extends ClassLoader {
@@ -159,21 +159,12 @@ public class CustomClassLoader extends ClassLoader {
             id: 'feautures of java',
             name: 'Features of Java',
             beginner: [
-
-            ],
-
-            intermediate: [
               {
-                content: `• The primary objective of Java programming language creation was to make it portable, simple and
-secure programming language. <br>
-
-• Apart from this, there are also some excellent features which play an important role in the popularity of this language. <br>
-
-• The features of Java are also known as Java buzzwords.<br><br>
-
-A list of the most important features of the Java language is given below.<br>
-  <img src="/src/assets/feauture.png" alt="Online Image"class="d-block mx-auto" style="height: 450px;"/><br>
-
+                content:`Java has certain traits that make it an excellent choice for development as a Programming Language.
+                It is commonly utilised in mobile development, chatbots and DevOps.<br><br>
+                
+<h4>Some common Features of Java that make it so popular with developers are as follows:</h4>
+                
 1. Simple<br>
 2. Object-Oriented<br>
 3. Portable<br>
@@ -187,7 +178,24 @@ A list of the most important features of the Java language is given below.<br>
 11. Distributed<br>
 12. Dynamic<br><br>
 
-<div class="border border-primary p-2">
+                `
+              }
+
+            ],
+
+            intermediate: [
+              {
+                content: `The primary objective of Java programming language creation was to make it portable, simple and
+secure programming language. <br>
+
+Apart from this, there are also some excellent features which play an important role in the popularity of this language. <br>
+
+The features of Java are also known as Java buzzwords.<br><br>
+
+<h4>A list of the most important features of the Java language is given below.</h4>
+<img src="/src/assets/feauture.png" alt="Online Image"class="d-block mx-auto" style="height: 450px;"/><br>
+
+
 <h3>Simple</h3>
 
 Java is very easy to learn, and its syntax is simple, clean and easy to understand. According to Sun 
@@ -197,10 +205,10 @@ Microsystem, Java language is a simple programming language because: <br>
 • Java has removed many complicated and rarely-used features, for example, explicit pointers, 
 operator overloading, etc. <br>
 • There is no need to remove unreferenced objects because there is an Automatic Garbage Collection 
-in Java. <br>
-</div><br>
+in Java. <br><br>
 
-<div class="border border-primary p-2">
+
+
 <h3>Object-oriented</h3>
 
 • Java is an object-oriented programming language. 
@@ -216,30 +224,27 @@ maintenance by providing some rules. <br>
 4. Polymorphism<br>
 5. Abstraction<br>
 6. Encapsulation<br>
+ <br>
 
-</div><br>
 
-<div class="border border-primary p-2">
 <h3>Platform Independent</h3>
  <img src="/src/assets/platformindependent.png" alt="Online Image"class="d-block mx-auto" style="height: 280px;"/><br>
 
-Java is platform independent because it is different from other languages like C, C++, etc. which are 
-compiled into platform specific machines while Java is a write once, run anywhere language. A 
-platform is the hardware or software environment in which a program runs. <br> <br>
-
-There are 2 types of platforms software-based and hardware-based. Java provides a software-based 
-platform. <br> <br>
-The Java platform differs from most other platforms in the sense that it is a software-based platform 
+• Java is platform independent because it is different from other languages like C, C++, etc. which are 
+compiled into platform specific machines while Java is a write once, run anywhere language.<br>
+• A platform is the hardware or software environment in which a program runs. <br> 
+• There are 2 types of platforms software-based and hardware-based. Java provides a software-based 
+platform. <br> 
+• The Java platform differs from most other platforms in the sense that it is a software-based platform 
 that runs on top of other hardware-based platforms. It has 2 components: <br>
 1. Runtime Environment  <br>
-2. API(Application Programming Interface)  <br> <br>
+2. API(Application Programming Interface)  <br>
 
-Java code can be executed on multiple platforms, for example, Windows, Linux, Sun Solaris, Mac/OS, 
-etc. Java code is compiled by the compiler and converted into bytecode. This bytecode is a platformindependent code because it can be run on multiple platforms, i.e., Write Once and Run Anywhere 
-(WORA).  <br>
-</div><br>
+• Java code can be executed on multiple platforms, for example, Windows, Linux, Sun Solaris, Mac/OS, 
+etc. Java code is compiled by the compiler and converted into bytecode. This bytecode is a platform independent code because it can be run on multiple platforms, i.e., Write Once and Run Anywhere 
+(WORA).  <br> <br>
 
-<div class="border border-primary p-2">
+
 <h3>Secured</h3>
 
 Java is best known for its security. With Java, we can develop virus-free systems. Java is secured 
@@ -254,11 +259,9 @@ the local file system from those that are imported from network sources. <br>
 • Bytecode Verifier: It checks the code fragments for illegal code that can violate access rights to objects.<br> 
 • Security Manager: It determines what resources a class can access such as reading and writing to the local disk. <br><br>
 Java language provides these securities by default. Some security can also be provided by an 
-application developer explicitly through SSL, JAAS, Cryptography, etc. <br>
+application developer explicitly through SSL, JAAS, Cryptography, etc. <br><br>
 
-</div><br>
 
-<div class="border border-primary p-2">
 <h3>Robust</h3>
 The English mining of Robust is strong. Java is robust because: <br>
 • It uses strong memory management. <br>
@@ -266,58 +269,50 @@ The English mining of Robust is strong. Java is robust because: <br>
 • Java provides automatic garbage collection which runs on the Java Virtual Machine to get rid of 
 objects which are not being used by a Java application anymore. <br>
 • There are exception handling and the type checking mechanism in Java. All these points make Java 
-robust. <br>
+robust. <br><br>
 
-</div><br>
 
-<div class="border border-primary p-2">
 <h3>Architecture-neutral</h3>
 • Java is architecture neutral because there are no implementation dependent features, for example, the 
 size of primitive types is fixed. <br>
 
 • In C programming, int data type occupies 2 bytes of memory for 32-bit architecture and 4 bytes of 
 memory for 64-bit architecture. <br>
-• However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java. 
- 
-</div><br>
-<div class="border border-primary p-2">
+• However, it occupies 4 bytes of memory for both 32 and 64-bit architectures in Java. <br><br>
+
+
 <h3>Portable </h3>
 • Java is portable because it facilitates you to carry the Java bytecode to any platform. <br>
-• It doesn't require any implementation.
-</div><br> 
+• It doesn't require any implementation. <br> <br>
 
-<div class="border border-primary p-2">
+
 <h3>High-performance</h3>
 • Java is faster than other traditional interpreted programming languages because Java bytecode is "close" to native code.<br> 
 • It is still a little bit slower than a compiled language (e.g., C++).<br> 
 • Java is an interpreted language that is why it is slower than compiled languages, e.g., C, C++, etc. 
+<br>
+<br>
 
-</div><br>
 
-<div class="border border-primary p-2">
 <h3>Distributed</h3>
 • Java is distributed because it facilitates users to create distributed applications in Java. 
 RMI and EJB are used for creating distributed applications.<br>
 • This feature of Java makes us able to access files by calling the methods from any machine on the internet.
-</div><br>
+<br><br>
 
-<div class="border border-primary p-2">
 <h3>Multi-threaded</h3>
 • A thread is like a separate program, executing concurrently. We can write Java programs that deal with 
 many tasks at once by defining multiple threads. <br>
 •The main advantage of multi-threading is that it doesn't occupy memory for each thread. It shares a common memory area. Threads are important for 
 multi-media, Web applications, etc. 
-</div><br>
-<div class="border border-primary p-2">
+<br><br>
+
+
 <h3>Dynamic</h3>
 • Java is a dynamic language. It supports the dynamic loading of classes. It means classes are loaded on 
 demand. <br>
 • It also supports functions from its native languages, i.e., C and C++. <br>
-• Java supports dynamic compilation and automatic memory management (garbage collection).
-
-</div>
-
-
+• Java supports dynamic compilation and automatic memory management (garbage collection).<br>
 `
               }
             ]
@@ -589,6 +584,501 @@ public class PerformanceExample {
           },
 
           {
+            id: 'access specifiers',
+            name: 'Access Specifiers',
+            beginner: [
+              {
+                content: `Access specifier’s plays very important role while performing the operation on variable, methods, 
+classes, etc. <br>
+In other words, it is simply used to restrict the access. <br><br>
+There are 4 types of access specifiers as <br>
+• Default <br>
+• Public <br>
+• Private <br>
+• Protected <br> <br>
+
+<h3>1. Default </h3>
+                • It apply to Global Variable (GV), Local Variable (LV), Constructors (C), Method (M),Inner Class (IC) & Outer Class (OC).<br><br>
+
+<div class='border border-primary p-2'>
+package p1; <br>
+class A { // Apply to Outter Class<br>
+int a = 10; // Apply to Global Variable<br>
+ // ( Global Variable: Inside Class but Outside Main Method ) <br>
+ 
+public static void main(String args[]) { <br>
+ int b = 20; // Apply to Local Variable<br>
+ // ( Local Variable: Inside Class & Inside Main Method ) <br>
+} <br>
+ 
+A{ // Apply to Constructor<br>
+System.out.println("Default Acees Specifier We Can Apply to Constructor"); <br>
+ } <br>
+void x1{ // Apply to Method<br>
+ System.out.println("Code_with_Pankaj"); <br>
+} <br>
+ 
+class Demo { // Apply to Inner Class<br>
+ } <br>
+} <br>
+</div><br>
+
+• It can be accessible within the same package only.<br>
+• When the access specifier is not specified then it will be treated as default members. <br>
+• No need to use keyword default like private. <br>
+• It provides more accessibility than private. But, it is more restrictive than protected, and public. <br><br>
+
+ In Below Code, trying to access default method of another class <br>`,
+                codeExamples: [`package com.p1;
+public class A { 
+void display() {
+ System.out.println("Code_With_Pankaj");
+ } 
+} 
+OUTPUT: Code_With_Pankaj
+----------------------------------------------
+package com.p1; 
+public class B { 
+public static void main(String args[]) { 
+ A obj = new A(); // Create Object 
+ obj.display(); // ObjectName.Method 
+ } 
+} `]
+              },
+
+              {
+                content: `<h3>2. Public </h3>
+• It apply to Global Variable, Constructor, Method, Class, Static Variable, Inner Class, 
+Outer Class. <br>
+• It can access anywhere in the class or outside the class or same package or different package. <br>
+• Local variables cannot public because they have limited scope within the method only. If we 
+make it public then getting error only. “Illegal modifier for parameter”. <br>
+• The public access modifier has the widest/largest scope among all other access modifiers. <br><br>
+
+
+<div class='border border-primary p-2'>
+package p1; // Package: p1 <br>
+public class A { // Class: A<br>
+public void display() { // Method: display <br>
+ System.out.println("Code_with_Pankaj "); <br>
+ } <br>
+} <br>
+Output: Code_with_Pankaj<br>
+</div><br>
+
+<div class='border border-primary p-2'>
+package p2; // Package: p2 <br>
+import p1.*; <br>
+class B { // Class: B <br>
+public static void main(String args[]) { <br>
+ A a = new A(); // Create Object <br>
+ a.display(); // ObjName.Method<br>
+ } <br>
+} <br>
+</div><br>
+
+<h4>Important Points:</h4>
+• If other programmers use your class, try to use the most restrictive access level that makes sense 
+for a particular member. Use private unless you have a good reason not to. <br>
+• Avoid public fields except for constants. <br>
+
+Why we use Access Specifiers? <br>
+
+If we have a business requirement where we need to perform the employee CRUD operations and all the 
+methods need to be called from getEmployeeData() only. <br><br>
+
+<h4>Scenario ( Using Public Access Specifier ) </h4>`,
+                codeExamples: [`package com.test; 
+public class Employee {
+public void addOperation() { 
+ System.out.println("Add operation"); 
+ } 
+public void editOperation() { 
+ System.out.println("Edit operation"); 
+ } 
+public void getOperation() { 
+ System.out.println("Get operation"); 
+ } 
+public void deleteOperation() { 
+ System.out.println("Delete operation"); 
+ } 
+public void getEmployeeData() { 
+ addOperation(); // calling the methods
+ editOperation(); 
+ getOperation(); 
+ deleteOperation(); 
+ } 
+} 
+ -------------------------------------------
+package com.test; 
+public class Test { 
+ public static void main(String[] args) { 
+ // Create 2 object 
+ Employee employee = new Employee(); 
+ Employee employee2 = new Employee();
+ employee.getEmployeeData(); 
+ } 
+} 
+----------------------------------------------
+OUTPUT: 
+Add operation
+Edit operation
+Get operation
+Delete operation
+
+`]
+              },
+
+              {
+                content: `Here we are directly call any method from outside class because scope is public. Hence requirement is 
+not fulfilled here. 
+`
+              },
+
+              {
+                content: `<h3>3. Private </h3>
+                • Access specifier’s plays very important role while performing the operation on variable, methods, 
+classes, etc. <br>
+In other words, it is simply used to restrict the access. <br>
+
+• It apply to Global Variable (GV), Method (M), Constructor (C) & Inner Class (IC) only.<br> 
+• Outside Class cannot be private. <br>
+• Local variables cannot private. <br>
+`,
+                codeExamples: [
+                  `package p1; 
+public class A { // Outter class cannot be private 
+//-------------------------------------------------------------------------------------------------------- 
+private int a = 10; // Apply to Global Variable
+ // (Global Variable: Inside Class but Outside Main Method) 
+//-------------------------------------------------------------------------------------------------------- 
+private void x1(){ // Apply to Method
+ System.out.println("Code_with_Pankaj"); 
+} 
+//-------------------------------------------------------------------------------------------------------- 
+private A() { // Apply to Constructor
+ System.out.println("Default Constructor"); 
+ } 
+//-------------------------------------------------------------------------------------------------------- 
+ private class Demo { // Apply to Inner Class
+ } 
+public static void main(String args[]) { 
+ 
+ // private int b = 20; // Can’t Apply to Local Variable 
+ // ( Local Variable: Inside Class & Inside Main Method ) 
+} 
+} 
+`]
+              },
+
+              {
+                content: `
+                • It can access within class only, not outside class or outside package as scope is very limited. 
+                
+                <div class='border border-primary p-2'>
+                package com.test;<br>
+                // Class: 01st<br>
+                public class Example { <br>
+                private void x1 () { // Method: x1 <br>
+                System.out.println("This is x1 Method"); <br>
+                } <br>
+                 private int a = 20; // Variable <br>
+                }<br>
+
+                </div><br>
+
+                <div class='border border-primary p-2'>
+                package com.test;<br>
+                // Class 02nd<br>
+                public class Test { <br>
+                public static void main(String[] args) { <br>
+                Example example = new Example (); <br>
+                example.x1(); // ObjectName.MethodName <br>
+                System.out.println(example.a); <br>
+                } <br>
+                } <br>
+              </div><br>
+          
+                <h4>Note: Here x1 method and a=20 both are Private so we can’t access outside of class.</h4><br>
+
+<div class='border border-primary p-2'>
+package com.p1; <br>
+public class A { <br>
+private void display() { <br>
+ System.out.println("Code_With_Pankaj"); <br>
+ } <br>
+} <br>
+  </div><br>
+
+<div class='border border-primary p-2'>
+package com.p2; <br>
+import com.p1.A; <br>
+public class B { <br>
+public static void main(String args[]) { <br>
+ A obj = new A(); <br>
+ // Trying to access private method of another class<br>
+ obj.display(); // object.Method_Name <br>
+ } <br>
+} <br><br>
+
+OUTPUT:<br>
+error: display() has private access in A <br>
+ obj.display(); 
+</div><br>
+
+• Top-level classes or interfaces cannot be declared as private because <br>
+- private means “only visible within the enclosing class”. <br>
+- protected means “only visible within the enclosing class and any subclasses.”<br><br>
+
+<h4>Scenario ( Using private Access Specifier )</h4>
+                `,
+                codeExamples: [`package com.code_with_pankaj; 
+public class Employee { 
+private void addOperation() { 
+ System.out.println("Add operation"); 
+ } 
+private void editOperation() { 
+ System.out.println("Edit operation"); 
+ } 
+private void getOperation() { 
+ System.out.println("Get operation"); 
+ } 
+private void deleteOperation() { 
+ System.out.println("Delete operation"); 
+ } 
+public void getEmployeeData() { 
+ addOperation(); 
+ editOperation(); 
+ getOperation(); 
+ deleteOperation(); 
+ } 
+} 
+---------------------------------------
+package com.test; 
+public class Test { 
+public static void main(String[] args) { 
+ Employee employee = new Employee(); 
+ Employee employee2 = new Employee(); 
+ employee.getEmployeeData(); 
+ } 
+}
+---------------------------------------
+OUTPUT: 
+Add operation
+Edit operation
+Get operation
+Delete operation
+`]
+              },
+              {
+                content: `<h4>• Here we cannot directly call any method except getEmployeeData() because scope is private. <br>
+• So it cannot be directly accessible from outside. We need to access it from by calling 
+getEmployeeData (). <br>
+• We not able to access addOperation(), editOperaation(), getOpeartion(), deleteOpearation() 
+method because these methods are private not public.</h4>`
+              },
+
+              {
+                content: `<h3>4. Proctected </h3>
+                • It apply to Global Variables (GV), Constructor (C), Methods (M), & Inner Class. <br>
+• It cannot apply to Local Variables & Outer Class.
+
+`,
+                codeExamples: [`package p1; 
+public class A { // Protected: Can’t Apply to Outter Class
+ protected class Demo { // Apply to Inner Class
+ } 
+protected void x1{ // Apply to Method
+ System.out.println("Code_with_Pankaj"); 
+} 
+ protected int a = 10; // Apply to Global Variable
+// ( Global Variable: Inside Class but Outside Main Method ) 
+public static void main(String args[]) { 
+ int b = 20; // Protected: Can’t Apply to Local Variable 
+// ( Local Variable: Inside Class & Inside Main Method ) 
+} 
+} `]
+              },
+              {
+                content: `• It is accessible within the same package and also possible into another package if inheritance is 
+happened while calling. <br><br>
+
+In this example, we will create 2 packages p1 and p2. Class A in p1 is made public, 
+to access it in p2. The method display in class A is protected and class B is inherited from class A and 
+this protected method is then accessed by creating an object of class B. 
+`,
+                codeExamples: [
+                  `package p1; 
+// Class A 
+protected class A { 
+protected void display() { 
+ // Method
+ System.out.println("Code_With_Pankaj "); 
+ } 
+} 
+OUTPUT: Code_With_Pankaj 
+--------------------------------------------
+// protected modifier import p1.*; 
+// importing all classes in package p1 
+// Class B is subclass of A 
+protected B extends A { 
+public static void main(String args[]) { 
+ B obj = new B(); 
+ obj.display(); 
+ } 
+} 
+`
+                ]
+              },
+            ],
+
+            intermediate:[
+              {
+                content:`We can apply default access Specifiers or final on local variable. <br><br>
+
+<table class="w-full border border-gray-700 border-collapse [&_th]:border [&_td]:border [&_td]:px-2  [&_th]:py-2  ">
+<tr>
+<th></th>
+<th>default</th>
+<th>public</th>
+<th>private</th>
+<th>protected</th>
+</tr>
+
+<tr class='text-center'>
+<td>Same class</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+
+<tr class='text-center'>
+<td>Same Package sub class</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+
+<tr class='text-center'>
+<td>Same Package sub-class</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+
+<tr class='text-center'>
+<td>Same Package non-subclass</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+
+<tr class='text-center'>
+<td>Different package sub-class</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+
+<tr class='text-center'>
+<td>Different package non-subclass </td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</table>
+<br>
+• Algorithm to use access modifier in Java <br>
+Here’s a basic algorithm for using access modifiers in Java:<br><br>
+<h4>Define a class: </h4>
+• Create a class that represents the object you want to manage. <br><br>
+
+<h4>Define instance variables:</h4>
+Within the class, define instance variables that represent the data you want to manage. <br><br>
+
+<h4>Specify an access modifier:</h4> 
+• For each instance variable, specify an access modifier that determines the visibility of the variable. <br>
+• The three main access modifiers in Java are private, protected, and public. <br><br>
+
+<h4>Use private for variables that should only be accessible within the class:</h4> 
+• If you want to prevent access to a variable from outside the class, use the private access modifier.<br> 
+• This is the most restrictive access modifier and provides the greatest level of encapsulation. <br><br>
+
+<h4>Use protected for variables that should be accessible within the class and its subclasses: </h4>
+• If you want to allow access to a variable from within the class and its subclasses, use the protected 
+access modifier. <br>
+•This is less restrictive than private and provides some level of inheritance. <br><br>
+
+<h4>Use public for variables that should be accessible from anywhere:</h4> 
+• If you want to allow access to a variable from anywhere, use the public access modifier. 
+• This is the least restrictive access modifier and provides the least amount of encapsulation. <br><br>
+
+<h4>Use accessor and mutator methods to manage access to the variables:</h4> 
+• In order to access and modify the variables, use accessor (getter) and mutator (setter) methods, even if the variables have 
+a public access modifier. <br>
+• This provides a level of abstraction and makes your code more maintainable and testable.<br><br>
+
+In this way, we use the access specifiers. <br>
+<h4>1. What are access modifiers in Java? </h4>
+Access modifiers in Java are the keywords that are used for controlling the use of the methods, 
+constructors, fields, and methods in a class. <br>
+ 
+<h4>2. What is void in Java?</h4>
+Void in Java is used to specify no return value with the method. <br>
+ 
+<h4>3. What are the 12 modifiers in Java?</h4>
+12 Modifiers in Java are public, private, protected, default, final, synchronized, abstract, native, 
+strictfp, transient, and volatile. <br>
+                
+<table class="w-full border border-gray-700 border-collapse [&_th]:border [&_td]:border [&_td]:px-2  [&_th]:py-2">
+<tr>
+<th>Public Access Modifier</th>
+<th>Private Access Modifier </th>
+</tr>
+
+<tr>
+<td>This modifier is applicable for both top-level classes and interfaces.</td>
+<td>This modifier is not applicable for both top-level classes and interfaces</td>
+</tr>
+
+<tr>
+<td>Public members can be accessed from the child class of the same package.</td>
+<td>Private members cannot be accessed from the child class of the same package.</td>
+</tr>
+
+<tr>
+<td>Public member can be accessed from non-child class of same package.</td>
+<td>Private members cannot be accessed from non-child class of same package.
+</td>
+</tr>
+
+<tr>
+<td>Public members can be accessed from child class of outside package.</td>
+<td>Private members cannot be accessed from child class of outside package.</td>
+</tr>
+
+<tr>
+<td>Public members can be accessed from non-child class of outside package</td>
+<td>Private members cannot be accessed from non-child class of outside package.</td>
+</tr>
+
+<tr>
+<td>Public modifier is the most accessible modifier.</td>
+<td>Private modifier is the most restricted modifier.</td>
+</tr>
+
+</table>`
+              }
+            ]
+          },
+
+          {
             id: "operators",
             name: "Operators in Java",
 
@@ -825,13 +1315,10 @@ Used to create an object of a class.
             ],
 
             intermediate: [{
-              content: `• This is the most fundamental concepts required for java programmer. <br>
+              content: `This is the most fundamental concepts required for java programmer. 
+It allows smooth flow of execution of program. It controls the flow of program.<br> <br>
 
- • It allows smooth flow of execution of program. <br>
-
- • It controls the flow of program.<br>
-<br>
-🔹 There are 5 types of control statements in java:<br>
+<h4> There are 5 types of control statements in java:</h4>
 1. If statements<br>
 2. If else statements<br>
 3. if-else-if ladder statement<br>
@@ -1177,8 +1664,9 @@ default:    System.out.println("Invalid input"); // Statement
             name: `Constructor in Java`,
             beginner: [
               {
-                content: `A constructor in Java is a special block of code used to initialize objects when they are created. It is automatically called when an instance of a class is created using the new keyword.<br>
-<h4>🔹 Key Characteristics :-</h4> 
+                content: `A constructor in Java is a special block of code used to initialize objects when they are created. 
+                It is automatically called when an instance of a class is created using the new keyword.<br><br>
+<h4> Key Characteristics :-</h4> 
 • Same Name as Class: A constructor must have the exact same name as the class it belongs to.<br>
 • No Return Type: It does not have a return type, not even void. Adding a return type makes it a regular method.<br>
 • Automatic Invocation: Constructors are invoked implicitly by the Java runtime when an object is instantiated.<br>
@@ -1188,12 +1676,11 @@ default:    System.out.println("Invalid input"); // Statement
             ],
             intermediate: [
               {
-                content: `- Constructor name it is same like as class name. <br>
-                - It is invoked by JVM automatically when you create the object of class.<br>
-                - It does not return anything even void also.<br>
+                content: `Constructor name it is same like as class name. It is invoked by JVM automatically when you create the object of class.
+                It does not return anything even void also.<br><br>
                 
                 
-                🔹 There are 2 types of constructor are as <br>
+                <h4>There are 2 types of constructor are as </h4>
                 1. Default constructor (No- argument constructor)<br>
                 2. Parameterized constructor ( Argument constructor)<br><br>
 
@@ -3773,373 +4260,7 @@ class Example {
 
         ]
       },
-
-      {
-        id: 'access specifiers',
-        name: 'Access Specifiers',
-        topics: [
-
-          {
-            id:'default',
-            name:'Default',
-            intermediate:[
-              {
-                content:`• It apply to Global Variable (GV), Local Variable (LV), Constructors (C), Method (M),
-Inner Class (IC) & Outer Class (OC).<br><br>
-
-<div class='border border-primary p-2'>
-package p1; <br>
-class A { // Apply to Outter Class<br>
-int a = 10; // Apply to Global Variable<br>
- // ( Global Variable: Inside Class but Outside Main Method ) <br>
- 
-public static void main(String args[]) { <br>
- int b = 20; // Apply to Local Variable<br>
- // ( Local Variable: Inside Class & Inside Main Method ) <br>
-} <br>
- 
-A{ // Apply to Constructor<br>
-System.out.println("Default Acees Specifier We Can Apply to Constructor"); <br>
- } <br>
-void x1{ // Apply to Method<br>
- System.out.println("Code_with_Pankaj"); <br>
-} <br>
- 
-class Demo { // Apply to Inner Class<br>
- } <br>
-} <br>
-</div><br>
-
-• It can be accessible within the same package only.<br>
-• When the access specifier is not specified then it will be treated as default members. <br>
-• No need to use keyword default like private. <br>
-• It provides more accessibility than private. But, it is more restrictive than protected, and public. <br><br>
-
- In Below Code, trying to access default method of another class <br>`,
-codeExamples:[`package com.p1;
-public class A { 
-void display() {
- System.out.println("Code_With_Pankaj");
- } 
-} 
-OUTPUT: Code_With_Pankaj
-----------------------------------------------
-package com.p1; 
-public class B { 
-public static void main(String args[]) { 
- A obj = new A(); // Create Object 
- obj.display(); // ObjectName.Method 
- } 
-} `]
-              }
-            ]
-          },
-
-          {
-            id:'public',
-            name:'Public',
-            intermediate:[
-              {
-                content:`• It apply to Global Variable, Constructor, Method, Class, Static Variable, Inner Class, 
-Outer Class. <br>
-• It can access anywhere in the class or outside the class or same package or different package. <br>
-• Local variables cannot public because they have limited scope within the method only. If we 
-make it public then getting error only. “Illegal modifier for parameter”. <br>
-• The public access modifier has the widest/largest scope among all other access modifiers. <br><br>
-
-
-<div class='border border-primary p-2'>
-package p1; // Package: p1 <br>
-public class A { // Class: A<br>
-public void display() { // Method: display <br>
- System.out.println("Code_with_Pankaj "); <br>
- } <br>
-} <br>
-Output: Code_with_Pankaj<br>
-</div><br>
-
-<div class='border border-primary p-2'>
-package p2; // Package: p2 <br>
-import p1.*; <br>
-class B { // Class: B <br>
-public static void main(String args[]) { <br>
- A a = new A(); // Create Object <br>
- a.display(); // ObjName.Method<br>
- } <br>
-} <br>
-</div><br>
-
-<h4>Important Points:</h4>
-• If other programmers use your class, try to use the most restrictive access level that makes sense 
-for a particular member. Use private unless you have a good reason not to. <br>
-• Avoid public fields except for constants. <br>
-
-Why we use Access Specifiers? <br>
-
-If we have a business requirement where we need to perform the employee CRUD operations and all the 
-methods need to be called from getEmployeeData() only. <br><br>
-
-<h4>Scenario ( Using Public Access Specifier ) </h4>`,
-codeExamples:[`package com.test; 
-public class Employee {
-public void addOperation() { 
- System.out.println("Add operation"); 
- } 
-public void editOperation() { 
- System.out.println("Edit operation"); 
- } 
-public void getOperation() { 
- System.out.println("Get operation"); 
- } 
-public void deleteOperation() { 
- System.out.println("Delete operation"); 
- } 
-public void getEmployeeData() { 
- addOperation(); // calling the methods
- editOperation(); 
- getOperation(); 
- deleteOperation(); 
- } 
-} 
- -------------------------------------------
-package com.test; 
-public class Test { 
- public static void main(String[] args) { 
- // Create 2 object 
- Employee employee = new Employee(); 
- Employee employee2 = new Employee();
- employee.getEmployeeData(); 
- } 
-} 
-----------------------------------------------
-OUTPUT: 
-Add operation
-Edit operation
-Get operation
-Delete operation
-
-`]
-              },
-
-              {
-                content:`Here we are directly call any method from outside class because scope is public. Hence requirement is 
-not fulfilled here. 
-`
-              }
-            ]
-          },
-
-          {
-            id: 'private',
-            name: 'Private',
-            intermediate: [
-              {
-                content: `• Access specifier’s plays very important role while performing the operation on variable, methods, 
-classes, etc. <br>
-In other words, it is simply used to restrict the access. <br><br>
-
-<h4> Private: </h4>
-• It apply to Global Variable (GV), Method (M), Constructor (C) & Inner Class (IC) only.<br> 
-• Outside Class cannot be private. <br>
-• Local variables cannot private. <br>
-`,
-                codeExamples: [
-                  `package p1; 
-public class A { // Outter class cannot be private 
-//-------------------------------------------------------------------------------------------------------- 
-private int a = 10; // Apply to Global Variable
- // (Global Variable: Inside Class but Outside Main Method) 
-//-------------------------------------------------------------------------------------------------------- 
-private void x1(){ // Apply to Method
- System.out.println("Code_with_Pankaj"); 
-} 
-//-------------------------------------------------------------------------------------------------------- 
-private A() { // Apply to Constructor
- System.out.println("Default Constructor"); 
- } 
-//-------------------------------------------------------------------------------------------------------- 
- private class Demo { // Apply to Inner Class
- } 
-public static void main(String args[]) { 
- 
- // private int b = 20; // Can’t Apply to Local Variable 
- // ( Local Variable: Inside Class & Inside Main Method ) 
-} 
-} 
-`]
-              },
-
-              {
-                content: `• It can access within class only, not outside class or outside package as scope is very limited. 
-                
-                <div class='border border-primary p-2'>
-                package com.test;<br>
-                // Class: 01st<br>
-                public class Example { <br>
-                private void x1 () { // Method: x1 <br>
-                System.out.println("This is x1 Method"); <br>
-                } <br>
-                 private int a = 20; // Variable <br>
-                }<br>
-
-                </div><br>
-
-                <div class='border border-primary p-2'>
-                package com.test;<br>
-                // Class 02nd<br>
-                public class Test { <br>
-                public static void main(String[] args) { <br>
-                Example example = new Example (); <br>
-                example.x1(); // ObjectName.MethodName <br>
-                System.out.println(example.a); <br>
-                } <br>
-                } <br>
-              </div><br>
-          
-                <h4>Note: Here x1 method and a=20 both are Private so we can’t access outside of class.</h4><br>
-
-<div class='border border-primary p-2'>
-package com.p1; <br>
-public class A { <br>
-private void display() { <br>
- System.out.println("Code_With_Pankaj"); <br>
- } <br>
-} <br>
-  </div><br>
-
-<div class='border border-primary p-2'>
-package com.p2; <br>
-import com.p1.A; <br>
-public class B { <br>
-public static void main(String args[]) { <br>
- A obj = new A(); <br>
- // Trying to access private method of another class<br>
- obj.display(); // object.Method_Name <br>
- } <br>
-} <br><br>
-
-OUTPUT:<br>
-error: display() has private access in A <br>
- obj.display(); 
-</div><br>
-
-• Top-level classes or interfaces cannot be declared as private because <br>
-- private means “only visible within the enclosing class”. <br>
-- protected means “only visible within the enclosing class and any subclasses.”<br><br>
-
-<h4>Scenario ( Using private Access Specifier )</h4>
-                `,
-                codeExamples:[`package com.code_with_pankaj; 
-public class Employee { 
-private void addOperation() { 
- System.out.println("Add operation"); 
- } 
-private void editOperation() { 
- System.out.println("Edit operation"); 
- } 
-private void getOperation() { 
- System.out.println("Get operation"); 
- } 
-private void deleteOperation() { 
- System.out.println("Delete operation"); 
- } 
-public void getEmployeeData() { 
- addOperation(); 
- editOperation(); 
- getOperation(); 
- deleteOperation(); 
- } 
-} 
----------------------------------------
-package com.test; 
-public class Test { 
-public static void main(String[] args) { 
- Employee employee = new Employee(); 
- Employee employee2 = new Employee(); 
- employee.getEmployeeData(); 
- } 
-}
----------------------------------------
-OUTPUT: 
-Add operation
-Edit operation
-Get operation
-Delete operation
-`]
-              },
-              {
-                content:`<h4>• Here we cannot directly call any method except getEmployeeData() because scope is private. <br>
-• So it cannot be directly accessible from outside. We need to access it from by calling 
-getEmployeeData (). <br>
-• We not able to access addOperation(), editOperaation(), getOpeartion(), deleteOpearation() 
-method because these methods are private not public.</h4>`
-              }
-            ]
-          },
-
-          {
-            id:'protected',
-            name:'Protected',
-            intermediate:[
-              {
-                content:`• It apply to Global Variables (GV), Constructor (C), Methods (M), & Inner Class. <br>
-• It cannot apply to Local Variables & Outer Class.
-
-`,
-codeExamples:[`package p1; 
-public class A { // Protected: Can’t Apply to Outter Class
- protected class Demo { // Apply to Inner Class
- } 
-protected void x1{ // Apply to Method
- System.out.println("Code_with_Pankaj"); 
-} 
- protected int a = 10; // Apply to Global Variable
-// ( Global Variable: Inside Class but Outside Main Method ) 
-public static void main(String args[]) { 
- int b = 20; // Protected: Can’t Apply to Local Variable 
-// ( Local Variable: Inside Class & Inside Main Method ) 
-} 
-} `]
-              },
-              {
-                content:`• It is accessible within the same package and also possible into another package if inheritance is 
-happened while calling. <br><br>
-
-In this example, we will create 2 packages p1 and p2. Class A in p1 is made public, 
-to access it in p2. The method display in class A is protected and class B is inherited from class A and 
-this protected method is then accessed by creating an object of class B. 
-`,
-                codeExamples:[
-                  `package p1; 
-// Class A 
-protected class A { 
-protected void display() { 
- // Method
- System.out.println("Code_With_Pankaj "); 
- } 
-} 
-OUTPUT: Code_With_Pankaj 
---------------------------------------------
-// protected modifier import p1.*; 
-// importing all classes in package p1 
-// Class B is subclass of A 
-protected B extends A { 
-public static void main(String args[]) { 
- B obj = new B(); 
- obj.display(); 
- } 
-} 
-`
-                ]
-              }
-            ]
-          },
-
-
-        ]
-      },
-
-
+      
       {
         id: 'oop',
         name: 'OOPS Concept',
@@ -4149,15 +4270,15 @@ public static void main(String args[]) {
             name: 'Classes and Objects',
             beginner: [
               {
-                content: `A class is a blueprint for creating objects. An object is an instance of a class:
+                content: `A class is a blueprint for creating objects. An object is an instance of a class<br>
 
-🔹 Key Concepts:
+<h4> Key Concepts:</h4>
 
-• Class: Template that defines properties and behaviors
-• Object: Instance of a class
-• Fields: Variables that hold the state
-• Methods: Functions that define behavior
-• Constructor: Special method to initialize objects`,
+• Class: Template that defines properties and behaviors<br>
+• Object: Instance of a class<br>
+• Fields: Variables that hold the state<br>
+• Methods: Functions that define behavior<br>
+• Constructor: Special method to initialize objects<br>`,
                 codeExamples: [
                   `// Class and Object Example
 public class Student {
@@ -4188,12 +4309,12 @@ public class Student {
             ],
             intermediate: [
               {
-                content: `• It is the parent class of all the classes in java. <br>
-• It is called as topmost class of java which is present in java.lang package. <br>
-• Every class in Java is directly or indirectly derived from the object class. If a Class does not extend any 
+                content: `It is the parent class of all the classes in java. 
+It is called as topmost class of java which is present in java.lang package. <br>
+Every class in Java is directly or indirectly derived from the object class. If a Class does not extend any 
 other class then it is direct child class of object. <br><br>
 
-<h3>🔹 There are different methods of object class are as follows. </h3>
+<h4> There are different methods of object class are as follows. </h4>
 1. public final Class getClass() <br>
 2. public int hashCode() <br>
 3. public boolean equals(Object obj) <br>
@@ -6031,8 +6152,8 @@ abstract methods.<br>
             ]
           },
           {
-            id: `Polymorphism in java`,
-            name: `Polymorphism in Java`,
+            id: 'Polymorphism in java',
+            name: 'Polymorphism in Java',
             intermediate: [
               {
                 content: `
@@ -6398,7 +6519,7 @@ void getSeatAvailability(int seat){
                 using java.lang.Thread and Runnable for implementation.<br>
 
                 Multithreading is Java's key to efficient resource use, allowing tasks like UI updates and background processing to run in parallel<br><br>
-                <h4>🔹 Types of Multitasking in Java</h4>
+                <h4> Types of Multitasking in Java</h4>
 1. Process-based Multitasking: <br>
 • Definition: Running multiple independent programs (processes) at the same time, managed by the Operating System (OS). 
 • Example: Using a web browser, media player, and code editor simultaneously. <br>
@@ -6519,7 +6640,7 @@ shares the code, data, and file of the process to which it belongs.<br>
 frequently making an impression on the user that all threads are running simultaneously.<br><br>
 
 
-<h4>🔹 Benefits of Multithreading</h4>
+<h4>Benefits of Multithreading</h4>
 • Multithreading increases the responsiveness of system as, if one thread of the application is not
 responding, the other would respond in that sense the user would not have to sit idle.<br>
 • Multithreading allows resource sharing as threads belonging to the same process can share code and
@@ -6560,7 +6681,7 @@ Constructors <br>
 • Thread(Runnable r) <br>
 • Thread(Runnable r,String name)<br> <br>
 
-🔹 Methods with Description: <br>
+<h4>Methods with Description: </h4>
 1. public void run(): It is used to perform action for a thread. <br>
 2. public void start(): starts the execution of the thread. JVM calls the run() method on the thread. <br>
 3. public void sleep(long miliseconds): Causes the currently executing thread to sleep (temporarily 

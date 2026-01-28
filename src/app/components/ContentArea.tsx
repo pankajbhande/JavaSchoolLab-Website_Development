@@ -268,16 +268,7 @@ export function ContentArea({
                       transition={{ delay: codeIdx * 0.1 }}
                       className="relative"
                     >
-                      {/* <div className="absolute top-2 right-2 z-10">
-                <button
-                  onClick={() => copyToClipboard(code, codeIdx)}
-                  className="p-2 bg-gray-700 hover:bg-gray-600 rounded-md transition-colors"
-                  title="Copy code"
-                >
-                  {copiedIndex === codeIdx ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 text-white" />}
-                </button>
-              </div> */}
-
+                  
                       <div className="absolute top-2 right-2 z-10 flex gap-2">
                         {/* Copy button */}
                         <button
