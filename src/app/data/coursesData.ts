@@ -1658,6 +1658,977 @@ default:    System.out.println("Invalid input"); // Statement
               }
             ]
           },
+<<<<<<< HEAD
+=======
+
+          {
+  id: 'Looping Statements',
+  name: 'Looping Statements',
+  beginner: [
+    {
+      content: `
+      Loops are used to execute a set of instructions repeatedly when some conditions become true.<br><br>
+      In Java, looping statements help us avoid writing the same code multiple times and improve code efficiency.<br><br>
+      There are 3 types of loops in Java:<br>
+      1) For Loop<br>
+      2) While Loop<br>
+      3) Do While Loop
+      `
+    }
+  ],
+  intermediate: [
+    {
+      content: `
+      <h2>1) For Loop</h2>
+      For loop in Java is used to iterate and evaluate a block of code multiple times.<br><br>
+       
+                     <img src="/src/assets/loop 1.png" alt="Online Image"class="d-block mx-auto"/>
+
+      <b>When to use:</b><br>
+      If the number of iterations is fixed, it is recommended to use a for loop.<br><br>
+
+      <div class="bg-secondary border border-primary p-3">
+        Syntax:<br>
+        for (initialization; condition; increment/decrement) {<br>
+        &nbsp;&nbsp;Statements;<br>
+        }
+      </div>
+      `,
+      codeExamples: [
+        `
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            for (int i = 1; i <= 5; i++) {
+              System.out.println("value of i>>" + i);
+            }
+          }
+        }
+        `,
+        `
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            for (int j = 10; j > 0; j--) {
+              System.out.println("j>>" + j);
+            }
+          }
+        }
+        `
+      ]
+    },
+    {
+      content: `
+      <h2>2) While Loop</h2>
+      The while loop evaluates a condition before executing the loop body.<br>
+      If the condition is true, the loop continues; otherwise, it stops.<br><br>
+
+                      <img src="/src/assets/loop 2.png" alt="Online Image"class="d-block mx-auto"/>
+
+      <b>When to use:</b><br>
+      If the number of iterations is not fixed, it is recommended to use a while loop.<br><br>
+
+      <div class="bg-secondary border border-primary p-3">
+        Syntax:<br>
+        Initialization;<br>
+        while (condition) {<br>
+        &nbsp;&nbsp;Statements;<br>
+        &nbsp;&nbsp;Increment / Decrement;<br>
+        }
+      </div>
+      `,
+      codeExamples: [
+        `
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            int i = 1;
+            while (i <= 10) {
+              System.out.println("value of i>>" + i);
+              i++;
+            }
+          }
+        }
+        `,
+        `
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            int i = 10;
+            while (i > 0) {
+              System.out.println("value of i>>" + i);
+              i--;
+            }
+          }
+        }
+        `
+      ]
+    },
+    {
+      content: `
+      <h2>3) Do While Loop</h2>
+      The do-while loop is similar to the while loop, but the condition is checked after executing the loop body.<br>
+      This guarantees that the loop runs at least once.<br><br>
+                     <img src="/src/assets/loop 3.png" alt="Online Image"class="d-block mx-auto"/>
+
+
+      <b>When to use:</b><br>
+      If the number of iterations is not fixed and the loop must execute at least once.<br><br>
+
+      <div class="bg-secondary border border-primary p-3">
+        Syntax:<br>
+        Initialization;<br>
+        do {<br>
+        &nbsp;&nbsp;Statements;<br>
+        &nbsp;&nbsp;Increment / Decrement;<br>
+        } while (condition);
+      </div>
+      `,
+      codeExamples: [
+        `
+        public class Looping {
+          public static void main(String[] args) {
+            int i = 1;
+            do {
+              System.out.println(i);
+              i++;
+            } while (i <= 10);
+          }
+        }
+        `
+      ]
+    },
+    {
+      content: `
+      <h2>All In One Program (For Loop, While Loop, Do While Loop)</h2>
+      `,
+      codeExamples: [
+        `
+        package com.example;
+
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+
+            // For Loop
+            for (int x = 1; x <= 10; x++) {
+              System.out.println("By Using For Loop:>>" + x);
+            }
+
+            // While Loop
+            int i = 1;
+            while (i <= 10) {
+              System.out.println("By Using While Loop:>> " + i);
+              i++;
+            }
+
+            // Do While Loop
+            int p = 1;
+            do {
+              System.out.println("By Using Do While Loop:>> " + p);
+              p++;
+            } while (p <= 10);
+          }
+        }
+        `
+      ]
+    }
+  ]
+},
+
+{
+  id: 'Packages',
+  name: 'Packages',
+  beginner: [
+    {
+      content: `
+      Package is nothing but a collection of classes and interfaces that work together, called a package.<br><br>
+
+      <b>Default Package:</b> java.lang<br>
+      <b>User Defined Package:</b> We can create our own packages.<br><br>
+
+      <b>Why Packages?</b><br>
+      Suppose you have a large number of files deployed on a server. If bugs occur in specific files, 
+      finding them without packages is difficult. Packages help organize code into folders, making 
+      navigation, debugging, and maintenance easy.<br><br>
+
+      <b>Advantages:</b><br>
+      • Reusability – Common code can be reused.<br>
+      • Maintenance – Easy for new developers or testers to find files.
+      `
+    }
+  ],
+  intermediate: [
+    {
+      content: `
+      <h2>Types of Packages in Java</h2>
+      There are two types of packages in Java:<br>
+      1) User-defined Package<br>
+      2) Built-in Package (Predefined Package)<br><br>
+
+      <div class="bg-secondary border border-primary p-3">
+        Syntax:<br>
+        package package_name;
+      </div><br>
+
+      Packages generally start with <b>com</b> folder.<br><br>
+
+      <b>Example (Company-based Package Naming):</b><br>
+      Domain: www.google.com<br>
+      Package name: com.google<br><br>
+
+      <b>Package are generally starts with com folder.</b><br>
+1. Suppose you are working in Google and the domain name of Google is www.google.com. You can
+declare the package by reversing the domain like this:<br>
+Package com.google;<br>
+where,<br>
+
+com ➝ It is generally company specification name and the folder starts with com which
+is called root folder.<br>
+google ➝ Company name where the product is developed. It is the subfolder.<br>
+
+2. dell ➝ Client name for which we are developing our product or working for the project.<br>
+3. smartwatch ➝ Name of the project.
+4. android ➝ It is the name of the modules of the android project. There are a number of modules in
+the android project like a mobile android, tab android, or android watch. Suppose you are working for
+android module.<br>
+
+
+      <b>Note:</b> Package names are written in lowercase only.
+      `
+    },
+    {
+      content: `
+      <h2>Import Statement</h2>
+      When we use one class inside another class from a different package, we use the import statement.<br><br>
+
+
+                     <img src="/src/assets/package 1.png" alt="Online Image"class="d-block mx-auto"/>
+
+      <b>Different ways to import:</b><br>
+      import com.p1.Test;  // correct<br>
+      import com.p1.*;     // correct (imports all classes)<br>
+      import com.p1;       // wrong
+      `,
+      codeExamples: [
+        `
+        package com.p1;
+        public class Test {
+          public void m1() {
+            System.out.println("This is m1 method");
+          }
+        }
+        `,
+        `
+        package com.p2;
+        import com.p1.Test;
+
+        public class Pankaj {
+          public static void main(String[] args) {
+            Test test = new Test();
+            test.m1();
+          }
+        }
+        `
+      ]
+    },
+    {
+      content: `
+      <h2>Scanner in Java</h2>
+Scanner is a class in java.util package used for obtaining the input of the primitive types like int,
+double, and strings etc.<br>
+It is the easiest way to read input in a Java program.<br>
+-To create an object of Scanner class, we usually pass the predefined object System.in.<br>
+- To read numerical values of a certain data type, the method to use is nextInt().
+For example, to read a value of type short, we can use nextShort() and so on.<br>
+- To read strings, we use nextLine() or next().<br>
+      <b>Features:</b><br>
+      • Reads primitive data types and strings<br>
+      • Uses System.in for input<br>
+      • Easy to use
+      <br><br>
+
+      <b>Common Scanner Methods:</b><br>
+                     <img src="/src/assets/package 2.png" alt="Online Image"class="d-block mx-auto"/>
+
+      `
+    },
+    {
+      content: `<h2>Scanner Examples</h2>`,
+      codeExamples: [
+        `
+        package com.test;
+        import java.util.Scanner;
+
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter an integer: ");
+            int xyz = sc.nextInt();
+            System.out.println("Using nextInt(): " + xyz);
+          }
+        }
+        `,
+        `
+        package com.test;
+        import java.util.Scanner;
+
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter Double value: ");
+            double value = sc.nextDouble();
+            System.out.println("Using nextDouble(): " + value);
+          }
+        }
+        `,
+        `
+        package com.test;
+        import java.util.Scanner;
+
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter your name: ");
+            String value = sc.next();
+            System.out.println("Using next(): " + value);
+          }
+        }
+        `,
+        `
+        package com.test;
+        import java.util.Scanner;
+
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter your name: ");
+            String value = sc.nextLine();
+            System.out.println("Using nextLine(): " + value);
+          }
+        }
+        `,
+        `
+        package com.test;
+        import java.math.BigDecimal;
+        import java.math.BigInteger;
+        import java.util.Scanner;
+
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter a big integer: ");
+            BigInteger value1 = sc.nextBigInteger();
+            System.out.print("Enter a big decimal: ");
+            BigDecimal value2 = sc.nextBigDecimal();
+            System.out.println("Using nextBigInteger(): " + value1);
+            System.out.println("Using nextBigDecimal(): " + value2);
+          }
+        }
+        `,
+        `
+        package com.test;
+        import java.util.Scanner;
+
+        public class Code_With_Pankaj {
+          public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Enter Your Name:");
+            String name = sc.nextLine();
+
+            System.out.println("Enter Your Gender:");
+            char gender = sc.next().charAt(0);
+
+            System.out.println("Enter Your Age:");
+            int age = sc.nextInt();
+
+            System.out.println("Enter Your Mobile Number:");
+            long mobile = sc.nextLong();
+
+            System.out.println("Enter Your Percentage:");
+            double percentage = sc.nextDouble();
+
+            System.out.println("Name: " + name);
+            System.out.println("Gender: " + gender);
+            System.out.println("Age: " + age);
+            System.out.println("Mobile: " + mobile);
+            System.out.println("Percentage: " + percentage);
+          }
+        }
+        `
+      ]
+    }
+  ]
+},
+
+
+          
+
+          {
+  id: `Array in java`,
+  name: `Array in Java`,
+
+  intermediate: [
+
+    {
+      content: `
+<b>Array</b><br>
+• Array is a collection of similar type of elements stored in contiguous memory locations.<br>
+• Java array is an object that contains elements of the same data type.<br>
+• Array size is fixed and cannot grow at runtime.<br>
+• Array is index-based, starting from index <b>0</b>.<br>
+               <img src="/src/assets/Array1.png" alt="Online Image"class="d-block mx-auto"/>
+
+`
+    },
+
+    {
+      content: `
+<h4>Advantages of Array</h4>
+• Code Optimization – efficient data access and sorting<br>
+• Random Access – direct access using index<br><br>
+
+<h4>Disadvantages of Array</h4>
+• Fixed size – cannot grow dynamically<br>
+• Memory wastage may occur<br>
+• Collection framework overcomes this limitation<br>
+`
+    },
+
+    {
+      content: `
+<h4>Types of Arrays in Java</h4>
+1. Single Dimensional Array<br>
+2. Multidimensional Array<br>
+`
+    },
+
+    {
+      content: `
+<h4>Single Dimensional Array</h4>
+<b>Declaration Syntax</b><br>
+1. dataType[] arr;<br>
+2. dataType []arr;<br>
+3. dataType arr[];<br>
+`
+    },
+
+    {
+      content: `
+<h4>Array Declaration, Instantiation & Initialization</h4>
+`,
+      codeExamples: [
+`int a[] = new int[5];
+a[0] = 10;
+a[1] = 20;
+a[2] = 30;
+a[3] = 40;
+a[4] = 50;
+
+for(int i=0;i<a.length;i++){
+    System.out.println(a[i]);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Array Initialization in Single Line</h4>
+`,
+      codeExamples: [
+`int a[] = {10, 20, 30};
+
+for(int i=0;i<a.length;i++){
+    System.out.println(a[i]);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>For-each Loop with Array</h4>
+We can also print the Java array using for-each loop. The Java for-each loop prints the array elements
+one by one. It holds an array element in a variable, then executes the body of the loop.
+`,
+      codeExamples: [
+`int arr[] = {10, 20, 30, 40};
+
+for(int i : arr){
+    System.out.println(i);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Passing Array to Method</h4>
+We can pass the java array to method so that we can reuse the same logic on any array.
+`,
+      codeExamples: [
+`static void min(int arr[]){
+    int min = arr[0];
+    for(int i=1;i<arr.length;i++){
+        if(min > arr[i])
+            min = arr[i];
+    }
+    System.out.println(min);
+}
+
+int a[] = {33, 3, 4, 5};
+min(a);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Anonymous Array</h4>
+Java supports the feature of an anonymous array, so you don't need to declare the array while passing an
+array to the method.
+`,
+      codeExamples: [
+`printArray(new int[]{10, 22, 44, 66});`
+      ]
+    },
+
+    {
+      content: `
+<h4>Returning Array from Method</h4>
+We can also return an array from the method in Java.
+`,
+      codeExamples: [
+`static int[] get(){
+    return new int[]{10, 30, 50, 90, 60};
+}
+
+int arr[] = get();
+for(int i : arr){
+    System.out.println(i);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>ArrayIndexOutOfBoundsException</h4>
+The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException if length of the array in
+negative, equal to the array size or greater than the array size while traversing the array.`,
+      codeExamples: [
+`int arr[] = {50, 60, 70, 80};
+for(int i=0;i<=arr.length;i++){
+    System.out.println(arr[i]);
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Multidimensional Array</h4>
+• Stored in row and column format (matrix)<br>
+`,
+      codeExamples: [
+`int arr[][] = {
+    {1,2,3},
+    {2,4,5},
+    {4,4,5}
+};
+
+for(int i=0;i<3;i++){
+    for(int j=0;j<3;j++){
+        System.out.print(arr[i][j]+" ");
+    }
+    System.out.println();
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Jagged Array</h4>
+If we are creating odd number of columns in a 2D array, it is known as a jagged array. In other words, it
+is an array of arrays with different number of columns.`,
+      codeExamples: [
+`int arr[][] = new int[3][];
+arr[0] = new int[3];
+arr[1] = new int[4];
+arr[2] = new int[2];`
+      ]
+    },
+
+    {
+      content: `
+<h4>Copying an Array</h4>
+We can copy an array to another by the arraycopy() method of System class.
+`,
+      codeExamples: [
+`char[] src = {'d','e','c','a','f','f','e','i','n'};
+char[] dest = new char[7];
+
+System.arraycopy(src, 2, dest, 0, 7);
+System.out.println(String.valueOf(dest));`
+      ]
+    },
+
+    {
+      content: `
+<h4>Cloning an Array</h4>
+Since, Java array implements the Cloneable interface, we can create the clone of the Java array. If we
+create the clone of a single-dimensional array, it creates the deep copy of the Java array. It means, it will
+copy the actual value. But, if we create the clone of a multidimensional array, it creates the shallow copy
+of the Java array which means it copies the references.
+`,
+      codeExamples: [
+`int arr[] = {33, 3, 4, 5};
+int clone[] = arr.clone();
+
+System.out.println(arr == clone); // false`
+      ]
+    },
+
+    {
+      content: `
+<h4>Matrix Addition</h4>
+In the case of matrix multiplication, a one-row element of the first matrix is multiplied by all the
+columns of the second matrix which can be understood by the image given below.
+`,
+      codeExamples: [
+`int a[][] = {{1,3,4},{3,4,5}};
+int b[][] = {{1,3,4},{3,4,5}};
+int c[][] = new int[2][3];
+
+for(int i=0;i<2;i++){
+    for(int j=0;j<3;j++){
+        c[i][j] = a[i][j] + b[i][j];
+        System.out.print(c[i][j]+" ");
+    }
+    System.out.println();
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Matrix Multiplication</h4>
+`,
+      codeExamples: [
+`int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
+int b[][] = {{1,1,1},{2,2,2},{3,3,3}};
+int c[][] = new int[3][3];
+
+for(int i=0;i<3;i++){
+    for(int j=0;j<3;j++){
+        c[i][j]=0;
+        for(int k=0;k<3;k++){
+            c[i][j]+=a[i][k]*b[k][j];
+        }
+        System.out.print(c[i][j]+" ");
+    }
+    System.out.println();
+}`
+      ]
+    },
+
+    {
+      content: `
+<h4>Find 3rd Largest Element</h4>
+`,
+      codeExamples: [
+`Arrays.sort(a);
+System.out.println(a[a.length-3]);`
+      ]
+    },
+
+    {
+      content: `
+<div class="bg-secondary p-2 rounded-md">
+<h4>Important Interview Questions</h4>
+1. What is array?<br>
+2. Why array size is fixed?<br>
+3. Difference between array & collection<br>
+4. What is jagged array?<br>
+5. Array vs ArrayList<br>
+</div>
+`
+    }
+
+  ]
+},
+
+
+
+
+
+         {
+  id: `String in java`,
+  name: `String in Java`,
+
+  intermediate: [
+
+    {
+      content: `
+      String: 
+      It is the class that represents sequence of character.<br>
+Package: Java.lang.<br>
+Strings in Java are a sequence of characters, and they are one of the most commonly used data types
+for storing and manipulating text.<br>
+<img src="./src/assets/string.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+
+
+<b>Q. Why String is Immutable in Java?</b><br>
+• String is immutable, once a String object is created it cannot be changed.<br>
+• Any modification creates a <b>new String object</b>.<br>
+• Improves <b>security, memory efficiency, and thread safety</b>.<br><br>
+
+<b>CharSequence Interface</b><br>
+• Represents a sequence of characters.<br>
+• Implemented by String, StringBuffer, StringBuilder.<br>
+• Allows treating all three uniformly.<br>
+<img src="./src/assets/string2.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+
+`
+    },
+
+    {
+      content: `
+<h4>Creating String Objects</h4>
+1. String Literal<br>
+2. Using new keyword<br>
+3. Using Character Array<br>
+4. Using String Methods<br>
+`
+    },
+
+    {
+      content: `
+<h4>1. String Literal</h4>
+• Created using double quotes.<br>
+• Stored in <b>String Constant Pool</b>.<br>
+• JVM reuses existing objects for memory efficiency.<br>
+`,
+      codeExamples: [
+`String s1 = "pankaj";
+String s2 = "pankaj";
+System.out.println(s1 == s2); // true`
+      ]
+    },
+
+    {
+      content: `
+<h4>2. Using new Keyword</h4>
+• Always creates a new object in heap memory.<br>
+• Even if value exists in String Pool.<br>
+`,
+      codeExamples: [
+`String s1 = "pankaj";
+String s2 = new String("pankaj");
+
+System.out.println(s1 == s2);      // false
+System.out.println(s1.equals(s2)); // true`
+      ]
+    },
+
+    {
+      content: `
+<h4>String Immutability Example</h4>
+• concat() does not modify original String.<br>
+• New object is created.<br>
+`,
+      codeExamples: [
+`String s = "pankaj";
+s = s.concat("bhande");
+System.out.println(s); // pankajbhande`
+      ]
+    },
+
+    {
+      content: `
+<h4>String Manipulation Methods</h4>
+• length()<br>
+• concat()<br>
+• charAt()<br>
+• substring()<br>
+• toUpperCase()<br>
+• trim()<br>
+• replace()<br>
+`,
+      codeExamples: [
+`String original = "Code With Pankaj";
+
+System.out.println("Length: " + original.length());
+System.out.println("Concatenated: " + original.concat(" is fun!"));
+System.out.println("First Char: " + original.charAt(0));
+System.out.println("Substring: " + original.substring(5, 16));
+System.out.println("Uppercase: " + original.toUpperCase());
+System.out.println("Trimmed: " + " Java ".trim());
+System.out.println("Replaced: " + original.replace('a', '@'));`
+      ]
+    },
+
+    {
+      content: `
+<h4>String Comparison</h4>
+<b>3 Ways:</b><br>
+1. equals() → Content comparison<br>
+2. == → Reference comparison<br>
+3. compareTo() → Lexicographical comparison<br>
+<img src="./src/assets/string6.png" 
+     alt="String in Java" 
+     class="d-block mx-auto" />
+
+`,
+      codeExamples: [
+`String s1 = "Pankaj";
+String s2 = "Pankaj";
+String s3 = new String("Pankaj");
+
+System.out.println(s1.equals(s2)); // true
+System.out.println(s1 == s3);      // false`
+      ]
+    },
+
+    {
+      content: `
+<h4>compareTo() Example</h4>
+`,
+      codeExamples: [
+`String s1 = "Pankaj";
+String s2 = "Pankaj";
+String s3 = "Dheeraj";
+
+System.out.println(s1.compareTo(s2)); // 0
+System.out.println(s1.compareTo(s3)); // positive
+System.out.println(s3.compareTo(s1)); // negative`
+      ]
+    },
+
+    {
+      content: `
+<h4>String Concatenation Techniques</h4>
+1. + operator<br>
+2. concat() method<br>
+3. StringBuilder<br>
+4. String.format()<br>
+5. String.join()<br>
+`,
+      codeExamples: [
+`String s = "Pankaj" + " Bhande";
+System.out.println(s);`,
+
+`StringBuilder sb = new StringBuilder("Hello");
+sb.append(" Pankaj");
+System.out.println(sb.toString());`
+      ]
+    },
+
+    {
+      content: `
+<h4>Concatenation Using format()</h4>
+`,
+      codeExamples: [
+`String s1 = "Hello";
+String s2 = " Pankaj";
+String s = String.format("%s%s", s1, s2);
+System.out.println(s);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Concatenation Using String.join()</h4>
+`,
+      codeExamples: [
+`String s = String.join("", "Hello", " Pankaj");
+System.out.println(s);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Concatenation Using StringJoiner</h4>
+`,
+      codeExamples: [
+`StringJoiner sj = new StringJoiner(", ");
+sj.add("Hello");
+sj.add("Pankaj");
+System.out.println(sj.toString());`
+      ]
+    },
+
+    {
+      content: `
+<h4>Character Array to String</h4>
+• String can be created from char array.<br>
+• Char array is mutable, String is immutable.<br>
+`,
+      codeExamples: [
+`char[] arr = {'H','e','l','l','o'};
+String str = new String(arr);
+System.out.println(str);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Counting Spaces in String</h4>
+`,
+      codeExamples: [
+`String str = "Code With Pankaj";
+int count = 0;
+
+for(int i=0;i<str.length();i++){
+    if(str.charAt(i)==' '){
+        count++;
+    }
+}
+System.out.println("Total spaces: " + count);`
+      ]
+    },
+
+    {
+      content: `
+<h4>Why String is Immutable? (Interview)</h4>
+1. ClassLoader safety<br>
+2. Thread safety<br>
+3. Security (passwords, DB URLs)<br>
+4. Heap memory optimization<br>
+`
+    },
+
+    {
+      content: `
+<h4>Difference Between String, StringBuffer, StringBuilder</h4>
+• String → Immutable, Thread-safe<br>
+• StringBuffer → Mutable, Thread-safe<br>
+• StringBuilder → Mutable, Fastest, Not Thread-safe<br>
+`
+    },
+
+    {
+      content: `
+<div class="bg-secondary p-2 rounded-md">
+<h4>Important Interview Questions</h4>
+1. Why String is immutable?<br>
+2. What is String Constant Pool?<br>
+3. == vs equals()<br>
+4. StringBuffer vs StringBuilder<br>
+5. How JVM handles + operator?<br>
+</div>
+`
+    }
+  ]
+},
+
+
+           
+          
+
+
+
+
+
+
+
+
+>>>>>>> 13c3bd2 (looping statement and packages data added)
 
           {
             id: `Contructor in java`,
