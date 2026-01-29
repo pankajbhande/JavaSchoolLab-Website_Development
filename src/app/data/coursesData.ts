@@ -160,7 +160,7 @@ public class CustomClassLoader extends ClassLoader {
             name: 'Features of Java',
             beginner: [
               {
-                content:`Java has certain traits that make it an excellent choice for development as a Programming Language.
+                content: `Java has certain traits that make it an excellent choice for development as a Programming Language.
                 It is commonly utilised in mobile development, chatbots and DevOps.<br><br>
                 
 <h4>Some common Features of Java that make it so popular with developers are as follows:</h4>
@@ -932,9 +932,9 @@ public static void main(String args[]) {
               },
             ],
 
-            intermediate:[
+            intermediate: [
               {
-                content:`We can apply default access Specifiers or final on local variable. <br><br>
+                content: `We can apply default access Specifiers or final on local variable. <br><br>
 
 <table class="w-full border border-gray-700 border-collapse [&_th]:border [&_td]:border [&_td]:px-2  [&_th]:py-2  ">
 <tr>
@@ -1658,15 +1658,13 @@ default:    System.out.println("Invalid input"); // Statement
               }
             ]
           },
-<<<<<<< HEAD
-=======
 
           {
-  id: 'Looping Statements',
-  name: 'Looping Statements',
-  beginner: [
-    {
-      content: `
+            id: 'Looping Statements',
+            name: 'Looping Statements',
+            beginner: [
+              {
+                content: `
       Loops are used to execute a set of instructions repeatedly when some conditions become true.<br><br>
       In Java, looping statements help us avoid writing the same code multiple times and improve code efficiency.<br><br>
       There are 3 types of loops in Java:<br>
@@ -1674,11 +1672,11 @@ default:    System.out.println("Invalid input"); // Statement
       2) While Loop<br>
       3) Do While Loop
       `
-    }
-  ],
-  intermediate: [
-    {
-      content: `
+              }
+            ],
+            intermediate: [
+              {
+                content: `
       <h2>1) For Loop</h2>
       For loop in Java is used to iterate and evaluate a block of code multiple times.<br><br>
        
@@ -1694,8 +1692,8 @@ default:    System.out.println("Invalid input"); // Statement
         }
       </div>
       `,
-      codeExamples: [
-        `
+                codeExamples: [
+                  `
         public class Code_With_Pankaj {
           public static void main(String[] args) {
             for (int i = 1; i <= 5; i++) {
@@ -1704,7 +1702,7 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `,
-        `
+                  `
         public class Code_With_Pankaj {
           public static void main(String[] args) {
             for (int j = 10; j > 0; j--) {
@@ -1713,10 +1711,10 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `
-      ]
-    },
-    {
-      content: `
+                ]
+              },
+              {
+                content: `
       <h2>2) While Loop</h2>
       The while loop evaluates a condition before executing the loop body.<br>
       If the condition is true, the loop continues; otherwise, it stops.<br><br>
@@ -1735,8 +1733,8 @@ default:    System.out.println("Invalid input"); // Statement
         }
       </div>
       `,
-      codeExamples: [
-        `
+                codeExamples: [
+                  `
         public class Code_With_Pankaj {
           public static void main(String[] args) {
             int i = 1;
@@ -1747,7 +1745,7 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `,
-        `
+                  `
         public class Code_With_Pankaj {
           public static void main(String[] args) {
             int i = 10;
@@ -1758,10 +1756,10 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `
-      ]
-    },
-    {
-      content: `
+                ]
+              },
+              {
+                content: `
       <h2>3) Do While Loop</h2>
       The do-while loop is similar to the while loop, but the condition is checked after executing the loop body.<br>
       This guarantees that the loop runs at least once.<br><br>
@@ -1780,8 +1778,8 @@ default:    System.out.println("Invalid input"); // Statement
         } while (condition);
       </div>
       `,
-      codeExamples: [
-        `
+                codeExamples: [
+                  `
         public class Looping {
           public static void main(String[] args) {
             int i = 1;
@@ -1792,14 +1790,14 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `
-      ]
-    },
-    {
-      content: `
+                ]
+              },
+              {
+                content: `
       <h2>All In One Program (For Loop, While Loop, Do While Loop)</h2>
       `,
-      codeExamples: [
-        `
+                codeExamples: [
+                  `
         package com.example;
 
         public class Code_With_Pankaj {
@@ -1826,17 +1824,17 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `
-      ]
-    }
-  ]
-},
+                ]
+              }
+            ]
+          },
 
-{
-  id: 'Packages',
-  name: 'Packages',
-  beginner: [
-    {
-      content: `
+          {
+            id: 'Packages',
+            name: 'Packages',
+            beginner: [
+              {
+                content: `
       Package is nothing but a collection of classes and interfaces that work together, called a package.<br><br>
 
       <b>Default Package:</b> java.lang<br>
@@ -1851,11 +1849,11 @@ default:    System.out.println("Invalid input"); // Statement
       • Reusability – Common code can be reused.<br>
       • Maintenance – Easy for new developers or testers to find files.
       `
-    }
-  ],
-  intermediate: [
-    {
-      content: `
+              }
+            ],
+            intermediate: [
+              {
+                content: `
       <h2>Types of Packages in Java</h2>
       There are two types of packages in Java:<br>
       1) User-defined Package<br>
@@ -1891,9 +1889,9 @@ android module.<br>
 
       <b>Note:</b> Package names are written in lowercase only.
       `
-    },
-    {
-      content: `
+              },
+              {
+                content: `
       <h2>Import Statement</h2>
       When we use one class inside another class from a different package, we use the import statement.<br><br>
 
@@ -1905,8 +1903,8 @@ android module.<br>
       import com.p1.*;     // correct (imports all classes)<br>
       import com.p1;       // wrong
       `,
-      codeExamples: [
-        `
+                codeExamples: [
+                  `
         package com.p1;
         public class Test {
           public void m1() {
@@ -1914,7 +1912,7 @@ android module.<br>
           }
         }
         `,
-        `
+                  `
         package com.p2;
         import com.p1.Test;
 
@@ -1925,10 +1923,10 @@ android module.<br>
           }
         }
         `
-      ]
-    },
-    {
-      content: `
+                ]
+              },
+              {
+                content: `
       <h2>Scanner in Java</h2>
 Scanner is a class in java.util package used for obtaining the input of the primitive types like int,
 double, and strings etc.<br>
@@ -1947,11 +1945,11 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
                      <img src="/src/assets/package 2.png" alt="Online Image"class="d-block mx-auto"/>
 
       `
-    },
-    {
-      content: `<h2>Scanner Examples</h2>`,
-      codeExamples: [
-        `
+              },
+              {
+                content: `<h2>Scanner Examples</h2>`,
+                codeExamples: [
+                  `
         package com.test;
         import java.util.Scanner;
 
@@ -1964,7 +1962,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                  `
         package com.test;
         import java.util.Scanner;
 
@@ -1977,7 +1975,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                  `
         package com.test;
         import java.util.Scanner;
 
@@ -1990,7 +1988,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                  `
         package com.test;
         import java.util.Scanner;
 
@@ -2003,7 +2001,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                  `
         package com.test;
         import java.math.BigDecimal;
         import java.math.BigInteger;
@@ -2021,7 +2019,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                  `
         package com.test;
         import java.util.Scanner;
 
@@ -2052,22 +2050,20 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `
-      ]
-    }
-  ]
-},
+                ]
+              }
+            ]
+          },
 
-
-          
 
           {
-  id: `Array in java`,
-  name: `Array in Java`,
+            id: `Array in java`,
+            name: `Array in Java`,
 
-  intermediate: [
+            intermediate: [
 
-    {
-      content: `
+              {
+                content: `
 <b>Array</b><br>
 • Array is a collection of similar type of elements stored in contiguous memory locations.<br>
 • Java array is an object that contains elements of the same data type.<br>
@@ -2076,10 +2072,10 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
                <img src="/src/assets/Array1.png" alt="Online Image"class="d-block mx-auto"/>
 
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Advantages of Array</h4>
 • Code Optimization – efficient data access and sorting<br>
 • Random Access – direct access using index<br><br>
@@ -2089,32 +2085,32 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
 • Memory wastage may occur<br>
 • Collection framework overcomes this limitation<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Types of Arrays in Java</h4>
 1. Single Dimensional Array<br>
 2. Multidimensional Array<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Single Dimensional Array</h4>
 <b>Declaration Syntax</b><br>
 1. dataType[] arr;<br>
 2. dataType []arr;<br>
 3. dataType arr[];<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Array Declaration, Instantiation & Initialization</h4>
 `,
-      codeExamples: [
-`int a[] = new int[5];
+                codeExamples: [
+                  `int a[] = new int[5];
 a[0] = 10;
 a[1] = 20;
 a[2] = 30;
@@ -2124,44 +2120,44 @@ a[4] = 50;
 for(int i=0;i<a.length;i++){
     System.out.println(a[i]);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Array Initialization in Single Line</h4>
 `,
-      codeExamples: [
-`int a[] = {10, 20, 30};
+                codeExamples: [
+                  `int a[] = {10, 20, 30};
 
 for(int i=0;i<a.length;i++){
     System.out.println(a[i]);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>For-each Loop with Array</h4>
 We can also print the Java array using for-each loop. The Java for-each loop prints the array elements
 one by one. It holds an array element in a variable, then executes the body of the loop.
 `,
-      codeExamples: [
-`int arr[] = {10, 20, 30, 40};
+                codeExamples: [
+                  `int arr[] = {10, 20, 30, 40};
 
 for(int i : arr){
     System.out.println(i);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Passing Array to Method</h4>
 We can pass the java array to method so that we can reuse the same logic on any array.
 `,
-      codeExamples: [
-`static void min(int arr[]){
+                codeExamples: [
+                  `static void min(int arr[]){
     int min = arr[0];
     for(int i=1;i<arr.length;i++){
         if(min > arr[i])
@@ -2172,27 +2168,27 @@ We can pass the java array to method so that we can reuse the same logic on any 
 
 int a[] = {33, 3, 4, 5};
 min(a);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Anonymous Array</h4>
 Java supports the feature of an anonymous array, so you don't need to declare the array while passing an
 array to the method.
 `,
-      codeExamples: [
-`printArray(new int[]{10, 22, 44, 66});`
-      ]
-    },
+                codeExamples: [
+                  `printArray(new int[]{10, 22, 44, 66});`
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Returning Array from Method</h4>
 We can also return an array from the method in Java.
 `,
-      codeExamples: [
-`static int[] get(){
+                codeExamples: [
+                  `static int[] get(){
     return new int[]{10, 30, 50, 90, 60};
 }
 
@@ -2200,29 +2196,29 @@ int arr[] = get();
 for(int i : arr){
     System.out.println(i);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>ArrayIndexOutOfBoundsException</h4>
 The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException if length of the array in
 negative, equal to the array size or greater than the array size while traversing the array.`,
-      codeExamples: [
-`int arr[] = {50, 60, 70, 80};
+                codeExamples: [
+                  `int arr[] = {50, 60, 70, 80};
 for(int i=0;i<=arr.length;i++){
     System.out.println(arr[i]);
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Multidimensional Array</h4>
 • Stored in row and column format (matrix)<br>
 `,
-      codeExamples: [
-`int arr[][] = {
+                codeExamples: [
+                  `int arr[][] = {
     {1,2,3},
     {2,4,5},
     {4,4,5}
@@ -2234,60 +2230,60 @@ for(int i=0;i<3;i++){
     }
     System.out.println();
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Jagged Array</h4>
 If we are creating odd number of columns in a 2D array, it is known as a jagged array. In other words, it
 is an array of arrays with different number of columns.`,
-      codeExamples: [
-`int arr[][] = new int[3][];
+                codeExamples: [
+                  `int arr[][] = new int[3][];
 arr[0] = new int[3];
 arr[1] = new int[4];
 arr[2] = new int[2];`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Copying an Array</h4>
 We can copy an array to another by the arraycopy() method of System class.
 `,
-      codeExamples: [
-`char[] src = {'d','e','c','a','f','f','e','i','n'};
+                codeExamples: [
+                  `char[] src = {'d','e','c','a','f','f','e','i','n'};
 char[] dest = new char[7];
 
 System.arraycopy(src, 2, dest, 0, 7);
 System.out.println(String.valueOf(dest));`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Cloning an Array</h4>
 Since, Java array implements the Cloneable interface, we can create the clone of the Java array. If we
 create the clone of a single-dimensional array, it creates the deep copy of the Java array. It means, it will
 copy the actual value. But, if we create the clone of a multidimensional array, it creates the shallow copy
 of the Java array which means it copies the references.
 `,
-      codeExamples: [
-`int arr[] = {33, 3, 4, 5};
+                codeExamples: [
+                  `int arr[] = {33, 3, 4, 5};
 int clone[] = arr.clone();
 
 System.out.println(arr == clone); // false`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Matrix Addition</h4>
 In the case of matrix multiplication, a one-row element of the first matrix is multiplied by all the
 columns of the second matrix which can be understood by the image given below.
 `,
-      codeExamples: [
-`int a[][] = {{1,3,4},{3,4,5}};
+                codeExamples: [
+                  `int a[][] = {{1,3,4},{3,4,5}};
 int b[][] = {{1,3,4},{3,4,5}};
 int c[][] = new int[2][3];
 
@@ -2298,15 +2294,15 @@ for(int i=0;i<2;i++){
     }
     System.out.println();
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Matrix Multiplication</h4>
 `,
-      codeExamples: [
-`int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
+                codeExamples: [
+                  `int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
 int b[][] = {{1,1,1},{2,2,2},{3,3,3}};
 int c[][] = new int[3][3];
 
@@ -2320,21 +2316,21 @@ for(int i=0;i<3;i++){
     }
     System.out.println();
 }`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Find 3rd Largest Element</h4>
 `,
-      codeExamples: [
-`Arrays.sort(a);
+                codeExamples: [
+                  `Arrays.sort(a);
 System.out.println(a[a.length-3]);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. What is array?<br>
@@ -2344,23 +2340,20 @@ System.out.println(a[a.length-3]);`
 5. Array vs ArrayList<br>
 </div>
 `
-    }
+              }
 
-  ]
-},
-
-
+            ]
+          },
 
 
+          {
+            id: `String in java`,
+            name: `String in Java`,
 
-         {
-  id: `String in java`,
-  name: `String in Java`,
+            intermediate: [
 
-  intermediate: [
-
-    {
-      content: `
+              {
+                content: `
       String: 
       It is the class that represents sequence of character.<br>
 Package: Java.lang.<br>
@@ -2385,62 +2378,62 @@ for storing and manipulating text.<br>
      class="d-block mx-auto" />
 
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Creating String Objects</h4>
 1. String Literal<br>
 2. Using new keyword<br>
 3. Using Character Array<br>
 4. Using String Methods<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>1. String Literal</h4>
 • Created using double quotes.<br>
 • Stored in <b>String Constant Pool</b>.<br>
 • JVM reuses existing objects for memory efficiency.<br>
 `,
-      codeExamples: [
-`String s1 = "pankaj";
+                codeExamples: [
+                  `String s1 = "pankaj";
 String s2 = "pankaj";
 System.out.println(s1 == s2); // true`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>2. Using new Keyword</h4>
 • Always creates a new object in heap memory.<br>
 • Even if value exists in String Pool.<br>
 `,
-      codeExamples: [
-`String s1 = "pankaj";
+                codeExamples: [
+                  `String s1 = "pankaj";
 String s2 = new String("pankaj");
 
 System.out.println(s1 == s2);      // false
 System.out.println(s1.equals(s2)); // true`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>String Immutability Example</h4>
 • concat() does not modify original String.<br>
 • New object is created.<br>
 `,
-      codeExamples: [
-`String s = "pankaj";
+                codeExamples: [
+                  `String s = "pankaj";
 s = s.concat("bhande");
 System.out.println(s); // pankajbhande`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>String Manipulation Methods</h4>
 • length()<br>
 • concat()<br>
@@ -2450,8 +2443,8 @@ System.out.println(s); // pankajbhande`
 • trim()<br>
 • replace()<br>
 `,
-      codeExamples: [
-`String original = "Code With Pankaj";
+                codeExamples: [
+                  `String original = "Code With Pankaj";
 
 System.out.println("Length: " + original.length());
 System.out.println("Concatenated: " + original.concat(" is fun!"));
@@ -2460,11 +2453,11 @@ System.out.println("Substring: " + original.substring(5, 16));
 System.out.println("Uppercase: " + original.toUpperCase());
 System.out.println("Trimmed: " + " Java ".trim());
 System.out.println("Replaced: " + original.replace('a', '@'));`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>String Comparison</h4>
 <b>3 Ways:</b><br>
 1. equals() → Content comparison<br>
@@ -2475,33 +2468,33 @@ System.out.println("Replaced: " + original.replace('a', '@'));`
      class="d-block mx-auto" />
 
 `,
-      codeExamples: [
-`String s1 = "Pankaj";
+                codeExamples: [
+                  `String s1 = "Pankaj";
 String s2 = "Pankaj";
 String s3 = new String("Pankaj");
 
 System.out.println(s1.equals(s2)); // true
 System.out.println(s1 == s3);      // false`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>compareTo() Example</h4>
 `,
-      codeExamples: [
-`String s1 = "Pankaj";
+                codeExamples: [
+                  `String s1 = "Pankaj";
 String s2 = "Pankaj";
 String s3 = "Dheeraj";
 
 System.out.println(s1.compareTo(s2)); // 0
 System.out.println(s1.compareTo(s3)); // positive
 System.out.println(s3.compareTo(s1)); // negative`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>String Concatenation Techniques</h4>
 1. + operator<br>
 2. concat() method<br>
@@ -2509,69 +2502,69 @@ System.out.println(s3.compareTo(s1)); // negative`
 4. String.format()<br>
 5. String.join()<br>
 `,
-      codeExamples: [
-`String s = "Pankaj" + " Bhande";
+                codeExamples: [
+                  `String s = "Pankaj" + " Bhande";
 System.out.println(s);`,
 
-`StringBuilder sb = new StringBuilder("Hello");
+                  `StringBuilder sb = new StringBuilder("Hello");
 sb.append(" Pankaj");
 System.out.println(sb.toString());`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Concatenation Using format()</h4>
 `,
-      codeExamples: [
-`String s1 = "Hello";
+                codeExamples: [
+                  `String s1 = "Hello";
 String s2 = " Pankaj";
 String s = String.format("%s%s", s1, s2);
 System.out.println(s);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Concatenation Using String.join()</h4>
 `,
-      codeExamples: [
-`String s = String.join("", "Hello", " Pankaj");
+                codeExamples: [
+                  `String s = String.join("", "Hello", " Pankaj");
 System.out.println(s);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Concatenation Using StringJoiner</h4>
 `,
-      codeExamples: [
-`StringJoiner sj = new StringJoiner(", ");
+                codeExamples: [
+                  `StringJoiner sj = new StringJoiner(", ");
 sj.add("Hello");
 sj.add("Pankaj");
 System.out.println(sj.toString());`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Character Array to String</h4>
 • String can be created from char array.<br>
 • Char array is mutable, String is immutable.<br>
 `,
-      codeExamples: [
-`char[] arr = {'H','e','l','l','o'};
+                codeExamples: [
+                  `char[] arr = {'H','e','l','l','o'};
 String str = new String(arr);
 System.out.println(str);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Counting Spaces in String</h4>
 `,
-      codeExamples: [
-`String str = "Code With Pankaj";
+                codeExamples: [
+                  `String str = "Code With Pankaj";
 int count = 0;
 
 for(int i=0;i<str.length();i++){
@@ -2580,30 +2573,30 @@ for(int i=0;i<str.length();i++){
     }
 }
 System.out.println("Total spaces: " + count);`
-      ]
-    },
+                ]
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Why String is Immutable? (Interview)</h4>
 1. ClassLoader safety<br>
 2. Thread safety<br>
 3. Security (passwords, DB URLs)<br>
 4. Heap memory optimization<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <h4>Difference Between String, StringBuffer, StringBuilder</h4>
 • String → Immutable, Thread-safe<br>
 • StringBuffer → Mutable, Thread-safe<br>
 • StringBuilder → Mutable, Fastest, Not Thread-safe<br>
 `
-    },
+              },
 
-    {
-      content: `
+              {
+                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. Why String is immutable?<br>
@@ -2613,22 +2606,9 @@ System.out.println("Total spaces: " + count);`
 5. How JVM handles + operator?<br>
 </div>
 `
-    }
-  ]
-},
-
-
-           
-          
-
-
-
-
-
-
-
-
->>>>>>> 13c3bd2 (looping statement and packages data added)
+              }
+            ]
+          },
 
           {
             id: `Contructor in java`,
@@ -5231,7 +5211,7 @@ class Example {
 
         ]
       },
-      
+
       {
         id: 'oop',
         name: 'OOPS Concept',
