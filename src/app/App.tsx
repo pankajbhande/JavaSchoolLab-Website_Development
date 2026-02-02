@@ -1,5 +1,322 @@
 
-import { useState, useRef, useEffect } from 'react';
+// import { useState, useRef, useEffect } from 'react';
+// import { Header } from './components/Header';
+// import { Sidebar } from './components/Sidebar';
+// import { ContentArea } from './components/ContentArea';
+// import { RightSidebar } from './components/RightSidebar';
+// import { Dashboard } from './components/Dashboard';
+// import { TopicsBar } from './components/TopicsBar';
+// import { ThemeProvider } from './components/ThemeProvider';
+// import { coursesData } from './data/coursesData';
+// import { MySQLCSS } from './data/MySQLCSS';
+
+
+
+// function AppContent() {
+//   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
+//   const [selectedSubTopicId, setSelectedSubTopicId] = useState<string | null>(null);
+//   const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
+//   const [difficulty, setDifficulty] = useState<'beginner' | 'intermediate' | 'expert'>('beginner');
+//   const [isSpeaking, setIsSpeaking] = useState(false);
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [voiceGender, setVoiceGender] = useState<'male' | 'female'>('female');
+//   const [leftSidebarMinimized, setLeftSidebarMinimized] = useState(false);
+//   const [rightSidebarMinimized, setRightSidebarMinimized] = useState(false);
+//   const contentRef = useRef<HTMLDivElement>(null);
+//   const speechSynthesisRef = useRef<SpeechSynthesisUtterance | null>(null);
+
+//   // Get selected course, subtopic, and topic
+//   const selectedCourse = selectedCourseId
+//     ? coursesData.find(c => c.id === selectedCourseId) || null
+//     : null;
+
+//   const selectedSubTopic = selectedCourse && selectedSubTopicId
+//     ? selectedCourse.subTopics.find(st => st.id === selectedSubTopicId) || null
+//     : null;
+
+//   const selectedTopic = selectedSubTopic && selectedTopicId
+//     ? selectedSubTopic.topics.find(t => t.id === selectedTopicId) || null
+//     : null;
+
+//   // All topics of selected subtopic
+//   const topicsList = selectedSubTopic ? selectedSubTopic.topics : [];
+
+//   // Current topic index
+//   const currentTopicIndex = topicsList.findIndex(
+//     t => t.id === selectedTopicId
+//   );
+
+//   const prevTopicName =
+//     currentTopicIndex > 0 ? topicsList[currentTopicIndex - 1].name : undefined;
+
+//   const nextTopicName =
+//     currentTopicIndex < topicsList.length - 1
+//       ? topicsList[currentTopicIndex + 1].name
+//       : undefined;
+
+
+
+//   // Text-to-speech functionality with voice selection
+//   const toggleSpeech = () => {
+//     if (!contentRef.current) return;
+
+//     if (isSpeaking) {
+//       // Stop speaking
+//       window.speechSynthesis.cancel();
+//       setIsSpeaking(false);
+//     } else {
+//       // Start speaking
+//       const textContent = contentRef.current.innerText;
+
+//       if ('speechSynthesis' in window) {
+//         const utterance = new SpeechSynthesisUtterance(textContent);
+//         utterance.rate = 0.9;
+//         utterance.pitch = 1;
+//         utterance.volume = 1;
+
+//         // Try to select Indian voice
+//         const voices = window.speechSynthesis.getVoices();
+//         const indianVoice = voices.find(voice => {
+//           const voiceName = voice.name.toLowerCase();
+//           const isIndian = voiceName.includes('indian') || voiceName.includes('hindi') || voiceName.includes('en-in');
+//           const matchesGender = voiceGender === 'female'
+//             ? voiceName.includes('female') || voiceName.includes('woman') || !voiceName.includes('male')
+//             : voiceName.includes('male') || voiceName.includes('man');
+//           return isIndian && matchesGender;
+//         });
+
+//         if (indianVoice) {
+//           utterance.voice = indianVoice;
+//         } else {
+//           // Fallback to any voice matching gender
+//           const genderVoice = voices.find(voice => {
+//             const voiceName = voice.name.toLowerCase();
+//             return voiceGender === 'female'
+//               ? !voiceName.includes('male') || voiceName.includes('female')
+//               : voiceName.includes('male');
+//           });
+//           if (genderVoice) {
+//             utterance.voice = genderVoice;
+//           }
+//         }
+
+//         utterance.onend = () => {
+//           setIsSpeaking(false);
+//         };
+
+//         utterance.onerror = () => {
+//           setIsSpeaking(false);
+//         };
+
+//         speechSynthesisRef.current = utterance;
+//         window.speechSynthesis.speak(utterance);
+//         setIsSpeaking(true);
+//       } else {
+//         alert('Text-to-speech is not supported in your browser.');
+//       }
+//     }
+//   };
+
+//   // Load voices
+//   useEffect(() => {
+//     if ('speechSynthesis' in window) {
+//       window.speechSynthesis.getVoices();
+//       window.speechSynthesis.onvoiceschanged = () => {
+//         window.speechSynthesis.getVoices();
+//       };
+//     }
+//   }, []);
+
+//   // Stop speech when content changes
+//   useEffect(() => {
+//     if (isSpeaking) {
+//       window.speechSynthesis.cancel();
+//       setIsSpeaking(false);
+//     }
+//   }, [selectedTopicId, difficulty]);
+
+//   // Cleanup on unmount
+//   useEffect(() => {
+//     return () => {
+//       window.speechSynthesis.cancel();
+//     };
+//   }, []);
+
+//   const handleCourseSelect = (courseId: string) => {
+//     setSelectedCourseId(courseId);
+//     setSelectedSubTopicId(null);
+//     setSelectedTopicId(null);
+//     setDifficulty('beginner');
+//   };
+
+//   const handleSubTopicSelect = (subTopicId: string) => {
+//     setSelectedSubTopicId(subTopicId);
+//     setSelectedTopicId(null);
+//     setDifficulty('beginner');
+//   };
+
+//   // const handleTopicSelect = (topicId: string) => {
+//   //   setSelectedTopicId(topicId);
+//   //   setDifficulty('beginner');
+//   //   // Smooth scroll to top of content
+//   //   setTimeout(() => {
+//   //     if (contentRef.current) {
+//   //       contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+//   //     }
+//   //   }, 100);
+//   // };
+
+//   const handleTopicSelect = (topicId: string) => {
+//     // Find parent course and subtopic
+//     let parentCourseId: string | null = null;
+//     let parentSubTopicId: string | null = null;
+
+//     for (const course of coursesData) {
+//       for (const subTopic of course.subTopics) {
+//         if (subTopic.topics.some(topic => topic.id === topicId)) {
+//           parentCourseId = course.id;
+//           parentSubTopicId = subTopic.id;
+//           break;
+//         }
+//       }
+//       if (parentCourseId) break;
+//     }
+
+//     if (parentCourseId) setSelectedCourseId(parentCourseId);
+//     if (parentSubTopicId) setSelectedSubTopicId(parentSubTopicId);
+
+//     setSelectedTopicId(topicId);
+//     setDifficulty('beginner');
+
+//     // Smooth scroll to top
+//     setTimeout(() => {
+//       if (contentRef.current) {
+//         contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+//       }
+//     }, 100);
+//   };
+
+//   const handlePrevTopic = () => {
+//     if (currentTopicIndex > 0) {
+//       const prevTopic = topicsList[currentTopicIndex - 1];
+//       handleTopicSelect(prevTopic.id);
+//     }
+//   };
+
+//   const handleNextTopic = () => {
+//     if (currentTopicIndex < topicsList.length - 1) {
+//       const nextTopic = topicsList[currentTopicIndex + 1];
+//       handleTopicSelect(nextTopic.id);
+//     }
+//   };
+
+
+//   const handleDifficultyChange = (newDifficulty: 'beginner' | 'intermediate' | 'expert') => {
+//     setDifficulty(newDifficulty);
+//     // Smooth scroll to top of content when difficulty changes
+//     setTimeout(() => {
+//       if (contentRef.current) {
+//         contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+//       }
+//     }, 100);
+//   };
+
+//   const handleSearch = (query: string) => {
+//     setSearchQuery(query);
+//   };
+
+//   // Filter courses based on search query
+//   const filteredCourses = searchQuery
+//     ? coursesData.filter(course =>
+//       course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+//       course.subTopics.some(subTopic =>
+//         subTopic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+//         subTopic.topics.some(topic =>
+//           topic.name.toLowerCase().includes(searchQuery.toLowerCase())
+//         )
+//       )
+//     )
+//     : coursesData;
+
+//   const showDashboard = !selectedCourseId;
+
+
+
+//   return (
+//     <div className="h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
+//       <Header
+//         onToggleSpeech={toggleSpeech}
+//         isSpeaking={isSpeaking}
+//         onSearch={handleSearch}
+//         voiceGender={voiceGender}
+//         onVoiceChange={setVoiceGender}
+//       />
+
+//       {!showDashboard && (
+//         <TopicsBar
+//           courses={filteredCourses}
+//           onCourseSelect={handleCourseSelect}
+//           selectedCourseId={selectedCourseId}
+//         />
+//       )}
+
+//       <div className="flex flex-1 overflow-hidden">
+//         {!showDashboard && (
+//           <Sidebar
+//             courses={filteredCourses}
+//             selectedCourse={selectedCourseId}
+//             selectedSubTopic={selectedSubTopicId}
+//             selectedTopic={selectedTopicId}
+//             onCourseSelect={handleCourseSelect}
+//             onSubTopicSelect={handleSubTopicSelect}
+//             onTopicSelect={handleTopicSelect}
+//             searchQuery={searchQuery}
+//             isMinimized={leftSidebarMinimized}
+//             onToggleMinimize={() => setLeftSidebarMinimized(!leftSidebarMinimized)}
+//           />
+//         )}
+
+//         {showDashboard ? (
+//           <Dashboard onCourseSelect={handleCourseSelect} />
+//         ) : (
+//           <ContentArea
+//             course={selectedCourse}
+//             topic={selectedTopic}
+//             difficulty={difficulty}
+//             onDifficultyChange={handleDifficultyChange}
+//             contentRef={contentRef}
+//             onPrevTopic={handlePrevTopic}
+//             onNextTopic={handleNextTopic}
+//             hasPrev={currentTopicIndex > 0}
+//             hasNext={currentTopicIndex < topicsList.length - 1}
+//             prevTopicName={prevTopicName}
+//             nextTopicName={nextTopicName}
+
+
+//           />
+//         )}
+
+//         {!showDashboard && (
+//           <RightSidebar
+//             course={selectedCourse}
+//             isMinimized={rightSidebarMinimized}
+//             onToggleMinimize={() => setRightSidebarMinimized(!rightSidebarMinimized)}
+//           />
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default function App() {
+//   return (
+//     <ThemeProvider>
+//       <AppContent />
+//     </ThemeProvider>
+//   );
+// }
+
+import { useState, useRef } from 'react';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { ContentArea } from './components/ContentArea';
@@ -7,24 +324,35 @@ import { RightSidebar } from './components/RightSidebar';
 import { Dashboard } from './components/Dashboard';
 import { TopicsBar } from './components/TopicsBar';
 import { ThemeProvider } from './components/ThemeProvider';
+
 import { coursesData } from './data/coursesData';
+import { MySQLCSS } from './data/MySQLCSS'; //
+import { JDBC } from './data/JDBC'; 
 
 function AppContent() {
+  // ✅ MERGED COURSES
+  const courses = [...coursesData, ...MySQLCSS,...JDBC];
+
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
   const [selectedSubTopicId, setSelectedSubTopicId] = useState<string | null>(null);
   const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
-  const [difficulty, setDifficulty] = useState<'beginner' | 'intermediate' | 'expert'>('beginner');
+  const [difficulty, setDifficulty] =
+    useState<'beginner' | 'intermediate' | 'expert'>('beginner');
+
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [voiceGender, setVoiceGender] = useState<'male' | 'female'>('female');
+
   const [leftSidebarMinimized, setLeftSidebarMinimized] = useState(false);
   const [rightSidebarMinimized, setRightSidebarMinimized] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const speechSynthesisRef = useRef<SpeechSynthesisUtterance | null>(null);
 
-  // Get selected course, subtopic, and topic
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // =========================
+  // SELECTION
+  // =========================
   const selectedCourse = selectedCourseId
-    ? coursesData.find(c => c.id === selectedCourseId) || null
+    ? courses.find(c => c.id === selectedCourseId) || null
     : null;
 
   const selectedSubTopic = selectedCourse && selectedSubTopicId
@@ -32,16 +360,11 @@ function AppContent() {
     : null;
 
   const selectedTopic = selectedSubTopic && selectedTopicId
-    ? selectedSubTopic.topics.find(t => t.id === selectedTopicId) || null
+    ? selectedSubTopic.topics?.find(t => t.id === selectedTopicId) || null
     : null;
 
-  // All topics of selected subtopic
-  const topicsList = selectedSubTopic ? selectedSubTopic.topics : [];
-
-  // Current topic index
-  const currentTopicIndex = topicsList.findIndex(
-    t => t.id === selectedTopicId
-  );
+  const topicsList = selectedSubTopic?.topics || [];
+  const currentTopicIndex = topicsList.findIndex(t => t.id === selectedTopicId);
 
   const prevTopicName =
     currentTopicIndex > 0 ? topicsList[currentTopicIndex - 1].name : undefined;
@@ -51,198 +374,59 @@ function AppContent() {
       ? topicsList[currentTopicIndex + 1].name
       : undefined;
 
-
-
-  // Text-to-speech functionality with voice selection
-  const toggleSpeech = () => {
-    if (!contentRef.current) return;
-
-    if (isSpeaking) {
-      // Stop speaking
-      window.speechSynthesis.cancel();
-      setIsSpeaking(false);
-    } else {
-      // Start speaking
-      const textContent = contentRef.current.innerText;
-
-      if ('speechSynthesis' in window) {
-        const utterance = new SpeechSynthesisUtterance(textContent);
-        utterance.rate = 0.9;
-        utterance.pitch = 1;
-        utterance.volume = 1;
-
-        // Try to select Indian voice
-        const voices = window.speechSynthesis.getVoices();
-        const indianVoice = voices.find(voice => {
-          const voiceName = voice.name.toLowerCase();
-          const isIndian = voiceName.includes('indian') || voiceName.includes('hindi') || voiceName.includes('en-in');
-          const matchesGender = voiceGender === 'female'
-            ? voiceName.includes('female') || voiceName.includes('woman') || !voiceName.includes('male')
-            : voiceName.includes('male') || voiceName.includes('man');
-          return isIndian && matchesGender;
-        });
-
-        if (indianVoice) {
-          utterance.voice = indianVoice;
-        } else {
-          // Fallback to any voice matching gender
-          const genderVoice = voices.find(voice => {
-            const voiceName = voice.name.toLowerCase();
-            return voiceGender === 'female'
-              ? !voiceName.includes('male') || voiceName.includes('female')
-              : voiceName.includes('male');
-          });
-          if (genderVoice) {
-            utterance.voice = genderVoice;
-          }
-        }
-
-        utterance.onend = () => {
-          setIsSpeaking(false);
-        };
-
-        utterance.onerror = () => {
-          setIsSpeaking(false);
-        };
-
-        speechSynthesisRef.current = utterance;
-        window.speechSynthesis.speak(utterance);
-        setIsSpeaking(true);
-      } else {
-        alert('Text-to-speech is not supported in your browser.');
-      }
-    }
-  };
-
-  // Load voices
-  useEffect(() => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.getVoices();
-      window.speechSynthesis.onvoiceschanged = () => {
-        window.speechSynthesis.getVoices();
-      };
-    }
-  }, []);
-
-  // Stop speech when content changes
-  useEffect(() => {
-    if (isSpeaking) {
-      window.speechSynthesis.cancel();
-      setIsSpeaking(false);
-    }
-  }, [selectedTopicId, difficulty]);
-
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      window.speechSynthesis.cancel();
-    };
-  }, []);
-
+  // =========================
+  // HANDLERS
+  // =========================
   const handleCourseSelect = (courseId: string) => {
     setSelectedCourseId(courseId);
     setSelectedSubTopicId(null);
     setSelectedTopicId(null);
-    setDifficulty('beginner');
   };
 
   const handleSubTopicSelect = (subTopicId: string) => {
     setSelectedSubTopicId(subTopicId);
     setSelectedTopicId(null);
-    setDifficulty('beginner');
   };
-
-  // const handleTopicSelect = (topicId: string) => {
-  //   setSelectedTopicId(topicId);
-  //   setDifficulty('beginner');
-  //   // Smooth scroll to top of content
-  //   setTimeout(() => {
-  //     if (contentRef.current) {
-  //       contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  //     }
-  //   }, 100);
-  // };
 
   const handleTopicSelect = (topicId: string) => {
-    // Find parent course and subtopic
-    let parentCourseId: string | null = null;
-    let parentSubTopicId: string | null = null;
-
-    for (const course of coursesData) {
-      for (const subTopic of course.subTopics) {
-        if (subTopic.topics.some(topic => topic.id === topicId)) {
-          parentCourseId = course.id;
-          parentSubTopicId = subTopic.id;
-          break;
-        }
-      }
-      if (parentCourseId) break;
-    }
-
-    if (parentCourseId) setSelectedCourseId(parentCourseId);
-    if (parentSubTopicId) setSelectedSubTopicId(parentSubTopicId);
-
     setSelectedTopicId(topicId);
-    setDifficulty('beginner');
-
-    // Smooth scroll to top
     setTimeout(() => {
-      if (contentRef.current) {
-        contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      contentRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
   };
 
-  const handlePrevTopic = () => {
-    if (currentTopicIndex > 0) {
-      const prevTopic = topicsList[currentTopicIndex - 1];
-      handleTopicSelect(prevTopic.id);
-    }
-  };
-
-  const handleNextTopic = () => {
-    if (currentTopicIndex < topicsList.length - 1) {
-      const nextTopic = topicsList[currentTopicIndex + 1];
-      handleTopicSelect(nextTopic.id);
-    }
-  };
-
-
-  const handleDifficultyChange = (newDifficulty: 'beginner' | 'intermediate' | 'expert') => {
-    setDifficulty(newDifficulty);
-    // Smooth scroll to top of content when difficulty changes
-    setTimeout(() => {
-      if (contentRef.current) {
-        contentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
+  const handleDifficultyChange = (level: 'beginner' | 'intermediate' | 'expert') => {
+    setDifficulty(level);
   };
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
   };
 
-  // Filter courses based on search query
+  // =========================
+  // FILTER
+  // =========================
   const filteredCourses = searchQuery
-    ? coursesData.filter(course =>
-      course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.subTopics.some(subTopic =>
-        subTopic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        subTopic.topics.some(topic =>
-          topic.name.toLowerCase().includes(searchQuery.toLowerCase())
+    ? courses.filter(course =>
+        course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        course.subTopics.some(sub =>
+          sub.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          sub.topics?.some(topic =>
+            topic.name?.toLowerCase().includes(searchQuery.toLowerCase())
+          )
         )
       )
-    )
-    : coursesData;
+    : courses;
 
   const showDashboard = !selectedCourseId;
 
-
-
+  // =========================
+  // UI
+  // =========================
   return (
     <div className="h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
       <Header
-        onToggleSpeech={toggleSpeech}
+        onToggleSpeech={() => {}}
         isSpeaking={isSpeaking}
         onSearch={handleSearch}
         voiceGender={voiceGender}
@@ -252,8 +436,8 @@ function AppContent() {
       {!showDashboard && (
         <TopicsBar
           courses={filteredCourses}
-          onCourseSelect={handleCourseSelect}
           selectedCourseId={selectedCourseId}
+          onCourseSelect={handleCourseSelect}
         />
       )}
 
@@ -282,14 +466,18 @@ function AppContent() {
             difficulty={difficulty}
             onDifficultyChange={handleDifficultyChange}
             contentRef={contentRef}
-            onPrevTopic={handlePrevTopic}
-            onNextTopic={handleNextTopic}
+            onPrevTopic={() =>
+              currentTopicIndex > 0 &&
+              handleTopicSelect(topicsList[currentTopicIndex - 1].id)
+            }
+            onNextTopic={() =>
+              currentTopicIndex < topicsList.length - 1 &&
+              handleTopicSelect(topicsList[currentTopicIndex + 1].id)
+            }
             hasPrev={currentTopicIndex > 0}
             hasNext={currentTopicIndex < topicsList.length - 1}
             prevTopicName={prevTopicName}
             nextTopicName={nextTopicName}
-
-
           />
         )}
 
@@ -297,7 +485,9 @@ function AppContent() {
           <RightSidebar
             course={selectedCourse}
             isMinimized={rightSidebarMinimized}
-            onToggleMinimize={() => setRightSidebarMinimized(!rightSidebarMinimized)}
+            onToggleMinimize={() =>
+              setRightSidebarMinimized(!rightSidebarMinimized)
+            }
           />
         )}
       </div>

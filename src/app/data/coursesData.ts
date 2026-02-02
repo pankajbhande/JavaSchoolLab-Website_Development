@@ -1658,8 +1658,7 @@ default:    System.out.println("Invalid input"); // Statement
               }
             ]
           },
-<<<<<<< HEAD
-=======
+
 
           {
   id: 'Looping Statements',
@@ -2621,14 +2620,6 @@ System.out.println("Total spaces: " + count);`
            
           
 
-
-
-
-
-
-
-
->>>>>>> 13c3bd2 (looping statement and packages data added)
 
           {
             id: `Contructor in java`,
@@ -8486,172 +8477,172 @@ When to use:
       }
     ]
   },
-  {
-    id: 'mysql',
-    name: 'MySQL CSS',
-    icon: 'Database',
-    subTopics: [
-      {
-        id: 'basics',
-        name: 'MySQL Basics',
-        topics: [
-          {
-            id: 'introduction',
-            name: 'Introduction to MySQL',
-            beginner: [
-              {
-                content: `MySQL is an open-source relational database management system (RDBMS).
+//   {
+//     id: 'mysql',
+//     name: 'MySQL CSS',
+//     icon: 'Database',
+//     subTopics: [
+//       {
+//         id: 'basics',
+//         name: 'MySQL Basics',
+//         topics: [
+//           {
+//             id: 'introduction',
+//             name: 'Introduction to MySQL',
+//             beginner: [
+//               {
+//                 content: `MySQL is an open-source relational database management system (RDBMS).
 
-Key Concepts:
-• Database: Collection of tables
-• Table: Collection of rows and columns
-• Row: Single record
-• Column: Field in a record
-• Primary Key: Unique identifier
-• Foreign Key: Reference to another table`,
-                codeExamples: [
-                  `-- Create Database
-CREATE DATABASE school;
+// Key Concepts:
+// • Database: Collection of tables
+// • Table: Collection of rows and columns
+// • Row: Single record
+// • Column: Field in a record
+// • Primary Key: Unique identifier
+// • Foreign Key: Reference to another table`,
+//                 codeExamples: [
+//                   `-- Create Database
+// CREATE DATABASE school;
 
--- Use Database
-USE school;
+// -- Use Database
+// USE school;
 
--- Create Table
-CREATE TABLE students (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    age INT,
-    grade VARCHAR(10)
-);
+// -- Create Table
+// CREATE TABLE students (
+//     id INT PRIMARY KEY AUTO_INCREMENT,
+//     name VARCHAR(100),
+//     age INT,
+//     grade VARCHAR(10)
+// );
 
--- Insert Data
-INSERT INTO students (name, age, grade)
-VALUES ('John', 20, 'A');
+// -- Insert Data
+// INSERT INTO students (name, age, grade)
+// VALUES ('John', 20, 'A');
 
--- Select Data
-SELECT * FROM students;`
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    cheatNotes: [
-      'CREATE DATABASE dbname - Create database',
-      'USE dbname - Select database',
-      'CREATE TABLE - Create table',
-      'INSERT INTO - Insert data',
-      'SELECT * FROM - Query data',
-      'UPDATE - Modify data',
-      'DELETE FROM - Remove data',
-      'WHERE - Filter condition',
-      'JOIN - Combine tables',
-      'GROUP BY - Group results'
-    ],
-    interviewQuestions: [
-      {
-        company: 'Oracle',
-        questions: [
-          'What are different types of joins in MySQL?',
-          'Explain normalization and its types',
-          'What is the difference between INNER JOIN and LEFT JOIN?',
-          'How do you optimize a slow query?',
-          'What are indexes and when to use them?'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'jdbc',
-    name: 'JDBC',
-    icon: 'Database',
-    subTopics: [
-      {
-        id: 'basics',
-        name: 'JDBC Basics',
-        topics: [
-          {
-            id: 'introduction',
-            name: 'Introduction to JDBC',
-            beginner: [
-              {
-                content: `JDBC (Java Database Connectivity) is an API for connecting and executing queries with databases.
+// -- Select Data
+// SELECT * FROM students;`
+//                 ]
+//               }
+//             ]
+//           }
+//         ]
+//       }
+//     ],
+//     cheatNotes: [
+//       'CREATE DATABASE dbname - Create database',
+//       'USE dbname - Select database',
+//       'CREATE TABLE - Create table',
+//       'INSERT INTO - Insert data',
+//       'SELECT * FROM - Query data',
+//       'UPDATE - Modify data',
+//       'DELETE FROM - Remove data',
+//       'WHERE - Filter condition',
+//       'JOIN - Combine tables',
+//       'GROUP BY - Group results'
+//     ],
+//     interviewQuestions: [
+//       {
+//         company: 'Oracle',
+//         questions: [
+//           'What are different types of joins in MySQL?',
+//           'Explain normalization and its types',
+//           'What is the difference between INNER JOIN and LEFT JOIN?',
+//           'How do you optimize a slow query?',
+//           'What are indexes and when to use them?'
+//         ]
+//       }
+//     ]
+//   },
+//   {
+//     id: 'jdbc',
+//     name: 'JDBC',
+//     icon: 'Database',
+//     subTopics: [
+//       {
+//         id: 'basics',
+//         name: 'JDBC Basics',
+//         topics: [
+//           {
+//             id: 'introduction',
+//             name: 'Introduction to JDBC',
+//             beginner: [
+//               {
+//                 content: `JDBC (Java Database Connectivity) is an API for connecting and executing queries with databases.
 
-JDBC Components:
-• DriverManager: Manages database drivers
-• Connection: Establishes connection to database
-• Statement: Executes SQL queries
-• ResultSet: Holds query results
-• SQLException: Handles database errors`,
-                codeExamples: [
-                  `import java.sql.*;
+// JDBC Components:
+// • DriverManager: Manages database drivers
+// • Connection: Establishes connection to database
+// • Statement: Executes SQL queries
+// • ResultSet: Holds query results
+// • SQLException: Handles database errors`,
+//                 codeExamples: [
+//                   `import java.sql.*;
 
-public class JDBCExample {
-    public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/school";
-        String user = "root";
-        String password = "password";
+// public class JDBCExample {
+//     public static void main(String[] args) {
+//         String url = "jdbc:mysql://localhost:3306/school";
+//         String user = "root";
+//         String password = "password";
 
-        try {
-            // Load driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
+//         try {
+//             // Load driver
+//             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Establish connection
-            Connection con = DriverManager.getConnection(url, user, password);
+//             // Establish connection
+//             Connection con = DriverManager.getConnection(url, user, password);
 
-            // Create statement
-            Statement stmt = con.createStatement();
+//             // Create statement
+//             Statement stmt = con.createStatement();
 
-            // Execute query
-            ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+//             // Execute query
+//             ResultSet rs = stmt.executeQuery("SELECT * FROM students");
 
-            // Process results
-            while (rs.next()) {
-                System.out.println(rs.getInt("id") + " " + rs.getString("name"));
-            }
+//             // Process results
+//             while (rs.next()) {
+//                 System.out.println(rs.getInt("id") + " " + rs.getString("name"));
+//             }
 
-            // Close connections
-            rs.close();
-            stmt.close();
-            con.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}`
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    cheatNotes: [
-      'Class.forName() - Load driver',
-      'DriverManager.getConnection() - Connect to DB',
-      'createStatement() - Create statement',
-      'executeQuery() - Execute SELECT',
-      'executeUpdate() - Execute INSERT/UPDATE/DELETE',
-      'PreparedStatement - Parameterized queries',
-      'CallableStatement - Stored procedures',
-      'ResultSet - Query results',
-      'setAutoCommit(false) - Transaction control',
-      'commit() / rollback() - Commit or rollback'
-    ],
-    interviewQuestions: [
-      {
-        company: 'Infosys',
-        questions: [
-          'What is JDBC and explain its architecture?',
-          'What is the difference between Statement and PreparedStatement?',
-          'How do you handle transactions in JDBC?',
-          'What are different types of JDBC drivers?',
-          'Explain connection pooling'
-        ]
-      }
-    ]
-  },
+//             // Close connections
+//             rs.close();
+//             stmt.close();
+//             con.close();
+//         } catch (Exception e) {
+//             e.printStackTrace();
+//         }
+//     }
+// }`
+//                 ]
+//               }
+//             ]
+//           }
+//         ]
+//       }
+//     ],
+//     cheatNotes: [
+//       'Class.forName() - Load driver',
+//       'DriverManager.getConnection() - Connect to DB',
+//       'createStatement() - Create statement',
+//       'executeQuery() - Execute SELECT',
+//       'executeUpdate() - Execute INSERT/UPDATE/DELETE',
+//       'PreparedStatement - Parameterized queries',
+//       'CallableStatement - Stored procedures',
+//       'ResultSet - Query results',
+//       'setAutoCommit(false) - Transaction control',
+//       'commit() / rollback() - Commit or rollback'
+//     ],
+//     interviewQuestions: [
+//       {
+//         company: 'Infosys',
+//         questions: [
+//           'What is JDBC and explain its architecture?',
+//           'What is the difference between Statement and PreparedStatement?',
+//           'How do you handle transactions in JDBC?',
+//           'What are different types of JDBC drivers?',
+//           'Explain connection pooling'
+//         ]
+//       }
+//     ]
+//   },
   {
     id: 'jsp-servlet',
     name: 'JSP Servlet',
