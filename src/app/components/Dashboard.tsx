@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { color, motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Book, Code, Database, Layout, Server, Layers } from 'lucide-react';
 
@@ -7,6 +7,16 @@ interface DashboardProps {
 }
 
 const courseCards = [
+
+  {
+    id: 'HTML and CSS',
+    name : 'HTML and CSS',
+    icon  : Code,
+    color: 'from-blue-500 to-red-500',
+    description: 'Master Html and css programming fundamentals',
+    query: 'html and css programming code'
+  },
+  
   {
     id: 'java',
     name: 'Java',

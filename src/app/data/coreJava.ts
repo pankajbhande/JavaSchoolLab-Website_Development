@@ -30,13 +30,1787 @@ export interface Course {
     }[];
 }
 
-export const coreJava: Course[] = [
+export const coreJava: Course [] = [
 
     {
         id: 'java',
         name: 'Java',
         icon: 'Code',
         subTopics: [
+
+            {
+                id: 'Java8Features',
+                name: 'Java8Features',
+                topics: [
+                    {
+                        id: 'java8Features',
+                        name: 'Introduction to Java8 Features',
+
+                        beginner: [
+                            {
+                                content: `<h4> Features of java 1.8 </h4>
+
+1. Functional interface <br>
+2. Lambda Expression<br>
+3. Default method<br>
+4. Static method<br>
+5. For each Method<br>
+6. Optional Class<br>
+7. String Joiners<br>
+8. Stream API<br><br>
+
+<h3> 1. Functional Interface : </h3>
+An Interface that contains exactly one abstract method such types of interface called Functional
+Interface & the method is called Functional Method or Single Abstract Method.<br>
+
+Ex:<br>
+1) Runnable → It contains only run() method<br>
+2) Comparable → It contains only compareTo() method<br>
+3) ActionListener → It contains only actionPerformed()<br>
+4) Callable → It contains only call() method<br>
+It can have any number of default, static methods but can contain only one abstract method.<br><br>
+
+<h4>Key Points about Functional Interfaces:</h4>
+1. Single Abstract Method: Functional interfaces have only one abstract method. This is also
+known as a Single Abstract Method (SAM) interface.<br>
+2. Default and Static Methods: Functional interfaces can have any number of default or static
+methods in addition to the single abstract method.<br>
+3. @FunctionalInterface Annotation: While not mandatory, it's a good practice to use the
+@FunctionalInterface annotation to ensure that the interface conforms to the rules of a functional
+interface.<br>
+4. Use with Lambda Expressions: Functional interfaces are often used with lambda expressions,
+method references, or constructor references to provide clear and concise syntax for implementing
+the single abstract method.<br> `,
+                                codeExamples: [
+                                    `
+Example 1:
+
+@FunctionalInterface
+public interface Test {
+void getStudentName(String name);
+}
+
+OUTPUT: Pankaj
+
+public class Main implements Test {
+@Override
+public void getStudentName(String name) {
+System.out.println(name);
+}
+public static void main(String[] args) {
+Main main = new Main();
+main.getStudentName("Pankaj");
+}
+}
+}
+
+OUTPUT: Pankaj
+`, `Example: 02
+
+@FunctionalInterface
+interface MyFunctionalInterface {
+void performTask();
+
+// Default method
+default void showDefault() {
+    System.out.println("This is a default method");
+}
+}
+public class FunctionalInterfaceExample {
+public static void main(String[] args) {
+
+// Using lambda expression to implement the functional interface
+MyFunctionalInterface task = () -> System.out.println("Performing a task");
+
+// Calling the abstract method
+task.performTask();
+-
+// Calling the default method
+task.showDefault();
+}
+}
+
+OUTPUT:
+Performing a task
+This is a default method`
+                                ]
+                            },
+                            {
+                                content: `<h4>Explanation:</h4> 
+• The Test interface is a functional interface with a single abstract method getStudentName.<br>
+• The Main class implements the Test interface and provides an implementation for the
+getStudentName method.<br>
+• In the main method of the Main class, an instance of Main is created, and the getStudentName
+method is called with the argument "ashok".<br>
+• This results in printing the string "ashok" to the console.<br>
+By organizing your code into 2 separate classes and ensuring they are both in the same package, you
+have a functional implementation of a Java program using a functional interface.<br><br>
+
+<h3> 2. Lambda Expression: </h3>
+Lambda expressions, introduced in Java 8, are a major feature that brings functional programming to
+Java. They provide a clear and concise way to represent a method interface using an expression,
+making it easier to write and understand code.<br>
+
+<h4>Key Features of Lambda Expressions:</h4>
+
+1. Simplifies Syntax: Lambda expressions allow you to write code in a more concise and readable
+manner, especially for functional interfaces (interfaces with a single abstract method).<br>
+2. Functional Interfaces: Lambda expressions are mainly used to implement functional interfaces.<br>
+3. Syntax: The basic syntax of a lambda expression is:<br>
+Java => (parameters) -> expression<br>
+OR<br>
+Java => (parameters) -> { statements; }<br><br>
+
+1. Using a Functional Interface: <br>
+
+First, let's define a functional interface:<br> 
+
+package com.code_with_pankaj;<br>
+@FunctionalInterface<br>
+interface MyFunctionalInterface {<br>
+void sayHello();<br>
+}<br><br>
+
+Now, let's implement this interface using a lambda expression:<br>
+<div class='bg-secondary border border-primary p-2'>
+package com.code_with_pankaj;<br>
+public class LambdaExample {<br>
+public static void main(String[] args) {<br>
+// Using lambda expression to implement the functional interface<br>
+MyFunctionalInterface greeting = () -> System.out.println("Hello, World!");<br>
+// Calling the method<br>
+greeting.sayHello();<br>
+}<br>
+}<br>
+</div><br>
+
+<div class='bg-secondary border border-primary p-2'>
+2. With Parameters and Return Type:<br>
+Here's a more complex example with parameters and a return type:<br>
+package com.code_with_pankaj;<br>
+@FunctionalInterface<br>
+interface Addable {<br>
+int add(int a, int b);<br>
+}<br>
+public class LambdaWithParameters {<br>
+public static void main(String[] args) {<br>
+// Using lambda expression with parameters<br>
+Addable adder = (a, b) -> a + b;<br>
+// Calling the method and printing the result<br>
+System.out.println("Sum: " + adder.add(10, 20));<br>
+}<br>
+}<br>
+</div><br>
+
+<h4> Benefits of Lambda Expressions:</h4>
+1. Conciseness:<br>
+• Lambda expressions reduce the amount of boilerplate code, making the code more concise and
+easier to read.<br>
+2. Improved Readability:<br>
+• The syntax of lambda expressions makes it clear what action is being performed, improving the
+readability of the code.<br>
+3. Functional Programming:<br>
+• They enable functional programming patterns, making it easier to write code that is more
+modular, flexible, & easier to reason about.<br><br>
+
+Common Use Cases:<br>
+1. Collections and Streams: Lambda expressions are frequently used with Collections Framework
+and Stream API for operations like filtering, mapping, & reducing.<br>
+
+<div class='bg-secondary  border border-primary p-2'>
+package com.code_with_pankaj;<br>
+import java.util.Arrays;<br>
+import java.util.List;<br>
+public class StreamExample {<br>
+public static void main(String[] args) {<br>
+List<String> names = Arrays.asList("Sheru", "Pankaj", "Dheeraj", "Udgir");<br>
+// Using lambda expression with Stream API<br>
+names.stream().filter(name -> name.startsWith("S")).forEach(System.out::println);<br>
+}<br>
+}<br>
+</div><br>
+
+2. Event Handling: Lambda expressions simplify the syntax for event handlers in GUI
+applications. <br>
+
+<div class='bg-secondary  border border-primary p-2'>
+package com.code_with_pankaj;<br>
+import javax.swing.JButton;<br>
+import javax.swing.JFrame;<br>
+public class LambdaEventHandling {<br>
+public static void main(String[] args) {<br>
+JFrame frame = new JFrame("Lambda Example");<br>
+JButton button = new JButton("Click Me");<br>
+// Using lambda expression for event handling<br>
+button.addActionListener(e -> System.out.println("Button clicked!"));<br>
+frame.add(button);<br>
+frame.setSize(200, 200);<br>
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);<br>
+frame.setVisible(true);<br>
+}<br>
+}<br>
+</div><br>
+
+Lambda expressions are a powerful addition to Java that greatly enhance its expressiveness and ease
+of use, particularly in contexts where concise and readable code is valuable. <br>
+
+• We can reduce length of the code so that improved the readability of the code.<br>
+• We can resolve complexity of anonymous inner classes.<br>
+• We can provide Lambda expression in the place of object.<br>
+• We can pass lambda expression as argument to methods.<br><br>
+
+Note: <br>
+• Anonymous inner class can extend concrete class, can extend abstract class, can implement
+interface with any number of methods but Lambda expression can implement an interface with
+Functional Interface (only single abstract method).<br>
+• Hence if anonymous inner class implement Functional Interface in that particular case only we
+can replace with lambda expressions. Hence wherever anonymous inner class concept is there, it
+may not possible to replace with Lambda expressions.<br>
+• Anonymous inner class != Lambda Expression<br>
+• Inside anonymous inner class we can declare instance variables.<br>
+• Inside anonymous inner class “this” always refers current inner class object(anonymousinner class)
+but not related outer class object.<br>
+• Ex: Inside lambda expression we can’t declare instance variables.<br>
+• Whatever the variables declare inside lambda expression are simply acts as local variables
+• Within lambda expression ‘this’ keyword represents current outer class object reference (that is
+current enclosing class reference in which we declare lambda expression)<br><br>
+
+Why?<br>
+
+Less coding<br>
+Syntax: (argument-list) -> {body}<br>
+• Argument-list : It can be Empty / Non Empty as well.<br>
+• Arrow-token : It is used to link arguments-list & body of expression.<br>
+• Body : It contains expressions & statements for lambda expression.<br>
+No Parameter Syntax<br>
+() -> {<br>
+// Body of no parameter lambda<br>
+}<br>
+One Parameter Syntax<br>
+(p1) -> {<br>
+// Body of single parameter lambda<br>
+}<br>
+Two Parameter Syntax<br>
+(p1, p2) -> {<br>
+// Body of multiple parameter lambda<br>
+}<br>
+`,
+                                codeExamples: [
+                                    `
+Example: 01
+package com.code_with_pankaj;
+public interface Addition {
+int add(int a,int b);
+}
+
+package com. code_with_pankaj;
+public class Main {
+public static void main(String[] args) {
+// Multiple parameters in lambda expression
+Addition addition = (a, b) -> (a + b);
+System.out.println(addition.add(10, 20));
+// Multiple parameters with data type in lambda expression
+Addition addition2 = (int a, int b) -> (a + b);
+System.out.println(addition2.add(100, 200));
+}
+}
+Output:
+30
+300
+`,
+`Example: 02
+package com.code_with_pankaj;
+@FunctionalInterface
+interface GreetingService {
+
+void sayMessage(String message);
+}
+public class LambdaExample {
+public static void main(String[] args) {
+// Using lambda expression to implement the functional interface
+GreetingService greetService = message -> System.out.println("Hello, " + message);
+// Calling the method with lambda expression
+greetService.sayMessage("Sheru");
+greetService.sayMessage("Pankaj");
+greetService.sayMessage("Dherraj");`
+                                ]
+                            },
+                            {
+                                content:
+                                    `<h3>3. Default methods / Defender Methods</h3>
+In Java 8, the introduction of default methods (also known as defender methods) allowed for method
+implementations in interfaces.<br>
+This feature was introduced to enhance the flexibility of interfaces and
+support backward compatibility, especially in the context of evolving interfaces in the Java Collections
+Framework.<br>
+Java provides a facility to create default methods inside the interface.<br>
+Methods which are defined inside the interface & tagged with default are known as default methods. 
+These methods are non-abstract methods.<br><br>
+
+Key Points about Default Methods:<br>
+1. Method Declaration:<br>
+• Default methods are declared within an interface using the default keyword.<br>
+• These methods provide a default implementation that can be used by classes implementing the
+interface.<br>
+
+2. Purpose:<br>
+• Allows for the addition of new methods to interfaces without breaking existing implementations.<br>
+• Provides a way to implement shared functionality across multiple classes.<br>
+
+3. Syntax:<br>
+JAVA =><br>
+package com.code_with_pankaj;<br>
+public interface MyInterface {<br>
+void existingMethod(); // Abstract method<br>
+default void defaultMethod() {<br>
+System.out.println("This is a default method.");<br>
+}<br>
+}<br>
+`
+                                ,
+
+                                codeExamples: [
+                                    `Example of Default Method: 01 
+Interface with Default Method: Here's an example demonstrating the use of a default method in an
+interface:
+package com.code_with_pankaj;
+public interface MyInterface {
+void existingMethod(String str); // Abstract method
+default void defaultMethod() {
+System.out.println("This is a default method.");
+}
+}
+Implementing the Interface:
+package com.code_with_pankaj;
+public class MyClass implements MyInterface {
+@Override
+public void existingMethod(String str) {
+System.out.println("Existing method: " + str);
+}
+public static void main(String[] args) {
+MyClass obj = new MyClass();
+// Calling the abstract method
+obj.existingMethod("Hello");
+// Calling the default method
+obj.defaultMethod();
+}
+}
+OUTPUT:
+Existing method: Hello
+This is a default method.`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Code Explanation:<br>
+1. MyInterface.java:<br>
+• This interface defines an abstract method existingMethod and a default method defaultMethod
+with a default implementation.<br>
+2. MyClass.java:<br>
+• This class implements the MyInterface interface.<br>
+• It provides an implementation for the abstract method existingMethod.<br>
+• The main method demonstrates the use of both the implemented abstract method and the default
+method.<br>`,
+
+
+                                codeExamples: [
+                                    `Example: 02
+package com.code_with_pankaj;
+public interface Example {
+default void m1() {
+System.out.println("this is default m1 method");
+}
+}
+package com.test;
+public class TestMain implements Example {
+public static void main(String[] args) {
+TestMain testMain=new TestMain();
+testMain.m1();
+}
+}
+Output: this is default m1 method<br><br>`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `<h3>4. Static Method:</h3>
+• In Java 8, static methods were introduced in interfaces. Prior to Java 8, interfaces could only
+contain abstract methods, but with this update, interfaces can now include both default and static
+methods. Static methods in interfaces provide utility methods that can be called directly on the
+interface without needing an instance of a class.<br>
+• Java provides a facility to create static methods inside the interface.<br><br>
+
+<h4>Key Features of Static Methods in Interfaces:</h4>
+1. Utility Methods: Static methods in interfaces are typically used to provide utility methods related
+to the interface but do not require an instance of the interface to be invoked.<br>
+2. Direct Invocation: They can be called directly on the interface using the interface name.<br>
+3. Syntax:<br>
+Java=><br>
+package com.code_with_pankaj;<br>
+public interface MyInterface {<br>
+static void staticMethod() {<br>
+System.out.println("This is a static method in an interface.");<br>
+}<br>
+}<br>
+`,
+
+                                codeExamples: [
+                                    `Example of Static Methods in Interfaces:
+Here's an example demonstrating how to define and use a static method in an interface:
+Interface with Static Method:
+package com.code_with_pankaj;
+
+public interface MyInterface {
+void existingMethod(String str); // Abstract method
+static void staticMethod() {
+System.out.println("This is a static method in an interface.");
+}
+}
+Implementing Class:
+package com.code_with_pankaj;
+package com.code_with_pankaj;
+public class MyClass implements MyInterface {
+@Override
+public void existingMethod(String str) {
+System.out.println("Existing method: " + str);
+}
+public static void main(String[] args) {
+MyClass obj = new MyClass();
+// Calling the abstract method
+obj.existingMethod("Hello");
+// Calling the static method from the interface
+MyInterface.staticMethod();
+}
+}
+
+OUTPUT:
+Existing method: Hello
+This is a static method in an interface.`
+
+                                ]
+                            },
+                            {
+                                content:
+                                    `Explanation:<br>
+1. MyInterface.java:<br>
+• This interface defines an abstract method existingMethod and a static method staticMethod with a
+static implementation.<br>
+2. MyClass.java:<br>
+• This class implements the MyInterface interface.<br>
+• It provides an implementation for the abstract method existingMethod.<br>
+• The main method demonstrates calling the abstract method using an instance and the static
+method directly on the interface.<br>`,
+
+
+                                codeExamples: [
+                                    `Example: 02 => Interface With Static Method
+Interface With Static Method
+package com.code_with_pankaj;
+public interface Example {
+static void x1() {
+System.out.println("this is static method");
+}
+}
+Implementing Class
+package com.code_with_pankaj;
+public class MainTest implements Example{
+public static void main(String[] args) {
+Example.x1();
+}
+}
+OUTPUT: this is static method`
+
+
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Explanation:<br>
+1. Interface (Example):<br>
+• The Example interface contains a static method x1 that prints a message to the console.<br>
+2. Implementing Class (MainTest):<br>
+• The MainTest class implements the Example interface.<br>
+• In the main method, the static method x1 is called directly on the Example interface.<br>`,
+
+                                codeExamples: [
+                                    `More Example on Static Method
+
+Example: 03 => Utility Class
+Static methods are commonly used in utility classes to perform common tasks without needing an
+instance of the class.
+package com.code_with_pankaj;
+public class MathUtility {
+public static int add(int a, int b) {
+return a + b;
+}
+public static int subtract(int a, int b) {
+return a - b;
+}
+public static int multiply(int a, int b) {
+return a * b;
+}
+public static int divide(int a, int b) {
+if (b == 0) {
+throw new IllegalArgumentException("Divider cannot be zero.");
+}
+return a / b;
+}
+}
+package com.code_with_pankaj;
+public class Main {
+public static void main(String[] args) {
+System.out.println("Addition: " + MathUtility.add(5, 3));
+System.out.println("Subtraction: " + MathUtility.subtract(5, 3));
+System.out.println("Multiplication: " + MathUtility.multiply(5, 3));
+System.out.println("Division: " + MathUtility.divide(5, 3));
+}
+}
+
+
+OUTPUT:
+Addition: 8
+Subtraction: 2
+Multiplication: 15
+Division: 1
+
+
+Example: 04 => Static Method in an Interface
+Static methods in interfaces are useful for utility methods related to the interface.
+package com.code_with_pankaj;
+public interface MyInterface {
+static void printMessage(String message) {
+System.out.println("Message: " + message);
+}
+}
+package com.code_with_pankaj;
+public class Main {
+public static void main(String[] args) {
+MyInterface.printMessage("Hello from static method in interface!");
+}
+}
+OUTPUT: Message: Hello from static method in interface!
+
+Example: 05 => Static Block
+Static blocks are used to initialize static variables.
+package com.code_with_pankaj;
+public class StaticBlockExample {
+static int count;
+static {
+count = 10; // Static block to initialize static variable
+System.out.println("Static block executed.");
+}
+public static void main(String[] args) {
+System.out.println("Count: " + count);
+}
+}
+
+
+OUTPUT:
+Static block executed.
+Count: 10
+
+Example: 06 => Singleton Pattern
+
+A singleton class restricts the instantiation of a class to one object.
+package com.code_with_pankaj;
+public class Singleton {
+private static Singleton instance;
+private Singleton() {
+// Private constructor to prevent instantiation
+}
+public static Singleton getInstance() {
+if (instance == null) {
+instance = new Singleton();
+}
+return instance;
+}
+public void showMessage() {
+System.out.println("Hello from Singleton!");
+}
+}
+package com.code_with_pankaj;
+public class Main {
+public static void main(String[] args) {
+Singleton singleton = Singleton.getInstance();
+singleton.showMessage();
+}
+}
+
+
+OUTPUT: Hello from Singleton!
+
+Example: 07 => Static Import
+Static import allows you to access static members without qualifying them with the class name.
+package com.code_with_pankaj;
+import static java.lang.Math.*;
+public class MathOperations {
+public static void main(String[] args) {
+System.out.println("Square root of 16: " + sqrt(16));
+System.out.println("Power of 2^3: " + pow(2, 3));
+
+System.out.println("PI: " + PI);
+}
+}
+OUTPUT:
+Square root of 16: 4.0
+Power of 2^3: 8.0
+PI: 3.141592653589793`
+
+
+                                ]
+                            },
+
+                            {
+                                content: `<h4>Benefits of Static Methods in Interfaces:</h4>
+1. Encapsulation: They help in encapsulating utility methods that are logically related to the
+interface.<br>
+2. Avoiding Utility Classes: They reduce the need for separate utility classes by allowing utility
+methods to be defined directly within the interface.<br>
+3. Improved Readability: Static methods in interfaces improve the readability and organization of
+code by keeping related methods together.<br><br>
+Static methods in interfaces provide a convenient way to define and organize utility methods,
+enhancing the flexibility and expressiveness of Java 8 interfaces.`
+                            },
+
+
+                            {
+                                content:
+                                    `<h3>5. forEach () method- </h3>
+• The forEach() method is a new feature introduced in Java 8, and it's part of the java.lang.Iterable
+and java.util.stream.Stream interfaces.<br>
+• This method allows you to iterate over a collection or stream in a more concise and functional
+way, using lambda expressions.<br>
+• The Java forEach() method is a utility function to iterate over a collection such as (list, set or
+map) and stream.<br>
+• This forEach() method is used to perform a given action on each the element of the collection.<br>
+
+<h4>Key Features of forEach():</h4>
+1. Iterable Interface:<br>
+• The forEach() method is available for all classes that implement the Iterable interface, such as
+List, Set, etc.<br>
+• Syntax: Java => default void forEach(Consumer<? super T> action)<br>
+2. Stream Interface:<br>
+• The forEach() method is also available for Stream objects, allowing for easy iteration over
+streams of elements.<br>
+• Syntax: Java => void forEach(Consumer<? super T> action)<br>`,
+
+                                codeExamples: [
+                                    `Example Using forEach() with Iterable:
+Here's an example using forEach() with a List:
+package com.code_with_pankaj;
+import java.util.Arrays;
+
+import java.util.List;
+public class ForEachExample {
+public static void main(String[] args) {
+List<String> fruits = Arrays.asList("Apple", "Banana", "Cherry");
+// Using forEach() method with lambda expression
+fruits.forEach(fruit -> System.out.println(fruit));
+}
+}
+
+
+OUTPUT:
+Apple
+Banana
+Cherry`
+                                ]
+                            },
+
+                            {
+                                content: `Explanation:<br>
+Iterable Interface:<br>
+• The forEach() method takes a Consumer as an argument. In the examples above, the lambda
+expression fruit -> System.out.println(fruit) is passed as the Consumer, which processes each
+element in the list.<br>`,
+
+                                codeExamples: [
+                                    `Example Using forEach() with Streams:
+Here's an example using forEach() with a stream:
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+public class StreamForEachExample {
+public static void main(String[] args) {
+List<String> list = Arrays.asList("Sheru", "Pankaj", "Dheeraj");
+// Creating a stream and using forEach() method
+Stream<String> listStream = list.stream();
+listStream.forEach(list -> System.out.println(list));
+}
+}
+OUTPUT:
+Sheru
+
+Pankaj
+Dheeraj`
+                                ]
+                            },
+
+                            {
+                                content: `Explanation:<br>
+Stream Interface:<br>
+• When used with streams, forEach() allows you to process each element of the stream in a similar
+manner. In the example, the list is converted to a stream, and the forEach() method is used to
+print each element.<br><br>
+
+
+
+<h4>Benefits of forEach():</h4>
+1. Conciseness: Provides a more concise and readable way to iterate over collections and streams
+compared to traditional loops.<br>
+2. Functional Style: Encourages the use of functional programming constructs, making the code
+more expressive and easier to maintain.<br>
+3. Lambda Expressions: Leverages lambda expressions, making it easier to define the action to be
+performed on each element.<br><br>
+The forEach() method is a powerful addition to Java 8 that simplifies iteration and enhances the
+readability of code through the use of lambda expressions and functional programming techniques.`,
+
+
+                                codeExamples: [
+                                    `Example: 01 =>
+package com. code_with_pankaj;
+import java.util.HashMap;
+import java.util.Map;
+public class MapDemo {
+public static void main(String[] args) {
+Map<String, String> map = new HashMap<String, String>();
+map.put("10", "Sheru");
+map.put("11", "Dheeraj");
+map.put("12", "Pankaj");
+map.forEach((k, v) -> System.out.println("Key = " + k + ", Value = " + v));
+}
+}
+
+
+Output
+
+Key = 11, Value = Dheeraj
+Key = 12, Value = Pankaj
+Key = 10, Value = Sheru
+
+
+Example: 01 => Using forEach with a List
+// Lists: Demonstrates using forEach with both lambda expressions and method references to iterate
+over list elements
+package com. code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+public class ForEachListExample{
+public static void main(String[] args) {
+List<String> items = Arrays.asList("Item1", "Item2", "Item3", "Item4");
+// Using forEach() method with lambda expression
+items.forEach(item -> System.out.println(item));
+// Using method reference
+items.forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+Item1
+Item2
+Item3
+Item4
+Item1
+Item2
+Item3
+Item4
+
+
+Example: 02 => Using forEach with a Map
+// Maps: Shows how to iterate over a Map using forEach to access both keys and values
+package com. code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+
+public class ForEachListExample{
+public static void main(String[] args) {
+Map<Integer, String> map = new HashMap<>();
+map.put(1, "One");
+map.put(2, "Two");
+map.put(3, "Three");
+// Using forEach() method with lambda expression
+map.forEach((key, value) -> System.out.println(key + " = " + value));
+// Using method reference to print keys
+map.keySet().forEach(System.out::println);
+// Using method reference to print values
+map.values().forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+1 = One
+2 = Two
+3 = Three
+1
+2
+3
+One
+Two
+Three
+
+
+Example: 03 => Using forEach with a Set
+// Sets: Uses forEach to iterate over a set of elements, demonstrating both lambda expressions and
+method references.
+package com. code_with_pankaj;
+import java.util.HashSet;
+import java.util.Set;
+public class ForEachSetExample{
+public static void main(String[] args) {
+Set<String> set = new HashSet<>();
+set.add("Element1");
+
+set.add("Element2");
+set.add("Element3");
+// Using forEach() method with lambda expression
+set.forEach(element -> System.out.println(element));
+// Using method reference
+set.forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+1 = One
+2 = Two
+3 = Three
+1
+2
+3
+One
+Two
+Three
+
+Example: 04 => Using forEach with a Array
+// Arrays: Converts an array to a list and iterates over it using forEach
+package com. code_with_pankaj;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+public class ForEachArrayExample {
+public static void main(String[] args) {
+String[] array = { "A", "B", "C", "D" };
+// Convert array to list and use forEach() method
+Arrays.asList(array).forEach(element -> System.out.println(element));
+// Using method reference
+Arrays.asList(array).forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+A
+B
+C
+D
+
+Example: 05 => Using forEach with a Streams and Filtering
+// Streams: Combines forEach with stream operations like filter to process elements conditionally
+package com. code_with_pankaj;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+public class ForEachStreamExample{
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Sheru", "Pankaj", "Dheeraj", "Udgir");
+// Using forEach() with filtering
+names.stream().filter(name -> name.startsWith("S")).forEach(System.out::println);
+// Collecting and then using forEach()
+List<String> filteredNames = names.stream().filter(name ->
+name.contains("a")).collect(Collectors.toList());
+filteredNames.forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+Sheru
+Pankaj
+Dheeraj`
+                                ]
+                            },
+
+                            {
+                                content: `<h3>6. Optional class:</h3>
+Java 8 introduced the Optional class to help handle null values more gracefully, reducing the risk
+of NullPointerException and providing a clearer, more explicit way of dealing with optional
+values.<br>
+It is a public final class and used to deal with NullPointerException in Java application.
+You must import java.util package to use this class. It provides methods which are used to check the
+presence of value for particular variable.<br><br>
+Why?<br><br>
+package com.test;<br>
+public class MapDemo {<br>
+public static void main(String[] args) {<br>
+String[] str = new String[10];<br>
+String lowercaseString = str[5].toLowerCase();<br>
+System.out.print(lowercaseString);<br>
+}<br>
+}<br>
+Exception in thread "main" java.lang.NullPointerException<br>
+at com.test.MapDemo.main(MapDemo.java:8)<br>`,
+
+                                codeExamples: [
+                                    `package com.test;
+import java.util.Optional;
+
+public class MapDemo {
+public static void main(String[] args) {
+String[] str = new String[10];
+Optional<String> checkNull = Optional.ofNullable(str[5]);
+if (checkNull.isPresent()) { // check for value is present or not
+String lowercaseString = str[5].toLowerCase();
+System.out.print(lowercaseString);
+} else
+System.out.println("string value is not present");
+}
+}
+
+Output
+string value is not present.`
+                                ]
+                            },
+
+                            {
+                                content: `<h4>Key Features of Optional Class:</h4>
+1. Presence or Absence: Optional encapsulates an optional value which can either be present or
+absent (null).<br>
+2. Methods: Various methods are provided to handle the presence or absence of a value.<br><br>
+
+Common Methods:<br>
+empty(): Returns an empty Optional instance.<br>
+Java => Optional<String> emptyOpt = Optional.empty();<br>
+of(T value): Returns an Optional with the specified non-null value.<br>
+Java => Optional<String> opt = Optional.of("Hello");<br>
+ofNullable(T value): Returns an Optional describing the specified value, or an empty Optional if
+the value is null.<br>
+Java => Optional<String> nullableOpt = Optional.ofNullable(null);<br>
+isPresent(): Returns true if there is a value present, otherwise false.<br>
+Java => boolean isPresent = opt.isPresent();<br>
+ifPresent(Consumer<? super T> consumer): If a value is present, it performs the given action<br>
+with the value, otherwise does nothing.<br>
+Java => opt.ifPresent(value -> System.out.println("Value is: " + value));<br>
+orElse(T other): Returns the value if present, otherwise returns other.<br>
+Java => String value = nullableOpt.orElse("Default Value");<br>
+
+orElseGet(Supplier<? extends T> other): Returns the value if present, otherwise invokes other
+and returns the result of that invocation.<br>
+Java => String value = nullableOpt.orElseGet(() -> "Default Value from Supplier");<br>
+orElseThrow(Supplier<? extends X> exceptionSupplier): Returns the contained value if
+present, otherwise throws an exception produced by the provided supplier.<br>
+Java => String value = nullableOpt.orElseThrow(() -> new IllegalArgumentException("Value is
+absent"));`,
+
+                                codeExamples: [
+                                    `Example Code: Here’s a simple example to illustrate the use of Optional:
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalExample {
+public static void main(String[] args) {
+// Creating an Optional with a non-null value
+Optional<String> nonEmptyOpt = Optional.of("Hello, World!");
+// Creating an Optional that can be empty
+Optional<String> emptyOpt = Optional.empty();
+// Creating an Optional that might be null
+Optional<String> nullableOpt = Optional.ofNullable(null);
+// Checking if the value is present
+if (nonEmptyOpt.isPresent()) {
+System.out.println("Value: " + nonEmptyOpt.get());
+}
+// Using ifPresent to perform an action if a value is present
+nonEmptyOpt.ifPresent(value -> System.out.println("Value using ifPresent: " + value));
+// Providing a default value if the Optional is empty
+String value = nullableOpt.orElse("Default Value");
+System.out.println("Value with orElse: " + value);
+// Using orElseGet with a supplier
+value = nullableOpt.orElseGet(() -> "Default Value from Supplier");
+
+System.out.println("Value with orElseGet: " + value);
+// Throwing an exception if the value is absent
+try {
+value = nullableOpt.orElseThrow(() -> new IllegalArgumentException("Value is
+
+absent"));
+
+System.out.println("Value with orElseThrow: " + value);
+} catch (Exception e) {
+System.err.println(e.getMessage());
+}
+}
+}
+
+
+OUTPUT:
+Value: Hello, World!
+Value using ifPresent: Hello, World!
+Value with orElse: Default Value
+Value with orElseGet: Default Value from Supplier
+Value is absent`
+                                ]
+                            },
+
+                            {
+                                content: `Explanation:<br>
+1. Creating Optionals:<br>
+• Optional.of("Hello, World!") creates an Optional with a non-null value.<br>
+• Optional.empty() creates an empty Optional.<br>
+• Optional.ofNullable(null) creates an Optional that can be empty.<br>
+2. Checking Presence:<br>
+• isPresent() checks if a value is present.<br>
+• ifPresent() performs an action if a value is present.<br>
+3. Providing Default Values:<br>
+• orElse("Default Value") provides a default value if the Optional is empty.<br>
+• orElseGet(() -> "Default Value from Supplier") provides a default value using a supplier if the
+Optional is empty.<br>
+4. Throwing Exceptions:<br>
+• orElseThrow(() -> new IllegalArgumentException("Value is absent")) throws an exception if the
+Optional is empty.<br>
+• The Optional class helps to handle the absence of values more gracefully, reducing the risk of null
+pointer exceptions and making the code more readable and robust.<br>`,
+
+
+                                codeExamples: [
+                                    `Example 1: Combining Optionals
+
+You can combine two Optional objects using methods like flatMap.
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalCombineExample {
+public static void main(String[] args) {
+Optional<String> firstName = Optional.of("Pankaj");
+Optional<String> lastName = Optional.of("Bhande");
+// Combining Optionals
+Optional<String> fullName = firstName.flatMap(fn -> lastName.map(ln -> fn + " " + ln));
+fullName.ifPresent(name -> System.out.println("Full Name: " + name));
+}
+}
+
+OUTPUT: Full Name: Pankaj Bhande
+
+
+Example 2: Filtering Values
+You can use the filter method to conditionally process the value within an Optional.
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalFilterExample {
+public static void main(String[] args) {
+Optional<String> opt = Optional.of("Hello Pankaj");
+// Filter the value
+Optional<String> filteredOpt = opt.filter(value -> value.contains("Pankaj"));
+filteredOpt.ifPresent(value -> System.out.println("Filtered Value: " + value));
+}
+}
+
+OUTPUT: Filtered Value: Hello Pankaj
+
+
+Example 3: Chaining Optionals
+You can chain multiple Optional methods to perform more complex operations.
+package com.code_with_pankaj;
+import java.util.Optional;
+
+public class OptionalChainExample {
+public static void main(String[] args) {
+String input = "Code With Pankaj";
+Optional<String> result = Optional.of(input).map(String::toLowerCase)
+.map(value -> value.replace(" ", "_"))
+.filter(value -> value.length() > 10);
+result.ifPresent(value -> System.out.println("Processed Value: " + value));
+}
+}
+
+OUTPUT: Processed Value: code_with_pankaj
+
+
+Example 4: Using orElseThrow for Exceptions
+You can use orElseThrow to throw an exception if the value is absent.
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalOrElseThrowExample {
+public static void main(String[] args) {
+Optional<String> emptyOpt = Optional.empty();
+try {
+String value = emptyOpt.orElseThrow(() -> new IllegalStateException("Value is
+
+absent"));
+System.out.println("Value: " + value);
+} catch (Exception e) {
+System.err.println(e.getMessage());
+}
+}
+}
+
+OUTPUT: Value is absent
+
+
+Example 5: Using map and flatMap
+The map and flatMap methods are useful for transforming values within an Optional.
+package com.code_with_pankaj;
+import java.util.Optional;
+
+class User {
+private String email;
+public User(String email) {
+this.email = email;
+}
+public Optional<String> getEmail() {
+return Optional.ofNullable(email);
+}
+}
+public class OptionalMapExample {
+public static void main(String[] args) {
+User user = new User("pankaj.bhande01@gmail.com");
+// Using map to transform the value
+Optional<String> email = user.getEmail().map(String::toUpperCase);
+email.ifPresent(System.out::println);
+// Using flatMap to avoid nested Optional
+Optional<String> upperCaseEmail =
+Optional.of(user).flatMap(User::getEmail).map(String::toUpperCase);
+upperCaseEmail.ifPresent(System.out::println);
+}
+}
+
+OUTPUT:
+PANKAJ.BHANDE01@GMAIL.COM
+PANKAJ.BHANDE01@GMAIL.COM
+
+
+Example 6: Avoiding Null Checks
+Using Optional to avoid null checks and handle potential null values gracefully.
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalAvoidNullExample {
+public static void main(String[] args) {
+String possiblyNull = null;
+
+// Wrapping a potentially null value
+Optional<String> opt = Optional.ofNullable(possiblyNull);
+// Using ifPresent to handle the value if it's present
+opt.ifPresent(value -> System.out.println("Value: " + value));
+// Providing a default value if absent
+String result = opt.orElse("Default Value");
+System.out.println("Result: " + result);
+}
+}
+
+OUTPUT: Result: Default Value`
+                                ]
+                            },
+
+                            {
+                                content: `<h3>7. Java String Joiner:</h3>
+Java 8 introduced the StringJoiner class to make it easier to construct sequences of strings separated
+by delimiters. <br>
+This class simplifies the process of creating concatenated strings, especially when dealing with 
+complex scenarios involving delimiters, prefixes, and suffixes.<br>
+Java added a new final class StringJoiner in java.util package. 
+It is used to construct a sequence ofcharacters separated by a delimiter. Now, you can create 
+string by passing delimiters like comma(,),hyphen(-) etc.<br>
+
+<h4>Key Features of StringJoiner:</h4>
+1. Delimiter: You can specify a delimiter that will separate each string added to the StringJoiner.<br>
+2. Optional Prefix and Suffix: You can also specify optional prefixes and suffixes that will be
+added to the resulting string.<br>`,
+
+                                codeExamples: [
+                                    `Example: 01 => Using StringJoiner without Prefix and Suffix
+package com.code_with_pankaj;
+import java.util.StringJoiner;
+public class Example {
+public static void main(String[] args) {
+StringJoiner stringJoiner = new StringJoiner(","); // passing comma(,) as delimiter
+// Adding values to StringJoiner
+stringJoiner.add("Sheru");
+stringJoiner.add("Dheeraj");
+stringJoiner.add("Pankaj");
+
+System.out.println(stringJoiner);
+}
+}
+
+Output: Sheru,Dheeraj,Pankaj`
+                                ]
+                            },
+
+                            {
+                                content: `Explanation:<br>
+1. Creating a StringJoiner:<br>
+• StringJoiner joiner = new StringJoiner(", ", "[", "]");<br>
+• This creates a StringJoiner with a comma (,) as the delimiter, a prefix ([) and a suffix (]).
+2. Adding Strings:<br>
+• joiner.add("Sheru"); adds the string "Sheru" to the StringJoiner.<br>
+• Similarly, joiner.add("Dheeraj"); and joiner.add("Pankaj"); add the strings "Dheeraj" and
+"Pankaj".<br>
+3. Generating the Result:<br>
+• System.out.println(joiner.toString()); prints the resulting string: [Sheru, Dheeraj, Pankaj].<br>`,
+
+                                codeExamples: [
+                                    `Example:02 => Merging StringJoiner Instances
+You can also merge two StringJoiner instances using the merge method:
+package com.code_with_pankaj;
+import java.util.StringJoiner;
+public class MergeStringJoinerExample {
+public static void main(String[] args) {
+// Create first StringJoiner
+StringJoiner joiner1 = new StringJoiner(", ", "{", "}");
+joiner1.add("Udgir");
+joiner1.add("Latur");
+// Create second StringJoiner
+StringJoiner joiner2 = new StringJoiner(", ", "{", "}");
+joiner2.add("Pune");
+joiner2.add("Mumbai");
+// Merge joiner2 into joiner1
+joiner1.merge(joiner2);
+// Print the merged result
+System.out.println(joiner1.toString());
+}
+}
+
+OUTPUT: {Udgir, Latur, Pune, Mumbai}`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Explanation:<br>
+1. Creating and Adding to StringJoiner:<br>
+• Two StringJoiner instances (joiner1 and joiner2) are created and populated with strings.<br>
+2. Merging StringJoiner Instances:<br>
+• joiner1.merge(joiner2);<br>
+• merges the contents of joiner2 into joiner1.<br>
+3. Generating the Result:<br>
+• System.out.println(joiner1.toString());<br>
+• prints the merged result: {Udgir, Latur, Pune, Mumbai}.<br><br>
+
+<h4>Advantages of Using StringJoiner:</h4>
+The StringJoiner class introduced in Java 8 comes with several advantages that make it a valuable
+addition for string handling and manipulation.<br>
+Here are some of the key benefits:<br>
+1. Ease of Use: Simplifies the process of building complex strings with delimiters, prefixes, and
+suffixes.<br>
+2. Enhanced Readability: Provides a clear and concise way to concatenate strings, improving code
+readability.<br>
+3. Reduced Boilerplate Code: Eliminates repetitive manual concatenation, making code cleaner.<br>
+4. Flexible Formatting: Allows specification of delimiters, prefixes, and suffixes for creating
+formatted strings.<br>
+5. Efficiency: More efficient than manual string concatenation, especially in loops or large
+collections.<br>
+6. Merging: Supports merging multiple StringJoiner instances.<br>
+7. Stream Integration: Works seamlessly with Java Streams for functional programming.<br><br>
+
+<h4>Disadvantages of StringJoiner in Short:</h4>
+1. Limited to Java 8 and Later: Not available in older Java versions.<br>
+2. Overhead for Simple Concatenations: Adds unnecessary complexity for basic concatenations.<br>
+3. Not Ideal for Performance-Critical Apps: Less efficient than StringBuilder for high-frequency
+operations.<br>
+4. Learning Curve: Requires learning for effective use.<br><br>
+
+<h4>Common Uses of StringJoiner in Java 8:</h4>
+
+1. Building Delimited Strings: Create strings with specific delimiters, such as CSV format.<br>
+StringJoiner joiner = new StringJoiner(", ");<br>
+joiner.add("Alice").add("Bob").add("Charlie");<br>
+System.out.println(joiner.toString()); // Output: Alice, Bob, Charlie<br><br>
+
+2. Formatting Output: Format output with prefixes and suffixes for lists or arrays.<br>
+StringJoiner joiner = new StringJoiner(", ", "[", "]");<br>
+joiner.add("Red").add("Green").add("Blue");<br>
+System.out.println(joiner.toString()); // Output: [Red, Green, Blue]<br><br>
+
+3. Generating SQL Queries: Construct SQL queries dynamically.<br>
+StringJoiner joiner = new StringJoiner(", ", "SELECT ", " FROM table");<br>
+joiner.add("column1").add("column2").add("column3");<br>
+System.out.println(joiner.toString()); // Output: SELECT column1, column2, column3 FROM table<br><br>
+
+4. Joining Stream Elements: Combine elements from a stream with a delimiter.<br>
+List<String> items = Arrays.asList("item1", "item2", "item3");<br>
+StringJoiner joiner = new StringJoiner(", ");<br>
+items.stream().forEach(joiner::add);<br>
+System.out.println(joiner.toString()); // Output: item1, item2, item3<br><br>
+
+5. Logging and Debugging: Create formatted log messages or debug outputs.<br>
+StringJoiner joiner = new StringJoiner(" | ");<br>
+joiner.add("INFO").add("2024-11-26").add("Application started");<br>
+System.out.println(joiner.toString()); // Output: INFO | 2024-11-26 | Application started<br><br>
+
+6. Combining Multiple Joiners: Merge multiple StringJoiner instances.<br>
+StringJoiner joiner1 = new StringJoiner(", ", "{", "}");<br>
+joiner1.add("Java").add("Python");<br>
+StringJoiner joiner2 = new StringJoiner(", ", "{", "}");<br>
+joiner2.add("C++").add("JavaScript");<br>
+joiner1.merge(joiner2);<br>
+System.out.println(joiner1.toString()); // Output: {Java, Python, C++, JavaScript}<br>`
+                            },
+
+
+                            {
+                                content:
+                                    `<h3>1. Java 8 Stream</h3>
+Java provides a new additional package in Java 8 called java.util.stream. This package consists of
+classes, interfaces & enum to allows functional-style operations on the elements.
+ You can use stream by importing java.util.stream package.<br><br>
+
+Stream provides following features:<br>
+• Stream does not store elements. It simply conveys elements from a source such as a data structure,
+an array, or an I/O channel, through a pipeline of computational operations.<br>
+• Stream is functional in nature. Operations performed on a stream does not modify it's source. For
+example, filtering a Stream obtained from a collection produces a new Stream without the filtered
+elements, rather than removing elements from the source collection.<br>
+• Stream is lazy and evaluates code only when required.<br>
+• The elements of a stream are only visited once during the life of a stream. Like an Iterator, a new
+stream must be generated to revisit the same elements of the source.<br>
+You can use stream to filter, collect, print, and convert from one data structure to other etc. In the
+following examples, we have apply various operations with the help of stream.<br>`,
+
+                                codeExamples: [
+                                    `Example of Stream API Demonstration
+
+ Filtering and Iterating Collection
+ Filtering Collection by using Stream
+ Filtering Collection without using Stream
+ reduce() Method in Collection
+ Sum by using Collectors Methods
+ Find Max and Min Product Price
+ count() Method in Collection
+ Convert List into Set
+
+ Convert List into Map
+
+package com.code_with_pankaj;
+import java.util.*;
+import java.util.stream.Collectors;
+class Product {
+int id;
+String name;
+double price;
+//--------------------------------------------------------------------
+// Generate Constructor Using Fields
+public Product(int id, String name, double price) {
+this.id = id;
+this.name = name;
+this.price = price;
+}
+//--------------------------------------------------------------------
+// Generate Getter and Setter
+public int getId() {
+return id;
+}
+public String getName() {
+return name;
+}
+public double getPrice() {
+return price;
+}
+//--------------------------------------------------------------------
+// Generate toString() Method
+@Override
+public String toString() {
+return "Product{id=" + id + ", name='" + name + "', price=" + price + "}";
+}
+//--------------------------------------------------------------------
+}
+--------------------------------------------------------------------------------------------------------------------
+
+public class StreamApiDemo {
+public static void main(String[] args) {
+List<Product> products = Arrays.asList(new Product(1, "Laptop", 800), new Product(2,
+"Smartphone", 500), new Product(3, "Tablet", 300), new Product(4, "Smartwatch", 200), new
+
+Product(5, "Headphones", 100));
+
+// Filtering and Iterating Collection
+System.out.println("Filtering and Iterating Collection:");
+products.stream().filter(p -> p.getPrice() > 300).forEach(System.out::println);
+// Filtering Collection by using Stream
+System.out.println("\nFiltering Collection by using Stream:");
+
+List<Product> filteredProducts = products.stream().filter(p -> p.getPrice() >
+
+300).collect(Collectors.toList());
+filteredProducts.forEach(System.out::println);
+// Filtering Collection without using Stream
+System.out.println("\nFiltering Collection without using Stream:");
+List<Product> filteredProductsWithoutStream = new ArrayList<>();
+for (Product p : products) {
+if (p.getPrice() > 300) {
+filteredProductsWithoutStream.add(p);
+}
+}
+for (Product p : filteredProductsWithoutStream) {
+System.out.println(p);
+}
+// reduce() Method in Collection
+System.out.println("\nUsing reduce() Method:");
+double totalPrice = products.stream().map(Product::getPrice).reduce(0.0, Double::sum);
+System.out.println("Total Price: " + totalPrice);
+// Sum by using Collectors Methods
+System.out.println("\nSum by using Collectors:");
+double sumPrice = products.stream().collect(Collectors.summingDouble(Product::getPrice));
+System.out.println("Sum of Prices: " + sumPrice);
+// Find Max and Min Product Price
+
+System.out.println("\nFind Max and Min Product Price:");
+Product maxPriceProduct = products.stream().max(Comparator.comparing(Product::getPrice))
+.orElseThrow(NoSuchElementException::new);
+Product minPriceProduct = products.stream().min(Comparator.comparing(Product::getPrice))
+.orElseThrow(NoSuchElementException::new);
+System.out.println("Max Price Product: " + maxPriceProduct);
+System.out.println("Min Price Product: " + minPriceProduct);
+// count() Method in Collection
+System.out.println("\nCount Method:");
+long count = products.stream().filter(p -> p.getPrice() > 300).count();
+System.out.println("Count of Products with Price > 300: " + count);
+// Convert List into Set
+System.out.println("\nConvert List into Set:");
+Set<Product> productSet = products.stream().collect(Collectors.toSet());
+productSet.forEach(System.out::println);
+// Convert List into Map
+System.out.println("\nConvert List into Map:");
+Map<Integer, String> productMap = products.stream().collect(Collectors.toMap(Product::getId,
+
+Product::getName));
+
+productMap.forEach((id, name) -> System.out.println("ID: " + id + ", Name: " + name));
+}
+}
+
+
+OUTPUT:
+Filtering and Iterating Collection:
+Product{id=1, name='Laptop', price=800.0}
+Product{id=2, name='Smartphone', price=500.0}
+Filtering Collection by using Stream:
+Product{id=1, name='Laptop', price=800.0}
+Product{id=2, name='Smartphone', price=500.0}
+Filtering Collection without using Stream:
+Product{id=1, name='Laptop', price=800.0}
+Product{id=2, name='Smartphone', price=500.0}
+Using reduce() Method:
+Total Price: 1900.0
+
+
+Sum by using Collectors:
+Sum of Prices: 1900.0
+Find Max and Min Product Price:
+Max Price Product: Product{id=1, name='Laptop', price=800.0}
+Min Price Product: Product{id=5, name='Headphones', price=100.0}
+Count Method:
+Count of Products with Price > 300: 2
+Convert List into Set:
+Product{id=1, name='Laptop', price=800.0}
+Product{id=2, name='Smartphone', price=500.0}
+Product{id=5, name='Headphones', price=100.0}
+Product{id=4, name='Smartwatch', price=200.0}
+Product{id=3, name='Tablet', price=300.0}
+Convert List into Map:
+ID: 1, Name: Laptop
+ID: 2, Name: Smartphone
+ID: 3, Name: Tablet
+ID: 4, Name: Smartwatch
+ID: 5, Name: Headphones`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Explanation:<br>
+1. Product Class: The Product class represents a product with id, name, and price attributes.<br>
+2. Filtering and Iterating Collection: Uses streams to filter products with a price greater than 300
+and iterates over them.<br>
+3. Filtering Collection by using Stream: Filters the collection using streams and collects the
+results into a list.<br>
+4. Filtering Collection without using Stream: Traditional method of filtering using a for-each
+loop.<br>
+
+5. reduce() Method in Collection: Uses reduce to calculate the total price of all products.<br>
+6. Sum by using Collectors Methods: Uses Collectors.summingDouble to sum the prices of all
+products.<br>
+7. Find Max and Min Product Price: Uses max and min to find products with the highest and
+lowest prices, respectively.<br>
+8. count() Method in Collection: Uses count to count the number of products with a price greater
+than 300.<br>
+9. Convert List into Set: Converts the list of products into a set using streams.<br>
+
+10. Convert List into Map: Converts the list into a map with product IDs as keys and product names
+as values.<br><br>
+
+The Streams API, introduced in Java 8, is a powerful tool that allows for processing sequences of
+elements in a functional and declarative manner. Streams facilitate operations on data such as
+filtering, mapping, and reducing without altering the original data source.<br><br>
+
+<h4>Key Features of Java Streams:</h4>
+1. Functional Programming: Streams enable functional-style operations on collections of
+elements, providing a more readable and concise way to manipulate data.<br>
+2. Lazy Evaluation: Stream operations are performed lazily, meaning that intermediate operations
+are not executed until a terminal operation is invoked. This optimizes performance.<br>
+3. Pipeline Processing: Stream operations are chained to form a pipeline, making the code more
+readable and expressive.<br>
+4. Parallel Processing: Streams can be processed in parallel, making it easier to take advantage of
+multicore processors.<br><br>
+
+Stream Operations:<br>
+1. Intermediate Operations:<br>
+• These operations return a new stream and are lazily executed.<br>
+• Examples: filter, map, sorted.<br>
+2. Terminal Operations:<br>
+• These operations produce a result or a side-effect and terminate the stream pipeline.<br>
+• Examples: forEach, collect, reduce.`,
+
+                                codeExamples: [
+                                    `Example: 01 => Creating and Using Streams
+
+package com.code_with_pankaj;
+mport java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class StreamExample {
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Sheru", "Pankaj", "Dheeraj", "Udgir");
+
+// Filtering and collecting names that start with 'S'
+
+List<String> filteredNames = names.stream().filter(name ->
+name.startsWith("S")).collect(Collectors.toList());
+System.out.println("Filtered Names: " + filteredNames);
+// Mapping and collecting the lengths of names
+List<Integer> nameLengths = names.stream().map(String::length).collect(Collectors.toList());
+System.out.println("Name Lengths: " + nameLengths);
+// Reducing to concatenate all names
+String concatenatedNames = names.stream().reduce("", (partialString, element) -> partialString +
+
+element);
+
+System.out.println("Concatenated Names: " + concatenatedNames);
+}
+}
+
+
+OUTPUT:
+Filtered Names: [Sheru]
+Name Lengths: [5, 6, 7, 5]
+Concatenated Names: SheruPankajDheerajUdgir`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Explanation:<br>
+1. Creating a Stream: names.stream() creates a stream from the list of names.<br>
+2. Filtering: filter(name -> name.startsWith("S")) filters the stream to include only names starting
+with "S".<br>
+3. Collecting: collect(Collectors.toList()) collects the filtered results into a list.<br>
+4. Mapping: map(String::length) transforms each name into its length.<br>
+5. Reducing: reduce("", (partialString, element) -> partialString + element) concatenates all names
+into a single string.<br><br>
+
+
+Parallel Streams:<br>
+You can convert a sequential stream to a parallel stream to leverage multicore processors.<br>`,
+
+                                codeExamples: [
+                                    `package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+
+public class ParallelStreamExample {
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Sheru", "Pankaj", "Dheeraj", "Udgir");
+// Using parallel stream
+names.parallelStream().filter(name ->
+name.startsWith("S")).forEach(System.out::println);
+}
+}
+
+
+OUTPUT: Sheru`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Summary:<br>
+The Streams API in Java 8 brings the power of functional programming to Java, enabling more
+expressive, readable, and maintainable code.<br> By allowing for lazy evaluation, pipeline processing, and
+parallel execution, streams significantly enhance the way we work with collections.<br>`,
+
+                                codeExamples: [
+                                    `Example 1: Filtering and Mapping
+
+Filter out empty strings from a list and then convert the remaining strings to uppercase.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class FilterMapExample {
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Sheru", "", "Pankaj", "Dheeraj", "");
+// Filter non-empty strings and convert to uppercase
+List<String> filteredNames = names.stream()
+.filter(name -> !name.isEmpty())
+.map(String::toUpperCase)
+.collect(Collectors.toList());
+System.out.println("Filtered and Uppercase Names: " + filteredNames);
+}
+}
+
+
+OUTPUT: Filtered and Uppercase Names: [SHERU, PANKAJ, DHEERAJ]
+
+
+Example 2: Sorting
+Sort a list of integers.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class SortExample {
+public static void main(String[] args) {
+List<Integer> numbers = Arrays.asList(3, 7, 2, 8, 1, 5);
+// Sort the numbers
+List<Integer> sortedNumbers = numbers.stream().sorted().collect(Collectors.toList());
+System.out.println("Sorted Numbers: " + sortedNumbers);
+}
+}
+
+
+OUTPUT: Sorted Numbers: [1, 2, 3, 5, 7, 8]
+
+
+Example 3: Distinct and Limit
+Get distinct elements and limit the result to a certain number.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class DistinctLimitExample {
+public static void main(String[] args) {
+List<String> items = Arrays.asList("Apple", "Banana", "Apple", "Orange", "Banana", "Apple");
+// Get distinct items and limit the result to 3
+List<String> distinctItems = items.stream()
+.distinct()
+.limit(3)
+.collect(Collectors.toList());
+System.out.println("Distinct Items: " + distinctItems);
+}
+}
+
+
+OUTPUT: Distinct Items: [Apple, Banana, Orange]
+
+
+Example 4: Reduce
+Calculate the sum of a list of integers using reduce.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+public class ReduceExample {
+public static void main(String[] args) {
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+// Calculate the sum
+int sum = numbers.stream().reduce(0, Integer::sum);
+System.out.println("Sum: " + sum);
+}
+}
+
+
+OUTPUT: Sum: 15
+
+
+Example 5: Grouping By
+Group a list of strings by their length.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+public class GroupByExample {
+public static void main(String[] args) {
+List<String> items = Arrays.asList("Apple", "Banana", "Cherry", "Date");
+// Group items by length
+Map<Integer, List<String>> groupedByLength = items.stream()
+.collect(Collectors.groupingBy(String::length));
+System.out.println("Grouped by Length: " + groupedByLength);
+}
+}
+
+
+OUTPUT: Grouped by Length: {4=[Date], 5=[Apple], 6=[Banana, Cherry]}
+
+
+Example 6: Partitioning By
+Partition a list of integers into even and odd numbers.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+public class PartitionByExample {
+public static void main(String[] args) {
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+// Partition numbers into even and odd
+Map<Boolean, List<Integer>> partitioned = numbers.stream()
+.collect(Collectors.partitioningBy(num -> num % 2 == 0));
+System.out.println("Even Numbers: " + partitioned.get(true));
+System.out.println("Odd Numbers: " + partitioned.get(false));
+}
+}
+
+
+OUTPUT:
+Even Numbers: [2, 4, 6, 8, 10]
+Odd Numbers: [1, 3, 5, 7, 9]
+
+
+Example 7: Parallel Stream
+Process a list of numbers in parallel.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+public class ParallelStreamExample {
+public static void main(String[] args) {
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+// Process numbers in parallel
+numbers.parallelStream()
+
+.forEach(num -> System.out.println("Number: " + num + " - " +
+Thread.currentThread().getName()));
+
+}
+}
+
+
+OUTPUT:
+Number: 7 - main
+Number: 4 - ForkJoinPool.commonPool-worker-5
+Number: 6 - main
+Number: 8 - ForkJoinPool.commonPool-worker-5
+Number: 5 - ForkJoinPool.commonPool-worker-3
+Number: 3 - ForkJoinPool.commonPool-worker-1
+Number: 10 - ForkJoinPool.commonPool-worker-5
+Number: 9 - ForkJoinPool.commonPool-worker-4
+Number: 1 - main
+Number: 2 - ForkJoinPool.commonPool-worker-2`
+                                ]
+                            },
+
+                        ]
+                    }
+                ]
+            },
+            
             {
                 id: 'basics',
                 name: 'Java Basics',
@@ -427,14 +2201,7 @@ etc. to complete the development of a Java Application.
   <td>JVM bundled in both software JDK and JRE</td>
   </tr>
 </table>
-
-
-
-
-
-
-
-                `
+ `
                             }
                         ]
                     },
@@ -444,22 +2211,22 @@ etc. to complete the development of a Java Application.
                         name: 'Data Types and Variables',
                         beginner: [
                             {
-                                content: `Java has two categories of data types : Primitive and Reference types.
+                                content: `Java has two categories of data types : Primitive and Reference types.<br>
 
-🔹 Primitive Data Types (8 types):
+<h3>Primitive Data Types (8 types):</h3>
 
-• byte: 8-bit integer (-128 to 127)
-• short: 16-bit integer (-32,768 to 32,767)
-• int: 32-bit integer (-2^31 to 2^31-1)
-• long: 64-bit integer (-2^63 to 2^63-1)
-• float: 32-bit floating point
-• double: 64-bit floating point
-• char: 16-bit Unicode character
-• boolean: true or false
+• byte: 8-bit integer (-128 to 127)<br>
+• short: 16-bit integer (-32,768 to 32,767)<br>
+• int: 32-bit integer (-2^31 to 2^31-1)<br>
+• long: 64-bit integer (-2^63 to 2^63-1)<br>
+• float: 32-bit floating point<br>
+• double: 64-bit floating point<br>
+• char: 16-bit Unicode character<br>
+• boolean: true or false<br>
 
-Variables:
+<h3>Variables:</h3>
 
-A variable is a container that holds data. In Java, you must declare a variable before using it.`,
+A variable is a container that holds data. In Java, you must declare a variable before using it.<br>`,
                                 codeExamples: [
                                     `// Variable Declaration and Initialization
 public class DataTypesExample {
@@ -487,27 +2254,26 @@ public class DataTypesExample {
                             }],
                         intermediate: [
                             {
-                                content: `Understanding wrapper classes, autoboxing, type casting, and variable scope:
+                                content: `Understanding wrapper classes, autoboxing, type casting, and variable scope:<br>
 
-Wrapper Classes:
+<h4>Wrapper Classes:</h4>
+Convert primitive types to objects and vice versa.<br>
 
-Convert primitive types to objects and vice versa.
+• Byte, Short, Integer, Long<br>
+• Float, Double<br>
+• Character, Boolean<br>
 
-• Byte, Short, Integer, Long
-• Float, Double
-• Character, Boolean
+<h4>Type Casting:</h4>
 
-Type Casting:
+• Widening (Implicit): byte → short → int → long → float → double<br>
+• Narrowing (Explicit): Requires manual casting<br>
 
-• Widening (Implicit): byte → short → int → long → float → double
-• Narrowing (Explicit): Requires manual casting
+<h4>Variable Scope:</h4>
 
-Variable Scope:
-
-• Instance Variables: Belong to object
-• Class Variables (static): Belong to class
-• Local Variables: Belong to method/block
-• Parameters: Passed to methods`,
+• Instance Variables: Belong to object<br>
+• Class Variables (static): Belong to class<br>
+• Local Variables: Belong to method/block<br>
+• Parameters: Passed to methods<br>`,
                                 codeExamples: [
                                     `// Autoboxing and Type Casting
 public class AdvancedDataTypes {
@@ -532,28 +2298,28 @@ public class AdvancedDataTypes {
                             }],
                         expert: [
                             {
-                                content: `Memory management, immutability, and performance considerations for data types:
+                                content: `Memory management, immutability, and performance considerations for data types:<br>
 
-Memory Allocation:
+<h4>Memory Allocation:</h4>
 
-• Primitive types: Stored in stack (faster access)
-• Objects: Stored in heap (slower access)
-• String Pool: Special memory region for strings
+• Primitive types: Stored in stack (faster access)<br>
+• Objects: Stored in heap (slower access)<br>
+• String Pool: Special memory region for strings<br><br>
 
-Immutability:
+<h3>Immutability:</h3>
 
-Wrapper classes and String are immutable for:
+<h4>Wrapper classes and String are immutable for: </h4>
 
-• Thread safety
-• Security
-• Performance (caching)
+• Thread safety<br>
+• Security<br>
+• Performance (caching)<br>
 
-Performance Considerations:
+<h4>Performance Considerations:</h4>
 
-• Use primitives when possible (less memory overhead)
-• Avoid unnecessary boxing/unboxing
-• String concatenation: Use StringBuilder for loops
-• Consider memory footprint in large collections`,
+• Use primitives when possible (less memory overhead)<br>
+• Avoid unnecessary boxing/unboxing<br>
+• String concatenation: Use StringBuilder for loops<br>
+• Consider memory footprint in large collections<br>`,
                                 codeExamples: [
                                     `// Performance Comparison
 public class PerformanceExample {
@@ -8208,10 +9974,275 @@ thread’s local cache. <br><br>
                 ]
             },
 
+            {
+                id: 'exception-handling',
+                name: 'Exception Handling in Java',
+                topics: [
+                    {
+                        id: 'basics',
+                        name: 'Exception Handling Basics',
+                        beginner: [
+                            {
+                                content: `Exception Handling in Java is a mechanism to handle runtime errors so that the normal flow of the application is not interrupted.
+
+🔹 What is an Exception?
+• An unwanted or unexpected event that occurs during program execution
+• It disrupts the normal flow of the program
+
+🔹 Why Exception Handling?
+• Prevents program crash
+• Allows graceful recovery
+• Maintains application flow`,
+                                codeExamples: [
+                                    `// Without Exception Handling
+public class Test {
+    public static void main(String[] args) {
+        System.out.println("First line");
+        System.out.println("Second line");
+        System.out.println("Third line");
+        int a = 10 / 0; // Exception
+        System.out.println("Fourth line");
+        System.out.println("Fifth line");
+    }
+}`,
+
+                                    `// With Exception Handling
+public class Test {
+    public static void main(String[] args) {
+        System.out.println("First line");
+        System.out.println("Second line");
+        System.out.println("Third line");
+
+        try {
+            int a = 10 / 0;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        System.out.println("Fourth line");
+        System.out.println("Fifth line");
+    }
+}`
+
+                                ]
+                            }
+                        ]
+                    },
+
+
+
+                    {
+                        id: 'exception-hierarchy',
+                        name: 'Exception Hierarchy',
+                        beginner: [
+                            {
+                                content: `🔹 Exception Hierarchy in Java
+
+A. Throwable (Top class)
+• Superclass of all exceptions
+• Divided into Exception and Error
+
+B. Exception
+• Can be handled
+• Occurs due to application logic
+
+C. Error
+• Irrecoverable
+• Occurs due to system/environment issues
+
+Examples:
+• Error → OutOfMemoryError, StackOverflowError
+• Exception → IOException, RuntimeException`,
+                                codeExamples: [
+                                    `// ArithmeticException (Unchecked)
+public class Test {
+    public static void main(String[] args) {
+        int a = 10 / 0;
+    }
+}`
+                                ]
+                            }
+                        ]
+                    },
+
+                    {
+                        id: 'checked-unchecked',
+                        name: 'Checked vs Unchecked Exceptions',
+                        intermediate: [
+                            {
+                                content: `🔹 Checked Exceptions (Compile Time)
+• Checked by compiler
+• Must be handled using try-catch or throws
+• Do not inherit RuntimeException
+
+Examples:
+• IOException
+• SQLException
+• ClassNotFoundException
+
+🔹 Unchecked Exceptions (Runtime)
+• Checked at runtime
+• Inherit RuntimeException
+
+Examples:
+• ArithmeticException
+• NullPointerException
+• ArrayIndexOutOfBoundsException`,
+                                codeExamples: [
+                                    `// NullPointerException
+public class Test {
+    public static void main(String[] args) {
+        String str = null;
+        System.out.println(str.length());
+    }
+}`]
+                            }
+                        ]
+                    },
+
+                    {
+                        id: 'runtime-exceptions',
+                        name: 'Common Runtime Exceptions',
+                        intermediate: [
+                            {
+                                content: `Frequently asked runtime exceptions with examples.`,
+                                codeExamples: [
+                                    `// ArrayIndexOutOfBoundsException
+public class Test {
+    public static void main(String[] args) {
+        int[] a = new int[5];
+        a[10] = 50;
+    }
+}`,
+
+                                    `// NumberFormatException
+public class Test {
+    public static void main(String[] args) {
+        int a = Integer.parseInt("25+");
+    }
+}`,
+
+                                    `// InputMismatchException
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(); // float input causes exception
+    }
+}`,
+
+                                    `// IllegalStateException
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Test {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        Iterator<String> itr = list.iterator();
+        itr.remove(); // IllegalStateException
+    }
+}`
+                                ]
+                            }
+                        ]
+                    },
+
+                    {
+                        id: 'try-catch-finally',
+                        name: 'try-catch-finally Rules',
+                        intermediate: [
+                            {
+                                content: `🔹 Rules:
+• try must be followed by catch or finally
+• Parent exception cannot be before child
+• finally always executes (except System.exit)
+
+Valid Structures:
+1. try-catch
+2. try-finally
+3. try-catch-finally`,
+                                codeExamples: [
+                                    `// Correct Order
+try {
+    int a = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println(e);
+} catch (Exception e) {
+    System.out.println(e);
+} finally {
+    System.out.println("Always executed");
+}`
+                                ]
+                            }
+                        ]
+                    },
+
+                    {
+                        id: 'custom-exception',
+                        name: 'Custom Exceptions',
+                        expert: [
+                            {
+                                content: `🔹 Custom Exception
+• User-defined exception
+• Used for business logic
+• Extend Exception or RuntimeException
+
+Why?
+• Built-in exceptions may not fit business needs`,
+                                codeExamples: [
+                                    `// Custom Exception
+class InvalidAgeException extends RuntimeException {
+    public InvalidAgeException(String msg) {
+        super(msg);
+    }
+}
+
+public class Test {
+    static void validateAge(int age) {
+        if (age < 18) {
+            throw new InvalidAgeException("Not eligible to vote");
+        }
+    }
+
+    public static void main(String[] args) {
+        validateAge(15);
+    }
+}`
+                                ]
+                            }
+                        ]
+                    },
+
+                    {
+                        id: 'concurrent-modification',
+                        name: 'Concurrent Modification Exception',
+                        expert: [
+                            {
+                                content: `Occurs when a collection is modified while iterating using Iterator.`,
+                                codeExamples: [
+                                    `import java.util.ArrayList;
+
+public class Test {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+
+        for (String s : list) {
+            list.add("C"); // ConcurrentModificationException
+        }
+    }
+}`
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
 
         ],
-
-
 
 
         cheatNotes: [
@@ -8268,8 +10299,6 @@ thread’s local cache. <br><br>
                 ]
             }
         ]
-    },
-
-
+    }
 
 ]
