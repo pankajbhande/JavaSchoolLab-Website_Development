@@ -42,6 +42,184 @@ export const HtmlandCSS: Course[] = [
                 id: 'html and css',
                 name: 'HTML & CSS',
                 topics: [
+
+                    {
+                        id: 'basics of html and css',
+                        name: 'Basics of HTML and CSS',
+                        beginner: [
+                            {
+                                content: `<h3> 1. Document Outline </h3>
+                                < Doctypye > - Version of (X) HTML <br>
+                                < html > - Root element <br>
+                                < head > - Metadata container <br>
+                                < title > - Document title <br> 
+                                < body > - Document body <br>
+                                `,
+                                codeExamples: [`<!DOCTYPE html>`
+                                ]
+                            },
+                            {
+                                content:`<h3>2. Comments</h3>`,
+                                codeExamples:[`<!-- Comment Text>`]
+                            },
+                            {
+                                content:`<h3>3. Page Information</h3>
+                                < base /> - Base URL <br>
+                                < meta /> - meta data <br>
+                                < title /> - Title <br>
+                                < link /> - Relevant Resource <br>
+                                < style /> - Style resource <br>
+                                < script /> - script resource <br><br>
+                                
+                                <h3>4. Document Structure </h3>
+                                < h1 [1-6] > - Heading <br>
+                                < div > - Page Section <br>
+                                < span > - Inline Section<br>
+                                < p > - Paragraph<br>
+                                < br /> - line break <br>
+                                < hr /> - horizontal rule<br> <br>
+                                 
+                                <h3>5. Links </h3>
+                                < a href = "" > - Page link <br>
+                                < a href = "mail.to:" > - Email Link <br>
+                                < a name = "name" > - Anchor <br>
+                                < a href = "# name" > - Link to anchor <br><br>
+                                 
+                                <h3>6. Text Markup</h3>
+                                < strong > - Strong emphasis <br>
+                                < em > - emphasis <br>
+                                < blockquore > - Long quotation <br>
+                                < q > - short quotation <br>
+                                < abbr > - Abbreviation <br>
+                                < acronum >  - Acronum <br>
+                                < pre > - Pre-Formatted Text <br>
+                                < dfn > - Defination <br>
+                                < code > - Code <br>
+                                < cite > - citation <br>
+                                < del > - Deleted Text <br>
+                                < ins > - Inserted Text <br>
+                                < sub > - Subscript <br>    
+                                < sup > - Superscript <br>
+                                < address > - Address <br> <br>
+
+                                <h3> 7. Lists </h3>
+                                < ol > - Ordered list <br>
+                                < ul > - Unordered list <br>
+                                < li > - List item <br>
+                                < dl > - Definition list <br>
+                                < dt > - Definition term <br>
+                                < dd > - Term description <br><br>
+
+                                <h3>8. Forms </h3>
+                                < form > - Form <br>
+                                < Fieldset > - Collection of field <br> 
+                                < legend > - Form legend <br>
+                                < label > - Input label <br>
+                                < input /> - form input <br>
+                                < select > - Drop-down box <br>
+                                < optgroup > - Group of options <br>
+                                < option > - Drop-down option <br>
+                                < textarea > - large-text input <br>
+                                < button > - Button <br><br>
+    
+                                <h3>9. Tables </h3>
+                                < table > - Table <br> 
+                                < caption > - Caption <br>
+                                < thead > - Table header <br>
+                                < tbody > - Table body <br>
+                                < tfoot > - Table footer <br> 
+                                < colgroup > - column group <br>
+                                < col /> - column <br>  
+                                < tr > - Table Row <br>
+                                < td > - Table cell <br><br>
+
+                                <h3>10. Image & Image Map </h3>
+                                < img /> - Image <br>
+                                < map > - Image Map <br>
+                                < area /> - Area of Image Map <br><br>
+                                 
+                               <h3>11. Common char. Entites </h3>
+                               & # 34        " - Quotation mark <br><br>
+                               
+                               
+                               <h3>12. Object </h3>
+                               < object > - Object <br>
+                               < param /> - Parameter <br><br>
+                               
+                               <h3>13. Empty Element </h3>
+                               < area /> - < img /> <br>
+                               < base /> - < input /> <br>
+                               < br /> - < link /> <br>
+                               < col /> - < meta /> <br>
+                               < hr /> - < param /> <br><br>
+                                
+                               <h3>14. Core Attributes </h3>
+                                class ------> style <br>
+                                id ---------> Title <br>
+                                 
+                                <b>Note : </b>
+                                 Core attributes may not be used in base, html, head, meta, param, script, style or title elements.<br><br>
+
+                                <h3>15. Language Attribute </h3>
+                                <b>Note : </b>Language Attributes may not be used in base, br, frame, frameset, hr,iframe, param, or script elements.<br><br>
+
+                                <h3>16. Keyborad Attributes</h3>
+                                accessKey <br>
+                                tabindex <br><br>
+
+                                <h3>17. Window Events </h3>
+                                Onload <br>
+                                OnUnload<br><br>
+
+                                <h3>18. Form Events </h3>
+                                OnBlur <br>
+                                OnReset <br>
+                                Onchange <br>
+                                Onfocus <br>
+                                OnSelect <br>
+                                OnSubmit <br><br>
+
+                                <h3>19. Keyborad Event</h3>
+                                Onkeydown <br>
+                                Onkeyup <br>
+                                Onkeypress <br><br>
+
+                                <h3>20. Mouse Event </h3>
+                                Onclick <br>
+                                OnDbclick <br>
+                                OnMouseout <br>
+                                OnMouseover <br>
+                                OnMousedown <br>
+                                OnMouseup <br>
+                                OnMousemove <br><br>
+
+                                <h3> Basics of HTML </h3>
+                                1. < html > < /html > - Start and End document. <br>
+                                2. < h1 > < /h1 > - Header Size 1-6 (Larger to small). <br>
+                                3. < p > < /p > - Paragraph Tag. <br>
+                                4. &nbsp - Non-Breaking space. <br>
+                                5. < b > < /b > - Bold Text Tag. <br>
+                                6. < strike > < /strike > - Strike Through Tag. <br>
+                                7. < i > < /i > - Italics Tag. <br>
+                                8. < u > < /u > - Underling Tag. <br>
+                                9. < table > < /table > - Basic Table Tag. <br>
+                                10. < li > < /li > - List Items Tag. <br>
+                                11. < a href = "url" > text < /html > - Basic Link. <br>
+                                12. < img src = "url" alt = "text" > - Basic image. <br>
+                                13. src = "url" - Source (URL/FileName). <br>
+                                14. alt = "text" - Alt (HOVER) Text. <br>
+                                15. width = "number" - Line or Image width by Number or Percentage. <br>
+                                16. height = "number" -  Line or Image height by Number or Percentage. <br>
+                                17. border = "number" - Border Thickness. <br>
+                                18. < br > - Line Break Tag. <br>
+                                19. color "#number" - Color. <br>
+                                20. < blockquote > < /blockquote > - Quote Text Block. <br> `,
+                                 
+                            },
+                            
+                        ]    
+                    },
+
                     {
                         id: 'intro html and css',
                         name: 'HTML and CSS',
@@ -330,6 +508,7 @@ Using radio buttons for multiple options, you can only choose a single option at
                             }
                         ]
                     }
+                    
                 ]
             }
 

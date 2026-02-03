@@ -7,7 +7,7 @@ import { HtmlandCSS } from "./HtmlandCSS";
 import { MySQLCSS } from "./MySQLCSS";
 
 
-export const coursesData = [...HtmlandCSS,...coreJava, ...CollectionFramework, ...designPattern,...MySQLCSS]
+export const coursesData = [ ...HtmlandCSS, ...CollectionFramework, ...coreJava, ...designPattern, ...MySQLCSS]
 
 
 

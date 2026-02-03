@@ -30,7 +30,7 @@ export interface Course {
     }[];
 }
 
-export const coreJava: Course [] = [
+export const coreJava: Course[] = [
 
     {
         id: 'java',
@@ -82,8 +82,7 @@ interface.<br>
 method references, or constructor references to provide clear and concise syntax for implementing
 the single abstract method.<br> `,
                                 codeExamples: [
-                                    `
-Example 1:
+                                    `Example 1:
 
 @FunctionalInterface
 public interface Test {
@@ -105,7 +104,9 @@ main.getStudentName("Pankaj");
 }
 
 OUTPUT: Pankaj
-`, `Example: 02
+`,
+
+                                    `Example: 02
 
 @FunctionalInterface
 interface MyFunctionalInterface {
@@ -318,7 +319,7 @@ Output:
 30
 300
 `,
-`Example: 02
+                                    `Example: 02
 package com.code_with_pankaj;
 @FunctionalInterface
 interface GreetingService {
@@ -1810,7 +1811,7 @@ Number: 2 - ForkJoinPool.commonPool-worker-2`
                     }
                 ]
             },
-            
+
             {
                 id: 'basics',
                 name: 'Java Basics',
@@ -4110,6 +4111,1254 @@ System.out.println(a[a.length-3]);`
                         ]
                     },
 
+                    {
+                        id: 'arrayprogram',
+                        name: 'Array Program',
+                        beginner: [{
+                            content: ``,
+                            codeExamples: [
+                                `1. Sum of array elements 
+
+package com.code_with_pankaj; 
+public class SumOfArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int sum = 0; 
+ for (int num : array) { 
+ sum += num; 
+ } 
+ System.out.println("Sum of array elements: " + sum); 
+ } 
+} 
+ 
+OUTPUT: Sum of array elements: 15`,
+
+                                `2. Maximum and minimum element in array 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class MaxMinArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int max = Arrays.stream(array).max().getAsInt(); 
+ int min = Arrays.stream(array).min().getAsInt(); 
+ System.out.println("Maximum element: " + max); 
+ System.out.println("Minimum element: " + min); 
+ } 
+} 
+
+OUTPUT: 
+Maximum element: 5 
+Minimum element: 1 `,
+
+                                `3. Reverse an array 
+
+package com.code_with_pankaj; 
+public class ReverseArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ for (int i = 0; i < array.length / 2; i++) { 
+ int temp = array[i]; 
+ array[i] = array[array.length - 1 - i]; 
+ array[array.length - 1 - i] = temp; 
+ } 
+ System.out.print("Reversed array: "); 
+ for (int num : array) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Reversed array: 5 4 3 2 1 `,
+
+                                `4. Sort an array (Bubble Sort, Selection Sort, Insertion Sort)
+
+package com.code_with_pankaj; 
+public class BubbleSort { 
+public static void main(String[] args) { 
+ int[] array = { 5, 3, 8, 1, 2 }; 
+ for (int i = 0; i < array.length - 1; i++) { 
+ for (int j = 0; j < array.length - 1 - i; j++) { 
+ if (array[j] > array[j + 1]) { 
+ int temp = array[j]; 
+ array[j] = array[j + 1]; 
+ array[j + 1] = temp; 
+ } 
+ } 
+ } 
+ System.out.print("Sorted array: "); 
+ for (int num : array) { 
+ System.out.print(num + " ");
+ } 
+ } 
+} 
+
+OUTPUT: Sorted array: 1 2 3 5 8 `,
+
+                                `5. Find the second largest element in an array 
+
+package com.code_with_pankaj; 
+public class SecondLargest { 
+public static void main(String[] args) { 
+ int[] array = { 5, 3, 8, 1, 2 }; 
+ int firstLargest = Integer.MIN_VALUE; 
+ int secondLargest = Integer.MIN_VALUE; 
+ for (int num : array) { 
+ if (num > firstLargest) { 
+ secondLargest = firstLargest; 
+ firstLargest = num; 
+ } else if (num > secondLargest && num != firstLargest) { 
+ secondLargest = num; 
+ } 
+ } 
+ System.out.println("Second largest element: " + secondLargest); 
+ } 
+} 
+
+OUTPUT: Second largest element: 5 `,
+
+                                `6. Count the number of even and odd elements in an array 
+
+package com.code_with_pankaj; 
+public class CountEvenOdd { 
+public static void main(String[] args) { 
+ int[] array = { 5, 3, 8, 1, 2 }; 
+ int evenCount = 0; 
+ int oddCount = 0; 
+ for (int num : array) { 
+ if (num % 2 == 0) { 
+ evenCount++; 
+ } else { 
+ oddCount++; 
+ } 
+ } 
+ System.out.println("Number of even elements: " + evenCount); 
+ System.out.println("Number of odd elements: " + oddCount); 
+ } 
+} 
+
+OUTPUT: 
+Number of even elements: 2 
+Number of odd elements: 3 `,
+
+                                `7. Find the number of occurrences of a given element in an array 
+
+package com.code_with_pankaj; 
+public class CountOccurrences { 
+public static void main(String[] args) { 
+ int[] array = { 5, 3, 8, 5, 2 }; 
+ int target = 5; 
+ int count = 0; 
+ for (int num : array) { 
+ if (num == target) { 
+ count++; 
+ } 
+ } 
+ System.out.println("Number of occurrences of " + target + ": " + count); 
+ } 
+} 
+
+OUTPUT: Number of occurrences of 5: 2 `,
+
+                                `8. Check if an array is a palindrome 
+
+package com.code_with_pankaj; 
+public class PalindromeArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 2, 1 }; 
+ boolean isPalindrome = true; 
+ for (int i = 0; i < array.length / 2; i++) { 
+ if (array[i] != array[array.length - 1 - i]) { 
+ isPalindrome = false; 
+ break; 
+ } 
+ } 
+ System.out.println("Is array a palindrome: " + isPalindrome); 
+ } 
+} 
+
+OUTPUT: Is array a palindrome: true`,
+
+                                `9. Merge two arrays 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class MergeArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 3, 5 }; 
+ int[] array2 = { 2, 4, 6 }; 
+ int[] mergedArray = new int[array1.length + array2.length]; 
+ System.arraycopy(array1, 0, mergedArray, 0, array1.length); 
+ System.arraycopy(array2, 0, mergedArray, array1.length, array2.length); 
+ System.out.println("Merged array: " + Arrays.toString(mergedArray)); 
+ } 
+} 
+
+OUTPUT: Merged array: [1, 3, 5, 2, 4, 6] `,
+
+                                `10.Find the intersection of two arrays 
+
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+import java.util.Set; 
+public class IntersectionArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 3, 4, 5 }; 
+ int[] array2 = { 3, 5, 7, 8 }; 
+ Set<Integer> set1 = new HashSet<>(); 
+ Set<Integer> intersection = new HashSet<>(); 
+ for (int num : array1) { 
+ set1.add(num); 
+ } 
+ for (int num : array2) { 
+ if (set1.contains(num)) { 
+ intersection.add(num); 
+ } 
+ } 
+ System.out.println("Intersection of arrays: " + intersection); 
+ } 
+} 
+
+OUTPUT: Intersection of arrays: [3, 5] `,
+
+                                `11.Find the union of two arrays 
+
+package com.code_with_pankaj; 
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+import java.util.Set; 
+public class UnionArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 3, 4, 5 }; 
+ int[] array2 = { 3, 5, 7, 8 }; 
+ Set<Integer> union = new HashSet<>(); 
+ for (int num : array1) { 
+ union.add(num); 
+ } 
+ for (int num : array2) { 
+ union.add(num); 
+ } 
+ System.out.println("Union of arrays: " + union); 
+ } 
+}
+
+OUTPUT: Union of arrays: [1, 3, 4, 5, 7, 8]`,
+
+                                `12.Remove duplicates from an array 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class UnionArrays { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 2, 3, 4, 4, 5 }; 
+ int[] tempArray = Arrays.stream(array).distinct().toArray(); 
+ System.out.print("Array after removing duplicates: "); 
+ for (int num : tempArray) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+}
+
+OUTPUT: Array after removing duplicates: 1 2 3 4 5 `,
+
+                                `13.Rotate an array to the left by a given number of positions 
+
+package com.code_with_pankaj; 
+public class LeftRotateArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int n = 2; // Number of positions to rotate
+ int[] rotatedArray = new int[array.length]; 
+ for (int i = 0; i < array.length; i++) { 
+ rotatedArray[i] = array[(i + n) % array.length]; 
+ } 
+ System.out.print("Array after left rotation: "); 
+ for (int num : rotatedArray) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Array after left rotation: 3 4 5 1 2`,
+
+                                `14.Rotate an array to the right by a given number of positions 
+
+package com.code_with_pankaj; 
+public class RightRotateArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int n = 2; // Number of positions to rotate
+ int[] rotatedArray = new int[array.length]; 
+ for (int i = 0; i < array.length; i++) { 
+ rotatedArray[(i + n) % array.length] = array[i]; 
+ } 
+ System.out.print("Array after right rotation: "); 
+ for (int num : rotatedArray) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Array after right rotation: 4 5 1 2 3 `,
+
+                                `15.Move all zeros to the end of the array 
+
+package com.code_with_pankaj; 
+public class MoveZerosToEnd { 
+public static void main(String[] args) { 
+ int[] array = { 0, 1, 0, 3, 12 }; 
+ int count = 0; // Count of non-zero elements
+ for (int i = 0; i < array.length; i++) { 
+ if (array[i] != 0) { 
+ array[count++] = array[i]; 
+ } 
+ } 
+ while (count < array.length) { 
+ array[count++] = 0; 
+ } 
+ System.out.print("Array after moving zeros to the end: "); 
+ for (int num : array) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Array after moving zeros to the end: 1 3 12 0 0 `,
+
+                                `16.Find the sum of two arrays 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class SumOfTwoArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 2, 3 }; 
+ int[] array2 = { 4, 5, 6 }; 
+ int[] sumArray = new int[array1.length]; 
+ for (int i = 0; i < array1.length; i++) { 
+ sumArray[i] = array1[i] + array2[i]; 
+ } 
+ System.out.println("Sum of the two arrays: " + Arrays.toString(sumArray)); 
+ } 
+} 
+
+OUTPUT: Sum of the two arrays: [5, 7, 9] `,
+
+                                `17.Find the common elements in three sorted arrays 
+
+package com.code_with_pankaj; 
+import java.util.ArrayList; 
+import java.util.List; 
+public class CommonElementsThreeArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 5, 10, 20, 40, 80 }; 
+ int[] array2 = { 6, 7, 20, 80, 100 }; 
+ int[] array3 = { 3, 4, 15, 20, 30, 70, 80, 120 }; 
+ List<Integer> common = new ArrayList<>(); 
+ int i = 0, j = 0, k = 0; 
+ while (i < array1.length && j < array2.length && k < array3.length) { 
+ if (array1[i] == array2[j] && array2[j] == array3[k]) { 
+ common.add(array1[i]); 
+ i++; 
+ j++; 
+ k++; 
+ } else if (array1[i] < array2[j]) { 
+ i++; 
+ } else if (array2[j] < array3[k]) { 
+ j++; 
+ } else { 
+ k++; 
+ } 
+ } 
+ System.out.println("Common elements in three arrays: " + common); 
+ } 
+} 
+
+OUTPUT: Common elements in three arrays: [20, 80] `,
+
+                                `18.Find the smallest and second smallest element in an array 
+
+package com.code_with_pankaj; 
+public class SmallestSecondSmallest { 
+public static void main(String[] args) { 
+ int[] array = { 12, 13, 1, 10, 34, 1 }; 
+ int firstMin = Integer.MAX_VALUE, secondMin = Integer.MAX_VALUE; 
+ for (int num : array) { 
+ if (num < firstMin) { 
+ secondMin = firstMin; 
+ firstMin = num; 
+ } else if (num < secondMin && num != firstMin) { 
+ secondMin = num; 
+ } 
+ } 
+ System.out.println("Smallest element: " + firstMin); 
+ System.out.println("Second smallest element: " + secondMin); 
+ } 
+} 
+
+OUTPUT: 
+Smallest element: 1 
+Second smallest element: 10 `,
+
+                                `19.Find the kth smallest and largest element in an array 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class KthSmallestLargest { 
+public static void main(String[] args) { 
+ int[] array = { 12, 3, 5, 7, 19 }; 
+ int k = 2; 
+ Arrays.sort(array); 
+ 
+ int kthSmallest = array[k - 1]; 
+ int kthLargest = array[array.length - k]; 
+ 
+ System.out.println(k + "th smallest element: " + kthSmallest); 
+ System.out.println(k + "th largest element: " + kthLargest); 
+ } 
+} 
+
+OUPUT: 
+2th smallest element: 5 
+2th largest element: 12 `,
+
+                                `20. Segregate even and odd numbers in an array
+
+package com.code_with_pankaj; 
+public class SegregateEvenOdd { 
+public static void main(String[] args) { 
+ int[] array = { 12, 34, 45, 9, 8, 90, 3 }; 
+ int left = 0, right = array.length - 1; 
+ 
+ while (left < right) { 
+ while (array[left] % 2 == 0 && left < right) { 
+ left++; 
+ } 
+ while (array[right] % 2 == 1 && left < right) { 
+ right--; 
+ } 
+ if (left < right) { 
+ int temp = array[left]; 
+ array[left] = array[right]; 
+ array[right] = temp; 
+ left++; 
+ right--; 
+ } 
+ } 
+ System.out.print("Array after segregation: "); 
+
+ for (int num : array) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Array after segregation: 12 34 90 8 9 45 3 `,
+
+                            ]
+                        }
+                        ],
+                        intermediate: [
+                            {
+                                content: ``,
+                                codeExamples: [
+                                    `1.Find the equilibrium index of an array 
+
+package com.code_with_pankaj; 
+public class EquilibriumIndex { 
+public static void main(String[] args) { 
+ int[] array = { 1, 3, 5, 2, 2 }; 
+ int totalSum = 0, leftSum = 0; 
+ for (int num : array) { 
+ totalSum += num; 
+ } 
+ for (int i = 0; i < array.length; i++) { 
+ totalSum -= array[i]; 
+ if (leftSum == totalSum) { 
+ System.out.println("Equilibrium index: " + i); 
+ return; 
+ } 
+ leftSum += array[i]; 
+ } 
+ System.out.println("No equilibrium index found"); 
+ } 
+} 
+
+OUTPUT: Equilibrium index: 2 `,
+
+                                    `2.Find the maximum sum of a subarray (Kadane's algorithm) 
+
+package com.code_with_pankaj; 
+public class KadanesAlgorithm { 
+public static void main(String[] args) { 
+ int[] array = { -2, 1, -3, 4, -1, 2, 1, -5, 4 }; 
+ int maxSoFar = array[0], maxEndingHere = array[0]; 
+ for (int i = 1; i < array.length; i++) { 
+ maxEndingHere = Math.max(array[i], maxEndingHere + array[i]); 
+ maxSoFar = Math.max(maxSoFar, maxEndingHere); 
+ } 
+ System.out.println("Maximum sum of a subarray: " + maxSoFar); 
+ } 
+} 
+
+OUTPUT: Maximum sum of a subarray: 6 `,
+
+                                    `3.Find the longest increasing subsequence in an array 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class LongestIncreasingSubsequence { 
+public static void main(String[] args) { 
+ int[] array = { 10, 22, 9, 33, 21, 50, 41, 60, 80 }; 
+ int[] lis = new int[array.length]; 
+ Arrays.fill(lis, 1); 
+ for (int i = 1; i < array.length; i++) { 
+ for (int j = 0; j < i; j++) { 
+ if (array[i] > array[j] && lis[i] < lis[j] + 1) { 
+ lis[i] = lis[j] + 1; 
+ } 
+ } 
+ } 
+ int maxLis = 0; 
+ for (int i = 0; i < lis.length; i++) { 
+ if (maxLis < lis[i]) { 
+ maxLis = lis[i]; 
+ } 
+ } 
+ System.out.println("Length of longest increasing subsequence: " + maxLis); 
+ } 
+} 
+
+OUTPUT: Length of longest increasing subsequence: 6 `,
+
+                                    `4.Find the longest common subsequence between two arrays 
+
+package com.code_with_pankaj; 
+public class LongestCommonSubsequence { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 3, 4, 1, 2, 8 }; 
+ int[] array2 = { 3, 4, 1, 2, 1, 3, 8 }; 
+ int[][] lcs = new int[array1.length + 1][array2.length + 1]; 
+ for (int i = 1; i <= array1.length; i++) { 
+ for (int j = 1; j <= array2.length; j++) { 
+ if (array1[i - 1] == array2[j - 1]) { 
+ lcs[i][j] = lcs[i - 1][j - 1] + 1; 
+ } else { 
+ lcs[i][j] = Math.max(lcs[i - 1][j], lcs[i][j - 1]); 
+ } 
+ } 
+ } 
+ System.out.println("Length of longest common subsequence: " + lcs[array1.length][array2.length]); 
+ } 
+} 
+
+OUTPUT: Length of longest common subsequence: 5 `,
+
+                                    `5.Find the missing number in a given array of size n containing numbers from 1 to n-1 
+
+package com.code_with_pankaj; 
+public class MissingNumber { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 4, 5, 6 }; 
+ int n = array.length + 1; // As one number is missing
+ int totalSum = (n * (n + 1)) / 2; 
+ int arraySum = 0; 
+ for (int num : array) { 
+ arraySum += num; 
+ } 
+ int missingNumber = totalSum - arraySum; 
+ System.out.println("Missing number: " + missingNumber); 
+ } 
+} 
+
+OUTPUT: Missing number: 3 `,
+
+                                    `6.Check if there are duplicate elements in an array within k distance from each other 
+
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+public class DuplicatesWithinKDistance { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 1, 4, 5 }; 
+ int k = 3; 
+ boolean duplicatesFound = false; 
+ HashSet<Integer> set = new HashSet<>(); 
+ for (int i = 0; i < array.length; i++) { 
+ if (set.contains(array[i])) { 
+ duplicatesFound = true; 
+ break; 
+ } 
+ set.add(array[i]); 
+ if (i >= k) { 
+ set.remove(array[i - k]); 
+ } 
+ } 
+ System.out.println("Duplicates within " + k + " distance: " + duplicatesFound); 
+ } 
+} 
+
+OUTPUT: Duplicates within 3 distance: true `,
+
+                                    `7.Find the length of the largest subarray with 0 sum 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+public class LargestSubarrayWithZeroSum { 
+public static void main(String[] args) { 
+ int[] array = { 15, -2, 2, -8, 1, 7, 10, 23 }; 
+ HashMap<Integer, Integer> map = new HashMap<>(); 
+ int maxLength = 0, sum = 0; 
+ for (int i = 0; i < array.length; i++) { 
+ sum += array[i]; 
+ if (array[i] == 0 && maxLength == 0) { 
+ maxLength = 1; 
+ } 
+ if (sum == 0) { 
+ maxLength = i + 1; 
+ } 
+ Integer prevIndex = map.get(sum); 
+ if (prevIndex != null) { 
+ maxLength = Math.max(maxLength, i - prevIndex); 
+ } else { 
+ map.put(sum, i); 
+ } 
+ } 
+ System.out.println("Length of the largest subarray with 0 sum: " + maxLength); 
+ } 
+} 
+OUTPUT: Length of the largest subarray with 0 sum: 5 `,
+
+                                    `8.Find the largest subarray with equal number of 0s and 1s 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+public class LargestSubarrayEqualZerosOnes { 
+public static void main(String[] args) { 
+ int[] array = { 1, 0, 0, 1, 0, 1, 1 }; 
+ HashMap<Integer, Integer> map = new HashMap<>(); 
+ int maxLength = 0, sum = 0; 
+ for (int i = 0; i < array.length; i++) { 
+ sum += (array[i] == 0) ? -1 : 1; 
+ if (sum == 0) { 
+ maxLength = i + 1; 
+ } 
+ if (map.containsKey(sum)) { 
+ maxLength = Math.max(maxLength, i - map.get(sum)); 
+ } else { 
+ map.put(sum, i); 
+ } 
+ } 
+ System.out.println("Largest subarray with equal number of 0s and 1s: " + maxLength); 
+ } 
+} 
+
+OUTPUT: Largest subarray with equal number of 0s and 1s: 6 `,
+
+                                    `9.Find the maximum product of two integers in an array 
+
+package com.code_with_pankaj; 
+public class MaximumProduct { 
+public static void main(String[] args) { 
+ int[] array = { 1, 20, 30, 40, 50, 60 }; 
+ int maxProduct = Integer.MIN_VALUE; 
+ for (int i = 0; i < array.length - 1; i++) { 
+ for (int j = i + 1; j < array.length; j++) { 
+ int product = array[i] * array[j]; 
+ if (product > maxProduct) { 
+ maxProduct = product; 
+ } 
+ } 
+ } 
+ System.out.println("Maximum product of two integers: " + maxProduct); 
+ } 
+} 
+
+OUTPUT: Maximum product of two integers: 3000`,
+
+                                    `10.Find the peak element in an array 
+
+package com.code_with_pankaj; 
+public class PeakElement { 
+public static void main(String[] args) { 
+ int[] array = { 1, 3, 20, 4, 1, 0 }; 
+ int peakElement = findPeakElement(array); 
+ System.out.println("Peak element: " + peakElement); 
+ } 
+public static int findPeakElement(int[] array) { 
+ int left = 0, right = array.length - 1; 
+ while (left < right) { 
+ int mid = (left + right) / 2; 
+ if (array[mid] > array[mid + 1]) { 
+ right = mid; 
+ } else { 
+ left = mid + 1; 
+ } 
+ } 
+ return array[left]; 
+ } 
+} 
+OUTPUT: Peak element: 20 `,
+
+                                    `11.Find the maximum difference between two elements in an array such that larger element 
+appears after the smaller element 
+
+package com.code_with_pankaj; 
+public class MaximumDifference { 
+public static void main(String[] args) { 
+ int[] array = { 2, 3, 10, 6, 4, 8, 1 }; 
+ int maxDifference = array[1] - array[0]; 
+ int minElement = array[0]; 
+ for (int i = 1; i < array.length; i++) { 
+ if (array[i] - minElement > maxDifference) { 
+ maxDifference = array[i] - minElement; 
+ } 
+ if (array[i] < minElement) { 
+ minElement = array[i]; 
+ } 
+ } 
+ System.out.println("Maximum difference: " + maxDifference); 
+ } 
+} 
+
+OUTPUT: Maximum difference: 8 `,
+
+                                    `12.Find the element that appears more than n/2 times in an array (Majority Element) 
+
+package com.code_with_pankaj; 
+public class MajorityElement { 
+public static void main(String[] args) { 
+ int[] array = { 2, 2, 1, 1, 1, 2, 2 }; 
+ int count = 0, candidate = -1; 
+ for (int num : array) { 
+ if (count == 0) { 
+ candidate = num; 
+ } 
+ count += (num == candidate) ? 1 : -1; 
+ } 
+ count = 0; 
+ for (int num : array) { 
+ if (num == candidate) { 
+ count++; 
+ } 
+ } 
+ if (count > array.length / 2) { 
+ System.out.println("Majority element: " + candidate); 
+ } else { 
+ System.out.println("No majority element found"); 
+ } 
+ } 
+} 
+
+OUTPUT: Majority element: 2 `,
+
+                                    `13.Find the next greater element for each element in an array 
+
+package com.code_with_pankaj; 
+import java.util.Stack; 
+public class NextGreaterElement { 
+public static void main(String[] args) { 
+ int[] array = { 4, 5, 2, 25 }; 
+ int[] nge = new int[array.length]; 
+ Stack<Integer> stack = new Stack<>(); 
+ for (int i = array.length - 1; i >= 0; i--) { 
+ while (!stack.isEmpty() && stack.peek() <= array[i]) { 
+ stack.pop(); 
+ } 
+ nge[i] = stack.isEmpty() ? -1 : stack.peek(); 
+ stack.push(array[i]); 
+ } 
+ System.out.print("Next greater elements: "); 
+ for (int num : nge) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+OUTPUT: Next greater elements: 5 25 25 -1 
+`,
+
+                                    `14.Find the first repeating and first non-repeating element in an array 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+import java.util.Map; 
+public class FirstRepeatingNonRepeating { 
+public static void main(String[] args) { 
+ int[] array = { 10, 5, 3, 4, 3, 5, 6 }; 
+ Map<Integer, Integer> countMap = new HashMap<>(); 
+ Integer firstRepeating = null, firstNonRepeating = null; 
+ for (int num : array) { 
+ countMap.put(num, countMap.getOrDefault(num, 0) + 1); 
+ } 
+ for (int num : array) { 
+ if (countMap.get(num) > 1) { 
+ firstRepeating = num; 
+ break; 
+ } 
+ } 
+ for (int num : array) { 
+ if (countMap.get(num) == 1) { 
+ firstNonRepeating = num; 
+ break; 
+ } 
+ } 
+ System.out.println("First repeating element: " + firstRepeating); 
+ System.out.println("First non-repeating element: " + firstNonRepeating); 
+ } 
+} 
+
+OUTPUT: 
+First repeating element: 5 
+First non-repeating element: 10 `,
+
+                                    `15.Find the maximum sum of a subarray with at least k elements 
+
+package com.code_with_pankaj; 
+public class MaxSumSubarrayAtLeastK { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, -10, -3 }; 
+ int k = 2; 
+ int n = array.length; 
+ int[] maxSum = new int[n]; 
+ maxSum[0] = array[0]; 
+ for (int i = 1; i < n; i++) { 
+ maxSum[i] = Math.max(array[i], maxSum[i - 1] + array[i]); 
+ } 
+ int sum = 0; 
+ for (int i = 0; i < k; i++) { 
+ sum += array[i]; 
+ } 
+ int result = sum; 
+ for (int i = k; i < n; i++) { 
+ sum = sum + array[i] - array[i - k]; 
+ result = Math.max(result, sum); 
+ result = Math.max(result, sum + maxSum[i - k]); 
+ } 
+ System.out.println("Maximum sum of subarray with at least " + k + " elements: " + result); 
+ } 
+} 
+
+OUTPUT: Maximum sum of subarray with at least 2 elements: 5 `,
+
+                                    `16.Check if there is a subarray with sum equal to zero 
+
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+public class SubarrayWithZeroSum { 
+public static void main(String[] args) { 
+ int[] array = { 4, 2, -3, 1, 6 }; 
+ boolean found = false; 
+ int sum = 0; 
+ HashSet<Integer> set = new HashSet<>(); 
+ for (int num : array) { 
+ sum += num; 
+ if (sum == 0 || set.contains(sum)) { 
+ found = true; 
+ break; 
+ } 
+ set.add(sum); 
+ } 
+ System.out.println("Is there a subarray with sum equal to zero: " + found); 
+ } 
+} 
+
+OUTPUT: Is there a subarray with sum equal to zero: true `,
+
+                                    `17.Find the sum of the minimum elements of all subarrays 
+
+package com.code_with_pankaj; 
+public class SumOfMinElements { 
+public static void main(String[] args) { 
+ int[] array = { 3, 1, 2, 4 }; 
+ int n = array.length; 
+ int result = 0; 
+ for (int i = 0; i < n; i++) { 
+ int min = array[i]; 
+ for (int j = i; j < n; j++) { 
+ min = Math.min(min, array[j]); 
+ result += min; 
+ } 
+ } 
+ System.out.println("Sum of the minimum elements of all subarrays: " + result); 
+ } 
+} 
+
+OUTPUT: Sum of the minimum elements of all subarrays: 17 `,
+
+                                    `18.Find the maximum circular subarray sum 
+
+package com.code_with_pankaj; 
+public class MaxCircularSubarraySum { 
+public static void main(String[] args) { 
+ int[] array = { 8, -8, 9, -9, 10, -11, 12 }; 
+ int maxKadane = kadane(array); 
+ int maxWrap = 0; 
+ for (int i = 0; i < array.length; i++) { 
+ maxWrap += array[i]; 
+ array[i] = -array[i]; 
+ } 
+ maxWrap = maxWrap + kadane(array); 
+ int result = Math.max(maxKadane, maxWrap); 
+ System.out.println("Maximum circular subarray sum: " + result); 
+ } 
+private static int kadane(int[] array) { 
+ int maxSoFar = array[0], maxEndingHere = array[0]; 
+ for (int i = 1; i < array.length; i++) { 
+ maxEndingHere = Math.max(array[i], maxEndingHere + array[i]); 
+ maxSoFar = Math.max(maxSoFar, maxEndingHere); 
+ } 
+ return maxSoFar; 
+ } 
+} 
+
+OUTPUT: Maximum circular subarray sum: 22 `,
+
+                                    `19.Find the maximum sum of a subarray with exactly k elements 
+
+package com.code_with_pankaj; 
+public class MaxSumSubarrayExactlyK { 
+public static void main(String[] args) { 
+ int[] array = { 2, 1, 5, 1, 3, 2 }; 
+ int k = 3; 
+ int maxSum = 0; 
+ for (int i = 0; i < k; i++) { 
+ maxSum += array[i]; 
+ } 
+ int windowSum = maxSum; 
+ for (int i = k; i < array.length; i++) { 
+ windowSum += array[i] - array[i - k]; 
+ maxSum = Math.max(maxSum, windowSum); 
+ } 
+ System.out.println("Maximum sum of subarray with exactly " + k + " elements: " + maxSum);  
+ } 
+} 
+
+OUTPUT: Maximum sum of subarray with exactly 3 elements: 9`,
+
+                                    `20.Find the minimum difference between the sums of two subarrays of size n/2 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class MinDifferenceSubarrays { 
+public static void main(String[] args) { 
+ int[] array = { 1, 6, 11, 5 }; 
+ int totalSum = Arrays.stream(array).sum(); 
+ int n = array.length / 2; 
+ int targetSum = totalSum / 2; 
+ boolean[][] dp = new boolean[array.length + 1][targetSum + 1]; 
+ for (int i = 0; i <= array.length; i++) { 
+ dp[i][0] = true; 
+ } 
+ for (int i = 1; i <= array.length; i++) { 
+ for (int j = 1; j <= targetSum; j++) { 
+ if (array[i - 1] <= j) { 
+ dp[i][j] = dp[i - 1][j] || dp[i - 1][j - array[i - 1]]; 
+ } else { 
+ dp[i][j] = dp[i - 1][j]; 
+ } 
+ } 
+ } 
+ int sum1 = 0; 
+ for (int j = targetSum; j >= 0; j--) { 
+ if (dp[array.length][j]) { 
+ sum1 = j; 
+ break; 
+ } 
+ } 
+ int sum2 = totalSum - sum1; 
+ int minDifference = Math.abs(sum2 - sum1); 
+ System.out.println("Minimum difference between the sums of two subarrays of size n/2: "
++ minDifference); 
+ } 
+} 
+
+OUTPUT: Minimum difference between the sums of two subarrays of size n/2: 1 `,
+                                ]
+                            }
+                        ],
+
+                        expert: [
+                            {
+                                content: ``,
+                                codeExamples: [
+                                    `1.Check if a given array represents a Binary Search Tree or not 
+
+package com.code_with_pankaj; 
+public class ArrayRepresentsBST { 
+public static void main(String[] args) { 
+ int[] array = { 3, 5, 7, 9, 11, 13, 15 }; 
+ boolean isBST = isBST(array, 0, array.length - 1); 
+ System.out.println("Does the array represent a BST: " + isBST); 
+ } 
+public static boolean isBST(int[] array, int start, int end) { 
+ if (start >= end) { 
+ return true; 
+ } 
+ int mid = (start + end) / 2; 
+ if ((mid > 0 && array[mid] <= array[mid - 1]) || (mid < array.length - 1 && array[mid] >= 
+array[mid + 1])) { 
+ return false; 
+ } 
+ return isBST(array, start, mid - 1) && isBST(array, mid + 1, end); 
+ } 
+} 
+
+OUTPUT: Does the array represent a BST: true `,
+
+                                    `2.Find the maximum length of a subarray with a given sum 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+public class MaxLengthSubarrayGivenSum { 
+public static void main(String[] args) { 
+ int[] array = { 10, 5, 2, 7, 1, 9 }; 
+ int targetSum = 15; 
+ int maxLength = 0; 
+ int sum = 0; 
+ HashMap<Integer, Integer> map = new HashMap<>(); 
+ for (int i = 0; i < array.length; i++) { 
+ sum += array[i]; 
+ if (sum == targetSum) { 
+ maxLength = i + 1; 
+ } 
+ if (map.containsKey(sum - targetSum)) { 
+ maxLength = Math.max(maxLength, i - map.get(sum - targetSum)); 
+ } 
+ map.putIfAbsent(sum, i); 
+ } 
+ System.out.println("Maximum length of subarray with sum " + targetSum + ": " + maxLength); 
+ } 
+} 
+
+OUTPUT: Maximum length of subarray with sum 15: 4 `,
+
+                                    `3.Find the minimum length of a subarray with a given sum 
+
+package com.code_with_pankaj; 
+public class MinLengthSubarrayGivenSum { 
+public static void main(String[] args) { 
+ int[] array = { 2, 3, 1, 2, 4, 3 }; 
+ int targetSum = 7; 
+ int minLength = Integer.MAX_VALUE; 
+ int sum = 0; 
+ int left = 0; 
+ for (int right = 0; right < array.length; right++) { 
+ sum += array[right]; 
+ while (sum >= targetSum) { 
+ minLength = Math.min(minLength, right - left + 1); 
+ sum -= array[left++]; 
+ } 
+ } 
+ if (minLength == Integer.MAX_VALUE) { 
+ System.out.println("No subarray with the given sum found"); 
+ } else { 
+ System.out.println("Minimum length of subarray with sum " + targetSum + ": " + 
+minLength); 
+ } 
+ } 
+} 
+
+OUTPUT: Minimum length of subarray with sum 7: 2 `,
+
+                                    `4.Find the maximum length of a subarray with distinct elements 
+
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+public class MaxLengthSubarrayDistinctElements { 
+public static void main(String[] args) { 
+ int[] array = { 5, 2, 3, 5, 4, 3 }; 
+ int maxLength = 0; 
+ int left = 0; 
+ HashSet<Integer> set = new HashSet<>(); 
+ for (int right = 0; right < array.length; right++) { 
+ while (set.contains(array[right])) { 
+ set.remove(array[left]); 
+ left++; 
+ } 
+ set.add(array[right]); 
+ maxLength = Math.max(maxLength, right - left + 1); 
+ } 
+ System.out.println("Maximum length of subarray with distinct elements: " + maxLength); 
+ } 
+} 
+
+OUTPUT: Maximum length of subarray with distinct elements: 4 `,
+
+                                    `5.Find the minimum length of a subarray with all elements of another array 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+import java.util.Map; 
+public class MinLengthSubarrayWithAllElements { 
+public static void main(String[] args) { 
+ int[] array1 = { 2, 3, 1, 2, 4, 3 }; 
+ int[] array2 = { 2, 4, 3 }; 
+ int minLength = Integer.MAX_VALUE; 
+ Map<Integer, Integer> map = new HashMap<>(); 
+ for (int num : array2) { 
+ map.put(num, map.getOrDefault(num, 0) + 1); 
+ } 
+ int left = 0; 
+ int count = 0; 
+ for (int right = 0; right < array1.length; right++) { 
+ if (map.containsKey(array1[right])) { 
+ map.put(array1[right], map.get(array1[right]) - 1); 
+ if (map.get(array1[right]) >= 0) { 
+ count++; 
+ } 
+ } 
+ while (count == array2.length) { 
+ minLength = Math.min(minLength, right - left + 1); 
+ if (map.containsKey(array1[left])) { 
+ map.put(array1[left], map.get(array1[left]) + 1); 
+ if (map.get(array1[left]) > 0) { 
+ count--; 
+ } 
+ } 
+ left++; 
+ } 
+ } 
+ if (minLength == Integer.MAX_VALUE) { 
+ System.out.println("No subarray contains all elements of the given array"); 
+ } else { 
+ System.out.println("Minimum length of subarray with all elements of given array: 
+" + minLength); 
+ } 
+ } 
+} 
+
+OUTPUT: Minimum length of subarray with all elements of given array: 3 `,
+
+                                    `6.Find the length of the smallest subarray with at least k distinct elements 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+import java.util.Map; 
+public class SmallestSubarrayWithKDistinct { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 1, 2, 3 }; 
+ int k = 2; 
+ int minLength = Integer.MAX_VALUE; 
+ Map<Integer, Integer> map = new HashMap<>(); 
+ int left = 0; 
+ for (int right = 0; right < array.length; right++) { 
+ map.put(array[right], map.getOrDefault(array[right], 0) + 1); 
+ while (map.size() >= k) { 
+ minLength = Math.min(minLength, right - left + 1); 
+ if (map.get(array[left]) == 1) { 
+ map.remove(array[left]); 
+ } else { 
+ map.put(array[left], map.get(array[left]) - 1); 
+ } 
+ left++; 
+ } 
+ } 
+ if (minLength == Integer.MAX_VALUE) { 
+ System.out.println("No subarray with at least " + k + " distinct elements found"); 
+ } else { 
+ System.out.println("Length of smallest subarray with at least " + k + " distinct 
+elements: " + minLength); 
+ } 
+ } 
+} 
+
+OUTPUT: Length of smallest subarray with at least 2 distinct elements: 2`,
+
+                                    `7.Find the longest subarray with the same element 
+
+package com.code_with_pankaj; 
+public class LongestSubarrayWithSameElement { 
+public static void main(String[] args) { 
+ int[] array = { 1, 1, 2, 2, 2, 3, 3 }; 
+ int maxLength = 1, currentLength = 1; 
+ for (int i = 1; i < array.length; i++) { 
+ if (array[i] == array[i - 1]) { 
+ currentLength++; 
+ } else { 
+ maxLength = Math.max(maxLength, currentLength); 
+ currentLength = 1; 
+ } 
+ } 
+ maxLength = Math.max(maxLength, currentLength); 
+ System.out.println("Length of longest subarray with the same element: " + maxLength); 
+ } 
+} 
+
+OUTPUT: Length of longest subarray with the same element: 3 `,
+
+                                    `8.Find the longest subarray with alternating even and odd elements 
+
+package com.code_with_pankaj; 
+public class LongestSubarrayAlternatingEvenOdd { 
+public static void main(String[] args) { 
+ int[] array = { 10, 12, 14, 7, 8 }; 
+ int maxLength = 1, currentLength = 1; 
+ for (int i = 1; i < array.length; i++) { 
+ if ((array[i] % 2 == 0 && array[i - 1] % 2 != 0) || (array[i] % 2 != 0 && array[i - 1] 
+% 2 == 0)) { 
+ currentLength++; 
+ } else { 
+ maxLength = Math.max(maxLength, currentLength); 
+ currentLength = 1; 
+ } 
+ } 
+ maxLength = Math.max(maxLength, currentLength); 
+ System.out.println("Length of longest subarray with alternating even and odd elements: " + 
+maxLength); 
+ } 
+} 
+
+OUTPUT: Length of longest subarray with alternating even and odd elements: 2`,
+
+                                    `9.Find the longest subarray with a sum less than or equal to a given value 
+
+package com.code_with_pankaj; 
+public class LongestSubarrayWithSumLE { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int target = 11; 
+ int maxLength = 0, sum = 0, left = 0; 
+ for (int right = 0; right < array.length; right++) { 
+ sum += array[right]; 
+ while (sum > target) { 
+ sum -= array[left++]; 
+ } 
+ maxLength = Math.max(maxLength, right - left + 1); 
+ } 
+ System.out.println("Longest subarray with a sum less than or equal to " + target + ": " + 
+maxLength); 
+ } 
+}
+
+OUTPUT: Longest subarray with a sum less than or equal to 11: 3 `,
+
+                                    `10.Find the number of subarrays with a given sum 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+public class SubarraysWithGivenSum { 
+public static void main(String[] args) { 
+ int[] array = { 10, 2, -2, -20, 10 }; 
+ int target = -10; 
+ int count = 0, sum = 0; 
+ HashMap<Integer, Integer> map = new HashMap<>(); 
+ for (int num : array) { 
+ sum += num; 
+ if (sum == target) { 
+ count++; 
+ } 
+ if (map.containsKey(sum - target)) { 
+ count += map.get(sum - target); 
+ } 
+ map.put(sum, map.getOrDefault(sum, 0) + 1); 
+ } 
+ System.out.println("Number of subarrays with sum " + target + ": " + count); 
+ } 
+} 
+ 
+OUTPUT: Number of subarrays with sum -10: 3 `
+                                ]
+                            }
+                        ]
+                    },
 
                     {
                         id: `String in java`,
@@ -4827,560 +6076,6 @@ Calling parameterized constructor of derived class
 • Constructors are not inherited, but they are executed.<br>
 • Helps in proper object initialization.
       `
-                            }
-                        ]
-                    },
-
-                    {
-                        id: `Array in java`,
-                        name: `Array in Java`,
-
-                        intermediate: [
-
-                            {
-                                content: `
-<b>Array</b><br>
-• Array is a collection of similar type of elements stored in contiguous memory locations.<br>
-• Java array is an object that contains elements of the same data type.<br>
-• Array size is fixed and cannot grow at runtime.<br>
-• Array is index-based, starting from index <b>0</b>.<br>
-<img src="./src/assets/array1.png" 
-     alt="String in Java" 
-     class="d-block mx-auto" />
-`
-                            },
-
-                            {
-                                content: `
-<h4>Advantages of Array</h4>
-• Code Optimization – efficient data access and sorting<br>
-• Random Access – direct access using index<br><br>
-
-<h4>Disadvantages of Array</h4>
-• Fixed size – cannot grow dynamically<br>
-• Memory wastage may occur<br>
-• Collection framework overcomes this limitation<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>Types of Arrays in Java</h4>
-1. Single Dimensional Array<br>
-2. Multidimensional Array<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>Single Dimensional Array</h4>
-<b>Declaration Syntax</b><br>
-1. dataType[] arr;<br>
-2. dataType []arr;<br>
-3. dataType arr[];<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>Array Declaration, Instantiation & Initialization</h4>
-`,
-                                codeExamples: [
-                                    `int a[] = new int[5];
-a[0] = 10;
-a[1] = 20;
-a[2] = 30;
-a[3] = 40;
-a[4] = 50;
-
-for(int i=0;i<a.length;i++){
-    System.out.println(a[i]);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Array Initialization in Single Line</h4>
-`,
-                                codeExamples: [
-                                    `int a[] = {10, 20, 30};
-
-for(int i=0;i<a.length;i++){
-    System.out.println(a[i]);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>For-each Loop with Array</h4>
-We can also print the Java array using for-each loop. The Java for-each loop prints the array elements
-one by one. It holds an array element in a variable, then executes the body of the loop.
-`,
-                                codeExamples: [
-                                    `int arr[] = {10, 20, 30, 40};
-
-for(int i : arr){
-    System.out.println(i);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Passing Array to Method</h4>
-We can pass the java array to method so that we can reuse the same logic on any array.
-`,
-                                codeExamples: [
-                                    `static void min(int arr[]){
-    int min = arr[0];
-    for(int i=1;i<arr.length;i++){
-        if(min > arr[i])
-            min = arr[i];
-    }
-    System.out.println(min);
-}
-
-int a[] = {33, 3, 4, 5};
-min(a);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Anonymous Array</h4>
-Java supports the feature of an anonymous array, so you don't need to declare the array while passing an
-array to the method.
-`,
-                                codeExamples: [
-                                    `printArray(new int[]{10, 22, 44, 66});`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Returning Array from Method</h4>
-We can also return an array from the method in Java.
-`,
-                                codeExamples: [
-                                    `static int[] get(){
-    return new int[]{10, 30, 50, 90, 60};
-}
-
-int arr[] = get();
-for(int i : arr){
-    System.out.println(i);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>ArrayIndexOutOfBoundsException</h4>
-The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException if length of the array in
-negative, equal to the array size or greater than the array size while traversing the array.`,
-                                codeExamples: [
-                                    `int arr[] = {50, 60, 70, 80};
-for(int i=0;i<=arr.length;i++){
-    System.out.println(arr[i]);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Multidimensional Array</h4>
-• Stored in row and column format (matrix)<br>
-`,
-                                codeExamples: [
-                                    `int arr[][] = {
-    {1,2,3},
-    {2,4,5},
-    {4,4,5}
-};
-
-for(int i=0;i<3;i++){
-    for(int j=0;j<3;j++){
-        System.out.print(arr[i][j]+" ");
-    }
-    System.out.println();
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Jagged Array</h4>
-If we are creating odd number of columns in a 2D array, it is known as a jagged array. In other words, it
-is an array of arrays with different number of columns.`,
-                                codeExamples: [
-                                    `int arr[][] = new int[3][];
-arr[0] = new int[3];
-arr[1] = new int[4];
-arr[2] = new int[2];`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Copying an Array</h4>
-We can copy an array to another by the arraycopy() method of System class.
-`,
-                                codeExamples: [
-                                    `char[] src = {'d','e','c','a','f','f','e','i','n'};
-char[] dest = new char[7];
-
-System.arraycopy(src, 2, dest, 0, 7);
-System.out.println(String.valueOf(dest));`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Cloning an Array</h4>
-Since, Java array implements the Cloneable interface, we can create the clone of the Java array. If we
-create the clone of a single-dimensional array, it creates the deep copy of the Java array. It means, it will
-copy the actual value. But, if we create the clone of a multidimensional array, it creates the shallow copy
-of the Java array which means it copies the references.
-`,
-                                codeExamples: [
-                                    `int arr[] = {33, 3, 4, 5};
-int clone[] = arr.clone();
-
-System.out.println(arr == clone); // false`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Matrix Addition</h4>
-In the case of matrix multiplication, a one-row element of the first matrix is multiplied by all the
-columns of the second matrix which can be understood by the image given below.
-`,
-                                codeExamples: [
-                                    `int a[][] = {{1,3,4},{3,4,5}};
-int b[][] = {{1,3,4},{3,4,5}};
-int c[][] = new int[2][3];
-
-for(int i=0;i<2;i++){
-    for(int j=0;j<3;j++){
-        c[i][j] = a[i][j] + b[i][j];
-        System.out.print(c[i][j]+" ");
-    }
-    System.out.println();
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Matrix Multiplication</h4>
-`,
-                                codeExamples: [
-                                    `int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
-int b[][] = {{1,1,1},{2,2,2},{3,3,3}};
-int c[][] = new int[3][3];
-
-for(int i=0;i<3;i++){
-    for(int j=0;j<3;j++){
-        c[i][j]=0;
-        for(int k=0;k<3;k++){
-            c[i][j]+=a[i][k]*b[k][j];
-        }
-        System.out.print(c[i][j]+" ");
-    }
-    System.out.println();
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Find 3rd Largest Element</h4>
-`,
-                                codeExamples: [
-                                    `Arrays.sort(a);
-System.out.println(a[a.length-3]);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<div class="bg-secondary p-2 rounded-md">
-<h4>Important Interview Questions</h4>
-1. What is array?<br>
-2. Why array size is fixed?<br>
-3. Difference between array & collection<br>
-4. What is jagged array?<br>
-5. Array vs ArrayList<br>
-</div>
-`
-                            }
-
-                        ]
-                    },
-
-                    {
-                        id: `String in java`,
-                        name: `String in Java`,
-
-                        intermediate: [
-
-                            {
-                                content: `
-      String: 
-      It is the class that represents sequence of character.<br>
-Package: Java.lang.<br>
-Strings in Java are a sequence of characters, and they are one of the most commonly used data types
-for storing and manipulating text.<br>
-<img src="./src/assets/string.png" 
-     alt="String in Java" 
-     class="d-block mx-auto" />
-
-
-<b>Q. Why String is Immutable in Java?</b><br>
-• String is immutable, once a String object is created it cannot be changed.<br>
-• Any modification creates a <b>new String object</b>.<br>
-• Improves <b>security, memory efficiency, and thread safety</b>.<br><br>
-
-<b>CharSequence Interface</b><br>
-• Represents a sequence of characters.<br>
-• Implemented by String, StringBuffer, StringBuilder.<br>
-• Allows treating all three uniformly.<br>
-<img src="./src/assets/string2.png" 
-     alt="String in Java" 
-     class="d-block mx-auto" />
-
-`
-                            },
-
-                            {
-                                content: `
-<h4>Creating String Objects</h4>
-1. String Literal<br>
-2. Using new keyword<br>
-3. Using Character Array<br>
-4. Using String Methods<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>1. String Literal</h4>
-• Created using double quotes.<br>
-• Stored in <b>String Constant Pool</b>.<br>
-• JVM reuses existing objects for memory efficiency.<br>
-`,
-                                codeExamples: [
-                                    `String s1 = "pankaj";
-String s2 = "pankaj";
-System.out.println(s1 == s2); // true`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>2. Using new Keyword</h4>
-• Always creates a new object in heap memory.<br>
-• Even if value exists in String Pool.<br>
-`,
-                                codeExamples: [
-                                    `String s1 = "pankaj";
-String s2 = new String("pankaj");
-
-System.out.println(s1 == s2);      // false
-System.out.println(s1.equals(s2)); // true`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>String Immutability Example</h4>
-• concat() does not modify original String.<br>
-• New object is created.<br>
-`,
-                                codeExamples: [
-                                    `String s = "pankaj";
-s = s.concat("bhande");
-System.out.println(s); // pankajbhande`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>String Manipulation Methods</h4>
-• length()<br>
-• concat()<br>
-• charAt()<br>
-• substring()<br>
-• toUpperCase()<br>
-• trim()<br>
-• replace()<br>
-`,
-                                codeExamples: [
-                                    `String original = "Code With Pankaj";
-
-System.out.println("Length: " + original.length());
-System.out.println("Concatenated: " + original.concat(" is fun!"));
-System.out.println("First Char: " + original.charAt(0));
-System.out.println("Substring: " + original.substring(5, 16));
-System.out.println("Uppercase: " + original.toUpperCase());
-System.out.println("Trimmed: " + " Java ".trim());
-System.out.println("Replaced: " + original.replace('a', '@'));`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>String Comparison</h4>
-<b>3 Ways:</b><br>
-1. equals() → Content comparison<br>
-2. == → Reference comparison<br>
-3. compareTo() → Lexicographical comparison<br>
-<img src="./src/assets/string6.png" 
-     alt="String in Java" 
-     class="d-block mx-auto" />
-
-`,
-                                codeExamples: [
-                                    `String s1 = "Pankaj";
-String s2 = "Pankaj";
-String s3 = new String("Pankaj");
-
-System.out.println(s1.equals(s2)); // true
-System.out.println(s1 == s3);      // false`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>compareTo() Example</h4>
-`,
-                                codeExamples: [
-                                    `String s1 = "Pankaj";
-String s2 = "Pankaj";
-String s3 = "Dheeraj";
-
-System.out.println(s1.compareTo(s2)); // 0
-System.out.println(s1.compareTo(s3)); // positive
-System.out.println(s3.compareTo(s1)); // negative`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>String Concatenation Techniques</h4>
-1. + operator<br>
-2. concat() method<br>
-3. StringBuilder<br>
-4. String.format()<br>
-5. String.join()<br>
-`,
-                                codeExamples: [
-                                    `String s = "Pankaj" + " Bhande";
-System.out.println(s);`,
-
-                                    `StringBuilder sb = new StringBuilder("Hello");
-sb.append(" Pankaj");
-System.out.println(sb.toString());`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Concatenation Using format()</h4>
-`,
-                                codeExamples: [
-                                    `String s1 = "Hello";
-String s2 = " Pankaj";
-String s = String.format("%s%s", s1, s2);
-System.out.println(s);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Concatenation Using String.join()</h4>
-`,
-                                codeExamples: [
-                                    `String s = String.join("", "Hello", " Pankaj");
-System.out.println(s);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Concatenation Using StringJoiner</h4>
-`,
-                                codeExamples: [
-                                    `StringJoiner sj = new StringJoiner(", ");
-sj.add("Hello");
-sj.add("Pankaj");
-System.out.println(sj.toString());`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Character Array to String</h4>
-• String can be created from char array.<br>
-• Char array is mutable, String is immutable.<br>
-`,
-                                codeExamples: [
-                                    `char[] arr = {'H','e','l','l','o'};
-String str = new String(arr);
-System.out.println(str);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Counting Spaces in String</h4>
-`,
-                                codeExamples: [
-                                    `String str = "Code With Pankaj";
-int count = 0;
-
-for(int i=0;i<str.length();i++){
-    if(str.charAt(i)==' '){
-        count++;
-    }
-}
-System.out.println("Total spaces: " + count);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Why String is Immutable? (Interview)</h4>
-1. ClassLoader safety<br>
-2. Thread safety<br>
-3. Security (passwords, DB URLs)<br>
-4. Heap memory optimization<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>Difference Between String, StringBuffer, StringBuilder</h4>
-• String → Immutable, Thread-safe<br>
-• StringBuffer → Mutable, Thread-safe<br>
-• StringBuilder → Mutable, Fastest, Not Thread-safe<br>
-`
-                            },
-
-                            {
-                                content: `
-<div class="bg-secondary p-2 rounded-md">
-<h4>Important Interview Questions</h4>
-1. Why String is immutable?<br>
-2. What is String Constant Pool?<br>
-3. == vs equals()<br>
-4. StringBuffer vs StringBuilder<br>
-5. How JVM handles + operator?<br>
-</div>
-`
                             }
                         ]
                     },
@@ -9978,269 +10673,568 @@ thread’s local cache. <br><br>
                 id: 'exception-handling',
                 name: 'Exception Handling in Java',
                 topics: [
-                    {
-                        id: 'basics',
-                        name: 'Exception Handling Basics',
-                        beginner: [
-                            {
-                                content: `Exception Handling in Java is a mechanism to handle runtime errors so that the normal flow of the application is not interrupted.
-
-🔹 What is an Exception?
-• An unwanted or unexpected event that occurs during program execution
-• It disrupts the normal flow of the program
-
-🔹 Why Exception Handling?
-• Prevents program crash
-• Allows graceful recovery
-• Maintains application flow`,
-                                codeExamples: [
-                                    `// Without Exception Handling
-public class Test {
-    public static void main(String[] args) {
-        System.out.println("First line");
-        System.out.println("Second line");
-        System.out.println("Third line");
-        int a = 10 / 0; // Exception
-        System.out.println("Fourth line");
-        System.out.println("Fifth line");
-    }
-}`,
-
-                                    `// With Exception Handling
-public class Test {
-    public static void main(String[] args) {
-        System.out.println("First line");
-        System.out.println("Second line");
-        System.out.println("Third line");
-
-        try {
-            int a = 10 / 0;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        System.out.println("Fourth line");
-        System.out.println("Fifth line");
-    }
-}`
-
-                                ]
-                            }
-                        ]
-                    },
-
-
 
                     {
-                        id: 'exception-hierarchy',
-                        name: 'Exception Hierarchy',
-                        beginner: [
-                            {
-                                content: `🔹 Exception Hierarchy in Java
-
-A. Throwable (Top class)
-• Superclass of all exceptions
-• Divided into Exception and Error
-
-B. Exception
-• Can be handled
-• Occurs due to application logic
-
-C. Error
-• Irrecoverable
-• Occurs due to system/environment issues
-
-Examples:
-• Error → OutOfMemoryError, StackOverflowError
-• Exception → IOException, RuntimeException`,
-                                codeExamples: [
-                                    `// ArithmeticException (Unchecked)
-public class Test {
-    public static void main(String[] args) {
-        int a = 10 / 0;
-    }
-}`
-                                ]
-                            }
-                        ]
-                    },
-
-                    {
-                        id: 'checked-unchecked',
-                        name: 'Checked vs Unchecked Exceptions',
+                        id: 'exception-handling',
+                        name: 'Exception Handling in Java',
                         intermediate: [
                             {
-                                content: `🔹 Checked Exceptions (Compile Time)
-• Checked by compiler
-• Must be handled using try-catch or throws
-• Do not inherit RuntimeException
+                                content: `It is the abnormal condition that occur during execution of program to stop the entire flow of
+application called as “Exception Handling.” <br>
 
-Examples:
-• IOException
-• SQLException
-• ClassNotFoundException
+Exception handling in Java is all about managing errors and exceptions gracefully so that they don't
+crash your program unexpectedly. <br>
+Why? <br>
 
-🔹 Unchecked Exceptions (Runtime)
-• Checked at runtime
-• Inherit RuntimeException
-
-Examples:
-• ArithmeticException
-• NullPointerException
-• ArrayIndexOutOfBoundsException`,
+<img src="/src/assets/exceptionHierarchy.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+`,
                                 codeExamples: [
-                                    `// NullPointerException
+                                    `package com. pankaj;
 public class Test {
-    public static void main(String[] args) {
-        String str = null;
-        System.out.println(str.length());
-    }
-}`]
-                            }
-                        ]
-                    },
+public static void main(String[] args) {
+System.out.println("First line");
+System.out.println("Second line");
+System.out.println("Third line");
+}
+}
+Output:
+First line
+Second line
+Third line
 
-                    {
-                        id: 'runtime-exceptions',
-                        name: 'Common Runtime Exceptions',
-                        intermediate: [
-                            {
-                                content: `Frequently asked runtime exceptions with examples.`,
-                                codeExamples: [
-                                    `// ArrayIndexOutOfBoundsException
+
+Now we add one exception line code as below
+package com. pankaj;
 public class Test {
-    public static void main(String[] args) {
-        int[] a = new int[5];
-        a[10] = 50;
-    }
-}`,
-
-                                    `// NumberFormatException
-public class Test {
-    public static void main(String[] args) {
-        int a = Integer.parseInt("25+");
-    }
-}`,
-
-                                    `// InputMismatchException
-import java.util.Scanner;
-
-public class Test {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt(); // float input causes exception
-    }
-}`,
-
-                                    `// IllegalStateException
-import java.util.ArrayList;
-import java.util.Iterator;
-
-public class Test {
-    public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<>();
-        list.add("A");
-        Iterator<String> itr = list.iterator();
-        itr.remove(); // IllegalStateException
-    }
-}`
-                                ]
-                            }
-                        ]
-                    },
-
-                    {
-                        id: 'try-catch-finally',
-                        name: 'try-catch-finally Rules',
-                        intermediate: [
-                            {
-                                content: `🔹 Rules:
-• try must be followed by catch or finally
-• Parent exception cannot be before child
-• finally always executes (except System.exit)
-
-Valid Structures:
-1. try-catch
-2. try-finally
-3. try-catch-finally`,
-                                codeExamples: [
-                                    `// Correct Order
-try {
-    int a = 10 / 0;
-} catch (ArithmeticException e) {
-    System.out.println(e);
-} catch (Exception e) {
-    System.out.println(e);
-} finally {
-    System.out.println("Always executed");
-}`
-                                ]
-                            }
-                        ]
-                    },
-
-                    {
-                        id: 'custom-exception',
-                        name: 'Custom Exceptions',
-                        expert: [
-                            {
-                                content: `🔹 Custom Exception
-• User-defined exception
-• Used for business logic
-• Extend Exception or RuntimeException
-
-Why?
-• Built-in exceptions may not fit business needs`,
-                                codeExamples: [
-                                    `// Custom Exception
-class InvalidAgeException extends RuntimeException {
-    public InvalidAgeException(String msg) {
-        super(msg);
-    }
+public static void main(String[] args) {
+System.out.println("First line");
+System.out.println("Second line");
+System.out.println("Third line");
+int a = 10 / 0;
+System.out.println("Fourth line");
+System.out.println("Fifth line");
 }
 
-public class Test {
-    static void validateAge(int age) {
-        if (age < 18) {
-            throw new InvalidAgeException("Not eligible to vote");
-        }
-    }
+}
+Output
+First line
+Second line
+Third line
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+at com.DHI_PANcom.exam.Pank.main(Pank.java:9)
 
-    public static void main(String[] args) {
-        validateAge(15);
-    }
+
+In this example, two statements are not executed, if you want to execute those two statements then
+how to do it in java? Then you should go for exception handling.
+package com.pankaj;
+public class Test {
+public static void main(String[] args) {
+System.out.println("First line");
+System.out.println("Second line");
+System.out.println("Third line");
+try {
+int a = 10 / 0;
+} catch (Exception e) {
+System.out.println(e);
+}
+System.out.println("Fourth line");
+System.out.println("Fifth line");
+}
+}
+
+Output-
+First line
+
+Second line
+Third line
+java.lang.ArithmeticException: / by zero
+Fourth line
+Fifth line
+
+( Here 2 statements are executed i.e 4th line and 5th line, we have achieved this by using try and catch
+
+block )
 }`
+
+                                ]
+                            },
+                            {
+
+                                content: `
+        A. Throwable <br>
+• In the above given Hierarchy Throwable is a class which is at the top of the exception hierarchy,
+from which all exception classes are derived.<br>
+• It is the super class of all Exceptions in Java.<br>
+• Both Exception and Errors are java classes which are derived from the Throwable class.<br><br>
+B. Error<br>
+• Error is subclass of throwable class.<br>
+• Errors are mostly the abnormal conditions.<br>
+• Error occur because of the programmer’s mistakes, but when system is not working properly or a
+resource is not allocated properly.<br>
+• Memory out of bound exception, stack overflow etc., are examples of Error. We can handle error
+because which are related to environment or system.`
+                            },
+
+                        ]
+                    },
+
+                    {
+                        id: 'exceptions',
+                        name: 'Difference between Checked and Unchecked Exceptions',
+                        intermediate: [
+                            {
+                                content: `<h3>1) Checked Exception - (Compile Time Exception) </h3>
+
+• The classes which directly inherit from Throwable class except RuntimeException & Error are
+known as Checked Exceptions.<br>
+• Checked exceptions are checked at compile-time. <br><br>
+
+Example- <br>
+1. IOException  <br>
+2. SQLException  <br>
+3. ClassNot Found Exception  <br> <br><br>
+
+<h3>2) Unchecked Exception – (Run Time Exception) </h3>
+• Unchecked Exceptions: The classes which inherit from RuntimeException <br>
+• Unchecked exceptions: not checked at compile-time, but they are checked at runtime.
+<br><br>
+Example-  <br>
+1. ArithmeticException <br>
+2. NullPointerException  <br>
+3. ArrayIndexOutOfBoundsException <br>
+4. NumberFormatException  <br>
+5. InputMismatchException  <br>
+6. IllegalStateException  <br>`,
+                                codeExamples: [
+                                    `1. ArithmeticException
+package com.test;
+public class Test {
+public static void main(String[] args) {
+int a = 10 / 0;
+}
+}
+Output
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+at com.test.Test.main(Test.java:7)
+}`,
+
+                                    `2. NullPointerException
+
+package com.test;
+public class Test {
+public static void main(String[] args) {
+String str = null;
+System.out.println(str.length()); //exception will be occured.
+}
+}
+
+Output
+Exception in thread "main" java.lang.NullPointerException
+at com.test.Test.main(Test.java:8)
+}`,
+
+                                    `3. ArrayIndexOutOfBoundsException
+
+package com.test;
+public class Test {
+public static void main(String[] args) {
+int a[] = new int[5]; // Index: 5
+a[10] = 50; // ArrayIndexOutOfBoundsException
+}
+}
+
+Output
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 10
+at com.test.Test.main(Test.java:8)
+}`,
+
+                                    `4. NumberFormatException
+package com.exam;
+public class Test {
+public static void main(String[] args) {
+int a = Integer.parseInt(null);
+// throws Exception as the input string is of illegal format for parsing as it is null.
+}
+}
+OUTPUT: Exception in thread "main" java.lang.NumberFormatException: Cannot parse null string
+at java.base/java.lang.Integer.parseInt(Integer.java:630)
+at java.base/java.lang.Integer.parseInt(Integer.java:786)
+at com.DHI_PANcom.exam.Pank.main(Pank.java:5)
+
+
+package com.DHI_PANcom.exam;
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+System.out.println("Please Enter your age : ");
+// throws Exception as if the input string is of illegal format for parsing as it as null or alphanumeric.
+int age = Integer.parseInt(sc.next()); // We Pass Not int value then we got such Excp.
+System.out.println("Your age is : " + age);
+}
+}
+OUTPUT: Please Enter your age :
+25+
+Exception in thread "main" java.lang.NumberFormatException: For input string: "25+"
+at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+at java.base/java.lang.Integer.parseInt(Integer.java:668)
+at java.base/java.lang.Integer.parseInt(Integer.java:786)
+at com.DHI_PANcom.exam.Pank.main(Pank.java:11)
+}`,
+
+                                    `5. InputMismatchExceptionExample1.java
+
+package com.exam;
+//import required classes and packages
+import java.util.InputMismatchException;
+import java.util.Scanner;
+//create class InputMismatchExample1 to understand how Scanner throws InputMismatchException
+
+
+public class InputMismatchExample1 {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+// use try-catch block for taking input from the user and handling exception
+try {
+System.out.println("Enter value of a to get its square value:");
+Integer a = sc.nextInt(); // we give any float value as input
+System.out.println((a * a));
+} catch (InputMismatchException ex) {
+System.out.println(ex);
+}
+}
+}
+
+OUTPUT:
+Enter value of a to get its square value:
+2.5
+java.util.InputMismatchException
+
+
+
+// import required classes and packages
+package javaTpoint.MicrosoftJava;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+// create class InputMismatchExample2 to understand how Scanner throws InputMismatchException
+public class InputMismatchExample2 {
+public static void main(String[] args) { // main() method start
+Scanner sc = new Scanner(System.in); // create scanner class object
+// use try-catch block for taking input from the user and handling exception
+try {
+System.out.println("Enter value of a to get its square value:");
+Integer a = sc.nextInt(); // we give big integer value as input
+System.out.println((a * a));
+} catch (InputMismatchException ex) {
+
+
+System.out.println(ex);
+}
+}
+}
+
+
+OUTPUT:
+Enter value of a to get its square value:
+1.11111111
+java.util.InputMismatchException
+          }`,
+
+
+                                    `6. IllegalStateException
+
+package com.exam;
+import java.util.ArrayList;
+import java.util.Iterator;
+public class IllegalStateExceptionExample {
+public static void main(String args[]) {
+ArrayList <String> list = new ArrayList<String>();
+list.add("a");
+list.add("b");
+list.add("c");
+Iterator<String> itr = list.iterator();
+itr.remove();
+}
+}
+
+
+OUTPUT:
+Exception in thread "main" java.lang.IllegalStateException
+at java.base/java.util.ArrayList$Itr.remove(ArrayList.java:980)
+at com.exam.IllegalStateExceptionExample.main(IllegalStateExceptionExample.java:14)
+
+
+
+package com.exam;
+// importing necessary packages
+import java.util.ArrayList;
+
+
+import java.util.ListIterator;
+public class IllegalStateExceptionTest3 {
+public static void main(String args[]) { // main method
+ArrayList<String> list = new ArrayList<String>();
+list.add("Nirnay");
+list.add("Anu");
+list.add("Swara");
+list.add("Pavan");
+
+// creating the iterator object to iterate the list
+ListIterator<String> itr = list.listIterator();
+// removing the element without moving to first position gives an exception
+itr.remove();
+}
+}
+
+
+OUTPUT:
+Exception in thread "main" java.lang.IllegalStateException
+at java.base/java.util.ArrayList$Itr.remove(ArrayList.java:980)
+at com.exam.IllegalStateExceptionTest3.main(IllegalStateExceptionTest3.java:22)
+          }`
                                 ]
                             }
                         ]
                     },
 
                     {
-                        id: 'concurrent-modification',
-                        name: 'Concurrent Modification Exception',
-                        expert: [
+                        id: 'error',
+                        name: 'Error ',
+                        intermediate: [
                             {
-                                content: `Occurs when a collection is modified while iterating using Iterator.`,
+                                content: `<h3> 2) Error</h3>
+Error is irrecoverable e.g. OutOfMemoryError, VirtualMachineError, AssertionError etc.<br>
+
+Possible way to write try catch block <br>
+
+<img src="/src/assets/trycatch1.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+<img src="/src/assets/trycatch2.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+<img src="/src/assets/trycatch3.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+<img src="/src/assets/trycatch4.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+<img src="/src/assets/trycatch5.1.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+<img src="/src/assets/trycatch5.2.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+<img src="/src/assets/trycatch6.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+
+
+<h2>Not allowed – What is the reason?</h2>
+
+The bigger exception cannot be in the first catch because it will accommodate or handle all exceptions
+and there will be no chance to reach the second catch of NullpointerException.<br><br>
+
+<img src="/src/assets/trycatch8.png" alt="Online Image"class="d-block mx-auto h-80"/>
+<img src="/src/assets/trycatch8.2.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+
+<h2>Finally</h2>
+
+The finally block is used when an important part of the code needs to be executed. <br>
+It is always executed whether or not the exceptions are handled. <br>
+• Finally block will always get executed until we shut down JVM.
+ To shut down JVM in java we call System.exit (). If you write this in try block in that case finally block will not be executed.<br><br>
+• Normally, finally block contains the code to release resources like DB connections, IO streams etc.<br> <br>
+
+try { <br>
+// Code that might throw an exception <br>
+} <br>
+catch (ExceptionType e) { <br>
+// Handle the exception <br>
+} <br>
+ finally { <br>
+// Code that will always execute <br>
+}
+<br><br>
+
+<img src="/src/assets/catchfinallydiff.png" alt="Online Image"class="d-block mx-auto h-80"/>  `
+
+                            }
+                        ]
+                    },
+                    {
+                        id: 'error2',
+                        name: 'Exception Handling Interview Question & Answer',
+                        intermediate: [
+                            {
+                                content: `
+01. What is Exception Handling? Explain types of Exception. <br>
+
+02. Difference between Exception & Error. <br>
+<img src="/src/assets/exceperrordiff.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+
+03. Difference between Checked & Unchecked Exception.
+<img src="/src/assets/exceptiondiff.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+
+04. How to handle exception or multiple exception in JAVA? <br><br>
+<h3>Using Single catch block: </h3> 
+• If there is a hierarchy of exceptions in the catch block, then we can catch the base exception only
+instead of catching multiple specialized exceptions. By this we can catch multiple exceptions in a
+single catch block. <br>
+OR
+<br>
+<h3>Using Multi catch block: </h3>  
+• We can use multi-catch block to catch multiple exceptions. A try block can be followed by one or
+more catch blocks. Each catch block must contain a different exception handler.
+<br>
+
+05. Which keywords used for handling the exception in JAVA?<br>
+<img src="/src/assets/exception2.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+
+06. Explain Finally. <br>
+Finally: <br>
+• Finally is a block which is always executed whether the exceptions are occurs or not. It is used to
+execute the necessary code of the program. <br>
+• Finally block will not be execute when shut down JVM by System.exit () in try block. <br>
+• Finally block is used to clean up code, close the connection, etc.<br>
+<br>
+
+07. What is custom exception? How to create custom exception class? <br>
+Custom Exception: <br>
+• We can create our own Exception is known as custom exception. Custom Exception is also called as
+User-defined exception. <br>
+• We need to extend java.lang.Exception class to create our own exception class.<br>
+• We are passing a string argument in the constructor of the custom exception and return that object. <br>
+<h3>Why we need Custom Exceptions? </h3> 
+Java has a lot of exceptions such as IOException, NullPointerException, etc, but these exceptions will
+not always be the best fit for the business requirements. So, we need Custom Exception. <br>
+Steps to create Custom Exception: <br>
+• Create a class which extend java.lang.Exception or java.lang.RunTimeException class.<br>
+• Always prefer an unchecked, Runtime exception than a checked exception.<br>
+• In Custom exception class, parametrized Constructor must called by using super keyword. <br>
+
+08. What is Concurrent Modification Exception?<br>
+Concurrent Modification Exception: <br>
+• When a thread in a program is trying to modify an object, which does not have permissions to
+be edited then Concurrent Modification Exception occurs. <br>
+• It is child class of RuntimeException.<br> `
+                            }
+                        ]
+                    },
+
+                    {
+                        id: 'exception-handling3',
+                        name: 'throw and throws in Java',
+                        intermediate: [
+                            {
+                                content: `
+<h3>Throw: </h3>
+The throw keyword is used to transfer the exception to someone else.<br>
+Example: throw new ArithmeticException (); <br>
+
+<h3>Throws:</h3> 
+Throws keyword is used to declare the exception with method. <br>
+Example: <br>
+void x1()throws IOException{ <br>
+x2(); <br>
+}
+<br>
+
+What is the difference between Checked Exception and Unchecked Exception keyword? (Self-assignment) <br>
+
+What is the difference between throw and throws? (Self-assignment)? <br>
+
+How to Create the Custom Exception in Java. <br>
+• We can create our own Exception that is known as custom exception or user-defined exception.<br>
+• By the help of custom exception, you can have your own exception and message.<br>
+Example-1- Scenario <br>
+Sometimes it is required to develop meaningful exceptions based on application requirements.
+For Example: Suppose you have 1 savings account in SBI Bank & you have 50000 in your account.
+Suppose you attempted to withdraw 60000 from your account. In java you can handle. You need to
+display some error message related to insufficient fund. <br> 
+Steps to create the user defined exception <br>
+1. Create the new class. <br>
+2. The user defined exception class must extend from java.lang.Exception or
+java.lang.RunTimeException class. <br>
+3. While creating custom exception, prefer to create an unchecked, Runtime exception than a checked
+exception. <br>
+4. Every user defined exception class in which parametrized Constructor must called Parametrized
+Constructor of either java.lang.Exception or java.lang.RunTimeException class by using super
+(string parameter always).`,
                                 codeExamples: [
-                                    `import java.util.ArrayList;
+                                    `Example - 01
 
-public class Test {
-    public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<>();
-        list.add("A");
-        list.add("B");
+package com.code_with_pankaj;
+public class InsufficientFundException extends RuntimeException {
+private String message;
+public InsufficientFundException(String message) {
+//this.message = message;
+super(message);
+}
+}
+}
 
-        for (String s : list) {
-            list.add("C"); // ConcurrentModificationException
-        }
-    }
+
+package com.code_with_pankaj;
+public class Account {
+private int balance = 3000;
+public int balance() {
+return balance;
+}
+public void withdraw(int amount) {
+if (amount > balance) {
+throw new InsufficientFundException("Insufficient balance in your A/C ");
+}
+balance = balance - amount;
+}
+}
+
+package com.code_with_pankaj;
+public class MainTest {
+public static void main(String[] args) {
+Account account = new Account();
+
+System.out.println("Current balance : " + account.balance());
+account.withdraw(3500);
+System.out.println("Current balance : " + account.balance());
+}
+}`,
+
+                                    `Example - 02
+package com.code_with_pankaj;
+
+class Test extends Exception {
+public Test(String s) {
+super(s);
+}
+}
+
+package com.code_with_pankaj;
+public class Test1 {
+public static void main(String[] args) {
+try {
+throw new Test("Invalid input");
+} catch (Exception e) {
+e.getMessage();
+}
+}
+}`,
+
+                                    `Java throw Example
+TestThrow.java
+package com.code_with_pankaj;
+public class Example {
+// defining a method
+public static void checkNum(int num) {
+if (num < 1) {
+
+
+
+throw new ArithmeticException("\nNumber is negative, cannot calculate square");
+} else {
+System.out.println("Square of " + num + " is " + (num * num));
+}
+}
+public static void main(String[] args) {
+Example obj = new Example();
+obj.checkNum(-3);
+System.out.println("Rest of the code..");
+}
 }`
+
+
                                 ]
                             }
                         ]
                     }
                 ]
-            },
+            }
 
         ],
 
@@ -10296,6 +11290,431 @@ public class Test {
                     'What is encapsulation and why is it important?',
                     'Difference between final, finally, and finalize',
                     'What are constructors and their types?'
+                ]
+            }
+        ]
+    },
+
+    {
+        id: 'jdbc',
+        name: 'JDBC',
+        icon: 'Database',
+        subTopics: [
+            {
+                id: 'jdbc basic',
+                name: 'JDBC Basics',
+                topics: [
+                    {
+                        id: 'introductiontojdbc',
+                        name: 'Introduction to JDBC',
+                        beginner: [
+                            {
+                                content: `JDBC (Java Database Connectivity) is an API for connecting and executing queries with databases.
+
+  JDBC Components:
+  • DriverManager: Manages database drivers
+  • Connection: Establishes connection to database
+  • Statement: Executes SQL queries
+  • ResultSet: Holds query results
+  • SQLException: Handles database errors`,
+                                codeExamples: [
+                                    `import java.sql.*;
+
+  public class JDBCExample {
+      public static void main(String[] args) {
+          String url = "jdbc:mysql://localhost:3306/school";
+          String user = "root";
+          String password = "password";
+
+          try {
+              // Load driver
+              Class.forName("com.mysql.cj.jdbc.Driver");
+
+              // Establish connection
+              Connection con = DriverManager.getConnection(url, user, password);
+
+              // Create statement
+              Statement stmt = con.createStatement();
+
+              // Execute query
+              ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+
+              // Process results
+              while (rs.next()) {
+                  System.out.println(rs.getInt("id") + " " + rs.getString("name"));
+              }
+
+              // Close connections
+              rs.close();
+              stmt.close();
+              con.close();
+          } catch (Exception e) {
+              e.printStackTrace();
+          }
+      }
+  }`
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        cheatNotes: [
+            'Class.forName() - Load driver',
+            'DriverManager.getConnection() - Connect to DB',
+            'createStatement() - Create statement',
+            'executeQuery() - Execute SELECT',
+            'executeUpdate() - Execute INSERT/UPDATE/DELETE',
+            'PreparedStatement - Parameterized queries',
+            'CallableStatement - Stored procedures',
+            'ResultSet - Query results',
+            'setAutoCommit(false) - Transaction control',
+            'commit() / rollback() - Commit or rollback'
+        ],
+        interviewQuestions: [
+            {
+                company: 'Infosys',
+                questions: [
+                    'What is JDBC and explain its architecture?',
+                    'What is the difference between Statement and PreparedStatement?',
+                    'How do you handle transactions in JDBC?',
+                    'What are different types of JDBC drivers?',
+                    'Explain connection pooling'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'jsp-servlet',
+        name: 'JSP Servlet',
+        icon: 'Code',
+        subTopics: [
+            {
+                id: 'servlet',
+                name: 'Servlets',
+                topics: [
+                    {
+                        id: 'introductiontoservlet',
+                        name: 'Introduction to Servlets',
+                        beginner: [
+                            {
+                                content: `A Servlet is a Java class that extends the capabilities of servers to host applications accessed via request-response model.
+
+  Servlet Lifecycle:
+  1. init() - Initialization
+  2. service() - Request handling
+  3. destroy() - Cleanup
+
+  Key Concepts:
+  • HttpServlet: Base class for HTTP servlets
+  • doGet(): Handle GET requests
+  • doPost(): Handle POST requests
+  • HttpServletRequest: Request object
+  • HttpServletResponse: Response object`,
+                                codeExamples: [
+                                    `import javax.servlet.*;
+  import javax.servlet.http.*;
+  import java.io.*;
+
+  public class HelloServlet extends HttpServlet {
+      public void doGet(HttpServletRequest request, 
+                      HttpServletResponse response) 
+                      throws ServletException, IOException {
+          response.setContentType("text/html");
+          PrintWriter out = response.getWriter();
+          out.println("<html><body>");
+          out.println("<h1>Hello from Servlet!</h1>");
+          out.println("</body></html>");
+      }
+  }`
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        cheatNotes: [
+            'HttpServlet - Base servlet class',
+            'doGet() - Handle GET requests',
+            'doPost() - Handle POST requests',
+            'request.getParameter() - Get form data',
+            'response.sendRedirect() - Redirect',
+            'RequestDispatcher - Forward request',
+            'session.setAttribute() - Store in session',
+            'application.setAttribute() - Store in application scope',
+            '@WebServlet - Annotation for servlet mapping',
+            'Filter - Preprocessing requests'
+        ],
+        interviewQuestions: [
+            {
+                company: 'Wipro',
+                questions: [
+                    'What is a servlet and explain its lifecycle?',
+                    'What is the difference between doGet() and doPost()?',
+                    'Explain servlet filters and their use',
+                    'What are different session management techniques?',
+                    'What is the difference between forward and redirect?'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'hibernate',
+        name: 'Hibernate',
+        icon: 'Database',
+        subTopics: [
+            {
+                id: 'hibernate',
+                name: 'Hibernate Basics',
+                topics: [
+                    {
+                        id: 'introductiontohibernate',
+                        name: 'Introduction to Hibernate',
+                        beginner: [
+                            {
+                                content: `Hibernate is an Object-Relational Mapping (ORM) framework for Java. It simplifies database operations by mapping Java objects to database tables.
+
+  Key Concepts:
+  • ORM: Object-Relational Mapping
+  • SessionFactory: Factory for Session objects
+  • Session: Interface between application and database
+  • Transaction: Unit of work
+  • HQL: Hibernate Query Language
+
+  Advantages:
+  • Eliminates boilerplate JDBC code
+  • Database independence
+  • Automatic table creation
+  • Caching support
+  • Lazy loading`,
+                                codeExamples: [
+                                    `// Entity Class
+  @Entity
+  @Table(name = "students")
+  public class Student {
+      @Id
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
+      private int id;
+
+      @Column(name = "name")
+      private String name;
+
+      @Column(name = "age")
+      private int age;
+
+      // Getters and setters
+  }
+
+  // Hibernate Configuration
+  public class HibernateUtil {
+      private static SessionFactory sessionFactory;
+
+      static {
+          try {
+              Configuration configuration = new Configuration();
+              configuration.configure("hibernate.cfg.xml");
+              sessionFactory = configuration.buildSessionFactory();
+          } catch (Exception e) {
+              e.printStackTrace();
+          }
+      }
+
+      public static SessionFactory getSessionFactory() {
+          return sessionFactory;
+      }
+  }`
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        cheatNotes: [
+            '@Entity - Mark class as entity',
+            '@Table - Specify table name',
+            '@Id - Mark primary key',
+            '@GeneratedValue - Auto-generate key',
+            '@Column - Map to column',
+            'session.save() - Insert record',
+            'session.update() - Update record',
+            'session.delete() - Delete record',
+            'session.get() - Retrieve by ID',
+            'HQL - Hibernate Query Language'
+        ],
+        interviewQuestions: [
+            {
+                company: 'Accenture',
+                questions: [
+                    'What is Hibernate and its advantages?',
+                    'Explain Hibernate architecture',
+                    'What is the difference between get() and load()?',
+                    'What are different types of associations in Hibernate?',
+                    'Explain Hibernate caching mechanisms'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'spring-mvc',
+        name: 'Spring MVC',
+        icon: 'Code',
+        subTopics: [
+            {
+                id: 'springMVC',
+                name: 'Spring MVC Basics',
+                topics: [
+                    {
+                        id: 'introductiontospringmvc',
+                        name: 'Introduction to Spring MVC',
+                        beginner: [
+                            {
+                                content: `Spring MVC is a web framework built on the Model-View-Controller pattern.
+
+  Components:
+  • DispatcherServlet: Front controller
+  • Controller: Handles requests
+  • Model: Data
+  • View: Presentation
+  • ViewResolver: Resolves view names
+
+  Request Flow:
+  1. Client sends request
+  2. DispatcherServlet receives request
+  3. Handler mapping finds controller
+  4. Controller processes request
+  5. Returns ModelAndView
+  6. ViewResolver resolves view
+  7. View renders response`,
+                                codeExamples: [
+                                    `@Controller
+  public class HomeController {
+
+      @GetMapping("/")
+      public String home(Model model) {
+          model.addAttribute("message", "Welcome to Spring MVC");
+          return "home";
+      }
+
+      @PostMapping("/submit")
+      public String submit(@RequestParam String name, Model model) {
+          model.addAttribute("name", name);
+          return "result";
+      }
+  }`
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        cheatNotes: [
+            '@Controller - Mark class as controller',
+            '@RequestMapping - Map URL to method',
+            '@GetMapping - Handle GET requests',
+            '@PostMapping - Handle POST requests',
+            '@RequestParam - Bind request parameter',
+            '@PathVariable - Bind URL path variable',
+            '@ModelAttribute - Bind form object',
+            'Model - Pass data to view',
+            '@ResponseBody - Return raw data',
+            '@RestController - REST controller'
+        ],
+        interviewQuestions: [
+            {
+                company: 'Cognizant',
+                questions: [
+                    'What is Spring MVC and its components?',
+                    'Explain the request flow in Spring MVC',
+                    'What is DispatcherServlet?',
+                    'What is the difference between @Controller and @RestController?',
+                    'How do you handle exceptions in Spring MVC?'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'spring-boot',
+        name: 'Spring Boot',
+        icon: 'Code',
+        subTopics: [
+            {
+                id: 'springboot',
+                name: 'Spring Boot Basics',
+                topics: [
+                    {
+                        id: 'introductiontospringboot',
+                        name: 'Introduction to Spring Boot',
+                        beginner: [
+                            {
+                                content: `Spring Boot is a framework that simplifies Spring application development with auto-configuration and embedded servers.
+
+  Key Features:
+  • Auto-configuration: Automatically configures beans
+  • Starter dependencies: Pre-configured dependencies
+  • Embedded server: Tomcat, Jetty, or Undertow
+  • Production-ready: Actuator for monitoring
+  • No XML configuration: Annotation-based
+
+  Advantages:
+  • Rapid development
+  • Microservices support
+  • Easy testing
+  • Reduced boilerplate code`,
+                                codeExamples: [
+                                    `@SpringBootApplication
+  public class Application {
+      public static void main(String[] args) {
+          SpringApplication.run(Application.class, args);
+      }
+  }
+
+  @RestController
+  @RequestMapping("/api")
+  public class ApiController {
+
+      @GetMapping("/hello")
+      public String hello() {
+          return "Hello from Spring Boot!";
+      }
+
+      @PostMapping("/user")
+      public User createUser(@RequestBody User user) {
+          // Save user logic
+          return user;
+      }
+  }`
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        cheatNotes: [
+            '@SpringBootApplication - Main annotation',
+            '@RestController - REST controller',
+            '@Service - Service layer',
+            '@Repository - Data access layer',
+            '@Autowired - Dependency injection',
+            '@Value - Inject property value',
+            '@ConfigurationProperties - Bind properties',
+            'application.properties - Configuration file',
+            'Spring Actuator - Monitoring',
+            '@EnableAutoConfiguration - Auto-configure'
+        ],
+        interviewQuestions: [
+            {
+                company: 'Capgemini',
+                questions: [
+                    'What is Spring Boot and its advantages?',
+                    'Explain Spring Boot auto-configuration',
+                    'What are Spring Boot starters?',
+                    'How do you configure different environments in Spring Boot?',
+                    'What is Spring Boot Actuator?'
                 ]
             }
         ]

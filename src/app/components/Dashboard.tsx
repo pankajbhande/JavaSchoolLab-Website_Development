@@ -13,7 +13,7 @@ const courseCards = [
     name : 'HTML and CSS',
     icon  : Code,
     color: 'from-blue-500 to-red-500',
-    description: 'Master Html and css programming fundamentals',
+    description: 'Html and css programming',
     query: 'html and css programming code'
   },
   
