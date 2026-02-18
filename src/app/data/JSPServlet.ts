@@ -8517,7 +8517,721 @@ try {
                     }
 
                 ]
+            },
+
+            {
+                id: 'jsp-introduction',
+                name: 'JSP Pages ',
+                topics: [
+
+                    {
+                        id: "jsp-introduction",
+                        name: "Introduction to JSP",
+
+                        beginner: [
+                            {
+                                content: `
+<h2>What is JSP?</h2>
+<p><strong>JSP (JavaServer Pages)</strong> is a server-side technology used to create dynamic web applications using Java.</p>
+<p>It allows developers to embed Java code inside HTML pages.</p>
+
+<h3>Why JSP?</h3>
+<ul>
+<li>Used to create dynamic web pages</li>
+<li>Easy to mix HTML and Java</li>
+<li>Built on top of Servlet technology</li>
+<li>Automatically converted into Servlet by the server</li>
+</ul>
+
+<h3>Basic JSP Example</h3>
+<p>Example of displaying current date:</p>
+            `,
+                                codeExamples: [
+                                    `<%@ page import="java.util.Date" %>
+<html>
+<body>
+<h2>Current Date and Time:</h2>
+<%= new Date() %>
+</body>
+</html>`
+                                ]
+                            }
+                        ],
+
+                        intermediate: [
+                            {
+                                content: `
+<h2>Difference Between Servlet and JSP</h2>
+<table border="1" cellpadding="5">
+<tr>
+<th>Servlet</th>
+<th>JSP</th>
+</tr>
+<tr>
+<td>Java class</td>
+<td>HTML page with Java code</td>
+</tr>
+<tr>
+<td>Used for business logic</td>
+<td>Used for presentation logic</td>
+</tr>
+<tr>
+<td>Requires doGet() / doPost()</td>
+<td>No need to override methods</td>
+</tr>
+<tr>
+<td>Hard to design UI</td>
+<td>Easy to design UI</td>
+</tr>
+<tr>
+<td>More Java code</td>
+<td>More HTML code</td>
+</tr>
+</table>
+            `
+                            },
+                            {
+                                content: `
+<h2>JSP Elements</h2>
+<ul>
+<li><strong>Directive</strong> - Provides global information about JSP page</li>
+<li><strong>Scriptlet</strong> - Java code inside JSP</li>
+<li><strong>Expression</strong> - Outputs data to browser</li>
+<li><strong>Declaration</strong> - Declare variables and methods</li>
+</ul>
+            `,
+                                codeExamples: [
+                                    `<%@ page language="java" %>   <!-- Directive -->
+
+<%! int count = 0; %>          <!-- Declaration -->
+
+<% count++; %>                 <!-- Scriptlet -->
+
+<%= count %>                   <!-- Expression -->`
+                                ]
+                            },
+                            {
+                                content: `
+<h2>Implicit Objects in JSP</h2>
+<p>JSP provides 9 implicit objects automatically:</p>
+<ul>
+<li>request</li>
+<li>response</li>
+<li>out</li>
+<li>session</li>
+<li>application</li>
+<li>config</li>
+<li>pageContext</li>
+<li>page</li>
+<li>exception</li>
+</ul>
+            `,
+                                codeExamples: [
+                                    `<%
+String username = request.getParameter("name");
+out.println("Welcome " + username);
+%>`
+                                ]
+                            },
+                            {
+                                content: `
+<h2>JSP Directives</h2>
+<ul>
+<li><strong>page</strong> directive</li>
+<li><strong>include</strong> directive</li>
+<li><strong>taglib</strong> directive</li>
+</ul>
+            `,
+                                codeExamples: [
+                                    `<%@ page contentType="text/html" %>
+<%@ include file="header.jsp" %>`
+                                ]
+                            }
+                        ],
+
+                        expert: [
+                            {
+                                content: `
+<h2>JSP Lifecycle</h2>
+<p>JSP follows a lifecycle managed by the web container.</p>
+
+<h3>Lifecycle Phases:</h3>
+<ol>
+<li>Translation</li>
+<li>Compilation</li>
+<li>Class Loading</li>
+<li>Instantiation</li>
+<li>Initialization - jspInit()</li>
+<li>Request Processing - _jspService()</li>
+<li>Destruction - jspDestroy()</li>
+</ol>
+            `,
+                                codeExamples: [
+                                    `<%! 
+public void jspInit() {
+    System.out.println("JSP Initialized");
+}
+
+public void jspDestroy() {
+    System.out.println("JSP Destroyed");
+}
+%>`
+                                ]
+                            },
+                            {
+                                content: `
+<h2>JSP Exception Handling</h2>
+<p>JSP provides error handling using errorPage and isErrorPage attributes.</p>
+            `,
+                                codeExamples: [
+                                    `<!-- In main.jsp -->
+<%@ page errorPage="error.jsp" %>
+
+<!-- In error.jsp -->
+<%@ page isErrorPage="true" %>
+<h2>Error Occurred</h2>
+<%= exception.getMessage() %>`
+                                ]
+                            },
+                            {
+                                content: `
+<h2>JSP Expression Language (EL)</h2>
+<p>EL simplifies accessing data stored in request, session, and application scope.</p>
+<ul>
+<li>'$'{param.name}</li>
+<li>'$'{sessionScope.user}</li>
+</ul>
+            `,
+                                codeExamples: [
+                                    `'$'{param.username}
+'$'{sessionScope.user}`
+                                ]
+                            },
+                            {
+                                content: `
+<h2>JSTL (JSP Standard Tag Library)</h2>
+<p>JSTL provides tags for common tasks like iteration and condition handling.</p>
+<ul>
+<li>Core Tags</li>
+<li>Formatting Tags</li>
+<li>SQL Tags</li>
+<li>XML Tags</li>
+</ul>
+            `,
+                                codeExamples: [
+                                    `<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:forEach var="i" begin="1" end="5">
+    '$'{i} <br/>
+</c:forEach>`
+                                ]
+                            },
+                            {
+                                content: `
+<h2>JSP Custom Tags</h2>
+<p>Custom tags allow reusable components in JSP pages.</p>
+<ul>
+<li>Tag Handler Class</li>
+<li>TLD (Tag Library Descriptor)</li>
+<li>Using custom tag in JSP</li>
+</ul>
+            `
+                            },
+                            {
+                                content: `
+<h2>MVC Architecture with JSP</h2>
+<p>In MVC:</p>
+<ul>
+<li>Model - Java Beans / Business Logic</li>
+<li>View - JSP</li>
+<li>Controller - Servlet</li>
+</ul>
+<p>Best practice: Use JSP only for view, not for business logic.</p>
+            `
+                            }
+                        ]
+                    },
+
+                    {
+                        id: "jsp-elements",
+                        name: "JSP Elements",
+
+                        beginner: [
+                            {
+                                content: `
+<h2>JSP Elements Overview</h2>
+<p>JSP elements allow embedding Java code into HTML pages dynamically.</p>
+<ul>
+<li><b>Directives</b> – Configure JSP page globally.</li>
+<li><b>Scripting Elements</b> – Java code inside JSP.</li>
+<li><b>Expressions</b> – Output values to client directly.</li>
+<li><b>Declarations</b> – Declare variables/methods.</li>
+<li><b>Implicit Objects</b> – Built-in objects for request/response/session.</li>
+</ul>
+`,
+                                codeExamples: [
+                                    `<!-- Simple JSP Page -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<html>
+<head><title>JSP Elements Demo</title></head>
+<body>
+<h2>Welcome to JSP Elements Demo</h2>
+<p>This is a basic JSP page.</p>
+</body>
+</html>`
+                                ]
+                            }
+                        ],
+
+                        intermediate: [
+                            {
+                                content: `
+<h3>1. Directives (&lt;%@ %&gt;)</h3>
+<p>Directives set page properties or include files:</p>
+`,
+                                codeExamples: [
+                                    `<!-- Page directive -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" session="true" errorPage="error.jsp" %>
+
+<!-- Include directive -->
+<%@ include file="header.jsp" %>
+
+<!-- Taglib directive -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>2. Scripting Elements</h3>
+<p>Embed Java code inside JSP:</p>
+`,
+                                codeExamples: [
+                                    `<!-- Scriptlet -->
+<%
+String name = "Ashish";
+out.println("Hello, " + name);
+%>
+
+<!-- Expression -->
+<p>Current Time: <%= new java.util.Date() %></p>
+
+<!-- Declaration -->
+<%!
+public String greet(String name) {
+    return "Hello, " + name + " from JSP Declaration!";
+}
+%>
+<p><%= greet("Ashish") %></p>
+
+<!-- Loop Example -->
+<%
+for(int i = 1; i <= 5; i++){
+    out.println("Iteration: " + i + "<br>");
+}
+%>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>3. Implicit Objects</h3>
+<p>Automatically available objects in JSP:</p>
+<ul>
+<li>request, response, out, session, application, config, page, pageContext, exception</li>
+</ul>
+`,
+                                codeExamples: [
+                                    `<!-- Using request and session -->
+<%
+String username = request.getParameter("user");
+session.setAttribute("username", username);
+out.println("Welcome " + session.getAttribute("username"));
+%>`
+                                ]
+                            }
+                        ],
+
+                        expert: [
+                            {
+                                content: `
+<h3>4. Expression Language (EL)</h3>
+<p>Access JavaBeans, Maps, Lists, and implicit objects without scriptlets:</p>
+`,
+                                codeExamples: [
+                                    `<!-- EL Example -->
+<p>User Name: '$'{user.name}</p>
+<p>Session User: '$'{sessionScope.user}</p>
+<p>Request Parameter ID: '$'{param.id}</p>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>5. JSTL Example</h3>
+<p>Loops and conditions without Java code:</p>
+`,
+                                codeExamples: [
+                                    `<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:set var="names" value="'$'{['Ashish', 'Ravi', 'Neha']}" />
+<ul>
+<c:forEach var="name" items="'$'{names}">
+    <li>Hello, '$'{name}</li>
+</c:forEach>
+</ul>
+
+<c:if test="'$'{names.size() & gt; 2}">
+                            < p > There are more than 2 names in the list </p>
+                            </c:if>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>6. Custom Tag Example</h3>
+<p>Reusable JSP component:</p>
+`,
+                                codeExamples: [
+                                    `<!-- Assuming a custom tag library mytags is defined -->
+<mytags:hello message="Welcome to JSP Custom Tag Example"/>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>7. Error Handling Example</h3>
+<p>Use errorPage and isErrorPage to handle exceptions:</p>
+`,
+                                codeExamples: [
+                                    `<!-- Main JSP -->
+<%@ page errorPage="error.jsp" %>
+<%= 10/0 %> <!-- Causes ArithmeticException -->
+
+<!-- error.jsp -->
+<%@ page isErrorPage="true" %>
+<p>Error Occurred: <%= exception.getMessage() %></p>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>8. Full JSP Page Example</h3>
+<p>Demonstrates directives, scriptlets, EL, JSTL together:</p>
+`,
+                                codeExamples: [
+                                    `<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:set var="names" value="'$'{['Ashish','Ravi','Neha']}" />
+
+<html>
+<head><title>JSP Full Example</title></head>
+<body>
+<h2>User List</h2>
+<ul>
+<c:forEach var="name" items="'$'{names}">
+    <li>Hello, '$'{name}</li>
+</c:forEach>
+</ul>
+
+<%
+String currentDate = new java.util.Date().toString();
+out.println("<p>Current Date: " + currentDate + "</p>");
+%>
+
+</body>
+</html>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>Best Practices</h3>
+<ul>
+<li>Use EL and JSTL over scriptlets for cleaner code.</li>
+<li>Keep JSP focused on presentation.</li>
+<li>Use directives and include files for modularity.</li>
+<li>Precompile JSPs to improve first-load performance.</li>
+<li>Use session and application objects wisely to avoid memory issues.</li>
+</ul>`
+                            }
+                        ]
+                    },
+
+                    {
+                        id: "jsp-directives",
+                        name: "JSP Directives",
+
+                        beginner: [
+                            {
+                                content: `
+<h2>Introduction to JSP Directives</h2>
+<p>JSP Directives provide global instructions to the JSP container. They are **not displayed on the web page** and affect page behavior, compilation, and structure.</p>
+<ul>
+<li><b>Page Directive</b> – Sets page properties like language, content type, session, error page.</li>
+<li><b>Include Directive</b> – Includes static content during translation.</li>
+<li><b>Taglib Directive</b> – Declares custom tag libraries for use in JSP.</li>
+</ul>
+`,
+                                codeExamples: [
+                                    `<!-- Page Directive -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+
+<!-- Include Directive -->
+<%@ include file="header.jsp" %>
+
+<!-- Taglib Directive -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>`
+                                ]
+                            }
+                        ],
+
+                        intermediate: [
+                            {
+                                content: `
+<h3>1. Page Directive (&lt;%@ page %&gt;)</h3>
+<p>Used to define page-level properties. Common attributes:</p>
+<ul>
+<li><b>language</b> – Java is default (<code>language="java"</code>).</li>
+<li><b>contentType</b> – MIME type of response (<code>contentType="text/html; charset=UTF-8"</code>).</li>
+<li><b>session</b> – Enable or disable session (<code>session="true"</code>).</li>
+<li><b>errorPage</b> – JSP page to handle exceptions (<code>errorPage="error.jsp"</code>).</li>
+<li><b>buffer</b> – Output buffer size (<code>buffer="16kb"</code>).</li>
+<li><b>isThreadSafe</b> – Set false to disable thread safety (<code>isThreadSafe="false"</code>).</li>
+</ul>
+`,
+                                codeExamples: [
+                                    `<%@ page language="java" contentType="text/html; charset=UTF-8" session="true" buffer="16kb" errorPage="error.jsp" %>
+<html>
+<body>
+<h2>Page Directive Demo</h2>
+<p>Session enabled and error page set.</p>
+</body>
+</html>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>2. Include Directive (&lt;%@ include file="..." %&gt;)</h3>
+<p>Includes static content at translation time (before JSP compilation). Useful for headers, footers.</p>
+`,
+                                codeExamples: [
+                                    `<!-- main.jsp -->
+<%@ include file="header.jsp" %>
+<h2>Main Content</h2>
+<%@ include file="footer.jsp" %> 
+
+<!-- header.jsp -->
+<div style="background-color:lightblue;"><h1>Header Section</h1></div>
+
+<!-- footer.jsp -->
+<div style="background-color:lightgray;"><h3>Footer Section</h3></div>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>3. Taglib Directive (&lt;%@ taglib %&gt;)</h3>
+<p>Used to declare a tag library (custom or standard) in JSP:</p>
+<ul>
+<li><b>uri</b> – URI of the tag library.</li>
+<li><b>prefix</b> – Prefix to use for tags.</li>
+</ul>
+`,
+                                codeExamples: [
+                                    `<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!-- Using JSTL forEach tag -->
+<c:set var="names" value="'$'{['Ashish', 'Ravi', 'Neha']}" />
+<ul>
+<c:forEach var="name" items="'$'{names}">
+   <li>'$'{name}</li>
+</c:forEach>
+</ul>`
+                                ]
+                            }
+                        ],
+
+                        expert: [
+                            {
+                                content: `
+<h3>Advanced Page Directive Attributes</h3>
+<ul>
+<li><b>isErrorPage</b> – Specifies if the JSP page is an error page (<code>true</code>/<code>false</code>).</li>
+<li><b>import</b> – Import Java packages (<code>import="java.util.*,java.sql.*"</code>).</li>
+<li><b>session</b> – Control session creation (<code>session="false"</code> to disable).</li>
+<li><b>buffer</b> – Adjust buffer for large outputs.</li>
+</ul>
+`,
+                                codeExamples: [
+                                    `<%@ page language="java" contentType="text/html; charset=UTF-8" isErrorPage="true" import="java.util.*,java.sql.*" %>
+<p>This JSP is an error page and can access the exception object.</p>`
+                                ]
+                            },
+                            {
+                                content: `
+<h3>Example Combining All Directives</h3>
+<pre>
+<%@ page language="java" contentType="text/html; charset=UTF-8" session="true" errorPage="error.jsp" buffer="16kb" import="java.util.*" %>
+<%@ include file="header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<html>
+<body>
+<h2>Combined JSP Directives Demo</h2>
+< c:set var="names" value="'$'{['Ashish', 'Ravi', 'Neha']}" />
+< ul >
+< c:forEach var="name" items="'$'{names}" >
+   < li >'$'{name}</li>
+< /c:forEach>
+< /ul>
+< p >Session ID: <%= session.getId() %></p >
+</body>
+</html>
+</pre>`
+                            },
+                            {
+                                content: `
+<h3>Best Practices for JSP Directives</h3>
+<ul>
+<li>Use <b>page directive</b> to set content type, session, and error pages.</li>
+<li>Use <b>include directive</b> for static header/footer content; use <b>jsp:include</b> for dynamic content.</li>
+<li>Always declare JSTL or custom tag libraries with <b>taglib directive</b> to avoid compilation errors.</li>
+<li>Keep JSP directives at the top of the JSP page for clarity.</li>
+</ul>`
+                            }
+                        ]
+                    },
+
+                    {
+                        id: "jsp-standard-action-tags",
+                        name: "JSP Standard Action Tags",
+                        beginner: [
+                            {
+                                content: `
+JSP provides standard action tags to simplify common tasks like including pages, forwarding requests, and managing JavaBeans.  
+These tags remove the need for scriptlets (<% %>) and make JSP pages cleaner and easier to maintain.  <br><br>
+
+Common JSP Standard Action Tags:<br>
+<ul>
+<li><b>&lt;jsp:include&gt;</b> – Dynamically includes another JSP or HTML page.</li>
+<li><b>&lt;jsp:forward&gt;</b> – Forwards the request to another resource (JSP, Servlet, or HTML page).</li>
+<li><b>&lt;jsp:param&gt;</b> – Passes parameters along with <b>jsp:include</b> or <b>jsp:forward</b>.</li>
+<li><b>&lt;jsp:useBean&gt;</b> – Declares or retrieves a JavaBean for use in JSP.</li>
+<li><b>&lt;jsp:setProperty&gt;</b> – Sets property values of a JavaBean.</li>
+<li><b>&lt;jsp:getProperty&gt;</b> – Reads property values of a JavaBean and outputs them.</li>
+<li><b>&lt;jsp:fallback&gt;</b> – Provides alternative content if a custom tag fails.</li>
+</ul>
+            `,
+                                codeExamples: [
+                                    `<jsp:include page="header.jsp" />`,
+                                    `<jsp:forward page="login.jsp" />`,
+                                    `<jsp:useBean id="user" class="com.example.User" scope="session" />`,
+                                    `<jsp:setProperty name="user" property="name" value="Ashish" />`,
+                                    `<jsp:getProperty name="user" property="name" />`
+                                ]
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `
+Standard action tags can be used for dynamic content passing, scoped beans, and simple MVC patterns:<br>
+
+Passing parameters with jsp:param:<br>
+<pre>
+&lt;jsp:include page="welcome.jsp"&gt;
+    &lt;jsp:param name="user" value="Ashish" /&gt;
+    &lt;jsp:param name="role" value="admin" /&gt;
+&lt;/jsp:include&gt;
+</pre><br>
+
+Using JavaBeans efficiently:<br>
+<pre>
+&lt;jsp:useBean id="product" class="com.example.Product" scope="request" /&gt;
+&lt;jsp:setProperty name="product" property="*" /&gt;  <!-- Maps all request parameters -->
+&lt;p&gt;Product Name: &lt;jsp:getProperty name="product" property="name" /&gt;&lt;/p&gt;
+&lt;p&gt;Price: &lt;jsp:getProperty name="product" property="price" /&gt;&lt;/p&gt;
+</pre>
+
+- **Forwarding requests with parameters**:
+<pre>
+&lt;jsp:forward page="/ControllerServlet"&gt;
+    &lt;jsp:param name="action" value="addProduct" /&gt;
+&lt;/jsp:forward&gt;
+</pre>
+
+- **Including dynamic content**:
+<pre>
+&lt;jsp:include page="footer.jsp" flush="true" /&gt;  <!-- flush ensures buffer is committed -->
+</pre>
+
+- **Scope management**:
+Page, Request, Session, Application
+            `,
+                                codeExamples: [
+                                    `<jsp:include page="welcome.jsp">
+    <jsp:param name="user" value="Ashish" />
+</jsp:include>`,
+                                    `<jsp:useBean id="product" class="com.example.Product" scope="request" />
+<jsp:setProperty name="product" property="*" />`,
+                                    `<jsp:forward page="/ControllerServlet">
+    <jsp:param name="action" value="addProduct" />
+</jsp:forward>`,
+                                    `<jsp:include page="footer.jsp" flush="true" />`
+                                ]
+                            }
+                        ],
+                        expert: [
+                            {
+                                content: `
+At expert level, JSP standard action tags are used for **robust MVC applications, advanced bean management, and fallback handling**:
+
+- **Automatic bean property mapping**:
+<pre>
+&lt;jsp:useBean id="user" class="com.example.User" scope="request" /&gt;
+&lt;jsp:setProperty name="user" property="*" /&gt;
+</pre>
+
+- **Conditional inclusion using JSTL**:
+<pre>
+&lt;c:if test="'$'{not empty user}"&gt;
+    &lt;jsp:include page="welcome.jsp" /&gt;
+&lt;/c:if&gt;
+</pre>
+
+- **Forwarding with multiple parameters for MVC**:
+<pre>
+&lt;jsp:forward page="/ControllerServlet"&gt;
+    &lt;jsp:param name="action" value="deleteProduct" /&gt;
+    &lt;jsp:param name="id" value="'$'{product.id}" /&gt;
+&lt;/jsp:forward&gt;
+</pre>
+
+- **Fallback for custom tags**:
+<pre>
+&lt;mytags:customTag&gt;
+    &lt;jsp:fallback&gt;
+        &lt;p&gt;Tag failed to render content.&lt;/p&gt;
+    &lt;/jsp:fallback&gt;
+&lt;/mytags:customTag&gt;
+</pre>
+
+- **Performance and security tips**:
+Use correct scope to avoid memory leaks, flush buffers for large content, validate request parameters before mapping to beans, and avoid including heavy pages frequently.
+            `,
+                                codeExamples: [
+                                    `<jsp:useBean id="user" class="com.example.User" scope="request" />
+<jsp:setProperty name="user" property="*" />`,
+                                    `<jsp:forward page="/ControllerServlet">
+    <jsp:param name="action" value="deleteProduct" />
+</jsp:forward>`,
+                                    `<jsp:fallback>
+    <p>Tag failed to render content.</p>
+</jsp:fallback>`,
+                                    `<jsp:include page="header.jsp" flush="true" />`
+                                ]
+                            }
+                        ]
+                    },
+
+                    
+
+                ]
             }
+
 
         ],
         cheatNotes: [],

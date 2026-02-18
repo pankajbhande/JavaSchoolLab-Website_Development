@@ -89,6 +89,15 @@ const courseCards = [
     description: 'Modern Spring application development',
     query: 'spring boot application'
   },
+
+  {
+    id: 'react-js',
+    name: 'React JS',
+    icon: Code,
+    color: 'from-amber-400 to-green-400 ',
+    description: '',
+    query: ''
+  }
 ];
 
 export function Dashboard({ onCourseSelect }: DashboardProps) {
