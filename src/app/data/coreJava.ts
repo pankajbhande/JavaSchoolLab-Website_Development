@@ -1,54 +1,52 @@
-// Course data structure for JavaSchoolLab
-
-
 export interface ContentBlock {
-  content: string;          // HTML content
-  codeExamples?: string[];  // optional code examples
+    content: string;          // HTML content
+    codeExamples?: string[];  // optional code examples
 
 }
 
 export interface Topic {
-  id: string;
-  name: string;
-  beginner?: ContentBlock[];
-  intermediate?: ContentBlock[];
-  expert?: ContentBlock[];
+    id: string;
+    name: string;
+    beginner?: ContentBlock[];
+    intermediate?: ContentBlock[];
+    expert?: ContentBlock[];
 }
 
 export interface SubTopic {
-  id: string;
-  name: string;
-  topics: Topic[];
+    id: string;
+    name: string;
+    topics: Topic[];
 }
 
 export interface Course {
-  id: string;
-  name: string;
-  icon: string;
-  subTopics: SubTopic[];
-  cheatNotes: string[];
-  interviewQuestions: {
-    company: string;
-    questions: string[];
-  }[];
+    id: string;
+    name: string;
+    icon: string;
+    subTopics: SubTopic[];
+    cheatNotes: string[];
+    interviewQuestions: {
+        company: string;
+        questions: string[];
+    }[];
 }
 
-export const coursesData: Course[] = [
-  {
-    id: 'java',
-    name: 'Java',
-    icon: 'Code',
-    subTopics: [
-      {
-        id: 'basics',
-        name: 'Java Basics',
-        topics: [
-          {
-            id: 'introduction',
-            name: 'Introduction to Java',
-            beginner: [
-              {
-                content: `Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. <br>
+export const coreJava: Course[] = [
+
+    {
+        id: 'java',
+        name: 'Java',
+        icon: 'Code',
+        subTopics: [
+            {
+                id: 'basics',
+                name: 'Java Basics',
+                topics: [
+                    {
+                        id: 'introduction',
+                        name: 'Introduction to Java',
+                        beginner: [
+                            {
+                                content: `Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. <br>
                 It was developed by James Gosling at Sun Microsystems (now owned by Oracle Corporation) and released in 1995. <br> <br>
  <h4>Key Features of Java: </h4>
 
@@ -59,18 +57,18 @@ export const coursesData: Course[] = [
 • Robust: Strong memory management <br>
 • Multi-threaded: Supports concurrent programming <br>
 • Architecture Neutral: Portable across platforms <br>`,
-                codeExamples: [
-                  `// First Java Program
+                                codeExamples: [
+                                    `// First Java Program
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
 }`]
-              }
-            ],
-            intermediate: [
-              {
-                content: ` Deep dive into Java Architecture and JVM internals.
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: ` Deep dive into Java Architecture and JVM internals.
                 Understanding the compilation and execution process in detail.<br><br>
 
 <h4>Java Architecture Components:</h4>
@@ -90,8 +88,8 @@ public class HelloWorld {
 • Method Area: Class structures, constants<br>
 • PC Register: Current instruction address<br>
 • Native Method Stack: Native method execution<br>`,
-                codeExamples: [
-                  `// Understanding Class Loading
+                                codeExamples: [
+                                    `// Understanding Class Loading
 public class ClassLoadingExample {
     static {
         System.out.println("Static block executed");
@@ -105,11 +103,11 @@ public class ClassLoadingExample {
         System.out.println("Constructor executed");
     }
 }`
-                ]
-              }],
-            expert: [
-              {
-                content: `Advanced JVM tuning, performance optimization, and understanding garbage collection algorithms.<br><br>
+                                ]
+                            }],
+                        expert: [
+                            {
+                                content: `Advanced JVM tuning, performance optimization, and understanding garbage collection algorithms.<br><br>
 
 <h4>Garbage Collection Algorithms:</h4>
 
@@ -134,8 +132,8 @@ public class ClassLoadingExample {
 • VisualVM: Profiling and monitoring<br>
 • JProfiler: Commercial profiler<br>
 • YourKit: Advanced profiling<br>`,
-                codeExamples: [
-                  `// Custom ClassLoader Example
+                                codeExamples: [
+                                    `// Custom ClassLoader Example
 public class CustomClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
@@ -152,16 +150,16 @@ public class CustomClassLoader extends ClassLoader {
         return null;
     }
 }`
-                ]
-              }],
-          },
+                                ]
+                            }],
+                    },
 
-          {
-            id: 'feautures of java',
-            name: 'Features of Java',
-            beginner: [
-              {
-                content:`Java has certain traits that make it an excellent choice for development as a Programming Language.
+                    {
+                        id: 'feautures of java',
+                        name: 'Features of Java',
+                        beginner: [
+                            {
+                                content: `Java has certain traits that make it an excellent choice for development as a Programming Language.
                 It is commonly utilised in mobile development, chatbots and DevOps.<br><br>
                 
 <h4>Some common Features of Java that make it so popular with developers are as follows:</h4>
@@ -180,13 +178,13 @@ public class CustomClassLoader extends ClassLoader {
 12. Dynamic<br><br>
 
                 `
-              }
+                            }
 
-            ],
+                        ],
 
-            intermediate: [
-              {
-                content: `The primary objective of Java programming language creation was to make it portable, simple and
+                        intermediate: [
+                            {
+                                content: `The primary objective of Java programming language creation was to make it portable, simple and
 secure programming language. <br>
 
 Apart from this, there are also some excellent features which play an important role in the popularity of this language. <br>
@@ -315,17 +313,17 @@ demand. <br>
 • It also supports functions from its native languages, i.e., C and C++. <br>
 • Java supports dynamic compilation and automatic memory management (garbage collection).<br>
 `
-              }
-            ]
+                            }
+                        ]
 
-          },
+                    },
 
-          {
-            id: 'difference between JVM JDK JRE',
-            name: `Difference between JVM, JDK, JRE`,
-            intermediate: [
-              {
-                content: `1. A summary of JVM <br>
+                    {
+                        id: 'difference between JVM JDK JRE',
+                        name: `Difference between JVM, JDK, JRE`,
+                        intermediate: [
+                            {
+                                content: `1. A summary of JVM <br>
 2. Java Runtime Environment (JRE) <br>
 3. Java Development Kit (JDK)<br><br>
 
@@ -430,17 +428,23 @@ etc. to complete the development of a Java Application.
   </tr>
 </table>
 
-                `
-              }
-            ]
-          },
 
-          {
-            id: 'data-types',
-            name: 'Data Types and Variables',
-            beginner: [
-              {
-                content: `Java has two categories of data types : Primitive and Reference types.
+
+
+
+
+
+                `
+                            }
+                        ]
+                    },
+
+                    {
+                        id: 'data-types',
+                        name: 'Data Types and Variables',
+                        beginner: [
+                            {
+                                content: `Java has two categories of data types : Primitive and Reference types.
 
 🔹 Primitive Data Types (8 types):
 
@@ -456,8 +460,8 @@ etc. to complete the development of a Java Application.
 Variables:
 
 A variable is a container that holds data. In Java, you must declare a variable before using it.`,
-                codeExamples: [
-                  `// Variable Declaration and Initialization
+                                codeExamples: [
+                                    `// Variable Declaration and Initialization
 public class DataTypesExample {
     public static void main(String[] args) {
         // Integer types
@@ -479,11 +483,11 @@ public class DataTypesExample {
         System.out.println("Name: " + name);
     }
 }`
-                ]
-              }],
-            intermediate: [
-              {
-                content: `Understanding wrapper classes, autoboxing, type casting, and variable scope:
+                                ]
+                            }],
+                        intermediate: [
+                            {
+                                content: `Understanding wrapper classes, autoboxing, type casting, and variable scope:
 
 Wrapper Classes:
 
@@ -504,8 +508,8 @@ Variable Scope:
 • Class Variables (static): Belong to class
 • Local Variables: Belong to method/block
 • Parameters: Passed to methods`,
-                codeExamples: [
-                  `// Autoboxing and Type Casting
+                                codeExamples: [
+                                    `// Autoboxing and Type Casting
 public class AdvancedDataTypes {
     public static void main(String[] args) {
         // Autoboxing
@@ -524,11 +528,11 @@ public class AdvancedDataTypes {
         System.out.println("Parsed: " + parsed);
     }
 }`
-                ]
-              }],
-            expert: [
-              {
-                content: `Memory management, immutability, and performance considerations for data types:
+                                ]
+                            }],
+                        expert: [
+                            {
+                                content: `Memory management, immutability, and performance considerations for data types:
 
 Memory Allocation:
 
@@ -550,8 +554,8 @@ Performance Considerations:
 • Avoid unnecessary boxing/unboxing
 • String concatenation: Use StringBuilder for loops
 • Consider memory footprint in large collections`,
-                codeExamples: [
-                  `// Performance Comparison
+                                codeExamples: [
+                                    `// Performance Comparison
 public class PerformanceExample {
     public static void main(String[] args) {
         // Bad: Using Integer in performance-critical code
@@ -573,17 +577,17 @@ public class PerformanceExample {
         System.out.println("With int: " + (end - start) + " ns");
     }
 }`
-                ]
-              }],
+                                ]
+                            }],
 
-          },
+                    },
 
-          {
-            id: 'access specifiers',
-            name: 'Access Specifiers',
-            beginner: [
-              {
-                content: `Access specifier’s plays very important role while performing the operation on variable, methods, 
+                    {
+                        id: 'access specifiers',
+                        name: 'Access Specifiers',
+                        beginner: [
+                            {
+                                content: `Access specifier’s plays very important role while performing the operation on variable, methods, 
 classes, etc. <br>
 In other words, it is simply used to restrict the access. <br><br>
 There are 4 types of access specifiers as <br>
@@ -624,7 +628,7 @@ class Demo { // Apply to Inner Class<br>
 • It provides more accessibility than private. But, it is more restrictive than protected, and public. <br><br>
 
  In Below Code, trying to access default method of another class <br>`,
-                codeExamples: [`package com.p1;
+                                codeExamples: [`package com.p1;
 public class A { 
 void display() {
  System.out.println("Code_With_Pankaj");
@@ -639,10 +643,10 @@ public static void main(String args[]) {
  obj.display(); // ObjectName.Method 
  } 
 } `]
-              },
+                            },
 
-              {
-                content: `<h3>2. Public </h3>
+                            {
+                                content: `<h3>2. Public </h3>
 • It apply to Global Variable, Constructor, Method, Class, Static Variable, Inner Class, 
 Outer Class. <br>
 • It can access anywhere in the class or outside the class or same package or different package. <br>
@@ -683,7 +687,7 @@ If we have a business requirement where we need to perform the employee CRUD ope
 methods need to be called from getEmployeeData() only. <br><br>
 
 <h4>Scenario ( Using Public Access Specifier ) </h4>`,
-                codeExamples: [`package com.test; 
+                                codeExamples: [`package com.test; 
 public class Employee {
 public void addOperation() { 
  System.out.println("Add operation"); 
@@ -722,16 +726,16 @@ Get operation
 Delete operation
 
 `]
-              },
+                            },
 
-              {
-                content: `Here we are directly call any method from outside class because scope is public. Hence requirement is 
+                            {
+                                content: `Here we are directly call any method from outside class because scope is public. Hence requirement is 
 not fulfilled here. 
 `
-              },
+                            },
 
-              {
-                content: `<h3>3. Private </h3>
+                            {
+                                content: `<h3>3. Private </h3>
                 • Access specifier’s plays very important role while performing the operation on variable, methods, 
 classes, etc. <br>
 In other words, it is simply used to restrict the access. <br>
@@ -740,8 +744,8 @@ In other words, it is simply used to restrict the access. <br>
 • Outside Class cannot be private. <br>
 • Local variables cannot private. <br>
 `,
-                codeExamples: [
-                  `package p1; 
+                                codeExamples: [
+                                    `package p1; 
 public class A { // Outter class cannot be private 
 //-------------------------------------------------------------------------------------------------------- 
 private int a = 10; // Apply to Global Variable
@@ -764,10 +768,10 @@ public static void main(String args[]) {
 } 
 } 
 `]
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
                 • It can access within class only, not outside class or outside package as scope is very limited. 
                 
                 <div class='border border-primary p-2'>
@@ -827,7 +831,7 @@ error: display() has private access in A <br>
 
 <h4>Scenario ( Using private Access Specifier )</h4>
                 `,
-                codeExamples: [`package com.code_with_pankaj; 
+                                codeExamples: [`package com.code_with_pankaj; 
 public class Employee { 
 private void addOperation() { 
  System.out.println("Add operation"); 
@@ -864,22 +868,22 @@ Edit operation
 Get operation
 Delete operation
 `]
-              },
-              {
-                content: `<h4>• Here we cannot directly call any method except getEmployeeData() because scope is private. <br>
+                            },
+                            {
+                                content: `<h4>• Here we cannot directly call any method except getEmployeeData() because scope is private. <br>
 • So it cannot be directly accessible from outside. We need to access it from by calling 
 getEmployeeData (). <br>
 • We not able to access addOperation(), editOperaation(), getOpeartion(), deleteOpearation() 
 method because these methods are private not public.</h4>`
-              },
+                            },
 
-              {
-                content: `<h3>4. Proctected </h3>
+                            {
+                                content: `<h3>4. Proctected </h3>
                 • It apply to Global Variables (GV), Constructor (C), Methods (M), & Inner Class. <br>
 • It cannot apply to Local Variables & Outer Class.
 
 `,
-                codeExamples: [`package p1; 
+                                codeExamples: [`package p1; 
 public class A { // Protected: Can’t Apply to Outter Class
  protected class Demo { // Apply to Inner Class
  } 
@@ -893,17 +897,17 @@ public static void main(String args[]) {
 // ( Local Variable: Inside Class & Inside Main Method ) 
 } 
 } `]
-              },
-              {
-                content: `• It is accessible within the same package and also possible into another package if inheritance is 
+                            },
+                            {
+                                content: `• It is accessible within the same package and also possible into another package if inheritance is 
 happened while calling. <br><br>
 
 In this example, we will create 2 packages p1 and p2. Class A in p1 is made public, 
 to access it in p2. The method display in class A is protected and class B is inherited from class A and 
 this protected method is then accessed by creating an object of class B. 
 `,
-                codeExamples: [
-                  `package p1; 
+                                codeExamples: [
+                                    `package p1; 
 // Class A 
 protected class A { 
 protected void display() { 
@@ -923,13 +927,13 @@ public static void main(String args[]) {
  } 
 } 
 `
-                ]
-              },
-            ],
+                                ]
+                            },
+                        ],
 
-            intermediate:[
-              {
-                content:`We can apply default access Specifiers or final on local variable. <br><br>
+                        intermediate: [
+                            {
+                                content: `We can apply default access Specifiers or final on local variable. <br><br>
 
 <table class="w-full border border-gray-700 border-collapse [&_th]:border [&_td]:border [&_td]:px-2  [&_th]:py-2  ">
 <tr>
@@ -1069,18 +1073,18 @@ strictfp, transient, and volatile. <br>
 </tr>
 
 </table>`
-              }
-            ]
-          },
+                            }
+                        ]
+                    },
 
-          {
-            id: "operators",
-            name: "Operators in Java",
+                    {
+                        id: "operators",
+                        name: "Operators in Java",
 
-            intermediate: [
+                        intermediate: [
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>1) Arithmetic Operators</h4>
 Used to perform mathematical calculations.<br>
 
@@ -1091,19 +1095,19 @@ Operators:<br>
 • /  Division  <br>
 • %  Modulus  <br>
 `,
-                codeExamples: [
-                  `int a = 10, b = 3;
+                                codeExamples: [
+                                    `int a = 10, b = 3;
 
 System.out.println(a + b); // 13
 System.out.println(a - b); // 7
 System.out.println(a * b); // 30
 System.out.println(a / b); // 3
 System.out.println(a % b); // 1`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>2) Logical AND (&&) Operator</h4>
 • Returns true only if BOTH conditions are true  <br>
 • Second condition is skipped if first is false <br>
@@ -1111,16 +1115,16 @@ System.out.println(a % b); // 1`
      alt="String in Java" 
      class="d-block mx-auto" /> <br>
 `,
-                codeExamples: [
-                  `int x = 10, y = 20;
+                                codeExamples: [
+                                    `int x = 10, y = 20;
 
 System.out.println(x < y && x > 5);   // true
 System.out.println(x > y && x > 5);   // false`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>3) Logical OR (||) Operator</h4>
 • Returns true if ANY one condition is true  <br>
 • Second condition is skipped if first is true <br>
@@ -1128,16 +1132,16 @@ System.out.println(x > y && x > 5);   // false`
      alt="String in Java" 
      class="d-block mx-auto" /> <br>
 `,
-                codeExamples: [
-                  `int x = 10, y = 20;
+                                codeExamples: [
+                                    `int x = 10, y = 20;
 
 System.out.println(x > y || x < y);   // true
 System.out.println(x > y || x > 30);  // false`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>4) Relational Operators</h4>
 Used to compare two values.<br>
 
@@ -1149,32 +1153,32 @@ Operators:<br>
 • ==  Equal to  <br>
 • !=  Not equal to  <br>
 `,
-                codeExamples: [
-                  `int a = 10, b = 20;
+                                codeExamples: [
+                                    `int a = 10, b = 20;
 
 System.out.println(a > b);   // false
 System.out.println(a < b);   // true
 System.out.println(a == b);  // false
 System.out.println(a != b);  // true`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>5) Assignment Operator</h4>
 Used to assign value to a variable.<br>
 
 Syntax:<br>
 variable = value;<br>
 `,
-                codeExamples: [
-                  `int x = 50;
+                                codeExamples: [
+                                    `int x = 50;
 System.out.println(x); // 50`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>6) Bitwise AND (&) Operator</h4>
 • Always checks BOTH conditions  <br>
 • Executes even if first condition is false <br>
@@ -1182,16 +1186,16 @@ System.out.println(x); // 50`
      alt="String in Java" 
      class="d-block mx-auto" /> <br>
 `,
-                codeExamples: [
-                  `int x = 10, y = 20;
+                                codeExamples: [
+                                    `int x = 10, y = 20;
 
 System.out.println(x < y & x > 5);  // true
 System.out.println(x > y & x > 5);  // false`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>7) Bitwise OR (|) Operator</h4>
 • Always checks BOTH conditions  <br>
 • Executes even if first condition is true <br>
@@ -1199,16 +1203,16 @@ System.out.println(x > y & x > 5);  // false`
      alt="String in Java" 
      class="d-block mx-auto" /> <br>
 `,
-                codeExamples: [
-                  `int x = 10, y = 20;
+                                codeExamples: [
+                                    `int x = 10, y = 20;
 
 System.out.println(x < y | x > 50); // true
 System.out.println(x > y | x > 50); // false`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>8) Unary Operators</h4>
 Used to increment or decrement value.<br>
 
@@ -1216,35 +1220,35 @@ Operators:<br>
 • ++ Increment  <br>
 • -- Decrement  <br>
 `,
-                codeExamples: [
-                  `int a = 10;
+                                codeExamples: [
+                                    `int a = 10;
 
 a++;
 System.out.println(a); // 11
 
 a--;
 System.out.println(a); // 10`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>9) Ternary Operator</h4>
 Shorthand for if-else statement.<br>
 
 Syntax:<br>
 condition ? value_if_true : value_if_false<br>
 `,
-                codeExamples: [
-                  `int a = 10, b = 20;
+                                codeExamples: [
+                                    `int a = 10, b = 20;
 
 int max = (a > b) ? a : b;
 System.out.println(max); // 20`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>10) Shift Operators</h4>
 • Right shift operator >> is used to move left operands value to right by the number of bits specified 
 by the right operand. <br>
@@ -1252,21 +1256,21 @@ by the right operand. <br>
 of times. <br>
 
 `,
-                codeExamples: [
-                  `int x = 10;
+                                codeExamples: [
+                                    `int x = 10;
 
 System.out.println(x << 2); // 40
 System.out.println(x >> 1); // 5`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>11) Dot (.) Operator</h4>
 Used to access class variables and methods.<br>
 `,
-                codeExamples: [
-                  `class Demo {
+                                codeExamples: [
+                                    `class Demo {
     void show() {
         System.out.println("Dot operator example");
     }
@@ -1276,16 +1280,16 @@ Used to access class variables and methods.<br>
         obj.show(); // using dot operator
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>12) new Operator</h4>
 Used to create an object of a class.
 `,
-                codeExamples: [
-                  `class Test {
+                                codeExamples: [
+                                    `class Test {
     Test() {
         System.out.println("Object created");
     }
@@ -1294,23 +1298,23 @@ Used to create an object of a class.
         Test t = new Test(); // new operator
     }
 }`
-                ]
-              }
+                                ]
+                            }
 
-            ]
-          },
+                        ]
+                    },
 
-          {
-            id: "Control Statements in Java",
-            name: "Control Statements in Java",
-            beginner: [
-              {
-                content: `Control statements in Java manage the flow of program execution by allowing the code to make decisions, repeat tasks, or jump to different parts of the code`,
-              }
-            ],
+                    {
+                        id: "Control Statements in Java",
+                        name: "Control Statements in Java",
+                        beginner: [
+                            {
+                                content: `Control statements in Java manage the flow of program execution by allowing the code to make decisions, repeat tasks, or jump to different parts of the code`,
+                            }
+                        ],
 
-            intermediate: [{
-              content: `This is the most fundamental concepts required for java programmer. 
+                        intermediate: [{
+                            content: `This is the most fundamental concepts required for java programmer. 
 It allows smooth flow of execution of program. It controls the flow of program.<br> <br>
 
 <h4> There are 5 types of control statements in java:</h4>
@@ -1336,8 +1340,8 @@ If statement is true then if block is executed.
 <img src="/src/assets/ifif.jpeg" alt="Online Image"class="d-block mx-auto h-80"/>
 <br><br>`,
 
-              codeExamples: [
-                `public class Code_With_Pankaj {    // Main Class: Arithmatic  
+                            codeExamples: [
+                                `public class Code_With_Pankaj {    // Main Class: Arithmatic  
               public static void main(String[] args) {   // Main Method   
                int a = 10;      // Initialize Value   
                 if (a < 50) {  // 10<50 => True  // Condition    
@@ -1345,10 +1349,10 @@ If statement is true then if block is executed.
                   }            
                 } 
               }`
-              ],
-            },
-            {
-              content: `<h2>2. IF ELSE STATEMENTS </h2>
+                            ],
+                        },
+                        {
+                            content: `<h2>2. IF ELSE STATEMENTS </h2>
             If statement is true then if block is executed, if statement is false then else block is executed. <br>
                <div class="bg-secondary border border-primary p-3">
                  Syntax-<br>
@@ -1365,8 +1369,8 @@ If statement is true then if block is executed.
                <img src="/src/assets/ifelse.png" alt="Online Image"class="d-block mx-auto h-80"/>
                <br><br>`,
 
-              codeExamples: [
-                ` public class Code_With_Pankaj {    // Main Class: Arithmatic  
+                            codeExamples: [
+                                ` public class Code_With_Pankaj {    // Main Class: Arithmatic  
                    public static void main(String[] args) {   // Main Method   
                      int a = 10;      // Initialize Value   
                       if (a > 50) {      // Condition    
@@ -1377,11 +1381,11 @@ If statement is true then if block is executed.
                           } 
                         }  
                 `
-              ]
-            },
-            {
-              content:
-                `<h2>3. IF-ELSE-IF LADDER STATEMENT </h2>
+                            ]
+                        },
+                        {
+                            content:
+                                `<h2>3. IF-ELSE-IF LADDER STATEMENT </h2>
 The if-else-if ladder statement executes one condition from multiple statements.  <br>
  <div class="bg-secondary border border-primary p-3">
                  Syntax-<br>
@@ -1404,8 +1408,8 @@ The if-else-if ladder statement executes one condition from multiple statements.
                 <h2>Flowchart of IF-ELSE-IF LADDER</h2><br>
                  <img src="/src/assets/ifelseladder.png" alt="Online Image"class="d-block mx-auto h-90"/>
                 `,
-              codeExamples: [
-                `
+                            codeExamples: [
+                                `
                   public class Code_With_Pankaj {      // Main Class  
                    public static void main(String[] args) {     // Main Method   
                     int marks = 70;       // Initialize Value //  
@@ -1422,11 +1426,11 @@ The if-else-if ladder statement executes one condition from multiple statements.
                            }  
                         }
 }`
-              ]
-            },
+                            ]
+                        },
 
-            {
-              content: `<h2>4. Nested if statements  </h2>
+                        {
+                            content: `<h2>4. Nested if statements  </h2>
            The nested if statement represents the if block within another if block. <br>
            Here, the inner if block condition executes only when outer if block condition is true.    <br>
                <div class="bg-secondary border border-primary p-3">
@@ -1442,8 +1446,8 @@ The if-else-if ladder statement executes one condition from multiple statements.
                <img src="/src/assets/ifnested.png" alt="Online Image"class="d-block mx-auto h-100"/>
                <br><br>`,
 
-              codeExamples: [
-                `public class Code_With_Pankaj {     // Main Class  
+                            codeExamples: [
+                                `public class Code_With_Pankaj {     // Main Class  
         public static void main(String[] args) {    // Main Method   
         int no = 75;       // Initialize Value   
          if (no >= 18) {   // True   // Outer Condition    
@@ -1454,7 +1458,7 @@ The if-else-if ladder statement executes one condition from multiple statements.
       }  
     }`,
 
-                `package com.test;  
+                                `package com.test;  
 public class Code_With_Pankaj {  
 public static void main(String[] args) {   // Main Method   
 int age = 18;      // Initialize   
@@ -1467,11 +1471,11 @@ if (age >= 18) {     // Outer Condition
   }  
 } 
 }`
-              ]
-            },
+                            ]
+                        },
 
-            {
-              content: `<h2>5. Switch statement</h2>
+                        {
+                            content: `<h2>5. Switch statement</h2>
           - A switch statement in java is used to execute a single statement from multiple conditions. <br>
           - The switch statement can be used with short, byte, int, long, enum types, etc. Usage of break statement is made to terminate the statement sequence.<br>
           - Cases cannot be duplicate.   Default statement is executed when any of the case doesn't match the value of expression. <br>
@@ -1493,8 +1497,8 @@ if (age >= 18) {     // Outer Condition
                <img src="/src/assets/switchcase.png" alt="Online Image"class="d-block mx-auto h-100"/>
                <br><br>`,
 
-              codeExamples: [
-                `public class Code_With_Pankaj {    // Main Class: Code_With_Pankaj  
+                            codeExamples: [
+                                `public class Code_With_Pankaj {    // Main Class: Code_With_Pankaj  
 public static void main(String[] args) {   // Main Method   
 int number = 2;     // Initialize Value   
 switch (number)  {    // switch(expression) 
@@ -1513,28 +1517,28 @@ default:    System.out.println("Invalid input"); // Statement
       } 
     } 
   } `,
-              ]
-            },
-            ],
+                            ]
+                        },
+                        ],
 
-          },
+                    },
 
-          {
-            id: 'Jumping Statement',
-            name: 'Jumping Statements in Java',
-            beginner: [
-              {
-                content: `
+                    {
+                        id: 'Jumping Statement',
+                        name: 'Jumping Statements in Java',
+                        beginner: [
+                            {
+                                content: `
               In Java, jump statements are used to alter the normal flow of program execution when certain conditions are met. <br>
               They can be used to terminate a loop, skip an iteration, or exit from a method or block of code.<br><br>
               
               This particular statement works by jumping from one specific code to another one, thus exhibiting polymorphism in Java, to the flow of the execution of the program. "Jump Statements" are also called "Branching Statements in Java" as they evaluate different branches to enhance the flow of the execution.
               `,
-              }
-            ],
-            intermediate: [
-              {
-                content: `
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `
                There are 3 types of jumping statements in java as- 
                1) Break 
                2) Continue 
@@ -1551,8 +1555,8 @@ default:    System.out.println("Invalid input"); // Statement
                        Jump - statement; <br>
                               break; 
                 </div> `,
-                codeExamples: [
-                  `
+                                codeExamples: [
+                                    `
                   package com.test;  
                     public class Code_With_Pankaj {   // Main Class: Test  
                      public static void main(String[] args) {  // Main Method   
@@ -1565,7 +1569,7 @@ default:    System.out.println("Invalid input"); // Statement
                     System.out.println("after break....");          
                     } 
                   }`,
-                  `
+                                    `
                   package com.test;  
                    public class Code_With_Pankaj {    // Main Class  
                     public static void main(String[] args) {   // Main Method   
@@ -1577,9 +1581,9 @@ default:    System.out.println("Invalid input"); // Statement
                     }  
                    }
                  } `]
-              },
-              {
-                content: `<br>
+                            },
+                            {
+                                content: `<br>
                 <h2>2) Continue Statement</h2>
                 To jump to the next iteration of the loop, we make use of the continue statement. This statement continues the current flow of the program and skips a part of the code at the specified condition.  
                 <br> It will skip the current iteration and continue with next iteration. 
@@ -1591,8 +1595,8 @@ default:    System.out.println("Invalid input"); // Statement
                               continue; 
                 </div>
                 `,
-                codeExamples: [
-                  `
+                                codeExamples: [
+                                    `
                   package com.test;  
                    public class Test {      // Main Class  
                     public static void main(String[] args) {  // Main Method   
@@ -1604,7 +1608,7 @@ default:    System.out.println("Invalid input"); // Statement
                     } 
                    } 
                   }`,
-                  `
+                                    `
                   package com.test;  
                     public class Code_With_Pankaj {    // Main Class  
                       public static void main(String[] args) {   // Main Method   
@@ -1616,17 +1620,17 @@ default:    System.out.println("Invalid input"); // Statement
                       }  
                     } 
                   }`
-                ]
-              },
-              {
-                content: `<br>
+                                ]
+                            },
+                            {
+                                content: `<br>
                 <h2>3) Return Statement</h2> <br>
                 The return statement in Java is used to exit a method and, optionally, send a value back to the caller. It transfers control back to the place where the method was invoked. 
                 <br><br>
                 <img src="/src/assets/returnstatement.png" alt="Online Image"class="d-block mx-auto" style="height: 350px;" /><br>
                 `,
-                codeExamples: [
-                  `
+                                codeExamples: [
+                                    `
                   public class Calculator {  // Method to add two integers and return the sum
                   public int add(int a, int b) {
                    int sum = a + b;
@@ -1638,7 +1642,7 @@ default:    System.out.println("Invalid input"); // Statement
                       System.out.println("Sum: " + result);    // Output: Sum: 15
                     }
                   }`,
-                  `
+                                    `
                   public class Eligibility {   // Method to check if a person is eligible based on age
                      boolean isEligible(int age) {
                       return age >= 18; // Returns true if age is 18 or more, otherwise false
@@ -1649,18 +1653,17 @@ default:    System.out.println("Invalid input"); // Statement
                          System.out.println("Eligible: " + e.isEligible(16));      // Output: Eligible: false
                       }
                    }`
-                ]
-              }
-            ]
-          },
+                                ]
+                            }
+                        ]
+                    },
 
-
-          {
-  id: 'Looping Statements',
-  name: 'Looping Statements',
-  beginner: [
-    {
-      content: `
+                    {
+                        id: 'Looping Statements',
+                        name: 'Looping Statements',
+                        beginner: [
+                            {
+                                content: `
       Loops are used to execute a set of instructions repeatedly when some conditions become true.<br><br>
       In Java, looping statements help us avoid writing the same code multiple times and improve code efficiency.<br><br>
       There are 3 types of loops in Java:<br>
@@ -1668,11 +1671,11 @@ default:    System.out.println("Invalid input"); // Statement
       2) While Loop<br>
       3) Do While Loop
       `
-    }
-  ],
-  intermediate: [
-    {
-      content: `
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `
       <h2>1) For Loop</h2>
       For loop in Java is used to iterate and evaluate a block of code multiple times.<br><br>
        
@@ -1688,8 +1691,8 @@ default:    System.out.println("Invalid input"); // Statement
         }
       </div>
       `,
-      codeExamples: [
-        `
+                                codeExamples: [
+                                    `
         public class Code_With_Pankaj {
           public static void main(String[] args) {
             for (int i = 1; i <= 5; i++) {
@@ -1698,7 +1701,7 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `,
-        `
+                                    `
         public class Code_With_Pankaj {
           public static void main(String[] args) {
             for (int j = 10; j > 0; j--) {
@@ -1707,10 +1710,10 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `
-      ]
-    },
-    {
-      content: `
+                                ]
+                            },
+                            {
+                                content: `
       <h2>2) While Loop</h2>
       The while loop evaluates a condition before executing the loop body.<br>
       If the condition is true, the loop continues; otherwise, it stops.<br><br>
@@ -1729,8 +1732,8 @@ default:    System.out.println("Invalid input"); // Statement
         }
       </div>
       `,
-      codeExamples: [
-        `
+                                codeExamples: [
+                                    `
         public class Code_With_Pankaj {
           public static void main(String[] args) {
             int i = 1;
@@ -1741,7 +1744,7 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `,
-        `
+                                    `
         public class Code_With_Pankaj {
           public static void main(String[] args) {
             int i = 10;
@@ -1752,10 +1755,10 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `
-      ]
-    },
-    {
-      content: `
+                                ]
+                            },
+                            {
+                                content: `
       <h2>3) Do While Loop</h2>
       The do-while loop is similar to the while loop, but the condition is checked after executing the loop body.<br>
       This guarantees that the loop runs at least once.<br><br>
@@ -1774,8 +1777,8 @@ default:    System.out.println("Invalid input"); // Statement
         } while (condition);
       </div>
       `,
-      codeExamples: [
-        `
+                                codeExamples: [
+                                    `
         public class Looping {
           public static void main(String[] args) {
             int i = 1;
@@ -1786,14 +1789,14 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `
-      ]
-    },
-    {
-      content: `
+                                ]
+                            },
+                            {
+                                content: `
       <h2>All In One Program (For Loop, While Loop, Do While Loop)</h2>
       `,
-      codeExamples: [
-        `
+                                codeExamples: [
+                                    `
         package com.example;
 
         public class Code_With_Pankaj {
@@ -1820,17 +1823,17 @@ default:    System.out.println("Invalid input"); // Statement
           }
         }
         `
-      ]
-    }
-  ]
-},
+                                ]
+                            }
+                        ]
+                    },
 
-{
-  id: 'Packages',
-  name: 'Packages',
-  beginner: [
-    {
-      content: `
+                    {
+                        id: 'Packages',
+                        name: 'Packages',
+                        beginner: [
+                            {
+                                content: `
       Package is nothing but a collection of classes and interfaces that work together, called a package.<br><br>
 
       <b>Default Package:</b> java.lang<br>
@@ -1845,11 +1848,11 @@ default:    System.out.println("Invalid input"); // Statement
       • Reusability – Common code can be reused.<br>
       • Maintenance – Easy for new developers or testers to find files.
       `
-    }
-  ],
-  intermediate: [
-    {
-      content: `
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `
       <h2>Types of Packages in Java</h2>
       There are two types of packages in Java:<br>
       1) User-defined Package<br>
@@ -1885,9 +1888,9 @@ android module.<br>
 
       <b>Note:</b> Package names are written in lowercase only.
       `
-    },
-    {
-      content: `
+                            },
+                            {
+                                content: `
       <h2>Import Statement</h2>
       When we use one class inside another class from a different package, we use the import statement.<br><br>
 
@@ -1899,8 +1902,8 @@ android module.<br>
       import com.p1.*;     // correct (imports all classes)<br>
       import com.p1;       // wrong
       `,
-      codeExamples: [
-        `
+                                codeExamples: [
+                                    `
         package com.p1;
         public class Test {
           public void m1() {
@@ -1908,7 +1911,7 @@ android module.<br>
           }
         }
         `,
-        `
+                                    `
         package com.p2;
         import com.p1.Test;
 
@@ -1919,10 +1922,10 @@ android module.<br>
           }
         }
         `
-      ]
-    },
-    {
-      content: `
+                                ]
+                            },
+                            {
+                                content: `
       <h2>Scanner in Java</h2>
 Scanner is a class in java.util package used for obtaining the input of the primitive types like int,
 double, and strings etc.<br>
@@ -1941,11 +1944,11 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
                      <img src="/src/assets/package 2.png" alt="Online Image"class="d-block mx-auto"/>
 
       `
-    },
-    {
-      content: `<h2>Scanner Examples</h2>`,
-      codeExamples: [
-        `
+                            },
+                            {
+                                content: `<h2>Scanner Examples</h2>`,
+                                codeExamples: [
+                                    `
         package com.test;
         import java.util.Scanner;
 
@@ -1958,7 +1961,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                                    `
         package com.test;
         import java.util.Scanner;
 
@@ -1971,7 +1974,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                                    `
         package com.test;
         import java.util.Scanner;
 
@@ -1984,7 +1987,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                                    `
         package com.test;
         import java.util.Scanner;
 
@@ -1997,7 +2000,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                                    `
         package com.test;
         import java.math.BigDecimal;
         import java.math.BigInteger;
@@ -2015,7 +2018,7 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `,
-        `
+                                    `
         package com.test;
         import java.util.Scanner;
 
@@ -2046,22 +2049,20 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
           }
         }
         `
-      ]
-    }
-  ]
-},
+                                ]
+                            }
+                        ]
+                    },
 
 
-          
+                    {
+                        id: `Array in java`,
+                        name: `Array in Java`,
 
-          {
-  id: `Array in java`,
-  name: `Array in Java`,
+                        intermediate: [
 
-  intermediate: [
-
-    {
-      content: `
+                            {
+                                content: `
 <b>Array</b><br>
 • Array is a collection of similar type of elements stored in contiguous memory locations.<br>
 • Java array is an object that contains elements of the same data type.<br>
@@ -2070,10 +2071,10 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
                <img src="/src/assets/Array1.png" alt="Online Image"class="d-block mx-auto"/>
 
 `
-    },
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Advantages of Array</h4>
 • Code Optimization – efficient data access and sorting<br>
 • Random Access – direct access using index<br><br>
@@ -2083,32 +2084,32 @@ For example, to read a value of type short, we can use nextShort() and so on.<br
 • Memory wastage may occur<br>
 • Collection framework overcomes this limitation<br>
 `
-    },
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Types of Arrays in Java</h4>
 1. Single Dimensional Array<br>
 2. Multidimensional Array<br>
 `
-    },
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Single Dimensional Array</h4>
 <b>Declaration Syntax</b><br>
 1. dataType[] arr;<br>
 2. dataType []arr;<br>
 3. dataType arr[];<br>
 `
-    },
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Array Declaration, Instantiation & Initialization</h4>
 `,
-      codeExamples: [
-`int a[] = new int[5];
+                                codeExamples: [
+                                    `int a[] = new int[5];
 a[0] = 10;
 a[1] = 20;
 a[2] = 30;
@@ -2118,44 +2119,44 @@ a[4] = 50;
 for(int i=0;i<a.length;i++){
     System.out.println(a[i]);
 }`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Array Initialization in Single Line</h4>
 `,
-      codeExamples: [
-`int a[] = {10, 20, 30};
+                                codeExamples: [
+                                    `int a[] = {10, 20, 30};
 
 for(int i=0;i<a.length;i++){
     System.out.println(a[i]);
 }`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>For-each Loop with Array</h4>
 We can also print the Java array using for-each loop. The Java for-each loop prints the array elements
 one by one. It holds an array element in a variable, then executes the body of the loop.
 `,
-      codeExamples: [
-`int arr[] = {10, 20, 30, 40};
+                                codeExamples: [
+                                    `int arr[] = {10, 20, 30, 40};
 
 for(int i : arr){
     System.out.println(i);
 }`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Passing Array to Method</h4>
 We can pass the java array to method so that we can reuse the same logic on any array.
 `,
-      codeExamples: [
-`static void min(int arr[]){
+                                codeExamples: [
+                                    `static void min(int arr[]){
     int min = arr[0];
     for(int i=1;i<arr.length;i++){
         if(min > arr[i])
@@ -2166,27 +2167,27 @@ We can pass the java array to method so that we can reuse the same logic on any 
 
 int a[] = {33, 3, 4, 5};
 min(a);`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Anonymous Array</h4>
 Java supports the feature of an anonymous array, so you don't need to declare the array while passing an
 array to the method.
 `,
-      codeExamples: [
-`printArray(new int[]{10, 22, 44, 66});`
-      ]
-    },
+                                codeExamples: [
+                                    `printArray(new int[]{10, 22, 44, 66});`
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Returning Array from Method</h4>
 We can also return an array from the method in Java.
 `,
-      codeExamples: [
-`static int[] get(){
+                                codeExamples: [
+                                    `static int[] get(){
     return new int[]{10, 30, 50, 90, 60};
 }
 
@@ -2194,29 +2195,29 @@ int arr[] = get();
 for(int i : arr){
     System.out.println(i);
 }`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>ArrayIndexOutOfBoundsException</h4>
 The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException if length of the array in
 negative, equal to the array size or greater than the array size while traversing the array.`,
-      codeExamples: [
-`int arr[] = {50, 60, 70, 80};
+                                codeExamples: [
+                                    `int arr[] = {50, 60, 70, 80};
 for(int i=0;i<=arr.length;i++){
     System.out.println(arr[i]);
 }`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Multidimensional Array</h4>
 • Stored in row and column format (matrix)<br>
 `,
-      codeExamples: [
-`int arr[][] = {
+                                codeExamples: [
+                                    `int arr[][] = {
     {1,2,3},
     {2,4,5},
     {4,4,5}
@@ -2228,60 +2229,60 @@ for(int i=0;i<3;i++){
     }
     System.out.println();
 }`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Jagged Array</h4>
 If we are creating odd number of columns in a 2D array, it is known as a jagged array. In other words, it
 is an array of arrays with different number of columns.`,
-      codeExamples: [
-`int arr[][] = new int[3][];
+                                codeExamples: [
+                                    `int arr[][] = new int[3][];
 arr[0] = new int[3];
 arr[1] = new int[4];
 arr[2] = new int[2];`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Copying an Array</h4>
 We can copy an array to another by the arraycopy() method of System class.
 `,
-      codeExamples: [
-`char[] src = {'d','e','c','a','f','f','e','i','n'};
+                                codeExamples: [
+                                    `char[] src = {'d','e','c','a','f','f','e','i','n'};
 char[] dest = new char[7];
 
 System.arraycopy(src, 2, dest, 0, 7);
 System.out.println(String.valueOf(dest));`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Cloning an Array</h4>
 Since, Java array implements the Cloneable interface, we can create the clone of the Java array. If we
 create the clone of a single-dimensional array, it creates the deep copy of the Java array. It means, it will
 copy the actual value. But, if we create the clone of a multidimensional array, it creates the shallow copy
 of the Java array which means it copies the references.
 `,
-      codeExamples: [
-`int arr[] = {33, 3, 4, 5};
+                                codeExamples: [
+                                    `int arr[] = {33, 3, 4, 5};
 int clone[] = arr.clone();
 
 System.out.println(arr == clone); // false`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Matrix Addition</h4>
 In the case of matrix multiplication, a one-row element of the first matrix is multiplied by all the
 columns of the second matrix which can be understood by the image given below.
 `,
-      codeExamples: [
-`int a[][] = {{1,3,4},{3,4,5}};
+                                codeExamples: [
+                                    `int a[][] = {{1,3,4},{3,4,5}};
 int b[][] = {{1,3,4},{3,4,5}};
 int c[][] = new int[2][3];
 
@@ -2292,15 +2293,15 @@ for(int i=0;i<2;i++){
     }
     System.out.println();
 }`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Matrix Multiplication</h4>
 `,
-      codeExamples: [
-`int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
+                                codeExamples: [
+                                    `int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
 int b[][] = {{1,1,1},{2,2,2},{3,3,3}};
 int c[][] = new int[3][3];
 
@@ -2314,21 +2315,21 @@ for(int i=0;i<3;i++){
     }
     System.out.println();
 }`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Find 3rd Largest Element</h4>
 `,
-      codeExamples: [
-`Arrays.sort(a);
+                                codeExamples: [
+                                    `Arrays.sort(a);
 System.out.println(a[a.length-3]);`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. What is array?<br>
@@ -2338,23 +2339,20 @@ System.out.println(a[a.length-3]);`
 5. Array vs ArrayList<br>
 </div>
 `
-    }
+                            }
 
-  ]
-},
-
-
+                        ]
+                    },
 
 
+                    {
+                        id: `String in java`,
+                        name: `String in Java`,
 
-         {
-  id: `String in java`,
-  name: `String in Java`,
+                        intermediate: [
 
-  intermediate: [
-
-    {
-      content: `
+                            {
+                                content: `
       String: 
       It is the class that represents sequence of character.<br>
 Package: Java.lang.<br>
@@ -2379,62 +2377,62 @@ for storing and manipulating text.<br>
      class="d-block mx-auto" />
 
 `
-    },
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Creating String Objects</h4>
 1. String Literal<br>
 2. Using new keyword<br>
 3. Using Character Array<br>
 4. Using String Methods<br>
 `
-    },
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>1. String Literal</h4>
 • Created using double quotes.<br>
 • Stored in <b>String Constant Pool</b>.<br>
 • JVM reuses existing objects for memory efficiency.<br>
 `,
-      codeExamples: [
-`String s1 = "pankaj";
+                                codeExamples: [
+                                    `String s1 = "pankaj";
 String s2 = "pankaj";
 System.out.println(s1 == s2); // true`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>2. Using new Keyword</h4>
 • Always creates a new object in heap memory.<br>
 • Even if value exists in String Pool.<br>
 `,
-      codeExamples: [
-`String s1 = "pankaj";
+                                codeExamples: [
+                                    `String s1 = "pankaj";
 String s2 = new String("pankaj");
 
 System.out.println(s1 == s2);      // false
 System.out.println(s1.equals(s2)); // true`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>String Immutability Example</h4>
 • concat() does not modify original String.<br>
 • New object is created.<br>
 `,
-      codeExamples: [
-`String s = "pankaj";
+                                codeExamples: [
+                                    `String s = "pankaj";
 s = s.concat("bhande");
 System.out.println(s); // pankajbhande`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>String Manipulation Methods</h4>
 • length()<br>
 • concat()<br>
@@ -2444,8 +2442,8 @@ System.out.println(s); // pankajbhande`
 • trim()<br>
 • replace()<br>
 `,
-      codeExamples: [
-`String original = "Code With Pankaj";
+                                codeExamples: [
+                                    `String original = "Code With Pankaj";
 
 System.out.println("Length: " + original.length());
 System.out.println("Concatenated: " + original.concat(" is fun!"));
@@ -2454,11 +2452,11 @@ System.out.println("Substring: " + original.substring(5, 16));
 System.out.println("Uppercase: " + original.toUpperCase());
 System.out.println("Trimmed: " + " Java ".trim());
 System.out.println("Replaced: " + original.replace('a', '@'));`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>String Comparison</h4>
 <b>3 Ways:</b><br>
 1. equals() → Content comparison<br>
@@ -2469,33 +2467,33 @@ System.out.println("Replaced: " + original.replace('a', '@'));`
      class="d-block mx-auto" />
 
 `,
-      codeExamples: [
-`String s1 = "Pankaj";
+                                codeExamples: [
+                                    `String s1 = "Pankaj";
 String s2 = "Pankaj";
 String s3 = new String("Pankaj");
 
 System.out.println(s1.equals(s2)); // true
 System.out.println(s1 == s3);      // false`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>compareTo() Example</h4>
 `,
-      codeExamples: [
-`String s1 = "Pankaj";
+                                codeExamples: [
+                                    `String s1 = "Pankaj";
 String s2 = "Pankaj";
 String s3 = "Dheeraj";
 
 System.out.println(s1.compareTo(s2)); // 0
 System.out.println(s1.compareTo(s3)); // positive
 System.out.println(s3.compareTo(s1)); // negative`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>String Concatenation Techniques</h4>
 1. + operator<br>
 2. concat() method<br>
@@ -2503,69 +2501,69 @@ System.out.println(s3.compareTo(s1)); // negative`
 4. String.format()<br>
 5. String.join()<br>
 `,
-      codeExamples: [
-`String s = "Pankaj" + " Bhande";
+                                codeExamples: [
+                                    `String s = "Pankaj" + " Bhande";
 System.out.println(s);`,
 
-`StringBuilder sb = new StringBuilder("Hello");
+                                    `StringBuilder sb = new StringBuilder("Hello");
 sb.append(" Pankaj");
 System.out.println(sb.toString());`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Concatenation Using format()</h4>
 `,
-      codeExamples: [
-`String s1 = "Hello";
+                                codeExamples: [
+                                    `String s1 = "Hello";
 String s2 = " Pankaj";
 String s = String.format("%s%s", s1, s2);
 System.out.println(s);`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Concatenation Using String.join()</h4>
 `,
-      codeExamples: [
-`String s = String.join("", "Hello", " Pankaj");
+                                codeExamples: [
+                                    `String s = String.join("", "Hello", " Pankaj");
 System.out.println(s);`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Concatenation Using StringJoiner</h4>
 `,
-      codeExamples: [
-`StringJoiner sj = new StringJoiner(", ");
+                                codeExamples: [
+                                    `StringJoiner sj = new StringJoiner(", ");
 sj.add("Hello");
 sj.add("Pankaj");
 System.out.println(sj.toString());`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Character Array to String</h4>
 • String can be created from char array.<br>
 • Char array is mutable, String is immutable.<br>
 `,
-      codeExamples: [
-`char[] arr = {'H','e','l','l','o'};
+                                codeExamples: [
+                                    `char[] arr = {'H','e','l','l','o'};
 String str = new String(arr);
 System.out.println(str);`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Counting Spaces in String</h4>
 `,
-      codeExamples: [
-`String str = "Code With Pankaj";
+                                codeExamples: [
+                                    `String str = "Code With Pankaj";
 int count = 0;
 
 for(int i=0;i<str.length();i++){
@@ -2574,30 +2572,30 @@ for(int i=0;i<str.length();i++){
     }
 }
 System.out.println("Total spaces: " + count);`
-      ]
-    },
+                                ]
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Why String is Immutable? (Interview)</h4>
 1. ClassLoader safety<br>
 2. Thread safety<br>
 3. Security (passwords, DB URLs)<br>
 4. Heap memory optimization<br>
 `
-    },
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <h4>Difference Between String, StringBuffer, StringBuilder</h4>
 • String → Immutable, Thread-safe<br>
 • StringBuffer → Mutable, Thread-safe<br>
 • StringBuilder → Mutable, Fastest, Not Thread-safe<br>
 `
-    },
+                            },
 
-    {
-      content: `
+                            {
+                                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. Why String is immutable?<br>
@@ -2607,21 +2605,16 @@ System.out.println("Total spaces: " + count);`
 5. How JVM handles + operator?<br>
 </div>
 `
-    }
-  ]
-},
+                            }
+                        ]
+                    },
 
-
-           
-          
-
-
-          {
-            id: `Contructor in java`,
-            name: `Constructor in Java`,
-            beginner: [
-              {
-                content: `A constructor in Java is a special block of code used to initialize objects when they are created. 
+                    {
+                        id: `Contructor in java`,
+                        name: `Constructor in Java`,
+                        beginner: [
+                            {
+                                content: `A constructor in Java is a special block of code used to initialize objects when they are created. 
                 It is automatically called when an instance of a class is created using the new keyword.<br><br>
 <h4> Key Characteristics :-</h4> 
 • Same Name as Class: A constructor must have the exact same name as the class it belongs to.<br>
@@ -2629,11 +2622,11 @@ System.out.println("Total spaces: " + count);`
 • Automatic Invocation: Constructors are invoked implicitly by the Java runtime when an object is instantiated.<br>
 • Initialization Logic: The primary purpose is to set initial values for the object's instance variables and perform any necessary setup tasks (like opening a file or database connection) to ensure the object is in a valid state. <br>`,
 
-              }
-            ],
-            intermediate: [
-              {
-                content: `Constructor name it is same like as class name. It is invoked by JVM automatically when you create the object of class.
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `Constructor name it is same like as class name. It is invoked by JVM automatically when you create the object of class.
                 It does not return anything even void also.<br><br>
                 
                 
@@ -2647,8 +2640,8 @@ System.out.println("Total spaces: " + count);`
                 - Constructor (no-argument constructor) during the execution of the program. This constructor is called Default Constructor.<br>
 
                 `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 public class Test {
 String name; // Global
 public Test() { // Default Constructor
@@ -2661,7 +2654,7 @@ System.out.println ("Name is>>" + test.name);
 }
                   `,
 
-                  `package com.test;
+                                    `package com.test;
 class Main {
 int a;
 boolean b;
@@ -2673,12 +2666,12 @@ System.out.println("b" + obj.b);
 }
                         `
 
-                ]
+                                ]
 
-              },
-              {
+                            },
+                            {
 
-                content: `
+                                content: `
                 <h4>- Here, we haven't created any constructors. Hence, the Java compiler automatically creates the
 default constructor.</h4>
 The default constructor initializes any uninitialized instance variables with default values.
@@ -2687,16 +2680,16 @@ The default constructor initializes any uninitialized instance variables with de
    
 
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
                 <h2> 2. Parameterized Constructor </h2><br>
                 A constructor with arguments called as parameterized constructor.<br>
 
                 `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 public class Example {
 int id;
 String name;
@@ -2713,10 +2706,10 @@ public static void main(String[] args) {
 Example example = new Example(10, "Pankaj", "Udgir");
 }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
                 <h3>Note -</h3>
 1. When you do not write any constructor in the class then default constructor will be added by JVM automatically at the compile time. <br>
 2. When you write any constructor in the class then default constructor will not added by JVM.<br>
@@ -2733,8 +2726,8 @@ There are 5 ways to calling the constructor as <br>
 - new Employee(); <br>
 - class.forName(“com.test”).newInstance(); <br>
 <h4>Constructor can be overloaded because we can write same name with different arguments.</h4>`,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 public class Example {
 // id,name,city
 int id;
@@ -2762,20 +2755,20 @@ Example example=new Example(10,"Pankaj","Udgir"); // calling the constructor
 Example example1=new Example("Dheeraj", "Latur");
 }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
                 <h4>Note:</h4>
 1. Constructor cannot be overridden because we can’t write multiple constructors with same
 arguments.If you are tried to write it then you will get compiler time error “Duplicate method
 Employee”.<br>
 
 2. Private Constructor is mostly used in singleton design pattern in java.`
-              },
+                            },
 
-              {
-                content: `<h4>1. What is a Constructor ?</h4>
+                            {
+                                content: `<h4>1. What is a Constructor ?</h4>
   - Constructors are used to initialize the object’s state. <br>
   - Like methods, a constructor also contains collection of statements(i.e. instructions) that are executed at time of Object creation.
   <br><br>
@@ -2800,8 +2793,8 @@ Rules for constructor chaining<br>
 2. Order does not matter in constructor chaining.<br>
 3. There must exist at least one constructor that does not use this keyword.<br>
   `,
-                codeExamples: [
-                  `//Java program to illustrate Constructor Chaining
+                                codeExamples: [
+                                    `//Java program to illustrate Constructor Chaining
 // within same class Using this() keyword
 class Temp {
 // default constructor 1
@@ -2827,18 +2820,18 @@ public static void main(String args[]) {
 new Temp();
 }
 }`
-                ]
-              },
-              {
-                content: `<h4>4. Can we call sub class constructor from super class constructor?</h4>
+                                ]
+                            },
+                            {
+                                content: `<h4>4. Can we call sub class constructor from super class constructor?</h4>
 No. There is no way in java to call sub class constructor from a super class constructor. <br><br>
 
 <h4>5. What happens if you keep a return type for a constructor?</h4>
 Ideally, Constructor must not have a return type. By definition, if a method has a return type, it’s not a
 constructor. (JLS8.8 Declaration). It will be treated as a normal method. But compiler gives a warning
 saying that method has a constructor name.<br>`,
-                codeExamples: [
-                  `Example:
+                                codeExamples: [
+                                    `Example:
 package com.test;
 public class Test {
 int Test() {
@@ -2846,22 +2839,22 @@ return 0; // Warning for the return type
 }
 }
   `
-                ]
-              },
-              {
-                content: `<h4>6. What is No-arg constructor?</h4>
+                                ]
+                            },
+                            {
+                                content: `<h4>6. What is No-arg constructor?</h4>
 Constructor without arguments is called no-arg constructor. <br>
 Default constructor in java is always a no-arg constructor.`,
-                codeExamples: [
-                  `Example:
+                                codeExamples: [
+                                    `Example:
 public class ABC {
 public ABC(){ // No-arg constructor
 }
 }`
-                ]
-              },
-              {
-                content: `<h4>7. How a no – argument constructor is different from default Constructor?</h4>
+                                ]
+                            },
+                            {
+                                content: `<h4>7. How a no – argument constructor is different from default Constructor?</h4>
 - If a class contains no constructor declarations, then a default constructor with no formal parameters
 and no throws clause is implicitly declared.<br>
 - If the class being declared is the primordial class Object, then the default constructor has an empty
@@ -2925,18 +2918,18 @@ constructor using the super() keyword.<br>
 </div>
 
             `
-              }
+                            }
 
-            ]
-          },
+                        ]
+                    },
 
-          {
-            id: 'constructor-chaining',
-            name: 'Constructor Chaining',
+                    {
+                        id: 'constructor-chaining',
+                        name: 'Constructor Chaining',
 
-            beginner: [
-              {
-                content: `
+                        beginner: [
+                            {
+                                content: `
 <h4>What is Constructor Chaining?</h4>
 • <b>Constructor Chaining</b> is the process of calling one constructor from another constructor.<br>
 • It is used to <b>reuse constructor logic</b> and reduce code duplication.<br>
@@ -2947,27 +2940,27 @@ constructor using the super() keyword.<br>
 • Maintains proper initialization sequence<br>
 • Makes code clean and manageable
       `,
-                codeExamples: []
-              },
+                                codeExamples: []
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Rules of Constructor Chaining</h4>
 • <b>this()</b> or <b>super()</b> must be the <b>first statement</b> inside constructor.<br>
 • We cannot use both <b>this()</b> and <b>super()</b> together.<br>
 • At least <b>one constructor must not use this()</b>.
       `,
-                codeExamples: []
-              },
+                                codeExamples: []
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Constructor Chaining Within Same Class</h4>
 • If constructors belong to the <b>same class</b>, we use <b>this()</b> keyword.<br>
 • One constructor can call another constructor of the same class.
       `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 
 public class Chaining {
 
@@ -2996,20 +2989,20 @@ Java
 5
 This is Default constructor
 */`
-                ]
-              }
-            ],
+                                ]
+                            }
+                        ],
 
-            intermediate: [
+                        intermediate: [
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Constructor Chaining Using super()</h4>
 • When constructor chaining happens between <b>parent and child classes</b>, we use <b>super()</b>.<br>
 • Parent class constructor executes <b>before</b> child class constructor.
       `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 
 public class Base {
     String name;
@@ -3024,18 +3017,18 @@ public class Base {
         System.out.println("Calling parameterized constructor of base class....");
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Derived Class Constructor</h4>
 • <b>super()</b> is used to call base class constructor.<br>
 • If super() is not written, Java adds it implicitly.<br>
 • super() must be the first statement.
       `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 
 public class Derived extends Base {
 
@@ -3058,28 +3051,28 @@ Output:
 Calling parameterized constructor of base class....
 Calling parameterized constructor of derived class
 */`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Important Points (Interview)</h4>
 • Constructor chaining works automatically with inheritance.<br>
 • Constructors are not inherited, but they are executed.<br>
 • Helps in proper object initialization.
       `
-              }
-            ]
-          },
+                            }
+                        ]
+                    },
 
-          {
-            id: `Array in java`,
-            name: `Array in Java`,
+                    {
+                        id: `Array in java`,
+                        name: `Array in Java`,
 
-            intermediate: [
+                        intermediate: [
 
-              {
-                content: `
+                            {
+                                content: `
 <b>Array</b><br>
 • Array is a collection of similar type of elements stored in contiguous memory locations.<br>
 • Java array is an object that contains elements of the same data type.<br>
@@ -3089,10 +3082,10 @@ Calling parameterized constructor of derived class
      alt="String in Java" 
      class="d-block mx-auto" />
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Advantages of Array</h4>
 • Code Optimization – efficient data access and sorting<br>
 • Random Access – direct access using index<br><br>
@@ -3102,32 +3095,32 @@ Calling parameterized constructor of derived class
 • Memory wastage may occur<br>
 • Collection framework overcomes this limitation<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Types of Arrays in Java</h4>
 1. Single Dimensional Array<br>
 2. Multidimensional Array<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Single Dimensional Array</h4>
 <b>Declaration Syntax</b><br>
 1. dataType[] arr;<br>
 2. dataType []arr;<br>
 3. dataType arr[];<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Array Declaration, Instantiation & Initialization</h4>
 `,
-                codeExamples: [
-                  `int a[] = new int[5];
+                                codeExamples: [
+                                    `int a[] = new int[5];
 a[0] = 10;
 a[1] = 20;
 a[2] = 30;
@@ -3137,44 +3130,44 @@ a[4] = 50;
 for(int i=0;i<a.length;i++){
     System.out.println(a[i]);
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Array Initialization in Single Line</h4>
 `,
-                codeExamples: [
-                  `int a[] = {10, 20, 30};
+                                codeExamples: [
+                                    `int a[] = {10, 20, 30};
 
 for(int i=0;i<a.length;i++){
     System.out.println(a[i]);
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>For-each Loop with Array</h4>
 We can also print the Java array using for-each loop. The Java for-each loop prints the array elements
 one by one. It holds an array element in a variable, then executes the body of the loop.
 `,
-                codeExamples: [
-                  `int arr[] = {10, 20, 30, 40};
+                                codeExamples: [
+                                    `int arr[] = {10, 20, 30, 40};
 
 for(int i : arr){
     System.out.println(i);
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Passing Array to Method</h4>
 We can pass the java array to method so that we can reuse the same logic on any array.
 `,
-                codeExamples: [
-                  `static void min(int arr[]){
+                                codeExamples: [
+                                    `static void min(int arr[]){
     int min = arr[0];
     for(int i=1;i<arr.length;i++){
         if(min > arr[i])
@@ -3185,27 +3178,27 @@ We can pass the java array to method so that we can reuse the same logic on any 
 
 int a[] = {33, 3, 4, 5};
 min(a);`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Anonymous Array</h4>
 Java supports the feature of an anonymous array, so you don't need to declare the array while passing an
 array to the method.
 `,
-                codeExamples: [
-                  `printArray(new int[]{10, 22, 44, 66});`
-                ]
-              },
+                                codeExamples: [
+                                    `printArray(new int[]{10, 22, 44, 66});`
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Returning Array from Method</h4>
 We can also return an array from the method in Java.
 `,
-                codeExamples: [
-                  `static int[] get(){
+                                codeExamples: [
+                                    `static int[] get(){
     return new int[]{10, 30, 50, 90, 60};
 }
 
@@ -3213,29 +3206,29 @@ int arr[] = get();
 for(int i : arr){
     System.out.println(i);
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>ArrayIndexOutOfBoundsException</h4>
 The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException if length of the array in
 negative, equal to the array size or greater than the array size while traversing the array.`,
-                codeExamples: [
-                  `int arr[] = {50, 60, 70, 80};
+                                codeExamples: [
+                                    `int arr[] = {50, 60, 70, 80};
 for(int i=0;i<=arr.length;i++){
     System.out.println(arr[i]);
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Multidimensional Array</h4>
 • Stored in row and column format (matrix)<br>
 `,
-                codeExamples: [
-                  `int arr[][] = {
+                                codeExamples: [
+                                    `int arr[][] = {
     {1,2,3},
     {2,4,5},
     {4,4,5}
@@ -3247,60 +3240,60 @@ for(int i=0;i<3;i++){
     }
     System.out.println();
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Jagged Array</h4>
 If we are creating odd number of columns in a 2D array, it is known as a jagged array. In other words, it
 is an array of arrays with different number of columns.`,
-                codeExamples: [
-                  `int arr[][] = new int[3][];
+                                codeExamples: [
+                                    `int arr[][] = new int[3][];
 arr[0] = new int[3];
 arr[1] = new int[4];
 arr[2] = new int[2];`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Copying an Array</h4>
 We can copy an array to another by the arraycopy() method of System class.
 `,
-                codeExamples: [
-                  `char[] src = {'d','e','c','a','f','f','e','i','n'};
+                                codeExamples: [
+                                    `char[] src = {'d','e','c','a','f','f','e','i','n'};
 char[] dest = new char[7];
 
 System.arraycopy(src, 2, dest, 0, 7);
 System.out.println(String.valueOf(dest));`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Cloning an Array</h4>
 Since, Java array implements the Cloneable interface, we can create the clone of the Java array. If we
 create the clone of a single-dimensional array, it creates the deep copy of the Java array. It means, it will
 copy the actual value. But, if we create the clone of a multidimensional array, it creates the shallow copy
 of the Java array which means it copies the references.
 `,
-                codeExamples: [
-                  `int arr[] = {33, 3, 4, 5};
+                                codeExamples: [
+                                    `int arr[] = {33, 3, 4, 5};
 int clone[] = arr.clone();
 
 System.out.println(arr == clone); // false`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Matrix Addition</h4>
 In the case of matrix multiplication, a one-row element of the first matrix is multiplied by all the
 columns of the second matrix which can be understood by the image given below.
 `,
-                codeExamples: [
-                  `int a[][] = {{1,3,4},{3,4,5}};
+                                codeExamples: [
+                                    `int a[][] = {{1,3,4},{3,4,5}};
 int b[][] = {{1,3,4},{3,4,5}};
 int c[][] = new int[2][3];
 
@@ -3311,15 +3304,15 @@ for(int i=0;i<2;i++){
     }
     System.out.println();
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Matrix Multiplication</h4>
 `,
-                codeExamples: [
-                  `int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
+                                codeExamples: [
+                                    `int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
 int b[][] = {{1,1,1},{2,2,2},{3,3,3}};
 int c[][] = new int[3][3];
 
@@ -3333,21 +3326,21 @@ for(int i=0;i<3;i++){
     }
     System.out.println();
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Find 3rd Largest Element</h4>
 `,
-                codeExamples: [
-                  `Arrays.sort(a);
+                                codeExamples: [
+                                    `Arrays.sort(a);
 System.out.println(a[a.length-3]);`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. What is array?<br>
@@ -3357,19 +3350,19 @@ System.out.println(a[a.length-3]);`
 5. Array vs ArrayList<br>
 </div>
 `
-              }
+                            }
 
-            ]
-          },
+                        ]
+                    },
 
-          {
-            id: `String in java`,
-            name: `String in Java`,
+                    {
+                        id: `String in java`,
+                        name: `String in Java`,
 
-            intermediate: [
+                        intermediate: [
 
-              {
-                content: `
+                            {
+                                content: `
       String: 
       It is the class that represents sequence of character.<br>
 Package: Java.lang.<br>
@@ -3394,62 +3387,62 @@ for storing and manipulating text.<br>
      class="d-block mx-auto" />
 
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Creating String Objects</h4>
 1. String Literal<br>
 2. Using new keyword<br>
 3. Using Character Array<br>
 4. Using String Methods<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>1. String Literal</h4>
 • Created using double quotes.<br>
 • Stored in <b>String Constant Pool</b>.<br>
 • JVM reuses existing objects for memory efficiency.<br>
 `,
-                codeExamples: [
-                  `String s1 = "pankaj";
+                                codeExamples: [
+                                    `String s1 = "pankaj";
 String s2 = "pankaj";
 System.out.println(s1 == s2); // true`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>2. Using new Keyword</h4>
 • Always creates a new object in heap memory.<br>
 • Even if value exists in String Pool.<br>
 `,
-                codeExamples: [
-                  `String s1 = "pankaj";
+                                codeExamples: [
+                                    `String s1 = "pankaj";
 String s2 = new String("pankaj");
 
 System.out.println(s1 == s2);      // false
 System.out.println(s1.equals(s2)); // true`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>String Immutability Example</h4>
 • concat() does not modify original String.<br>
 • New object is created.<br>
 `,
-                codeExamples: [
-                  `String s = "pankaj";
+                                codeExamples: [
+                                    `String s = "pankaj";
 s = s.concat("bhande");
 System.out.println(s); // pankajbhande`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>String Manipulation Methods</h4>
 • length()<br>
 • concat()<br>
@@ -3459,8 +3452,8 @@ System.out.println(s); // pankajbhande`
 • trim()<br>
 • replace()<br>
 `,
-                codeExamples: [
-                  `String original = "Code With Pankaj";
+                                codeExamples: [
+                                    `String original = "Code With Pankaj";
 
 System.out.println("Length: " + original.length());
 System.out.println("Concatenated: " + original.concat(" is fun!"));
@@ -3469,11 +3462,11 @@ System.out.println("Substring: " + original.substring(5, 16));
 System.out.println("Uppercase: " + original.toUpperCase());
 System.out.println("Trimmed: " + " Java ".trim());
 System.out.println("Replaced: " + original.replace('a', '@'));`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>String Comparison</h4>
 <b>3 Ways:</b><br>
 1. equals() → Content comparison<br>
@@ -3484,33 +3477,33 @@ System.out.println("Replaced: " + original.replace('a', '@'));`
      class="d-block mx-auto" />
 
 `,
-                codeExamples: [
-                  `String s1 = "Pankaj";
+                                codeExamples: [
+                                    `String s1 = "Pankaj";
 String s2 = "Pankaj";
 String s3 = new String("Pankaj");
 
 System.out.println(s1.equals(s2)); // true
 System.out.println(s1 == s3);      // false`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>compareTo() Example</h4>
 `,
-                codeExamples: [
-                  `String s1 = "Pankaj";
+                                codeExamples: [
+                                    `String s1 = "Pankaj";
 String s2 = "Pankaj";
 String s3 = "Dheeraj";
 
 System.out.println(s1.compareTo(s2)); // 0
 System.out.println(s1.compareTo(s3)); // positive
 System.out.println(s3.compareTo(s1)); // negative`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>String Concatenation Techniques</h4>
 1. + operator<br>
 2. concat() method<br>
@@ -3518,69 +3511,69 @@ System.out.println(s3.compareTo(s1)); // negative`
 4. String.format()<br>
 5. String.join()<br>
 `,
-                codeExamples: [
-                  `String s = "Pankaj" + " Bhande";
+                                codeExamples: [
+                                    `String s = "Pankaj" + " Bhande";
 System.out.println(s);`,
 
-                  `StringBuilder sb = new StringBuilder("Hello");
+                                    `StringBuilder sb = new StringBuilder("Hello");
 sb.append(" Pankaj");
 System.out.println(sb.toString());`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Concatenation Using format()</h4>
 `,
-                codeExamples: [
-                  `String s1 = "Hello";
+                                codeExamples: [
+                                    `String s1 = "Hello";
 String s2 = " Pankaj";
 String s = String.format("%s%s", s1, s2);
 System.out.println(s);`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Concatenation Using String.join()</h4>
 `,
-                codeExamples: [
-                  `String s = String.join("", "Hello", " Pankaj");
+                                codeExamples: [
+                                    `String s = String.join("", "Hello", " Pankaj");
 System.out.println(s);`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Concatenation Using StringJoiner</h4>
 `,
-                codeExamples: [
-                  `StringJoiner sj = new StringJoiner(", ");
+                                codeExamples: [
+                                    `StringJoiner sj = new StringJoiner(", ");
 sj.add("Hello");
 sj.add("Pankaj");
 System.out.println(sj.toString());`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Character Array to String</h4>
 • String can be created from char array.<br>
 • Char array is mutable, String is immutable.<br>
 `,
-                codeExamples: [
-                  `char[] arr = {'H','e','l','l','o'};
+                                codeExamples: [
+                                    `char[] arr = {'H','e','l','l','o'};
 String str = new String(arr);
 System.out.println(str);`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Counting Spaces in String</h4>
 `,
-                codeExamples: [
-                  `String str = "Code With Pankaj";
+                                codeExamples: [
+                                    `String str = "Code With Pankaj";
 int count = 0;
 
 for(int i=0;i<str.length();i++){
@@ -3589,30 +3582,30 @@ for(int i=0;i<str.length();i++){
     }
 }
 System.out.println("Total spaces: " + count);`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Why String is Immutable? (Interview)</h4>
 1. ClassLoader safety<br>
 2. Thread safety<br>
 3. Security (passwords, DB URLs)<br>
 4. Heap memory optimization<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Difference Between String, StringBuffer, StringBuilder</h4>
 • String → Immutable, Thread-safe<br>
 • StringBuffer → Mutable, Thread-safe<br>
 • StringBuilder → Mutable, Fastest, Not Thread-safe<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. Why String is immutable?<br>
@@ -3622,17 +3615,17 @@ System.out.println("Total spaces: " + count);`
 5. How JVM handles + operator?<br>
 </div>
 `
-              }
-            ]
-          },
+                            }
+                        ]
+                    },
 
-          {
-            id: 'static-keyword',
-            name: 'Static Keyword',
+                    {
+                        id: 'static-keyword',
+                        name: 'Static Keyword',
 
-            beginner: [
-              {
-                content: `
+                        beginner: [
+                            {
+                                content: `
 <h4>What is Static Keyword?</h4>
 • The <b>static</b> keyword is used to create class-level members.<br>
 • Static members belong to the class, not to objects.<br>
@@ -3647,22 +3640,22 @@ System.out.println("Total spaces: " + count);`
 • Static methods can be called without object creation<br>
 • The main() method is static
       `,
-                codeExamples: [
-                  `class HelloStatic {
+                                codeExamples: [
+                                    `class HelloStatic {
     static int number = 100;
 
     public static void main(String[] args) {
         System.out.println(number);
     }
 }`
-                ]
-              }
-            ],
+                                ]
+                            }
+                        ],
 
-            intermediate: [
+                        intermediate: [
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Static Keyword – Detailed Rules</h4>
 • Used for memory management<br>
 • Can be applied to variable, method, static block and inner class<br>
@@ -3673,10 +3666,10 @@ System.out.println("Total spaces: " + count);`
 • main() method is static<br>
 • this and super are not allowed in static context
       `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Static Variable / Class Variable</h4>
 A variable declared using the <b>static</b> keyword is called a static variable.<br>
 • Also known as class variable<br>
@@ -3688,22 +3681,22 @@ A variable declared using the <b>static</b> keyword is called a static variable.
 • College name<br>
 • Company name
       `,
-                codeExamples: [
-                  `static int a;     // Declaration
+                                codeExamples: [
+                                    `static int a;     // Declaration
 static int b = 10; // Initialization`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Accessing Static Variable (Same Class)</h4>
 Three ways:<br>
 1. Using class name<br>
 2. Using object name<br>
 3. Directly (same class only)
       `,
-                codeExamples: [
-                  `public class StaticDemo {
+                                codeExamples: [
+                                    `public class StaticDemo {
     int z = 30;
     static int a = 10;
 
@@ -3716,15 +3709,15 @@ Three ways:<br>
         System.out.println("Direct way >> " + a);
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Static Variable – Different Class</h4>
       `,
-                codeExamples: [
-                  `class StaticDemo {
+                                codeExamples: [
+                                    `class StaticDemo {
     static int a = 10;
 }
 
@@ -3736,16 +3729,16 @@ class Demo {
         System.out.println(obj.a);
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Difference Between Static and Non-Static</h4>
 Non-static variables have separate memory for each object, static variables share memory.
       `,
-                codeExamples: [
-                  `class Test {
+                                codeExamples: [
+                                    `class Test {
     int x = 5;
     static int y = 5;
 
@@ -3761,11 +3754,11 @@ Non-static variables have separate memory for each object, static variables shar
         System.out.println(y);   // 6
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Static Method / Class Method</h4>
 •If you define any method with static keyword then it is called as static method.<br>
 •Static Method is known as class method.<br>
@@ -3773,8 +3766,8 @@ Non-static variables have separate memory for each object, static variables shar
 •Static Method loads into memory before object creation.<br>
 •Static Method can access only static data member only & it can change the value of it.<br>
       `,
-                codeExamples: [
-                  `class StaticMethodDemo {
+                                codeExamples: [
+                                    `class StaticMethodDemo {
 
     static void show() {
         System.out.println("This is static method");
@@ -3788,15 +3781,15 @@ Non-static variables have separate memory for each object, static variables shar
         obj.show();
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Calling Static Members from Non-Static Method</h4>
       `,
-                codeExamples: [
-                  `class StaticDemo {
+                                codeExamples: [
+                                    `class StaticDemo {
 
     static void x1() {
         System.out.println("This is static method");
@@ -3812,11 +3805,11 @@ Non-static variables have separate memory for each object, static variables shar
         obj.x2();
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Static Block</h4>
 1. It is group of statements that are executed when class is loading into memory by
 Classloader.<br>
@@ -3826,8 +3819,8 @@ Classloader.<br>
 5. Static Block used to initialize the static data member.<br>
 6. Static Block executed before the main method at the time of classloading.<br>
       `,
-                codeExamples: [
-                  `class StaticBlockExample {
+                                codeExamples: [
+                                    `class StaticBlockExample {
     static {
         System.out.println("This is static block");
     }
@@ -3836,15 +3829,15 @@ Classloader.<br>
         System.out.println("This is main method");
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Multiple Static Blocks</h4>
       `,
-                codeExamples: [
-                  `class StaticExample {
+                                codeExamples: [
+                                    `class StaticExample {
 
     static {
         System.out.println("Static block 1");
@@ -3858,11 +3851,11 @@ Classloader.<br>
         System.out.println("Main method");
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Interview Questions</h4>
 
 <b>1.What is the purpose of the static keyword in Java?</b><br>
@@ -3905,36 +3898,36 @@ members.<br>
 <b>10. Can a static method access instance variables or methods?</b><br>
 o No, a static method cannot directly access instance variables or methods because it does not have
 a reference to any instance of the class. It can only access static variables and methods.<br>      `
-              }
-            ]
-          },
+                            }
+                        ]
+                    },
 
-          {
-            id: `Input and Output Stream in Java`,
-            name: `Input and Output Stream in Java`,
+                    {
+                        id: `Input and Output Stream in Java`,
+                        name: `Input and Output Stream in Java`,
 
-            intermediate: [
+                        intermediate: [
 
-              {
-                content: `
+                            {
+                                content: `
 <b>Input and Output Stream in Java</b><br>
 • Java I/O (Input and Output) is used to process the input and produce the output.<br>
 • Java uses the concept of a <b>stream</b> to make I/O operation fast.<br>
 • The <b>java.io</b> package contains all the classes required for input and output operations.<br>
 • We can perform file handling in Java by using Java I/O API.<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Stream</h4>
 • A stream is a sequence of data.<br>
 • In Java, a stream is composed of bytes.<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Automatically Created Streams</h4>
 In Java, three streams are created automatically and attached to the console.<br><br>
 
@@ -3942,29 +3935,29 @@ In Java, three streams are created automatically and attached to the console.<br
 2) <b>System.in</b> – Standard Input Stream<br>
 3) <b>System.err</b> – Standard Error Stream<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Printing Output and Error Message</h4>
 `
-                ,
-                codeExamples: [
-                  `System.out.println("simple message");
+                                ,
+                                codeExamples: [
+                                    `System.out.println("simple message");
 System.err.println("error message");`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>OutputStream</h4>
 • OutputStream is used to write data to a destination.<br>
 • Destination may be a file, array, peripheral device, or socket.<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>InputStream</h4>
 • InputStream is used to read data from a source.<br>
 • Source may be a file, array, peripheral device, or socket.<br>
@@ -3980,15 +3973,15 @@ System.err.println("error message");`
      alt="String in Java" 
      class="d-block mx-auto" />
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Read a File Line by Line using Scanner</h4>
 `
-                ,
-                codeExamples: [
-                  `import java.io.*;
+                                ,
+                                codeExamples: [
+                                    `import java.io.*;
 import java.util.Scanner;
 
 public class ReadLineByLineExample2 {
@@ -4010,17 +4003,17 @@ public class ReadLineByLineExample2 {
         }
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Write Data into File using FileWriter</h4>
 In this example, data is written into a file using the FileWriter class.<br>
 `
-                ,
-                codeExamples: [
-                  `package com.test;
+                                ,
+                                codeExamples: [
+                                    `package com.test;
 
 import java.io.FileWriter;
 
@@ -4039,11 +4032,11 @@ public class FileWriterExample {
         System.out.println("Success...");
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. What is Java I/O?<br>
@@ -4053,42 +4046,42 @@ public class FileWriterExample {
 5. Difference between FileInputStream and FileReader<br>
 </div>
 `
-              }
+                            }
 
-            ]
-          },
+                        ]
+                    },
 
-          {
-            id: `Serialization in Java`,
-            name: `Serialization in Java`,
+                    {
+                        id: `Serialization in Java`,
+                        name: `Serialization in Java`,
 
-            intermediate: [
+                        intermediate: [
 
-              {
-                content: `
+                            {
+                                content: `
 <b>Serialization</b><br>
 • Serialization is the process of storing the state of an object into a file.<br>
 • Deserialization is the process of reading the state of an object from a file.<br>
 • Serialization in Java is implemented using input and output streams.<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>How to Implement Serialization in Java</h4>
 • A class must implement the <b>Serializable</b> interface.<br>
 • ObjectOutputStream is used for serialization.<br>
 • ObjectInputStream is used for deserialization.<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Example 01: Student Class</h4>
 `
-                ,
-                codeExamples: [
-                  `package com.test;
+                                ,
+                                codeExamples: [
+                                    `package com.test;
 
 import java.io.Serializable;
 
@@ -4125,16 +4118,16 @@ public class Student implements Serializable {
         this.city = city;
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Serialization Code</h4>
 `
-                ,
-                codeExamples: [
-                  `package com.test;
+                                ,
+                                codeExamples: [
+                                    `package com.test;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
@@ -4165,16 +4158,16 @@ public class SerializeStudent {
         }
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Deserialization Code</h4>
 `
-                ,
-                codeExamples: [
-                  `package com.test;
+                                ,
+                                codeExamples: [
+                                    `package com.test;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -4204,20 +4197,20 @@ public class DeserializeStudent {
         }
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Output</h4>
 pankaj<br>
 bhande<br>
 pune<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Important Points of Serialization</h4>
 • ObjectOutputStream and ObjectInputStream are used for serialization and deserialization.<br>
 • Static variables are not serialized because they belong to the class.<br>
@@ -4225,23 +4218,23 @@ pune<br>
 • Every Serializable class has a unique version number called <b>serialVersionUID</b>.<br>
 • serialVersionUID is used to verify compatibility during deserialization.<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Transient Keyword</h4>
 • If a variable is declared as <b>transient</b>, it will not be serialized.<br>
 • After deserialization, transient variables get default values.<br>
 `
-              },
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Example 02: Transient Variable</h4>
 `
-                ,
-                codeExamples: [
-                  `package com.test;
+                                ,
+                                codeExamples: [
+                                    `package com.test;
 
 import java.io.Serializable;
 
@@ -4277,16 +4270,16 @@ public class Student implements Serializable {
         this.salary = salary;
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Serialization with Transient Field</h4>
 `
-                ,
-                codeExamples: [
-                  `package com.test;
+                                ,
+                                codeExamples: [
+                                    `package com.test;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
@@ -4317,16 +4310,16 @@ public class SerializeStudent {
         }
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <h4>Deserialization with Transient Field</h4>
 `
-                ,
-                codeExamples: [
-                  `package com.test;
+                                ,
+                                codeExamples: [
+                                    `package com.test;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -4356,11 +4349,11 @@ public class DeserializeStudent {
         }
     }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `
+                            {
+                                content: `
 <div class="bg-secondary p-2 rounded-md">
 <h4>Important Interview Questions</h4>
 1. What is serialization and deserialization?<br>
@@ -4370,106 +4363,106 @@ public class DeserializeStudent {
 5. What is serialVersionUID?<br>
 </div>
 `
-              }
+                            }
 
-            ]
-          },
+                        ]
+                    },
 
-          {
-            id: "final-keyword",
-            name: "Final Keyword",
+                    {
+                        id: "final-keyword",
+                        name: "Final Keyword",
 
-            beginner: [
-              {
-                content:
-                  "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
-                  "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
+                        beginner: [
+                            {
+                                content:
+                                    "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
+                                    "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
 
-                  "<h4>Final Variable</h4>" +
-                  "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
-                  "• Once a value is assigned, it <b>cannot be changed</b>.<br>" +
-                  "• Final variables work like <b>constants</b> in Java.<br><br>" +
+                                    "<h4>Final Variable</h4>" +
+                                    "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
+                                    "• Once a value is assigned, it <b>cannot be changed</b>.<br>" +
+                                    "• Final variables work like <b>constants</b> in Java.<br><br>" +
 
-                  "<h4>Declaration</h4>" +
-                  "final int a = 5;",
-                codeExamples: [
-                  "package com.test;\n\n" +
-                  "public class Code_With_Pankaj {\n" +
-                  "    public static void main(String[] args) {\n" +
-                  "        final int a = 5;\n" +
-                  "        System.out.println(a);\n" +
-                  "    }\n" +
-                  "}\n" +
-                  "// Output: 5"
-                ]
-              },
-              {
-                content:
-                  "<h4>Final Variable – Compile Time Error Example</h4>" +
-                  "• Final variable values cannot be modified.<br>" +
-                  "• Any attempt to change the value will cause a <b>compile-time error</b>.",
-                codeExamples: [
-                  "package com.test;\n\n" +
-                  "public class Code_With_Pankaj {\n" +
-                  "    public static void main(String[] args) {\n" +
-                  "        final int a = 5;\n" +
-                  "        // a++;   Compile-time error\n" +
-                  "    }\n" +
-                  "}"
-                ]
-              }
-            ],
+                                    "<h4>Declaration</h4>" +
+                                    "final int a = 5;",
+                                codeExamples: [
+                                    "package com.test;\n\n" +
+                                    "public class Code_With_Pankaj {\n" +
+                                    "    public static void main(String[] args) {\n" +
+                                    "        final int a = 5;\n" +
+                                    "        System.out.println(a);\n" +
+                                    "    }\n" +
+                                    "}\n" +
+                                    "// Output: 5"
+                                ]
+                            },
+                            {
+                                content:
+                                    "<h4>Final Variable – Compile Time Error Example</h4>" +
+                                    "• Final variable values cannot be modified.<br>" +
+                                    "• Any attempt to change the value will cause a <b>compile-time error</b>.",
+                                codeExamples: [
+                                    "package com.test;\n\n" +
+                                    "public class Code_With_Pankaj {\n" +
+                                    "    public static void main(String[] args) {\n" +
+                                    "        final int a = 5;\n" +
+                                    "        // a++;   Compile-time error\n" +
+                                    "    }\n" +
+                                    "}"
+                                ]
+                            }
+                        ],
 
-            intermediate: [
-              {
-                content:
-                  "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
-                  "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
+                        intermediate: [
+                            {
+                                content:
+                                    "• <b>Final</b> is a keyword in Java which is applied to <b>variables, methods, and classes</b>.<br>" +
+                                    "• The final keyword is used to <b>restrict modification</b>.<br><br>" +
 
-                  "<h4>Final Variable</h4>" +
-                  "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
-                  "• Once a value is assigned, it <b>cannot be changed</b>.",
-                codeExamples: [
-                  "final int a = 5;\n" +
-                  "// a++; Compile Time Error"
-                ]
-              },
-              {
-                content:
-                  "<h4>Final Method</h4>" +
-                  "• A method declared with the <b>final</b> keyword is called a final method.<br>" +
-                  "• Final methods <b>cannot be overridden</b>.",
-                codeExamples: [
-                  "class X {\n" +
-                  "    public final void x1() {\n" +
-                  "        System.out.println(\"Class X method\");\n" +
-                  "    }\n" +
-                  "}\n\n" +
-                  "class Y extends X {\n" +
-                  "    // Cannot override final method\n" +
-                  "}"
-                ]
-              },
-              {
-                content:
-                  "<h4>Final Class</h4>" +
-                  "• A class declared with the <b>final</b> keyword cannot be inherited.",
-                codeExamples: [
-                  "final class Demo {\n" +
-                  "}\n\n" +
-                  "// Cannot inherit from final class"
-                ]
-              }
-            ]
-          },
+                                    "<h4>Final Variable</h4>" +
+                                    "• A variable declared with the <b>final</b> keyword is called a final variable.<br>" +
+                                    "• Once a value is assigned, it <b>cannot be changed</b>.",
+                                codeExamples: [
+                                    "final int a = 5;\n" +
+                                    "// a++; Compile Time Error"
+                                ]
+                            },
+                            {
+                                content:
+                                    "<h4>Final Method</h4>" +
+                                    "• A method declared with the <b>final</b> keyword is called a final method.<br>" +
+                                    "• Final methods <b>cannot be overridden</b>.",
+                                codeExamples: [
+                                    "class X {\n" +
+                                    "    public final void x1() {\n" +
+                                    "        System.out.println(\"Class X method\");\n" +
+                                    "    }\n" +
+                                    "}\n\n" +
+                                    "class Y extends X {\n" +
+                                    "    // Cannot override final method\n" +
+                                    "}"
+                                ]
+                            },
+                            {
+                                content:
+                                    "<h4>Final Class</h4>" +
+                                    "• A class declared with the <b>final</b> keyword cannot be inherited.",
+                                codeExamples: [
+                                    "final class Demo {\n" +
+                                    "}\n\n" +
+                                    "// Cannot inherit from final class"
+                                ]
+                            }
+                        ]
+                    },
 
-          {
-            id: 'wrapper-class',
-            name: 'Wrapper Class',
+                    {
+                        id: 'wrapper-class',
+                        name: 'Wrapper Class',
 
-            beginner: [
-              {
-                content: `
+                        beginner: [
+                            {
+                                content: `
 • Wrapper Class provides the mechanism to convert primitive data types into objects and objects into primitive data types.<br><br>
 
 <h4>Wrapper Class – Definition</h4>
@@ -4482,8 +4475,8 @@ Wrapper classes are predefined classes in <b>java.lang</b> package that wrap pri
 2. <b>Unboxing:</b> Process of converting Object into Primitive Data Type. (Object → PDT)<br>
    Example: Integer → int, Long → long, Double → double
               `,
-                codeExamples: [
-                  `package com.object;
+                                codeExamples: [
+                                    `package com.object;
 public class Code_With_Pankaj {
     public static void main(String[] args) {
         int a = 20; // Primitive data type
@@ -4494,12 +4487,12 @@ public class Code_With_Pankaj {
         System.out.println("b>>" + b);
     }
 }`
-                ]
-              }
-            ],
-            intermediate: [
-              {
-                content: `
+                                ]
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `
 <h4>Need of Wrapper Classes</h4>
 There are certain needs for using Wrapper Classes in Java:<br><br>
 
@@ -4514,8 +4507,8 @@ There are certain needs for using Wrapper Classes in Java:<br><br>
 3. Cloning is possible only for objects.<br>
 4. Wrapper objects can store null values.
               `,
-                codeExamples: [
-                  `import java.util.ArrayList;
+                                codeExamples: [
+                                    `import java.util.ArrayList;
 
 class Autoboxing {
     public static void main(String[] args) {
@@ -4528,10 +4521,10 @@ class Autoboxing {
         System.out.println(list.get(0));
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>Primitive Data Types and Corresponding Wrapper Classes</h4>
 
 byte → Byte <br>
@@ -4543,8 +4536,8 @@ double → Double <br>
 char → Character <br>
 boolean → Boolean
               `,
-                codeExamples: [
-                  `package com.inheritance;
+                                codeExamples: [
+                                    `package com.inheritance;
 class Code_With_Pankaj {
     public static void main(String[] args) {
         int x = 5;
@@ -4560,10 +4553,10 @@ class Code_With_Pankaj {
         System.out.println(longObj);
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>Wrapper Class Methods</h4>
 Wrapper classes provide useful methods like valueOf(), intValue(), parseInt(), compareTo().<br><br>
 
@@ -4571,8 +4564,8 @@ Wrapper classes provide useful methods like valueOf(), intValue(), parseInt(), c
 • Converting float wrapper object to primitive int<br>
 • Converting binary string into decimal number using Integer.valueOf()<br>
               `,
-                codeExamples: [
-                  `class Code_With_Pankaj {
+                                codeExamples: [
+                                    `class Code_With_Pankaj {
     public static void main(String[] args) {
         Float floatWrap = Float.valueOf(45.158f);
         int floatToInt = floatWrap.intValue();
@@ -4582,18 +4575,18 @@ Wrapper classes provide useful methods like valueOf(), intValue(), parseInt(), c
         System.out.println(five);
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>UNBOXING</h4>
 Unboxing is the automatic conversion of wrapper object into primitive data type.<br>
 This happens when assigning wrapper object to primitive variable.<br><br>
 
 <h4>Example</h4>
               `,
-                codeExamples: [
-                  `import java.util.ArrayList;
+                                codeExamples: [
+                                    `import java.util.ArrayList;
 
 class Unboxing {
     public static void main(String[] args) {
@@ -4607,10 +4600,10 @@ class Unboxing {
         System.out.println(num);
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>Interview Questions & Answers</h4>
 
 <b>1. Which are the wrapper classes in Java?</b><br>
@@ -4622,25 +4615,25 @@ Wrapper classes convert primitive data into objects required for collections, sy
 <b>3. What are the 8 wrapper classes in Java?</b><br>
 Boolean, Byte, Short, Character, Integer, Long, Float, Double.
               `
-              }
-            ]
-          },
+                            }
+                        ]
+                    },
 
-          {
-            id: 'return-object',
-            name: 'Return Object from Method',
+                    {
+                        id: 'return-object',
+                        name: 'Return Object from Method',
 
-            beginner: [
-              {
-                content: `
+                        beginner: [
+                            {
+                                content: `
 • In industry, methods usually return <b>objects</b> instead of primitive data types.<br>
 • Returning objects makes code more <b>scalable, reusable, and maintainable</b>.<br><br>
 
 <h4>Basic Object Return</h4>
 A method can return an object of its class type.
           `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 
 public class Employee {
 
@@ -4649,15 +4642,15 @@ public class Employee {
         return employee;   // returning object
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>Printing Returned Object (Without toString)</h4>
 If toString() is not overridden, object reference is printed.
           `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 
 public class Employee {
 
@@ -4679,18 +4672,18 @@ public class Employee {
 
 // Output:
 // com.test.Employee@7852e922`
-                ]
-              }
-            ],
+                                ]
+                            }
+                        ],
 
-            intermediate: [
-              {
-                content: `
+                        intermediate: [
+                            {
+                                content: `
 <h4>Returning Object with toString()</h4>
 Override toString() to return meaningful data.
           `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 
 public class Employee {
 
@@ -4717,15 +4710,15 @@ public class Employee {
 
 // Output:
 // Employee [id=101, name=Pankaj, city=Pune]`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>Returning Object with Single Value (empId)</h4>
 Instead of returning int, return object containing id.
           `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 
 public class Test {
 
@@ -4752,15 +4745,15 @@ public class Employee {
 
 // Output:
 // 10`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>Returning Multiple Values Using Object</h4>
 Industry-standard way to return multiple values.
           `,
-                codeExamples: [
-                  `package com.test;
+                                codeExamples: [
+                                    `package com.test;
 
 public class Test {
 
@@ -4799,16 +4792,16 @@ public class Employee {
 }
 
 `
-                ]
-              }
-            ]
-          },
+                                ]
+                            }
+                        ]
+                    },
 
-          {
-            id: 'Different way to return to the method in java.',
-            name: 'Different way to return to the method in java.',
-            intermediate: [{
-              content: `• In industry, No one use float and integer return type as method even void and string are also very rarely used in 
+                    {
+                        id: 'Different way to return to the method in java.',
+                        name: 'Different way to return to the method in java.',
+                        intermediate: [{
+                            content: `• In industry, No one use float and integer return type as method even void and string are also very rarely used in 
 now a days. <br>
 • The most preferable way is return object to method or value from object in java. <br>
 In industry, how the method looks like as below<br>
@@ -4837,7 +4830,7 @@ public Employee addEmployee() { <br>
 }<br>
 </div><br>
 In this example, we are returning the object as emp to method.<br>`,
-              codeExamples: [`package com.test; 
+                            codeExamples: [`package com.test; 
 public class Employee { // Main Class: Employee 
 int id = 101; 
  String name = "Pankaj"; 
@@ -4871,10 +4864,10 @@ public static void main(String[] args) {
  } 
 } 
 `]
-            },
-            {
-              content: `How to return the empId only`,
-              codeExamples: [`package com.test; 
+                        },
+                        {
+                            content: `How to return the empId only`,
+                            codeExamples: [`package com.test; 
 public class Test { 
 public static Employee getEmployeeById() { 
  int id = 10; 
@@ -4885,8 +4878,8 @@ public static void main(String[] args) {
  System.out.println(e.id); 
  } 
 }`]
-            }, {
-              content: `
+                        }, {
+                            content: `
               <div class='border border-primary p-2'>
               package com.test; <br>
 public class Employee { <br>
@@ -4914,8 +4907,8 @@ public static void main(String[] args) {
  System.out.println("city=" + e.city); 
  } 
 }`]
-            }, {
-              content: `<div class='border border-primary p-2'>
+                        }, {
+                            content: `<div class='border border-primary p-2'>
               package com.test; <br>
 public class Employee { <br>
 int id; <br>
@@ -4928,17 +4921,17 @@ public Employee(int id, String name, String city) { <br>
  } <br>
 }<br>
               </div>`
-            }
+                        }
 
-            ]
-          },
+                        ]
+                    },
 
-          {
-            id: 'this-super',
-            name: 'This and Super Keywords',
-            beginner: [
-              {
-                content: `
+                    {
+                        id: 'this-super',
+                        name: 'This and Super Keywords',
+                        beginner: [
+                            {
+                                content: `
 <h4>What is Super Keyword?</h4>
 • Super keyword is used to refer to the parent class (superclass) object.<br>
 • It helps access parent class members that might be hidden by child class.<br>
@@ -4973,8 +4966,8 @@ public Employee(int id, String name, String city) { <br>
   </tr>
 </table>
           `,
-                codeExamples: [
-                  `// Simple Example of Super Keyword
+                                codeExamples: [
+                                    `// Simple Example of Super Keyword
 class Animal {
     String name = "Dog";
 }
@@ -4987,7 +4980,7 @@ class Pet extends Animal {
         System.out.println("Super name: " + super.name);  // Output: Dog
     }
 }`,
-                  `// Simple Example of This Keyword
+                                    `// Simple Example of This Keyword
 class Student {
     String name;
     int age;
@@ -5002,12 +4995,12 @@ class Student {
         System.out.println("Age: " + this.age);
     }
 }`
-                ]
-              }
-            ],
-            intermediate: [
-              {
-                content: `
+                                ]
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `
 <h6><b>🔹 Super Keyword</b></h6>
 • It is used to refer immediate parent class object, method and constructor.<br><br>
 
@@ -5016,8 +5009,8 @@ class Student {
 • To avoid unnecessary object creation<br>
 • To improve memory utilization<br>
           `,
-                codeExamples: [
-                  `// Program 1: Use of immediate parent class variable
+                                codeExamples: [
+                                    `// Program 1: Use of immediate parent class variable
 class Parent {
     int x = 20;
 }
@@ -5043,15 +5036,15 @@ public class TestMain {
         c.test();
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>🔹 Super Keyword with Method</h4>
 • Used to call immediate parent class method when child class overrides it.
           `,
-                codeExamples: [
-                  `// Program 2: Use of immediate super class method
+                                codeExamples: [
+                                    `// Program 2: Use of immediate super class method
 class Parent {
     void test() {
         System.out.println("Parent class method.");
@@ -5070,15 +5063,15 @@ public class TestMain {
         c.test();
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>🔹 Super Keyword with Constructor</h4>
 • Used to invoke immediate parent class constructor.
           `,
-                codeExamples: [
-                  `// Program 3: Use of immediate super class constructor
+                                codeExamples: [
+                                    `// Program 3: Use of immediate super class constructor
 class Parent {
 
     Parent() {
@@ -5097,16 +5090,16 @@ public class TestMain {
         new Child();
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>🔹 This Keyword</h4>
 • It is used to refer current class variables, methods and constructors.<br>
 • This keyword is not used in static context.
           `,
-                codeExamples: [
-                  `// Program 4: Use of current class variable
+                                codeExamples: [
+                                    `// Program 4: Use of current class variable
 class Parent {
     int x = 20;
 }
@@ -5132,15 +5125,15 @@ public class TestMain {
         c.test();
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>🔹 This Keyword with Method</h4>
 • Used to call current class method.
           `,
-                codeExamples: [
-                  `// Program 5: Use of current class method
+                                codeExamples: [
+                                    `// Program 5: Use of current class method
 class Parent {
     void test() {
         System.out.println("Parent class method.");
@@ -5163,15 +5156,15 @@ public class TestMain {
         c.demo();
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h6><b>🔹 This Keyword with Constructor</b></h6>
 • Used for constructor chaining within the same class.
           `,
-                codeExamples: [
-                  `// Program 6: Use of current class constructor
+                                codeExamples: [
+                                    `// Program 6: Use of current class constructor
 class Test {
 
     public Test() {
@@ -5186,15 +5179,15 @@ class Test {
         new Test(10);
     }
 }`
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
 <h4>🔹 Constructor Chaining using this</h4>
 • One constructor calls another constructor of the same class.
           `,
-                codeExamples: [
-                  `// Program 7: Constructor chaining example
+                                codeExamples: [
+                                    `// Program 7: Constructor chaining example
 class Example {
 
     Example() {
@@ -5210,24 +5203,24 @@ class Example {
         new Example();
     }
 }`
-                ]
-              }
-            ]
-          }
+                                ]
+                            }
+                        ]
+                    }
 
-        ]
-      },
-      
-      {
-        id: 'oop',
-        name: 'OOPS Concept',
-        topics: [
-          {
-            id: 'classes-objects',
-            name: 'Classes and Objects',
-            beginner: [
-              {
-                content: `A class is a blueprint for creating objects. An object is an instance of a class<br>
+                ]
+            },
+
+            {
+                id: 'oop',
+                name: 'OOPS Concept',
+                topics: [
+                    {
+                        id: 'classes-objects',
+                        name: 'Classes and Objects',
+                        beginner: [
+                            {
+                                content: `A class is a blueprint for creating objects. An object is an instance of a class<br>
 
 <h4> Key Concepts:</h4>
 
@@ -5236,8 +5229,8 @@ class Example {
 • Fields: Variables that hold the state<br>
 • Methods: Functions that define behavior<br>
 • Constructor: Special method to initialize objects<br>`,
-                codeExamples: [
-                  `// Class and Object Example
+                                codeExamples: [
+                                    `// Class and Object Example
 public class Student {
     // Fields
     String name;
@@ -5261,12 +5254,12 @@ public class Student {
         student1.displayInfo();
     }
 }`
-                ]
-              }
-            ],
-            intermediate: [
-              {
-                content: `It is the parent class of all the classes in java. 
+                                ]
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `It is the parent class of all the classes in java. 
 It is called as topmost class of java which is present in java.lang package. <br>
 Every class in Java is directly or indirectly derived from the object class. If a Class does not extend any 
 other class then it is direct child class of object. <br><br>
@@ -5288,8 +5281,8 @@ other class then it is direct child class of object. <br><br>
 <h3>1. Public final Class getClass() </h3>
 This class is used to get the metadata of class. <br>
 `,
-                codeExamples: [
-                  `package com.test; 
+                                codeExamples: [
+                                    `package com.test; 
 public class Test { 
 public static void main(String[] args) { 
  Test test = new Test(); 
@@ -5297,17 +5290,17 @@ public static void main(String[] args) {
  System.out.println(test.getClass().getSimpleName()); 
  } 
 } `
-                ]
-              },
-              {
-                content: `<h3>2. public int hashCode()</h3>
+                                ]
+                            },
+                            {
+                                content: `<h3>2. public int hashCode()</h3>
                 
 For every object unique number is generated by JVM called as hashcode. <br>
 It does not represent object of address then what is the use of hashcode. it will store into bucket based on hashcode.  <br>
 Note- The most of java native method are written in c or c++ that why not able show the body. <br>
                 `,
-                codeExamples: [
-                  `package com.test;. 
+                                codeExamples: [
+                                    `package com.test;. 
 public class Test1 { 
 public static void main(String[] args) { 
  Test1 test2 = new Test1(); 
@@ -5317,13 +5310,13 @@ public static void main(String[] args) {
  } 
 } 
 `
-                ]
-              },
-              {
-                content: `<h3>3. public boolean equals (Object obj) </h3>
+                                ]
+                            },
+                            {
+                                content: `<h3>3. public boolean equals (Object obj) </h3>
                It compares the given object to this object. There are two equals method, this equals method is used to check 
 the address of string not contents. `,
-                codeExamples: [`package com.test; 
+                                codeExamples: [`package com.test; 
 public class Test3 { // Main Class: Test3 
 int empId; 
  String empName; 
@@ -5353,14 +5346,14 @@ public static void main(String[] args) { // Main Method
  } 
 } 
 `
-                ]
-              },
-              {
-                content: `<h3>4. protected Object clone() throws CloneNotSupportedException</h3>
+                                ]
+                            },
+                            {
+                                content: `<h3>4. protected Object clone() throws CloneNotSupportedException</h3>
                 It creates and returns the exact copy (clone) of this object. 
                 `,
-                codeExamples: [
-                  `package com.test; 
+                                codeExamples: [
+                                    `package com.test; 
 //clone method- create copy of objects 
 public class Test4 implements Cloneable { 
 int x; 
@@ -5373,11 +5366,11 @@ public static void main(String[] args) throws CloneNotSupportedException {
  } 
 } 
 `
-                ]
-              }, {
-                content: `Here, second output line, we will get address instead of value. To solve this issue, we should override toString 
+                                ]
+                            }, {
+                                content: `Here, second output line, we will get address instead of value. To solve this issue, we should override toString 
 method.`,
-                codeExamples: [`package com.test; 
+                                codeExamples: [`package com.test; 
 //clone method- create copy of objects 
 public class Test4 implements Cloneable { 
 int x; 
@@ -5394,12 +5387,12 @@ public String toString() {
  } 
 } 
 `]
-              },
-              {
-                content: `<h3>5. public String toString() </h3>
+                            },
+                            {
+                                content: `<h3>5. public String toString() </h3>
                 It returns the string representation of this object. 
 `,
-                codeExamples: [`package com.test; 
+                                codeExamples: [`package com.test; 
 public class Employee { // Main Class: Employee 
 int id; // Declaration 
  String employeeName; // Declaration 
@@ -5417,9 +5410,9 @@ public static void main(String[] args) { // Main Method
  System.out.println(employee); 
  } 
 } `]
-              },
-              {
-                content: `
+                            },
+                            {
+                                content: `
                 <div class='bg-secondary border border-primary p-2'>
                 <h4>public final void notify()</h4>
                 It wakes up single thread, waiting on this object's monitor.
@@ -5452,20 +5445,20 @@ public static void main(String[] args) { // Main Method
                  It is invoked by the garbage collector before object is being garbage collected. 
                 </div>
                 `
-              }
-            ],
-            expert: [
+                            }
+                        ],
+                        expert: [
 
 
-            ]
-          },
+                        ]
+                    },
 
-          {
-            id: `Encapsulation in Java`,
-            name: `Encapsulation in Java`,
-            beginner: [
-              {
-                content: `• Encapsulation in Java is a core Object-Oriented Programming (OOP) concept where the data (variables) and the code (methods) that operate on that data are bundled together as a single unit, which is typically a class. <br>
+                    {
+                        id: `Encapsulation in Java`,
+                        name: `Encapsulation in Java`,
+                        beginner: [
+                            {
+                                content: `• Encapsulation in Java is a core Object-Oriented Programming (OOP) concept where the data (variables) and the code (methods) that operate on that data are bundled together as a single unit, which is typically a class. <br>
                 • This mechanism is also known as data hiding because it restricts direct access to the class's internal state. <br>
                 • The main idea is to hide the internal implementation details from the outside world and provide controlled access through well-defined public methods (getters and setters). <br><br>
                 
@@ -5477,8 +5470,8 @@ To implement encapsulation, you follow these steps: <br>
 4. Setter methods (setXXX()) are used to modify the values of the variables and can include validation logic to ensure data integrity. <br>
                 
                 `,
-                codeExamples: [
-                  `package com.code_with_pankaj;
+                                codeExamples: [
+                                    `package com.code_with_pankaj;
 public class Person {
 //------------------------------------------------------
 // Private variables
@@ -5531,12 +5524,12 @@ person.displayInfo();
 
    
 `
-                ]
-              }
-            ],
-            intermediate: [
-              {
-                content: `The binding of data into single entity called as “Encapsulation”.
+                                ]
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `The binding of data into single entity called as “Encapsulation”.
                 
                 Example- Class is the entity which contains variables & methods.
 
@@ -5548,9 +5541,9 @@ statements ;<br>
 }<br>
 }<br>
                 </div>`
-              },
-              {
-                content: `Through encapsulation, data is hidden and protected from access by outside non-member methods of a class.<br> 
+                            },
+                            {
+                                content: `Through encapsulation, data is hidden and protected from access by outside non-member methods of a class.<br> 
 Only member methods defined in a class will have access to the data.<br><br>
 A Java class is an example of encapsulation because class binds variables and methods together.<br>
 <div class="bg-secondary border border-primary p-2">
@@ -5564,8 +5557,8 @@ object, ensuring data integrity.<br>
  • Why: This allows controlled access to the internal state of the object. You can add logic to these
 methods to validate data before it is changed.<br>
 </div>`,
-                codeExamples: [
-                  `package com.code_with_pankaj;
+                                codeExamples: [
+                                    `package com.code_with_pankaj;
 public class Person {
 //------------------------------------------------------
 // Private variables
@@ -5614,12 +5607,12 @@ System.out.println("Person's Age: " + person.getAge());
 person.displayInfo();
 }
 }`
-                ]
-              }
-            ],
-            expert: [
-              {
-                content: `Generally, variables of a class are declared as “private” whereas, methods of class are declared as “public”. <br>
+                                ]
+                            }
+                        ],
+                        expert: [
+                            {
+                                content: `Generally, variables of a class are declared as “private” whereas, methods of class are declared as “public”. <br>
 This means that variables cannot be accessed from outside the class but methods can be accessed from anywhere outside the class.<br>
 • To use variables from outside, we will have to take the help of methods. <br>
 • Thus, encapsulation protects data of a class from members of another class.<br><br>
@@ -5646,8 +5639,8 @@ In this example, case 1, we are passing the 5000 salary to the employee that is 
 So salary cannot be negative.<br>
 <br>
 `,
-                codeExamples: [
-                  `//How we are going to achieve this by using Encapsulation:
+                                codeExamples: [
+                                    `//How we are going to achieve this by using Encapsulation:
 public class Employee { // Main Class: Employee
 private int salary;
 public void setSalary(int sal) {
@@ -5661,14 +5654,14 @@ public int getSalary() {
 return salary;
 }
 }`
-                ]
-              },
-              {
-                content: `In this example, we are checking the whether the salary is greater than zero. Because salary cannot
+                                ]
+                            },
+                            {
+                                content: `In this example, we are checking the whether the salary is greater than zero. Because salary cannot
 be negative so in this way, we are going to achieve the encapsulation.<br>
 <h4>Note-</h4> Always keeps global variables private & allows others to assign values through public
 methods.`,
-                codeExamples: [`
+                                codeExamples: [`
 //Program for Encapsulation Using Hard Coded Values
 package com.encapsulation;
 public class EncapsulationTest { // Main Class: EncapsulationTest
@@ -5732,9 +5725,9 @@ public static void main(String[] args) {
 getUserInput(); // static = Call Data Using getUserInput Method
 }
 }`]
-              },
-              {
-                content: `Through encapsulation, data is hidden and protected from access by outside non-member methods
+                            },
+                            {
+                                content: `Through encapsulation, data is hidden and protected from access by outside non-member methods
 of a class. <br>Only member methods defined in a class will have access to the data.<br>
 A Java class is an example of encapsulation because class binds variables and methods together.<br>
 Generally, variables of a class are declared as “private” whereas, methods of class are declared as
@@ -5813,15 +5806,15 @@ o The Singleton design pattern is based on encapsulation. It ensures that a clas
 and provides a global point of access to it, encapsulating the instance creation logic.</h4>
 </div>
 `
-              }
-            ]
-          },
-          {
-            id: `inheritance in Java`,
-            name: `Inheritance in Java`,
-            beginner: [
-              {
-                content: `In Java, it is possible to inherit attributes and methods from one class to another. <br>
+                            }
+                        ]
+                    },
+                    {
+                        id: `inheritance in Java`,
+                        name: `Inheritance in Java`,
+                        beginner: [
+                            {
+                                content: `In Java, it is possible to inherit attributes and methods from one class to another. <br>
                 We group the "inheritance concept" into two categories:<br>
 
 • subclass (child) - the class that inherits from another class<br>
@@ -5829,8 +5822,8 @@ and provides a global point of access to it, encapsulating the instance creation
 To inherit from a class, use the extends keyword.<br><br>
 
 In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):`,
-                codeExamples: [
-                  `class Vehicle {
+                                codeExamples: [
+                                    `class Vehicle {
   protected String brand = "Ford";        // Vehicle attribute
   public void honk() {                    // Vehicle method
     System.out.println("Tuut, tuut!");
@@ -5851,12 +5844,12 @@ class Car extends Vehicle {
     System.out.println(myCar.brand + " " + myCar.modelName);
   }
 }`
-                ]
-              }
-            ],
-            intermediate: [
-              {
-                content: `• The process of creating the new class by using the existing class functionality called as
+                                ]
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `• The process of creating the new class by using the existing class functionality called as
 Inheritance.<br>
 • It is a mechanism in which one class acquires the property of another class.<br>
 • Inheritance means simply reusability.<br>
@@ -5870,8 +5863,8 @@ class TermPolicy extends Policy { // TermPolicy = Sub Class wher TermPolicy is P
 }<br>
 </div>
 `,
-                codeExamples: [
-                  `package com.code_with_pankaj;
+                                codeExamples: [
+                                    `package com.code_with_pankaj;
 //Superclass
 public class Animal {
 public void eat() {
@@ -5896,9 +5889,9 @@ myDog.eat(); // Calls overridden method in Dog class
 myDog.bark(); // Calls method in Dog class
 }
 }`
-                ]
-              }, {
-                content: `<h4>Note-</h4>
+                                ]
+                            }, {
+                                content: `<h4>Note-</h4>
 All the parent members are derived into child class but they are depending upon the below 2 condition as <br>
 • To check the access specifiers.<br>
 • Members does not exist into sub class.<br><br>
@@ -5927,10 +5920,10 @@ features such as variables and method, etc.<br>
 
 `},
 
-            ],
-            expert: [
-              {
-                content: `
+                        ],
+                        expert: [
+                            {
+                                content: `
                 <h3>When to use?</h3>
 If we want to extends or increase of features of class then go for inheritance.<br>
 <div class="bg-secondary border border-primary p-2">
@@ -5967,9 +5960,9 @@ String email;<br>
 <br>
 <h4>Note:</h4> We cannot assign parent class to child class- it means<br>
 Child c=new Parent(); => Here we can’t write new Parent();`
-              },
-              {
-                content: `All the members of super class will be directly inherited into sub class and they are eligible and depends
+                            },
+                            {
+                                content: `All the members of super class will be directly inherited into sub class and they are eligible and depends
 on access specifiers only. <br>
 <h3>Dynamic Dispatch</h3>
 The process of assigning the child class reference to parent class called as “Dynamic dispatch.”<br>
@@ -6025,7 +6018,7 @@ System.out.println("Class Y- m3() method");<br>
 </div>
 
 `, codeExamples: [
-                  `package com.code_with_pankaj;
+                                    `package com.code_with_pankaj;
 public class Test { // Main Class: Test
 public static void main(String[] args) { // Main Method
 // Scenario 1
@@ -6079,10 +6072,10 @@ y.m3(); // Class Y- m3() method
 }
 }
   `
-                ]
-              },
-              {
-                content: `
+                                ]
+                            },
+                            {
+                                content: `
                 <div class="bg-blue-100 border border-primary p-2">
 package com.code_with_pankaj;<br>
 public class Parent {<br>
@@ -6111,8 +6104,8 @@ System.out.println("Omkar From Child Class");<br>
 }<br>
 </div>
 `,
-                codeExamples: [
-                  `package com.code_with_pankaj;
+                                codeExamples: [
+                                    `package com.code_with_pankaj;
 public class Test {
 public static void main(String[] args) {
 System.out.println("// +++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -6174,23 +6167,23 @@ System.out.println("Scenario: 06 ==>> Not Allowed in Java");
 // We can't assign Parent class to child class
 }
 } `
-                ]
-              }
+                                ]
+                            }
 
-            ]
-          },
-          {
-            id: `Inheritance Types`,
-            name: `Inheritance Types`,
-            intermediate: [
-              {
-                content: `<h3>1. Single inheritance</h3>
+                        ]
+                    },
+                    {
+                        id: `Inheritance Types`,
+                        name: `Inheritance Types`,
+                        intermediate: [
+                            {
+                                content: `<h3>1. Single inheritance</h3>
                  In this only one super class and only one sub class called as single.<br>
                   <img src="/src/assets/singleinheritance.png" alt="Online Image"class="d-block mx-auto" style="height:300px"/>
                  
                 `,
-                codeExamples: [
-                  `package com.code_with_pankaj;
+                                codeExamples: [
+                                    `package com.code_with_pankaj;
 public class Insurance { // Super Class ( Parent )
 void getInsuranceDetails() {
 System.out.println("this is insurance details..");
@@ -6208,7 +6201,7 @@ hi.getInsuranceDetails(); // this is insurance details..
 hi.getHealthInsuranceDetails(); // this is health insurance details
 }
 }`,
-                  `
+                                    `
 class Animal {
 void eat() {
 System.out.println("eating...");
@@ -6227,17 +6220,17 @@ obj.eat();
 }
 }
 `
-                ]
-              }, {
-                content: `<h3>2. Multilevel Inheritance</h3>
+                                ]
+                            }, {
+                                content: `<h3>2. Multilevel Inheritance</h3>
                 It has only one base class and multiple derived class called as multilevel.<br>
 Or
 It refers to the concept of one class extending (Or inherits) more than one base class.<br>
  <img src="/src/assets/multilevelinheritance.png" alt="Online Image"class="d-block mx-auto" style="height:300px"/>
                 `,
 
-                codeExamples: [
-                  `package com.code_with_pankaj;
+                                codeExamples: [
+                                    `package com.code_with_pankaj;
 public class Account {
 void getAccountDetails() {
 System.out.println("This is account details..");
@@ -6265,7 +6258,7 @@ savingAccount.getSavingAccountDetails();
 }
 }
                   `,
-                  `package com.code_with_pankaj;
+                                    `package com.code_with_pankaj;
 class Animal {
 void eat() {
 System.out.println("eating...");
@@ -6290,15 +6283,15 @@ d.bark();
 d.eat();
 }
 }`
-                ]
-              },
-              {
-                content: `<h3>3. Hierarchical Inheritance</h3>
+                                ]
+                            },
+                            {
+                                content: `<h3>3. Hierarchical Inheritance</h3>
                 Define: One Parent Class is inherited by many sub classes.<br>
                  <img src="/src/assets/hireachicalinheritance.png" alt="Online Image"class="d-block mx-auto" style="height:300px"/>
 
                 `, codeExamples: [
-                  `package com.code_with_pankaj;
+                                    `package com.code_with_pankaj;
 public class Loan {
 void getLoanDetails() {
 System.out.println("this is loan details");
@@ -6330,7 +6323,7 @@ carLoan.getCarLoanDetails();
 personalLoan.getPersonalLoanDetails();
 }
 }`,
-                  `package com.code_with_pankaj;
+                                    `package com.code_with_pankaj;
 class Animal {
 void eat() {
 System.out.println("eating...");
@@ -6358,10 +6351,10 @@ c.eat();
                 }
 
 `
-                ]
-              },
-              {
-                content: `<h3>4. Multiple Inheritance</h3>
+                                ]
+                            },
+                            {
+                                content: `<h3>4. Multiple Inheritance</h3>
                 One Sub class has many super classes called as multiple inheritance.<br>
                  <img src="/src/assets/multipleinheritance.png" alt="Online Image"class="d-block mx-auto"style="height:300px"/><br>
 Why multiple inheritance not supported in java in case of classes?<br>
@@ -6369,8 +6362,8 @@ Class base has test () method and class derived has also test () method. Class t
 which test method. It will called, so it create the ambiguity so that’s why multiple inheritance does not<br>
 supports in java.
                 `,
-                codeExamples: [
-                  `package com.multiple. code_with_pankaj;
+                                codeExamples: [
+                                    `package com.multiple. code_with_pankaj;
 public class A {
 void m1() {
 }
@@ -6389,11 +6382,11 @@ c.m1();
 }
 }
                   `
-                ]
-              }, {
-                content: `<h4>Note :- it will get the compile time error.</h4>`,
-                codeExamples: [
-                  `package com. code_with_pankaj;
+                                ]
+                            }, {
+                                content: `<h4>Note :- it will get the compile time error.</h4>`,
+                                codeExamples: [
+                                    `package com. code_with_pankaj;
 class A {
 void msg() {
 System.out.println("Hello");
@@ -6412,10 +6405,10 @@ C obj = new C();
 obj.msg();// Now which msg() method would be invoked?
 }
 }`
-                ]
-              },
-              {
-                content: `<h3>5. Hybrid Inheritance</h3>
+                                ]
+                            },
+                            {
+                                content: `<h3>5. Hybrid Inheritance</h3>
 It is the combination of single and multiple inheritance. So it is not allowed in java.<br>
 <img src="/src/assets/hybridinheritance.png" alt="Online Image"class="d-block mx-auto" style="height:350px"/><br>
 
@@ -6442,8 +6435,8 @@ Simple Example of Aggregation<br>
 <img src="/src/assets/1.png" alt="Online Image"class="d-block mx-auto" style="height:200px"/><br>
 
 In this example, we have created the reference of Operation class in the Circle class<br>`,
-                codeExamples: [
-                  `package com. code_with_pankaj;
+                                codeExamples: [
+                                    `package com. code_with_pankaj;
 class Operation {
 int square(int n) {
 return n * n;
@@ -6464,10 +6457,10 @@ double result = c.area(5);
 System.out.println(result);
 }
 }`
-                ]
-              },
-              {
-                content: `<h4>When use Aggregation?</h4>
+                                ]
+                            },
+                            {
+                                content: `<h4>When use Aggregation?</h4>
 • Code reuse is also best achieved by aggregation when there is no is-a relationship.<br>
 • Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of
 the objects involved; otherwise, aggregation is the best choice.<br><br>
@@ -6476,7 +6469,7 @@ Understanding meaningful example of Aggregation:<br>
 In this example, Employee has an object of Address, address object contains its own informations such
 as city, state, country etc. In such case relationship is Employee HAS-A address.<br>
 `, codeExamples: [
-                  `//Address.java
+                                    `//Address.java
 public class Address {
 String city,state,country;
 public Address(String city, String state, String country) {
@@ -6510,7 +6503,7 @@ e2.display();
 }
 }
   `,
-                  `package com.code_with_pankaj;
+                                    `package com.code_with_pankaj;
 import java.util.Scanner;
 public class Employee {
 private int id;
@@ -6632,10 +6625,10 @@ Test test = new Test();
 test.getUserDetails();
 }
 }`
-                ]
-              },
-              {
-                content: `<div class='bg-secondary border border-primary p-2'>
+                                ]
+                            },
+                            {
+                                content: `<div class='bg-secondary border border-primary p-2'>
 <h4 class='text-center'>Interview Questions</h4>
 <h4>1. What is inheritance in Java?</h4>
 o Inheritance is an object-oriented feature that allows a class to inherit properties and behaviors (fields and
@@ -6694,16 +6687,16 @@ already defined in its superclass.<br>
 <h4>9. What is the use of the instanceof keyword in Java?</h4>
 o The instanceof keyword is used to test whether an object is an<br>
 </div>`
-              }
+                            }
 
-            ]
-          },
-          {
-            id: `Abstraction in Java`,
-            name: `Abstraction in Java`,
-            beginner: [
-              {
-                content: `Data abstraction is the process of hiding certain details and showing only essential information to the user.<br>
+                        ]
+                    },
+                    {
+                        id: `Abstraction in Java`,
+                        name: `Abstraction in Java`,
+                        beginner: [
+                            {
+                                content: `Data abstraction is the process of hiding certain details and showing only essential information to the user.<br>
 Abstraction can be achieved with either abstract classes or interfaces (which you will learn more about in the next chapter).<br>
 <br>
 The abstract keyword is a non-access modifier, used for classes and methods:<br>
@@ -6712,20 +6705,20 @@ The abstract keyword is a non-access modifier, used for classes and methods:<br>
 
 • Abstract method: can only be used in an abstract class, and it does not have a body. <br>
 The body is provided by the subclass (inherited from).<br>`,
-                codeExamples: [
-                  `abstract class Animal {
+                                codeExamples: [
+                                    `abstract class Animal {
   public abstract void animalSound();
   public void sleep() {
     System.out.println("Zzz");
   }
 }
   `
-                ]
-              }
-            ],
-            intermediate: [
-              {
-                content: `It is the process of hiding the some details & showing the important information / functionalities to
+                                ]
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `It is the process of hiding the some details & showing the important information / functionalities to
 the end user called as “Abstraction”.<br>
 Example:<br>
 1. Car<br>
@@ -6757,9 +6750,9 @@ public abstract void x1(); // this is Abstract Method<br>
 public static final int a=10; // Variable<br>
 }<br>
 </div>`
-              },
-              {
-                content: `Here, method is the abstract then class should be abstract only as per below example:<br>
+                            },
+                            {
+                                content: `Here, method is the abstract then class should be abstract only as per below example:<br>
                 <div class='bg-secondary p-2'>
                 package com. code_with_pankaj;<br>
 public abstract class Test { // this is abstract class<br>
@@ -6782,8 +6775,8 @@ abstract void x2(); // abstract method<br>
                 <h4>How to implement abstract methods?</4>
                 We need to create the class which extends from abstract class as shown in below.<br>
                 `,
-                codeExamples: [
-                  `package com.code_with_pankaj;
+                                codeExamples: [
+                                    `package com.code_with_pankaj;
 //this is the implementation class
 public class Example extends Test {
 @Override
@@ -6803,10 +6796,10 @@ example.x1();
 example.x2();
 }
 }`
-                ]
-              },
-              {
-                content: `Note- Suppose in the sub class, I don’t want to override the abstract methods then make that subclass as
+                                ]
+                            },
+                            {
+                                content: `Note- Suppose in the sub class, I don’t want to override the abstract methods then make that subclass as
 abstract.<br><br>
 
 <h4>2. Interface</h4>
@@ -6890,11 +6883,11 @@ Ans: A concrete method in Java is a method which has always the body. It is also
 method in java.<br>
 </div>
 `
-              }
-            ],
-            expert: [
-              {
-                content: `
+                            }
+                        ],
+                        expert: [
+                            {
+                                content: `
                 <h4>1. Abstract Class</h4>
 • Abstract method can only be used in an abstract class, and it does not have a body. The body is
 provided by the subclass (inherited from).<br>
@@ -7105,15 +7098,15 @@ abstract methods.<br>
 • Programmer can implement abstract method to perform different tasks depending on the need.<br>
 • We can easily manage code.<br>
 </div>`
-              }
-            ]
-          },
-          {
-            id: 'Polymorphism in java',
-            name: 'Polymorphism in Java',
-            intermediate: [
-              {
-                content: `
+                            }
+                        ]
+                    },
+                    {
+                        id: 'Polymorphism in java',
+                        name: 'Polymorphism in Java',
+                        intermediate: [
+                            {
+                                content: `
                 One entity that behaves differently in different cases called as polymorphism.
 
 Example:
@@ -7166,8 +7159,8 @@ There are 2 ways to overload the method in java
 
 • By changing the data type`,
 
-                codeExamples: [
-                  `package com. code_with_pankaj;
+                                codeExamples: [
+                                    `package com. code_with_pankaj;
 public class TestMain {
 void add(int a, int b) {
 System.out.println(a + b);
@@ -7192,9 +7185,9 @@ obj.add(5, 10, 15);
 }
 }
   `
-                ]
-              }, {
-                content: `Why?:
+                                ]
+                            }, {
+                                content: `Why?:
 
 Suppose we got the business requirement from the client in last year
 
@@ -7229,8 +7222,8 @@ this is not the good thing.
 2nd way, design the same method in that class and add the new field into it. If client second want Pan
 Card details so he can call that method otherwise calls the first method if pan card is not required.
 `,
-                codeExamples: [
-                  `Example - 02
+                                codeExamples: [
+                                    `Example - 02
 package com.code_with_pankaj;
 public class A{ // Main Class: A
 void test(Object object) { // Method: 01
@@ -7247,11 +7240,11 @@ a.test(new A());
 a.test(new String());
 }
 }`
-                ]
-              },
+                                ]
+                            },
 
-              {
-                content: `Why it is Called as Compile Time Polymorphism?
+                            {
+                                content: `Why it is Called as Compile Time Polymorphism?
 
 Because it is decided at compile time which one method should get called that’s why it is called as
 Compile Time Polymorphism.
@@ -7333,8 +7326,8 @@ Why?
 
 • Readability of code.
 `,
-                codeExamples: [
-                  `Example - 01
+                                codeExamples: [
+                                    `Example - 01
 package com.code_with_pankaj;
 public class A { // Main Class: A
 void m1() { // Method: m1
@@ -7359,10 +7352,10 @@ b.m7(); // Call m7 Method: ObjectName.MethodName
 }
 }`
 
-                ]
-              },
-              {
-                content: `Program Explanation:
+                                ]
+                            },
+                            {
+                                content: `Program Explanation:
 
 • In the above program, B is implementing the method m1 () with the same signature as super class A
 i.e. m1 () of class B is overriding m1() of class A.
@@ -7453,24 +7446,24 @@ void getSeatAvailability(int seat){
 
 }
 `
-              }
+                            }
 
-            ]
-          }
+                        ]
+                    }
 
-        ]
-      },
+                ]
+            },
 
-      {
-        id: `multithreading and multitasking`,
-        name: `Multithreading&Multitasking`,
-        topics: [
-          {
-            id: `Multitasking in Java`,
-            name: `Multitasking in Java`,
-            beginner: [
-              {
-                content: `Multitasking in Java refers to the system's ability to run multiple tasks concurrently, primarily achieved through
+            {
+                id: `multithreading and multitasking`,
+                name: `Multithreading&Multitasking`,
+                topics: [
+                    {
+                        id: `Multitasking in Java`,
+                        name: `Multitasking in Java`,
+                        beginner: [
+                            {
+                                content: `Multitasking in Java refers to the system's ability to run multiple tasks concurrently, primarily achieved through
                 Process-based multitasking (running different Java apps or OS apps simultaneously) and Thread-based multitasking (multithreading), 
                 where a single Java program performs multiple tasks (threads) concurrently, sharing resources for better efficiency and responsiveness, 
                 using java.lang.Thread and Runnable for implementation.<br>
@@ -7486,11 +7479,11 @@ void getSeatAvailability(int seat){
 • Example: Formatting text while printing in a word processor, or a server handling multiple client requests. <br>
 • Key Feature: Threads share resources, leading to faster execution and better CPU utilization for complex tasks. <br>`
 
-              }
-            ],
-            intermediate: [
-              {
-                content: `Process of executing multiple tasks simultaneously. We use multitasking to utilize the CPU.<br>
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `Process of executing multiple tasks simultaneously. We use multitasking to utilize the CPU.<br>
 • Multitasking is when a single CPU performs several tasks (program, process, task, threads) at the
 same time. To perform multitasking, the CPU switches among these tasks very frequently so that
 user can interact with each program simultaneously.<br>
@@ -7568,26 +7561,26 @@ dependency between them so I can run that tasks simultaneously to minimize the e
 </table>
 
 `,
-              }
-            ]
-          },
-          {
-            id: `MultiThreading in Java`,
-            name: `Multithreading in Java`,
-            beginner: [
-              {
-                content: `• Multithreading in Java is a programming concept that allows multiple threads (smaller units of a process) to run concurrently within a single Java program. <br>
+                            }
+                        ]
+                    },
+                    {
+                        id: `MultiThreading in Java`,
+                        name: `Multithreading in Java`,
+                        beginner: [
+                            {
+                                content: `• Multithreading in Java is a programming concept that allows multiple threads (smaller units of a process) to run concurrently within a single Java program. <br>
                 • Each thread represents a separate path of execution, enabling tasks to be performed simultaneously, which enhances the efficiency and responsiveness of applications.<br>
                 • Java provides built-in support for multithreading through the java.lang.Thread class and the Runnable interface, allowing developers to create and manage threads easily.<br> 
                 • Multithreading is particularly useful for tasks that require parallel processing, such as handling user interfaces, performing background operations, or managing multiple client requests in server applications.<br><br>
                 `
-              }
+                            }
 
-            ],
-            intermediate: [
+                        ],
+                        intermediate: [
 
-              {
-                content: `<h4>Process of executing multiple threads simultaneously.</h4>
+                            {
+                                content: `<h4>Process of executing multiple threads simultaneously.</h4>
 • Multithreading is different from multitasking in a sense that multitasking allows multiple tasks at the
 same time, whereas, the Multithreading allows multiple threads of a single task (program, process) to be
 processed by CPU at the same time.<br>
@@ -7608,9 +7601,9 @@ to each process, but creating threads is easy as it does not require allocating 
 resources for threads of the same process.<br><br>
 
 <img src="/src/assets/multi.png" alt="Image"class="d-block mx-auto" style="height:250px"/><br>`,
-              },
-              {
-                content: `<h4>What is Thread?</h4>
+                            },
+                            {
+                                content: `<h4>What is Thread?</h4>
 • It is the smallest unit of program called as Thread.<br>
 • A thread is a lightweight subprocess, the smallest unit of processing. It runs within the context of a larger
 process & it is a separate path of execution.<br>
@@ -7664,8 +7657,8 @@ other threads to execute. <br>
 21. public boolean isnterrupted(): tests if the thread has been interrupted. <br>
 22. public static boolean interrupted(): tests if the current thread has been interrupted .<br>`,
 
-                codeExamples: [
-                  `Program: 01 Program for Thread
+                                codeExamples: [
+                                    `Program: 01 Program for Thread
 package com.code_with_pankaj; 
 public class ThreadDemo extends Thread { 
 public void run() { 
@@ -7679,7 +7672,7 @@ public static void main(String[] args) {
  } 
 }`,
 
-                  `Program: 02 
+                                    `Program: 02 
 package com.code_with_pankaj; 
 class MyThread extends Thread { 
 public void run() { 
@@ -7692,15 +7685,15 @@ public static void main(String[] args) {
  thread.start(); // Starts the new thread
  } 
 }`
-                ]
-              },
-              {
-                content: `<h4>2. By implementing Runnable interface. </h4>
+                                ]
+                            },
+                            {
+                                content: `<h4>2. By implementing Runnable interface. </h4>
 The Runnable interface should be implemented by any class whose instances are intended to be 
 executed by a thread.<br> Runnable interface have only one method named run().`,
 
-                codeExamples: [
-                  `package com.threads; 
+                                codeExamples: [
+                                    `package com.threads; 
 public class ThreadDemo implements Runnable { 
 public static void main(String[] args) { // Main Method
  ThreadDemo thread = new ThreadDemo(); // Create Object
@@ -7715,7 +7708,7 @@ public void run() {
  } 
 } 
   `,
-                  `package com.code_with_pankaj; 
+                                    `package com.code_with_pankaj; 
   class MyRunnable implements Runnable { 
 public void run() { 
  System.out.println("Thread is running."); 
@@ -7729,10 +7722,10 @@ public static void main(String[] args) {
  } 
 }
   `
-                ]
-              },
-              {
-                content: `<h4>Note- </h4>If you are not extending the Thread class, your class object would not be treated as a thread 
+                                ]
+                            },
+                            {
+                                content: `<h4>Note- </h4>If you are not extending the Thread class, your class object would not be treated as a thread 
 object. So you need to explicitely create Thread class object. We are passing the object of your class that 
 implements Runnable so that your class run() method may execute. <br><br>
 
@@ -7811,8 +7804,8 @@ the class can extend to other classes.<br>
 
 
 `,
-                codeExamples: [
-                  `Example of Runnable
+                                codeExamples: [
+                                    `Example of Runnable
 package com.code_with_pankaj; 
 public class RunnableExample implements Runnable { 
 public void run() { 
@@ -7825,7 +7818,7 @@ public static void main(String args[]) {
  } 
 } `,
 
-                  `Example of Thread
+                                    `Example of Thread
 package com.code_with_pankaj; 
  
 public class ThreadExample extends Thread { 
@@ -7837,7 +7830,7 @@ public static void main(String args[]) {
  t1.start(); 
  }
  `,
-                  `Example for MultiThreading 
+                                    `Example for MultiThreading 
 package com.multi; 
 public class MultithreadingExample extends Thread { 
 public void run() { 
@@ -7857,9 +7850,9 @@ public static void main(String[] args) {
  thread2.start(); 
  } 
 }`        ]
-              },
-              {
-                content: `<h4>Advantages for Multithreading in Java</h4>
+                            },
+                            {
+                                content: `<h4>Advantages for Multithreading in Java</h4>
 • The users are not blocked because threads are independent, and we can perform multiple operations 
 at same times.<br>
 • You can perform many operations together, so it saves time. <br>
@@ -7883,8 +7876,8 @@ same time, such as processing multiple client requests in a server application. 
 These advantages make multithreading a valuable technique for developing high-performance, 
 responsive, and scalable applications in Java.<br>`,
 
-                codeExamples: [
-                  `package com.threads; 
+                                codeExamples: [
+                                    `package com.threads; 
 public class ThreadDemo extends Thread { 
 public static void main(String[] args) { 
  ThreadDemo thread = new ThreadDemo(); 
@@ -7894,16 +7887,16 @@ public static void main(String[] args) {
  System.out.println(thread.getState()); 
  } 
 }`
-                ]
-              }
-            ]
-          },
-          {
-            id: `Life Cycle of Thread`,
-            name: `Life Cycle of Thread`,
-            intermediate: [
-              {
-                content: `<img src="/src/assets/lifecycle.png" alt="Image"class="d-block mx-auto" style="height:280px" /><br>
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        id: `Life Cycle of Thread`,
+                        name: `Life Cycle of Thread`,
+                        intermediate: [
+                            {
+                                content: `<img src="/src/assets/lifecycle.png" alt="Image"class="d-block mx-auto" style="height:280px" /><br>
 
 • A thread goes through various stages in its life cycle. <br>
 • For example: A thread is born, started, runs, and then dies.<br> 
@@ -7937,21 +7930,21 @@ notification then it will enter into another wating state. <br>
 
 <img src="/src/assets/thread.png" alt="Image"class="d-block mx-auto border border-primary" style="height:300px" /><br>
 `,
-              }
-            ],
+                            }
+                        ],
 
-          },
-          {
-            id: `Synchronization in Java `,
-            name: `Synchronization in Java `,
-            beginner: [
-              {
-                content: `• Synchronization in java is the capability to control the access of multiple threads to any shared resource. <br>
+                    },
+                    {
+                        id: `Synchronization in Java `,
+                        name: `Synchronization in Java `,
+                        beginner: [
+                            {
+                                content: `• Synchronization in java is the capability to control the access of multiple threads to any shared resource. <br>
                 • In the Multithreading concept, multiple threads try to access the shared resources at a time to produce inconsistent results. <br>
                 • The synchronization is necessary for reliable communication between threads.<br>
                 `,
-                codeExamples: [
-                  `package com.synchronizaitons; 
+                                codeExamples: [
+                                    `package com.synchronizaitons; 
 public class Account { 
 private int balance=5000; 
 //-------------------------------------- 
@@ -7964,12 +7957,12 @@ public int withdraw(int amount) { // Method: Withdraw
  return balance; 
  } 
 } `
-                ]
-              }
-            ],
-            intermediate: [
-              {
-                content: `We can apply synchronization on method and block only. We cannot apply it on variables and 
+                                ]
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `We can apply synchronization on method and block only. We cannot apply it on variables and 
 class. <br>
 • Multiple threads is accessing the one resource at the same time called as Synchronization.<br>
 • The main purpose of this is we need to ensure that resource will be used by only one thread at a time. <br>
@@ -7977,7 +7970,7 @@ class. <br>
 
 <h4>Why?</h4>
 `,
-                codeExamples: [`
+                                codeExamples: [`
 package com.synchronizaitons; 
 public class AccountDetails implements Runnable{ 
 Account account = new Account(); 
@@ -8004,7 +7997,7 @@ private void makeWithdrawal(int amt) {
  } 
 } 
 `,
-                  `package com.synchronizaitons; 
+                                    `package com.synchronizaitons; 
 public class MainTest { 
 public static void main(String[] args) { 
  AccountDetails accountDetails= new AccountDetails(); 
@@ -8016,10 +8009,10 @@ public static void main(String[] args) {
  thread2.start(); 
  } 
 }`
-                ]
-              },
-              {
-                content: `In this Example => there are 2 thread which are executed randomly but I want to execute one by one 
+                                ]
+                            },
+                            {
+                                content: `In this Example => there are 2 thread which are executed randomly but I want to execute one by one 
 thread at a time then go for synchronization. <br>
 <h4>Note:</h4> Just make the makeWithdrawal method as synchronized, so you will get the output like as <br>
 
@@ -8128,15 +8121,15 @@ we can use synchronized block. <br>
 
 
 `
-              }
-            ]
-          },
-          {
-            id: `Interview Questions`,
-            name: `Interview Questions`,
-            beginner: [
-              {
-                content: `
+                            }
+                        ]
+                    },
+                    {
+                        id: `Interview Questions`,
+                        name: `Interview Questions`,
+                        beginner: [
+                            {
+                                content: `
                <h4>1. What is multithreading in Java?</h4>
 • Multithreading is a process of executing multiple threads simultaneously to maximize CPU 
 utilization. <br>
@@ -8178,11 +8171,11 @@ time. <br>
 • Terminated: The thread has finished its execution.<br>
                 
                 `
-              }
-            ],
-            intermediate: [
-              {
-                content: `<h4>1. What is synchronization in Java?</h4>
+                            }
+                        ],
+                        intermediate: [
+                            {
+                                content: `<h4>1. What is synchronization in Java?</h4>
 • Synchronization is a mechanism that ensures that two or more concurrent threads do not simultaneously 
 execute some particular program segment known as a critical section.<br>
 • It is used to prevent thread interference and memory consistency errors.<br> <br>
@@ -8209,770 +8202,74 @@ thread’s local cache. <br><br>
 <h4>6. What is the ThreadLocal class in Java?</h4>
 • The ThreadLocal class provides thread-local variables. <br>
 • Each thread accessing such a variable has its own, independently initialized copy of the variable.`
-              }
-            ]
-          }
-        ]
-      },
-
-
-    ],
-
-
-
-
-    cheatNotes: [
-      'javac FileName.java - Compile Java file',
-      'java ClassName - Run Java program',
-      'System.out.println() - Print with newline',
-      'public static void main(String[] args) - Main method',
-      'String[] args - Command line arguments',
-      'int, double, boolean, char - Primitive types',
-      'new keyword - Create object',
-      'this keyword - Reference current object',
-      'super keyword - Reference parent class',
-      'extends - Inherit from class'
-    ],
-    interviewQuestions: [
-      {
-        company: 'Google',
-        questions: [
-          'What is the difference between JDK, JRE, and JVM?',
-          'Explain the concept of polymorphism with an example',
-          'What are the differences between Abstract class and Interface?',
-          'How does garbage collection work in Java?',
-          'What is the difference between equals() and == operator?'
-        ]
-      },
-      {
-        company: 'Amazon',
-        questions: [
-          'Explain the String pool concept in Java',
-          'What is the difference between ArrayList and LinkedList?',
-          'How do you implement a custom exception in Java?',
-          'What are lambda expressions and functional interfaces?',
-          'Explain the concept of streams in Java 8'
-        ]
-      },
-      {
-        company: 'Microsoft',
-        questions: [
-          'What is multithreading and how do you implement it?',
-          'Explain synchronization in Java',
-          'What are design patterns? Explain Singleton pattern',
-          'What is the difference between overloading and overriding?',
-          'How does HashMap work internally?'
-        ]
-      },
-      {
-        company: 'TCS',
-        questions: [
-          'What are the main features of Java?',
-          'Explain inheritance and its types',
-          'What is encapsulation and why is it important?',
-          'Difference between final, finally, and finalize',
-          'What are constructors and their types?'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'collections',
-    name: 'Collection Framework',
-    icon: 'BookOpen',
-    subTopics: [
-      {
-        id: 'list',
-        name: 'List Interface',
-        topics: [
-          {
-            id: 'arraylist',
-            name: 'ArrayList',
-            beginner: [
-              {
-                content: `ArrayList is a resizable array implementation of the List interface. It provides dynamic arrays that can grow as needed.
-
-Key Features:
-• Dynamic size
-• Allows duplicate elements
-• Maintains insertion order
-• Allows null values
-• Not synchronized (not thread-safe)`,
-                codeExamples: [
-                  `import java.util.ArrayList;
-public class ArrayListExample {
-    public static void main(String[] args) {
-        ArrayList<String> fruits = new ArrayList<>();
-
-        // Adding elements
-        fruits.add("Apple");
-        fruits.add("Banana");
-        fruits.add("Orange");
-
-        // Accessing elements
-        System.out.println("First fruit: " + fruits.get(0));
-
-        // Iterating
-        for (String fruit : fruits) {
-            System.out.println(fruit);
-        }
-
-        // Size
-        System.out.println("Size: " + fruits.size());
-    }
-}`
+                            }
+                        ]
+                    }
                 ]
-              }
-            ],
-            intermediate: [
-              {
+            },
 
-                content: `Understanding ArrayList internals, performance characteristics, and best practices.
 
-Internal Working:
-• Uses Object[] array internally
-• Default initial capacity: 10
-• Growth factor: 1.5x (new capacity = old * 1.5)
-• When to grow: When size exceeds capacity
+        ],
 
-Performance:
-• add(): O(1) amortized
-• get(): O(1)
-• remove(): O(n)
-• contains(): O(n)
-• indexOf(): O(n)
 
-Best Practices:
-• Specify initial capacity if size is known
-• Use ensureCapacity() to avoid multiple resizing
-• Use trimToSize() to reduce memory footprint`,
-                codeExamples: [
-                  `import java.util.ArrayList;
 
-public class ArrayListAdvanced {
-    public static void main(String[] args) {
-        // Initialize with capacity
-        ArrayList<Integer> numbers = new ArrayList<>(100);
 
-        // Bulk operations
-        ArrayList<Integer> moreNumbers = new ArrayList<>();
-        moreNumbers.add(1);
-        moreNumbers.add(2);
-        numbers.addAll(moreNumbers);
-
-        // Remove by index
-        numbers.remove(0);
-
-        // Remove by object
-        numbers.remove(Integer.valueOf(2));
-
-        // Clear all
-        numbers.clear();
-
-        // Check if empty
-        System.out.println("Is empty: " + numbers.isEmpty());
-    }
-}`
+        cheatNotes: [
+            'javac FileName.java - Compile Java file',
+            'java ClassName - Run Java program',
+            'System.out.println() - Print with newline',
+            'public static void main(String[] args) - Main method',
+            'String[] args - Command line arguments',
+            'int, double, boolean, char - Primitive types',
+            'new keyword - Create object',
+            'this keyword - Reference current object',
+            'super keyword - Reference parent class',
+            'extends - Inherit from class'
+        ],
+        interviewQuestions: [
+            {
+                company: 'Google',
+                questions: [
+                    'What is the difference between JDK, JRE, and JVM?',
+                    'Explain the concept of polymorphism with an example',
+                    'What are the differences between Abstract class and Interface?',
+                    'How does garbage collection work in Java?',
+                    'What is the difference between equals() and == operator?'
                 ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    cheatNotes: [
-      'List<T> list = new ArrayList<>() - Create ArrayList',
-      'list.add(item) - Add element',
-      'list.get(index) - Get element at index',
-      'list.remove(index) - Remove element',
-      'list.size() - Get size',
-      'Set<T> set = new HashSet<>() - Create HashSet',
-      'Map<K,V> map = new HashMap<>() - Create HashMap',
-      'Collections.sort(list) - Sort list',
-      'Collections.reverse(list) - Reverse list',
-      'Collections.shuffle(list) - Shuffle list'
-    ],
-    interviewQuestions: [
-      {
-        company: 'Google',
-        questions: [
-          'What is the difference between ArrayList and LinkedList?',
-          'How does HashMap work internally?',
-          'What is the difference between HashSet and TreeSet?',
-          'Explain the fail-fast and fail-safe iterators',
-          'What is ConcurrentHashMap?'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'design-patterns',
-    name: 'Design Pattern',
-    icon: 'FileText',
-    subTopics: [
-      {
-        id: 'creational',
-        name: 'Creational Patterns',
-        topics: [
-          {
-            id: 'singleton',
-            name: 'Singleton Pattern',
-            beginner: [
-              {
-                content: `Singleton pattern ensures that a class has only one instance and provides a global point of access to it.
-
-When to use:
-• Logger classes
-• Configuration classes
-• Database connections
-• Thread pools`,
-                codeExamples: [
-                  `public class Singleton {
-    private static Singleton instance;
-
-    // Private constructor
-    private Singleton() {}
-
-    // Public method to get instance
-    public static Singleton getInstance() {
-        if (instance == null) {
-            instance = new Singleton();
-        }
-        return instance;
-    }
-
-    public void showMessage() {
-        System.out.println("Hello from Singleton!");
-    }
-}`
+            },
+            {
+                company: 'Amazon',
+                questions: [
+                    'Explain the String pool concept in Java',
+                    'What is the difference between ArrayList and LinkedList?',
+                    'How do you implement a custom exception in Java?',
+                    'What are lambda expressions and functional interfaces?',
+                    'Explain the concept of streams in Java 8'
                 ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    cheatNotes: [
-      'Singleton - One instance only',
-      'Factory - Object creation logic',
-      'Builder - Complex object construction',
-      'Observer - Event notification',
-      'Strategy - Interchangeable algorithms'
-    ],
-    interviewQuestions: [
-      {
-        company: 'Amazon',
-        questions: [
-          'What are design patterns and why are they important?',
-          'Explain Singleton pattern and its thread-safe implementation',
-          'What is the difference between Factory and Abstract Factory pattern?',
-          'Explain Observer pattern with real-world example',
-          'What is Dependency Injection?'
-        ]
-      }
-    ]
-  },
-//   {
-//     id: 'mysql',
-//     name: 'MySQL CSS',
-//     icon: 'Database',
-//     subTopics: [
-//       {
-//         id: 'basics',
-//         name: 'MySQL Basics',
-//         topics: [
-//           {
-//             id: 'introduction',
-//             name: 'Introduction to MySQL',
-//             beginner: [
-//               {
-//                 content: `MySQL is an open-source relational database management system (RDBMS).
-
-// Key Concepts:
-// • Database: Collection of tables
-// • Table: Collection of rows and columns
-// • Row: Single record
-// • Column: Field in a record
-// • Primary Key: Unique identifier
-// • Foreign Key: Reference to another table`,
-//                 codeExamples: [
-//                   `-- Create Database
-// CREATE DATABASE school;
-
-// -- Use Database
-// USE school;
-
-// -- Create Table
-// CREATE TABLE students (
-//     id INT PRIMARY KEY AUTO_INCREMENT,
-//     name VARCHAR(100),
-//     age INT,
-//     grade VARCHAR(10)
-// );
-
-// -- Insert Data
-// INSERT INTO students (name, age, grade)
-// VALUES ('John', 20, 'A');
-
-// -- Select Data
-// SELECT * FROM students;`
-//                 ]
-//               }
-//             ]
-//           }
-//         ]
-//       }
-//     ],
-//     cheatNotes: [
-//       'CREATE DATABASE dbname - Create database',
-//       'USE dbname - Select database',
-//       'CREATE TABLE - Create table',
-//       'INSERT INTO - Insert data',
-//       'SELECT * FROM - Query data',
-//       'UPDATE - Modify data',
-//       'DELETE FROM - Remove data',
-//       'WHERE - Filter condition',
-//       'JOIN - Combine tables',
-//       'GROUP BY - Group results'
-//     ],
-//     interviewQuestions: [
-//       {
-//         company: 'Oracle',
-//         questions: [
-//           'What are different types of joins in MySQL?',
-//           'Explain normalization and its types',
-//           'What is the difference between INNER JOIN and LEFT JOIN?',
-//           'How do you optimize a slow query?',
-//           'What are indexes and when to use them?'
-//         ]
-//       }
-//     ]
-//   },
-//   {
-//     id: 'jdbc',
-//     name: 'JDBC',
-//     icon: 'Database',
-//     subTopics: [
-//       {
-//         id: 'basics',
-//         name: 'JDBC Basics',
-//         topics: [
-//           {
-//             id: 'introduction',
-//             name: 'Introduction to JDBC',
-//             beginner: [
-//               {
-//                 content: `JDBC (Java Database Connectivity) is an API for connecting and executing queries with databases.
-
-// JDBC Components:
-// • DriverManager: Manages database drivers
-// • Connection: Establishes connection to database
-// • Statement: Executes SQL queries
-// • ResultSet: Holds query results
-// • SQLException: Handles database errors`,
-//                 codeExamples: [
-//                   `import java.sql.*;
-
-// public class JDBCExample {
-//     public static void main(String[] args) {
-//         String url = "jdbc:mysql://localhost:3306/school";
-//         String user = "root";
-//         String password = "password";
-
-//         try {
-//             // Load driver
-//             Class.forName("com.mysql.cj.jdbc.Driver");
-
-//             // Establish connection
-//             Connection con = DriverManager.getConnection(url, user, password);
-
-//             // Create statement
-//             Statement stmt = con.createStatement();
-
-//             // Execute query
-//             ResultSet rs = stmt.executeQuery("SELECT * FROM students");
-
-//             // Process results
-//             while (rs.next()) {
-//                 System.out.println(rs.getInt("id") + " " + rs.getString("name"));
-//             }
-
-//             // Close connections
-//             rs.close();
-//             stmt.close();
-//             con.close();
-//         } catch (Exception e) {
-//             e.printStackTrace();
-//         }
-//     }
-// }`
-//                 ]
-//               }
-//             ]
-//           }
-//         ]
-//       }
-//     ],
-//     cheatNotes: [
-//       'Class.forName() - Load driver',
-//       'DriverManager.getConnection() - Connect to DB',
-//       'createStatement() - Create statement',
-//       'executeQuery() - Execute SELECT',
-//       'executeUpdate() - Execute INSERT/UPDATE/DELETE',
-//       'PreparedStatement - Parameterized queries',
-//       'CallableStatement - Stored procedures',
-//       'ResultSet - Query results',
-//       'setAutoCommit(false) - Transaction control',
-//       'commit() / rollback() - Commit or rollback'
-//     ],
-//     interviewQuestions: [
-//       {
-//         company: 'Infosys',
-//         questions: [
-//           'What is JDBC and explain its architecture?',
-//           'What is the difference between Statement and PreparedStatement?',
-//           'How do you handle transactions in JDBC?',
-//           'What are different types of JDBC drivers?',
-//           'Explain connection pooling'
-//         ]
-//       }
-//     ]
-//   },
-  {
-    id: 'jsp-servlet',
-    name: 'JSP Servlet',
-    icon: 'Code',
-    subTopics: [
-      {
-        id: 'servlet',
-        name: 'Servlets',
-        topics: [
-          {
-            id: 'introduction',
-            name: 'Introduction to Servlets',
-            beginner: [
-              {
-                content: `A Servlet is a Java class that extends the capabilities of servers to host applications accessed via request-response model.
-
-Servlet Lifecycle:
-1. init() - Initialization
-2. service() - Request handling
-3. destroy() - Cleanup
-
-Key Concepts:
-• HttpServlet: Base class for HTTP servlets
-• doGet(): Handle GET requests
-• doPost(): Handle POST requests
-• HttpServletRequest: Request object
-• HttpServletResponse: Response object`,
-                codeExamples: [
-                  `import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.*;
-
-public class HelloServlet extends HttpServlet {
-    public void doGet(HttpServletRequest request, 
-                     HttpServletResponse response) 
-                     throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>Hello from Servlet!</h1>");
-        out.println("</body></html>");
-    }
-}`
+            },
+            {
+                company: 'Microsoft',
+                questions: [
+                    'What is multithreading and how do you implement it?',
+                    'Explain synchronization in Java',
+                    'What are design patterns? Explain Singleton pattern',
+                    'What is the difference between overloading and overriding?',
+                    'How does HashMap work internally?'
                 ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    cheatNotes: [
-      'HttpServlet - Base servlet class',
-      'doGet() - Handle GET requests',
-      'doPost() - Handle POST requests',
-      'request.getParameter() - Get form data',
-      'response.sendRedirect() - Redirect',
-      'RequestDispatcher - Forward request',
-      'session.setAttribute() - Store in session',
-      'application.setAttribute() - Store in application scope',
-      '@WebServlet - Annotation for servlet mapping',
-      'Filter - Preprocessing requests'
-    ],
-    interviewQuestions: [
-      {
-        company: 'Wipro',
-        questions: [
-          'What is a servlet and explain its lifecycle?',
-          'What is the difference between doGet() and doPost()?',
-          'Explain servlet filters and their use',
-          'What are different session management techniques?',
-          'What is the difference between forward and redirect?'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'hibernate',
-    name: 'Hibernate',
-    icon: 'Database',
-    subTopics: [
-      {
-        id: 'basics',
-        name: 'Hibernate Basics',
-        topics: [
-          {
-            id: 'introduction',
-            name: 'Introduction to Hibernate',
-            beginner: [
-              {
-                content: `Hibernate is an Object-Relational Mapping (ORM) framework for Java. It simplifies database operations by mapping Java objects to database tables.
-
-Key Concepts:
-• ORM: Object-Relational Mapping
-• SessionFactory: Factory for Session objects
-• Session: Interface between application and database
-• Transaction: Unit of work
-• HQL: Hibernate Query Language
-
-Advantages:
-• Eliminates boilerplate JDBC code
-• Database independence
-• Automatic table creation
-• Caching support
-• Lazy loading`,
-                codeExamples: [
-                  `// Entity Class
-@Entity
-@Table(name = "students")
-public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "age")
-    private int age;
-
-    // Getters and setters
-}
-
-// Hibernate Configuration
-public class HibernateUtil {
-    private static SessionFactory sessionFactory;
-
-    static {
-        try {
-            Configuration configuration = new Configuration();
-            configuration.configure("hibernate.cfg.xml");
-            sessionFactory = configuration.buildSessionFactory();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
-}`
+            },
+            {
+                company: 'TCS',
+                questions: [
+                    'What are the main features of Java?',
+                    'Explain inheritance and its types',
+                    'What is encapsulation and why is it important?',
+                    'Difference between final, finally, and finalize',
+                    'What are constructors and their types?'
                 ]
-              }
-            ]
-          }
+            }
         ]
-      }
-    ],
-    cheatNotes: [
-      '@Entity - Mark class as entity',
-      '@Table - Specify table name',
-      '@Id - Mark primary key',
-      '@GeneratedValue - Auto-generate key',
-      '@Column - Map to column',
-      'session.save() - Insert record',
-      'session.update() - Update record',
-      'session.delete() - Delete record',
-      'session.get() - Retrieve by ID',
-      'HQL - Hibernate Query Language'
-    ],
-    interviewQuestions: [
-      {
-        company: 'Accenture',
-        questions: [
-          'What is Hibernate and its advantages?',
-          'Explain Hibernate architecture',
-          'What is the difference between get() and load()?',
-          'What are different types of associations in Hibernate?',
-          'Explain Hibernate caching mechanisms'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'spring-mvc',
-    name: 'Spring MVC',
-    icon: 'Code',
-    subTopics: [
-      {
-        id: 'basics',
-        name: 'Spring MVC Basics',
-        topics: [
-          {
-            id: 'introduction',
-            name: 'Introduction to Spring MVC',
-            beginner: [
-              {
-                content: `Spring MVC is a web framework built on the Model-View-Controller pattern.
-
-Components:
-• DispatcherServlet: Front controller
-• Controller: Handles requests
-• Model: Data
-• View: Presentation
-• ViewResolver: Resolves view names
-
-Request Flow:
-1. Client sends request
-2. DispatcherServlet receives request
-3. Handler mapping finds controller
-4. Controller processes request
-5. Returns ModelAndView
-6. ViewResolver resolves view
-7. View renders response`,
-                codeExamples: [
-                  `@Controller
-public class HomeController {
-
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("message", "Welcome to Spring MVC");
-        return "home";
-    }
-
-    @PostMapping("/submit")
-    public String submit(@RequestParam String name, Model model) {
-        model.addAttribute("name", name);
-        return "result";
-    }
-}`
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    cheatNotes: [
-      '@Controller - Mark class as controller',
-      '@RequestMapping - Map URL to method',
-      '@GetMapping - Handle GET requests',
-      '@PostMapping - Handle POST requests',
-      '@RequestParam - Bind request parameter',
-      '@PathVariable - Bind URL path variable',
-      '@ModelAttribute - Bind form object',
-      'Model - Pass data to view',
-      '@ResponseBody - Return raw data',
-      '@RestController - REST controller'
-    ],
-    interviewQuestions: [
-      {
-        company: 'Cognizant',
-        questions: [
-          'What is Spring MVC and its components?',
-          'Explain the request flow in Spring MVC',
-          'What is DispatcherServlet?',
-          'What is the difference between @Controller and @RestController?',
-          'How do you handle exceptions in Spring MVC?'
-        ]
-      }
-    ]
-  },
-  {
-    id: 'spring-boot',
-    name: 'Spring Boot',
-    icon: 'Code',
-    subTopics: [
-      {
-        id: 'basics',
-        name: 'Spring Boot Basics',
-        topics: [
-          {
-            id: 'introduction',
-            name: 'Introduction to Spring Boot',
-            beginner: [
-              {
-                content: `Spring Boot is a framework that simplifies Spring application development with auto-configuration and embedded servers.
-
-Key Features:
-• Auto-configuration: Automatically configures beans
-• Starter dependencies: Pre-configured dependencies
-• Embedded server: Tomcat, Jetty, or Undertow
-• Production-ready: Actuator for monitoring
-• No XML configuration: Annotation-based
-
-Advantages:
-• Rapid development
-• Microservices support
-• Easy testing
-• Reduced boilerplate code`,
-                codeExamples: [
-                  `@SpringBootApplication
-public class Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-}
-
-@RestController
-@RequestMapping("/api")
-public class ApiController {
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello from Spring Boot!";
-    }
-
-    @PostMapping("/user")
-    public User createUser(@RequestBody User user) {
-        // Save user logic
-        return user;
-    }
-}`
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    cheatNotes: [
-      '@SpringBootApplication - Main annotation',
-      '@RestController - REST controller',
-      '@Service - Service layer',
-      '@Repository - Data access layer',
-      '@Autowired - Dependency injection',
-      '@Value - Inject property value',
-      '@ConfigurationProperties - Bind properties',
-      'application.properties - Configuration file',
-      'Spring Actuator - Monitoring',
-      '@EnableAutoConfiguration - Auto-configure'
-    ],
-    interviewQuestions: [
-      {
-        company: 'Capgemini',
-        questions: [
-          'What is Spring Boot and its advantages?',
-          'Explain Spring Boot auto-configuration',
-          'What are Spring Boot starters?',
-          'How do you configure different environments in Spring Boot?',
-          'What is Spring Boot Actuator?'
-        ]
-      }
-    ]
-  }
-];
+    },
 
 
 
+]

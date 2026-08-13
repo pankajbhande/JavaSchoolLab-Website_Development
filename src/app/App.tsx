@@ -328,10 +328,11 @@ import { ThemeProvider } from './components/ThemeProvider';
 import { coursesData } from './data/coursesData';
 import { MySQLCSS } from './data/MySQLCSS'; //
 import { JDBC } from './data/JDBC'; 
+import {MongoDB} from './data/MongoDB';
 
 function AppContent() {
   // ✅ MERGED COURSES
-  const courses = [...coursesData, ...MySQLCSS,...JDBC];
+  const courses = [...coursesData, ...MySQLCSS,...JDBC,...MongoDB];
 
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
   const [selectedSubTopicId, setSelectedSubTopicId] = useState<string | null>(null);
