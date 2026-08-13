@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Copy, RefreshCw, Play } from "lucide-react";
 
 export const JavaCompiler: React.FC = () => {

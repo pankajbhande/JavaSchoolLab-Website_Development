@@ -4,7 +4,7 @@ import { Alarm } from './Alarm';
 import { Timer } from './Timer';
 import { useTheme } from './ThemeProvider';
 import { motion } from 'motion/react';
-import { use, useState } from "react";
+import { useState } from "react";
 import { Bell } from "lucide-react";
 import { Timer as TimerIcon } from "lucide-react";
 
@@ -93,7 +93,7 @@ export function Header({ onToggleSpeech, isSpeaking, onSearch, voiceGender, onVo
                 }`}
               title="Male Voice"
             >
-              Female
+              Male
             </button>
             <button
               onClick={() => onVoiceChange('female')}
@@ -103,7 +103,7 @@ export function Header({ onToggleSpeech, isSpeaking, onSearch, voiceGender, onVo
                 }`}
               title="Female Voice"
             >
-              Male
+              Female
             </button>
           </div>
 

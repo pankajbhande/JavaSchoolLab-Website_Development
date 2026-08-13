@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Course, Topic, ContentBlock } from '../data/coursesData';
 import { Copy, Check, Award, Image as ImageIcon } from 'lucide-react';
 import { MCQTest } from './MCQTest';

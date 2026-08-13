@@ -37,6 +37,1781 @@ export const coreJava: Course[] = [
         name: 'Java',
         icon: 'Code',
         subTopics: [
+
+            {
+                id: 'Java8Features',
+                name: 'Java8Features',
+                topics: [
+                    {
+                        id: 'java8Features',
+                        name: 'Introduction to Java8 Features',
+
+                        beginner: [
+                            {
+                                content: `<h4> Features of java 1.8 </h4>
+
+1. Functional interface <br>
+2. Lambda Expression<br>
+3. Default method<br>
+4. Static method<br>
+5. For each Method<br>
+6. Optional Class<br>
+7. String Joiners<br>
+8. Stream API<br><br>
+
+<h3> 1. Functional Interface : </h3>
+An Interface that contains exactly one abstract method such types of interface called Functional
+Interface & the method is called Functional Method or Single Abstract Method.<br>
+
+Ex:<br>
+1) Runnable → It contains only run() method<br>
+2) Comparable → It contains only compareTo() method<br>
+3) ActionListener → It contains only actionPerformed()<br>
+4) Callable → It contains only call() method<br>
+It can have any number of default, static methods but can contain only one abstract method.<br><br>
+
+<h4>Key Points about Functional Interfaces:</h4>
+1. Single Abstract Method: Functional interfaces have only one abstract method. This is also
+known as a Single Abstract Method (SAM) interface.<br>
+2. Default and Static Methods: Functional interfaces can have any number of default or static
+methods in addition to the single abstract method.<br>
+3. @FunctionalInterface Annotation: While not mandatory, it's a good practice to use the
+@FunctionalInterface annotation to ensure that the interface conforms to the rules of a functional
+interface.<br>
+4. Use with Lambda Expressions: Functional interfaces are often used with lambda expressions,
+method references, or constructor references to provide clear and concise syntax for implementing
+the single abstract method.<br> `,
+                                codeExamples: [
+                                    `Example 1:
+
+@FunctionalInterface
+public interface Test {
+void getStudentName(String name);
+}
+
+OUTPUT: Pankaj
+
+public class Main implements Test {
+@Override
+public void getStudentName(String name) {
+System.out.println(name);
+}
+public static void main(String[] args) {
+Main main = new Main();
+main.getStudentName("Pankaj");
+}
+}
+}
+
+OUTPUT: Pankaj
+`,
+
+                                    `Example: 02
+
+@FunctionalInterface
+interface MyFunctionalInterface {
+void performTask();
+
+// Default method
+default void showDefault() {
+    System.out.println("This is a default method");
+}
+}
+public class FunctionalInterfaceExample {
+public static void main(String[] args) {
+
+// Using lambda expression to implement the functional interface
+MyFunctionalInterface task = () -> System.out.println("Performing a task");
+
+// Calling the abstract method
+task.performTask();
+-
+// Calling the default method
+task.showDefault();
+}
+}
+
+OUTPUT:
+Performing a task
+This is a default method`
+                                ]
+                            },
+                            {
+                                content: `<h4>Explanation:</h4> 
+• The Test interface is a functional interface with a single abstract method getStudentName.<br>
+• The Main class implements the Test interface and provides an implementation for the
+getStudentName method.<br>
+• In the main method of the Main class, an instance of Main is created, and the getStudentName
+method is called with the argument "ashok".<br>
+• This results in printing the string "ashok" to the console.<br>
+By organizing your code into 2 separate classes and ensuring they are both in the same package, you
+have a functional implementation of a Java program using a functional interface.<br><br>
+
+<h3> 2. Lambda Expression: </h3>
+Lambda expressions, introduced in Java 8, are a major feature that brings functional programming to
+Java. They provide a clear and concise way to represent a method interface using an expression,
+making it easier to write and understand code.<br>
+
+<h4>Key Features of Lambda Expressions:</h4>
+
+1. Simplifies Syntax: Lambda expressions allow you to write code in a more concise and readable
+manner, especially for functional interfaces (interfaces with a single abstract method).<br>
+2. Functional Interfaces: Lambda expressions are mainly used to implement functional interfaces.<br>
+3. Syntax: The basic syntax of a lambda expression is:<br>
+Java => (parameters) -> expression<br>
+OR<br>
+Java => (parameters) -> { statements; }<br><br>
+
+1. Using a Functional Interface: <br>
+
+First, let's define a functional interface:<br> 
+
+package com.code_with_pankaj;<br>
+@FunctionalInterface<br>
+interface MyFunctionalInterface {<br>
+void sayHello();<br>
+}<br><br>
+
+Now, let's implement this interface using a lambda expression:<br>
+<div class='bg-secondary border border-primary p-2'>
+package com.code_with_pankaj;<br>
+public class LambdaExample {<br>
+public static void main(String[] args) {<br>
+// Using lambda expression to implement the functional interface<br>
+MyFunctionalInterface greeting = () -> System.out.println("Hello, World!");<br>
+// Calling the method<br>
+greeting.sayHello();<br>
+}<br>
+}<br>
+</div><br>
+
+<div class='bg-secondary border border-primary p-2'>
+2. With Parameters and Return Type:<br>
+Here's a more complex example with parameters and a return type:<br>
+package com.code_with_pankaj;<br>
+@FunctionalInterface<br>
+interface Addable {<br>
+int add(int a, int b);<br>
+}<br>
+public class LambdaWithParameters {<br>
+public static void main(String[] args) {<br>
+// Using lambda expression with parameters<br>
+Addable adder = (a, b) -> a + b;<br>
+// Calling the method and printing the result<br>
+System.out.println("Sum: " + adder.add(10, 20));<br>
+}<br>
+}<br>
+</div><br>
+
+<h4> Benefits of Lambda Expressions:</h4>
+1. Conciseness:<br>
+• Lambda expressions reduce the amount of boilerplate code, making the code more concise and
+easier to read.<br>
+2. Improved Readability:<br>
+• The syntax of lambda expressions makes it clear what action is being performed, improving the
+readability of the code.<br>
+3. Functional Programming:<br>
+• They enable functional programming patterns, making it easier to write code that is more
+modular, flexible, & easier to reason about.<br><br>
+
+Common Use Cases:<br>
+1. Collections and Streams: Lambda expressions are frequently used with Collections Framework
+and Stream API for operations like filtering, mapping, & reducing.<br>
+
+<div class='bg-secondary  border border-primary p-2'>
+package com.code_with_pankaj;<br>
+import java.util.Arrays;<br>
+import java.util.List;<br>
+public class StreamExample {<br>
+public static void main(String[] args) {<br>
+List<String> names = Arrays.asList("Sheru", "Pankaj", "Dheeraj", "Udgir");<br>
+// Using lambda expression with Stream API<br>
+names.stream().filter(name -> name.startsWith("S")).forEach(System.out::println);<br>
+}<br>
+}<br>
+</div><br>
+
+2. Event Handling: Lambda expressions simplify the syntax for event handlers in GUI
+applications. <br>
+
+<div class='bg-secondary  border border-primary p-2'>
+package com.code_with_pankaj;<br>
+import javax.swing.JButton;<br>
+import javax.swing.JFrame;<br>
+public class LambdaEventHandling {<br>
+public static void main(String[] args) {<br>
+JFrame frame = new JFrame("Lambda Example");<br>
+JButton button = new JButton("Click Me");<br>
+// Using lambda expression for event handling<br>
+button.addActionListener(e -> System.out.println("Button clicked!"));<br>
+frame.add(button);<br>
+frame.setSize(200, 200);<br>
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);<br>
+frame.setVisible(true);<br>
+}<br>
+}<br>
+</div><br>
+
+Lambda expressions are a powerful addition to Java that greatly enhance its expressiveness and ease
+of use, particularly in contexts where concise and readable code is valuable. <br>
+
+• We can reduce length of the code so that improved the readability of the code.<br>
+• We can resolve complexity of anonymous inner classes.<br>
+• We can provide Lambda expression in the place of object.<br>
+• We can pass lambda expression as argument to methods.<br><br>
+
+Note: <br>
+• Anonymous inner class can extend concrete class, can extend abstract class, can implement
+interface with any number of methods but Lambda expression can implement an interface with
+Functional Interface (only single abstract method).<br>
+• Hence if anonymous inner class implement Functional Interface in that particular case only we
+can replace with lambda expressions. Hence wherever anonymous inner class concept is there, it
+may not possible to replace with Lambda expressions.<br>
+• Anonymous inner class != Lambda Expression<br>
+• Inside anonymous inner class we can declare instance variables.<br>
+• Inside anonymous inner class “this” always refers current inner class object(anonymousinner class)
+but not related outer class object.<br>
+• Ex: Inside lambda expression we can’t declare instance variables.<br>
+• Whatever the variables declare inside lambda expression are simply acts as local variables
+• Within lambda expression ‘this’ keyword represents current outer class object reference (that is
+current enclosing class reference in which we declare lambda expression)<br><br>
+
+Why?<br>
+
+Less coding<br>
+Syntax: (argument-list) -> {body}<br>
+• Argument-list : It can be Empty / Non Empty as well.<br>
+• Arrow-token : It is used to link arguments-list & body of expression.<br>
+• Body : It contains expressions & statements for lambda expression.<br>
+No Parameter Syntax<br>
+() -> {<br>
+// Body of no parameter lambda<br>
+}<br>
+One Parameter Syntax<br>
+(p1) -> {<br>
+// Body of single parameter lambda<br>
+}<br>
+Two Parameter Syntax<br>
+(p1, p2) -> {<br>
+// Body of multiple parameter lambda<br>
+}<br>
+`,
+                                codeExamples: [
+                                    `
+Example: 01
+package com.code_with_pankaj;
+public interface Addition {
+int add(int a,int b);
+}
+
+package com. code_with_pankaj;
+public class Main {
+public static void main(String[] args) {
+// Multiple parameters in lambda expression
+Addition addition = (a, b) -> (a + b);
+System.out.println(addition.add(10, 20));
+// Multiple parameters with data type in lambda expression
+Addition addition2 = (int a, int b) -> (a + b);
+System.out.println(addition2.add(100, 200));
+}
+}
+Output:
+30
+300
+`,
+                                    `Example: 02
+package com.code_with_pankaj;
+@FunctionalInterface
+interface GreetingService {
+
+void sayMessage(String message);
+}
+public class LambdaExample {
+public static void main(String[] args) {
+// Using lambda expression to implement the functional interface
+GreetingService greetService = message -> System.out.println("Hello, " + message);
+// Calling the method with lambda expression
+greetService.sayMessage("Sheru");
+greetService.sayMessage("Pankaj");
+greetService.sayMessage("Dherraj");`
+                                ]
+                            },
+                            {
+                                content:
+                                    `<h3>3. Default methods / Defender Methods</h3>
+In Java 8, the introduction of default methods (also known as defender methods) allowed for method
+implementations in interfaces.<br>
+This feature was introduced to enhance the flexibility of interfaces and
+support backward compatibility, especially in the context of evolving interfaces in the Java Collections
+Framework.<br>
+Java provides a facility to create default methods inside the interface.<br>
+Methods which are defined inside the interface & tagged with default are known as default methods. 
+These methods are non-abstract methods.<br><br>
+
+Key Points about Default Methods:<br>
+1. Method Declaration:<br>
+• Default methods are declared within an interface using the default keyword.<br>
+• These methods provide a default implementation that can be used by classes implementing the
+interface.<br>
+
+2. Purpose:<br>
+• Allows for the addition of new methods to interfaces without breaking existing implementations.<br>
+• Provides a way to implement shared functionality across multiple classes.<br>
+
+3. Syntax:<br>
+JAVA =><br>
+package com.code_with_pankaj;<br>
+public interface MyInterface {<br>
+void existingMethod(); // Abstract method<br>
+default void defaultMethod() {<br>
+System.out.println("This is a default method.");<br>
+}<br>
+}<br>
+`
+                                ,
+
+                                codeExamples: [
+                                    `Example of Default Method: 01 
+Interface with Default Method: Here's an example demonstrating the use of a default method in an
+interface:
+package com.code_with_pankaj;
+public interface MyInterface {
+void existingMethod(String str); // Abstract method
+default void defaultMethod() {
+System.out.println("This is a default method.");
+}
+}
+Implementing the Interface:
+package com.code_with_pankaj;
+public class MyClass implements MyInterface {
+@Override
+public void existingMethod(String str) {
+System.out.println("Existing method: " + str);
+}
+public static void main(String[] args) {
+MyClass obj = new MyClass();
+// Calling the abstract method
+obj.existingMethod("Hello");
+// Calling the default method
+obj.defaultMethod();
+}
+}
+OUTPUT:
+Existing method: Hello
+This is a default method.`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Code Explanation:<br>
+1. MyInterface.java:<br>
+• This interface defines an abstract method existingMethod and a default method defaultMethod
+with a default implementation.<br>
+2. MyClass.java:<br>
+• This class implements the MyInterface interface.<br>
+• It provides an implementation for the abstract method existingMethod.<br>
+• The main method demonstrates the use of both the implemented abstract method and the default
+method.<br>`,
+
+
+                                codeExamples: [
+                                    `Example: 02
+package com.code_with_pankaj;
+public interface Example {
+default void m1() {
+System.out.println("this is default m1 method");
+}
+}
+package com.test;
+public class TestMain implements Example {
+public static void main(String[] args) {
+TestMain testMain=new TestMain();
+testMain.m1();
+}
+}
+Output: this is default m1 method<br><br>`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `<h3>4. Static Method:</h3>
+• In Java 8, static methods were introduced in interfaces. Prior to Java 8, interfaces could only
+contain abstract methods, but with this update, interfaces can now include both default and static
+methods. Static methods in interfaces provide utility methods that can be called directly on the
+interface without needing an instance of a class.<br>
+• Java provides a facility to create static methods inside the interface.<br><br>
+
+<h4>Key Features of Static Methods in Interfaces:</h4>
+1. Utility Methods: Static methods in interfaces are typically used to provide utility methods related
+to the interface but do not require an instance of the interface to be invoked.<br>
+2. Direct Invocation: They can be called directly on the interface using the interface name.<br>
+3. Syntax:<br>
+Java=><br>
+package com.code_with_pankaj;<br>
+public interface MyInterface {<br>
+static void staticMethod() {<br>
+System.out.println("This is a static method in an interface.");<br>
+}<br>
+}<br>
+`,
+
+                                codeExamples: [
+                                    `Example of Static Methods in Interfaces:
+Here's an example demonstrating how to define and use a static method in an interface:
+Interface with Static Method:
+package com.code_with_pankaj;
+
+public interface MyInterface {
+void existingMethod(String str); // Abstract method
+static void staticMethod() {
+System.out.println("This is a static method in an interface.");
+}
+}
+Implementing Class:
+package com.code_with_pankaj;
+package com.code_with_pankaj;
+public class MyClass implements MyInterface {
+@Override
+public void existingMethod(String str) {
+System.out.println("Existing method: " + str);
+}
+public static void main(String[] args) {
+MyClass obj = new MyClass();
+// Calling the abstract method
+obj.existingMethod("Hello");
+// Calling the static method from the interface
+MyInterface.staticMethod();
+}
+}
+
+OUTPUT:
+Existing method: Hello
+This is a static method in an interface.`
+
+                                ]
+                            },
+                            {
+                                content:
+                                    `Explanation:<br>
+1. MyInterface.java:<br>
+• This interface defines an abstract method existingMethod and a static method staticMethod with a
+static implementation.<br>
+2. MyClass.java:<br>
+• This class implements the MyInterface interface.<br>
+• It provides an implementation for the abstract method existingMethod.<br>
+• The main method demonstrates calling the abstract method using an instance and the static
+method directly on the interface.<br>`,
+
+
+                                codeExamples: [
+                                    `Example: 02 => Interface With Static Method
+Interface With Static Method
+package com.code_with_pankaj;
+public interface Example {
+static void x1() {
+System.out.println("this is static method");
+}
+}
+Implementing Class
+package com.code_with_pankaj;
+public class MainTest implements Example{
+public static void main(String[] args) {
+Example.x1();
+}
+}
+OUTPUT: this is static method`
+
+
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Explanation:<br>
+1. Interface (Example):<br>
+• The Example interface contains a static method x1 that prints a message to the console.<br>
+2. Implementing Class (MainTest):<br>
+• The MainTest class implements the Example interface.<br>
+• In the main method, the static method x1 is called directly on the Example interface.<br>`,
+
+                                codeExamples: [
+                                    `More Example on Static Method
+
+Example: 03 => Utility Class
+Static methods are commonly used in utility classes to perform common tasks without needing an
+instance of the class.
+package com.code_with_pankaj;
+public class MathUtility {
+public static int add(int a, int b) {
+return a + b;
+}
+public static int subtract(int a, int b) {
+return a - b;
+}
+public static int multiply(int a, int b) {
+return a * b;
+}
+public static int divide(int a, int b) {
+if (b == 0) {
+throw new IllegalArgumentException("Divider cannot be zero.");
+}
+return a / b;
+}
+}
+package com.code_with_pankaj;
+public class Main {
+public static void main(String[] args) {
+System.out.println("Addition: " + MathUtility.add(5, 3));
+System.out.println("Subtraction: " + MathUtility.subtract(5, 3));
+System.out.println("Multiplication: " + MathUtility.multiply(5, 3));
+System.out.println("Division: " + MathUtility.divide(5, 3));
+}
+}
+
+
+OUTPUT:
+Addition: 8
+Subtraction: 2
+Multiplication: 15
+Division: 1
+
+
+Example: 04 => Static Method in an Interface
+Static methods in interfaces are useful for utility methods related to the interface.
+package com.code_with_pankaj;
+public interface MyInterface {
+static void printMessage(String message) {
+System.out.println("Message: " + message);
+}
+}
+package com.code_with_pankaj;
+public class Main {
+public static void main(String[] args) {
+MyInterface.printMessage("Hello from static method in interface!");
+}
+}
+OUTPUT: Message: Hello from static method in interface!
+
+Example: 05 => Static Block
+Static blocks are used to initialize static variables.
+package com.code_with_pankaj;
+public class StaticBlockExample {
+static int count;
+static {
+count = 10; // Static block to initialize static variable
+System.out.println("Static block executed.");
+}
+public static void main(String[] args) {
+System.out.println("Count: " + count);
+}
+}
+
+
+OUTPUT:
+Static block executed.
+Count: 10
+
+Example: 06 => Singleton Pattern
+
+A singleton class restricts the instantiation of a class to one object.
+package com.code_with_pankaj;
+public class Singleton {
+private static Singleton instance;
+private Singleton() {
+// Private constructor to prevent instantiation
+}
+public static Singleton getInstance() {
+if (instance == null) {
+instance = new Singleton();
+}
+return instance;
+}
+public void showMessage() {
+System.out.println("Hello from Singleton!");
+}
+}
+package com.code_with_pankaj;
+public class Main {
+public static void main(String[] args) {
+Singleton singleton = Singleton.getInstance();
+singleton.showMessage();
+}
+}
+
+
+OUTPUT: Hello from Singleton!
+
+Example: 07 => Static Import
+Static import allows you to access static members without qualifying them with the class name.
+package com.code_with_pankaj;
+import static java.lang.Math.*;
+public class MathOperations {
+public static void main(String[] args) {
+System.out.println("Square root of 16: " + sqrt(16));
+System.out.println("Power of 2^3: " + pow(2, 3));
+
+System.out.println("PI: " + PI);
+}
+}
+OUTPUT:
+Square root of 16: 4.0
+Power of 2^3: 8.0
+PI: 3.141592653589793`
+
+
+                                ]
+                            },
+
+                            {
+                                content: `<h4>Benefits of Static Methods in Interfaces:</h4>
+1. Encapsulation: They help in encapsulating utility methods that are logically related to the
+interface.<br>
+2. Avoiding Utility Classes: They reduce the need for separate utility classes by allowing utility
+methods to be defined directly within the interface.<br>
+3. Improved Readability: Static methods in interfaces improve the readability and organization of
+code by keeping related methods together.<br><br>
+Static methods in interfaces provide a convenient way to define and organize utility methods,
+enhancing the flexibility and expressiveness of Java 8 interfaces.`
+                            },
+
+
+                            {
+                                content:
+                                    `<h3>5. forEach () method- </h3>
+• The forEach() method is a new feature introduced in Java 8, and it's part of the java.lang.Iterable
+and java.util.stream.Stream interfaces.<br>
+• This method allows you to iterate over a collection or stream in a more concise and functional
+way, using lambda expressions.<br>
+• The Java forEach() method is a utility function to iterate over a collection such as (list, set or
+map) and stream.<br>
+• This forEach() method is used to perform a given action on each the element of the collection.<br>
+
+<h4>Key Features of forEach():</h4>
+1. Iterable Interface:<br>
+• The forEach() method is available for all classes that implement the Iterable interface, such as
+List, Set, etc.<br>
+• Syntax: Java => default void forEach(Consumer<? super T> action)<br>
+2. Stream Interface:<br>
+• The forEach() method is also available for Stream objects, allowing for easy iteration over
+streams of elements.<br>
+• Syntax: Java => void forEach(Consumer<? super T> action)<br>`,
+
+                                codeExamples: [
+                                    `Example Using forEach() with Iterable:
+Here's an example using forEach() with a List:
+package com.code_with_pankaj;
+import java.util.Arrays;
+
+import java.util.List;
+public class ForEachExample {
+public static void main(String[] args) {
+List<String> fruits = Arrays.asList("Apple", "Banana", "Cherry");
+// Using forEach() method with lambda expression
+fruits.forEach(fruit -> System.out.println(fruit));
+}
+}
+
+
+OUTPUT:
+Apple
+Banana
+Cherry`
+                                ]
+                            },
+
+                            {
+                                content: `Explanation:<br>
+Iterable Interface:<br>
+• The forEach() method takes a Consumer as an argument. In the examples above, the lambda
+expression fruit -> System.out.println(fruit) is passed as the Consumer, which processes each
+element in the list.<br>`,
+
+                                codeExamples: [
+                                    `Example Using forEach() with Streams:
+Here's an example using forEach() with a stream:
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+public class StreamForEachExample {
+public static void main(String[] args) {
+List<String> list = Arrays.asList("Sheru", "Pankaj", "Dheeraj");
+// Creating a stream and using forEach() method
+Stream<String> listStream = list.stream();
+listStream.forEach(list -> System.out.println(list));
+}
+}
+OUTPUT:
+Sheru
+
+Pankaj
+Dheeraj`
+                                ]
+                            },
+
+                            {
+                                content: `Explanation:<br>
+Stream Interface:<br>
+• When used with streams, forEach() allows you to process each element of the stream in a similar
+manner. In the example, the list is converted to a stream, and the forEach() method is used to
+print each element.<br><br>
+
+
+
+<h4>Benefits of forEach():</h4>
+1. Conciseness: Provides a more concise and readable way to iterate over collections and streams
+compared to traditional loops.<br>
+2. Functional Style: Encourages the use of functional programming constructs, making the code
+more expressive and easier to maintain.<br>
+3. Lambda Expressions: Leverages lambda expressions, making it easier to define the action to be
+performed on each element.<br><br>
+The forEach() method is a powerful addition to Java 8 that simplifies iteration and enhances the
+readability of code through the use of lambda expressions and functional programming techniques.`,
+
+
+                                codeExamples: [
+                                    `Example: 01 =>
+package com. code_with_pankaj;
+import java.util.HashMap;
+import java.util.Map;
+public class MapDemo {
+public static void main(String[] args) {
+Map<String, String> map = new HashMap<String, String>();
+map.put("10", "Sheru");
+map.put("11", "Dheeraj");
+map.put("12", "Pankaj");
+map.forEach((k, v) -> System.out.println("Key = " + k + ", Value = " + v));
+}
+}
+
+
+Output
+
+Key = 11, Value = Dheeraj
+Key = 12, Value = Pankaj
+Key = 10, Value = Sheru
+
+
+Example: 01 => Using forEach with a List
+// Lists: Demonstrates using forEach with both lambda expressions and method references to iterate
+over list elements
+package com. code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+public class ForEachListExample{
+public static void main(String[] args) {
+List<String> items = Arrays.asList("Item1", "Item2", "Item3", "Item4");
+// Using forEach() method with lambda expression
+items.forEach(item -> System.out.println(item));
+// Using method reference
+items.forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+Item1
+Item2
+Item3
+Item4
+Item1
+Item2
+Item3
+Item4
+
+
+Example: 02 => Using forEach with a Map
+// Maps: Shows how to iterate over a Map using forEach to access both keys and values
+package com. code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+
+public class ForEachListExample{
+public static void main(String[] args) {
+Map<Integer, String> map = new HashMap<>();
+map.put(1, "One");
+map.put(2, "Two");
+map.put(3, "Three");
+// Using forEach() method with lambda expression
+map.forEach((key, value) -> System.out.println(key + " = " + value));
+// Using method reference to print keys
+map.keySet().forEach(System.out::println);
+// Using method reference to print values
+map.values().forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+1 = One
+2 = Two
+3 = Three
+1
+2
+3
+One
+Two
+Three
+
+
+Example: 03 => Using forEach with a Set
+// Sets: Uses forEach to iterate over a set of elements, demonstrating both lambda expressions and
+method references.
+package com. code_with_pankaj;
+import java.util.HashSet;
+import java.util.Set;
+public class ForEachSetExample{
+public static void main(String[] args) {
+Set<String> set = new HashSet<>();
+set.add("Element1");
+
+set.add("Element2");
+set.add("Element3");
+// Using forEach() method with lambda expression
+set.forEach(element -> System.out.println(element));
+// Using method reference
+set.forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+1 = One
+2 = Two
+3 = Three
+1
+2
+3
+One
+Two
+Three
+
+Example: 04 => Using forEach with a Array
+// Arrays: Converts an array to a list and iterates over it using forEach
+package com. code_with_pankaj;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+public class ForEachArrayExample {
+public static void main(String[] args) {
+String[] array = { "A", "B", "C", "D" };
+// Convert array to list and use forEach() method
+Arrays.asList(array).forEach(element -> System.out.println(element));
+// Using method reference
+Arrays.asList(array).forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+A
+B
+C
+D
+
+Example: 05 => Using forEach with a Streams and Filtering
+// Streams: Combines forEach with stream operations like filter to process elements conditionally
+package com. code_with_pankaj;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+public class ForEachStreamExample{
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Sheru", "Pankaj", "Dheeraj", "Udgir");
+// Using forEach() with filtering
+names.stream().filter(name -> name.startsWith("S")).forEach(System.out::println);
+// Collecting and then using forEach()
+List<String> filteredNames = names.stream().filter(name ->
+name.contains("a")).collect(Collectors.toList());
+filteredNames.forEach(System.out::println);
+}
+}
+
+
+OUTPUT:
+Sheru
+Pankaj
+Dheeraj`
+                                ]
+                            },
+
+                            {
+                                content: `<h3>6. Optional class:</h3>
+Java 8 introduced the Optional class to help handle null values more gracefully, reducing the risk
+of NullPointerException and providing a clearer, more explicit way of dealing with optional
+values.<br>
+It is a public final class and used to deal with NullPointerException in Java application.
+You must import java.util package to use this class. It provides methods which are used to check the
+presence of value for particular variable.<br><br>
+Why?<br><br>
+package com.test;<br>
+public class MapDemo {<br>
+public static void main(String[] args) {<br>
+String[] str = new String[10];<br>
+String lowercaseString = str[5].toLowerCase();<br>
+System.out.print(lowercaseString);<br>
+}<br>
+}<br>
+Exception in thread "main" java.lang.NullPointerException<br>
+at com.test.MapDemo.main(MapDemo.java:8)<br>`,
+
+                                codeExamples: [
+                                    `package com.test;
+import java.util.Optional;
+
+public class MapDemo {
+public static void main(String[] args) {
+String[] str = new String[10];
+Optional<String> checkNull = Optional.ofNullable(str[5]);
+if (checkNull.isPresent()) { // check for value is present or not
+String lowercaseString = str[5].toLowerCase();
+System.out.print(lowercaseString);
+} else
+System.out.println("string value is not present");
+}
+}
+
+Output
+string value is not present.`
+                                ]
+                            },
+
+                            {
+                                content: `<h4>Key Features of Optional Class:</h4>
+1. Presence or Absence: Optional encapsulates an optional value which can either be present or
+absent (null).<br>
+2. Methods: Various methods are provided to handle the presence or absence of a value.<br><br>
+
+Common Methods:<br>
+empty(): Returns an empty Optional instance.<br>
+Java => Optional<String> emptyOpt = Optional.empty();<br>
+of(T value): Returns an Optional with the specified non-null value.<br>
+Java => Optional<String> opt = Optional.of("Hello");<br>
+ofNullable(T value): Returns an Optional describing the specified value, or an empty Optional if
+the value is null.<br>
+Java => Optional<String> nullableOpt = Optional.ofNullable(null);<br>
+isPresent(): Returns true if there is a value present, otherwise false.<br>
+Java => boolean isPresent = opt.isPresent();<br>
+ifPresent(Consumer<? super T> consumer): If a value is present, it performs the given action<br>
+with the value, otherwise does nothing.<br>
+Java => opt.ifPresent(value -> System.out.println("Value is: " + value));<br>
+orElse(T other): Returns the value if present, otherwise returns other.<br>
+Java => String value = nullableOpt.orElse("Default Value");<br>
+
+orElseGet(Supplier<? extends T> other): Returns the value if present, otherwise invokes other
+and returns the result of that invocation.<br>
+Java => String value = nullableOpt.orElseGet(() -> "Default Value from Supplier");<br>
+orElseThrow(Supplier<? extends X> exceptionSupplier): Returns the contained value if
+present, otherwise throws an exception produced by the provided supplier.<br>
+Java => String value = nullableOpt.orElseThrow(() -> new IllegalArgumentException("Value is
+absent"));`,
+
+                                codeExamples: [
+                                    `Example Code: Here’s a simple example to illustrate the use of Optional:
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalExample {
+public static void main(String[] args) {
+// Creating an Optional with a non-null value
+Optional<String> nonEmptyOpt = Optional.of("Hello, World!");
+// Creating an Optional that can be empty
+Optional<String> emptyOpt = Optional.empty();
+// Creating an Optional that might be null
+Optional<String> nullableOpt = Optional.ofNullable(null);
+// Checking if the value is present
+if (nonEmptyOpt.isPresent()) {
+System.out.println("Value: " + nonEmptyOpt.get());
+}
+// Using ifPresent to perform an action if a value is present
+nonEmptyOpt.ifPresent(value -> System.out.println("Value using ifPresent: " + value));
+// Providing a default value if the Optional is empty
+String value = nullableOpt.orElse("Default Value");
+System.out.println("Value with orElse: " + value);
+// Using orElseGet with a supplier
+value = nullableOpt.orElseGet(() -> "Default Value from Supplier");
+
+System.out.println("Value with orElseGet: " + value);
+// Throwing an exception if the value is absent
+try {
+value = nullableOpt.orElseThrow(() -> new IllegalArgumentException("Value is
+
+absent"));
+
+System.out.println("Value with orElseThrow: " + value);
+} catch (Exception e) {
+System.err.println(e.getMessage());
+}
+}
+}
+
+
+OUTPUT:
+Value: Hello, World!
+Value using ifPresent: Hello, World!
+Value with orElse: Default Value
+Value with orElseGet: Default Value from Supplier
+Value is absent`
+                                ]
+                            },
+
+                            {
+                                content: `Explanation:<br>
+1. Creating Optionals:<br>
+• Optional.of("Hello, World!") creates an Optional with a non-null value.<br>
+• Optional.empty() creates an empty Optional.<br>
+• Optional.ofNullable(null) creates an Optional that can be empty.<br>
+2. Checking Presence:<br>
+• isPresent() checks if a value is present.<br>
+• ifPresent() performs an action if a value is present.<br>
+3. Providing Default Values:<br>
+• orElse("Default Value") provides a default value if the Optional is empty.<br>
+• orElseGet(() -> "Default Value from Supplier") provides a default value using a supplier if the
+Optional is empty.<br>
+4. Throwing Exceptions:<br>
+• orElseThrow(() -> new IllegalArgumentException("Value is absent")) throws an exception if the
+Optional is empty.<br>
+• The Optional class helps to handle the absence of values more gracefully, reducing the risk of null
+pointer exceptions and making the code more readable and robust.<br>`,
+
+
+                                codeExamples: [
+                                    `Example 1: Combining Optionals
+
+You can combine two Optional objects using methods like flatMap.
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalCombineExample {
+public static void main(String[] args) {
+Optional<String> firstName = Optional.of("Pankaj");
+Optional<String> lastName = Optional.of("Bhande");
+// Combining Optionals
+Optional<String> fullName = firstName.flatMap(fn -> lastName.map(ln -> fn + " " + ln));
+fullName.ifPresent(name -> System.out.println("Full Name: " + name));
+}
+}
+
+OUTPUT: Full Name: Pankaj Bhande
+
+
+Example 2: Filtering Values
+You can use the filter method to conditionally process the value within an Optional.
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalFilterExample {
+public static void main(String[] args) {
+Optional<String> opt = Optional.of("Hello Pankaj");
+// Filter the value
+Optional<String> filteredOpt = opt.filter(value -> value.contains("Pankaj"));
+filteredOpt.ifPresent(value -> System.out.println("Filtered Value: " + value));
+}
+}
+
+OUTPUT: Filtered Value: Hello Pankaj
+
+
+Example 3: Chaining Optionals
+You can chain multiple Optional methods to perform more complex operations.
+package com.code_with_pankaj;
+import java.util.Optional;
+
+public class OptionalChainExample {
+public static void main(String[] args) {
+String input = "Code With Pankaj";
+Optional<String> result = Optional.of(input).map(String::toLowerCase)
+.map(value -> value.replace(" ", "_"))
+.filter(value -> value.length() > 10);
+result.ifPresent(value -> System.out.println("Processed Value: " + value));
+}
+}
+
+OUTPUT: Processed Value: code_with_pankaj
+
+
+Example 4: Using orElseThrow for Exceptions
+You can use orElseThrow to throw an exception if the value is absent.
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalOrElseThrowExample {
+public static void main(String[] args) {
+Optional<String> emptyOpt = Optional.empty();
+try {
+String value = emptyOpt.orElseThrow(() -> new IllegalStateException("Value is
+
+absent"));
+System.out.println("Value: " + value);
+} catch (Exception e) {
+System.err.println(e.getMessage());
+}
+}
+}
+
+OUTPUT: Value is absent
+
+
+Example 5: Using map and flatMap
+The map and flatMap methods are useful for transforming values within an Optional.
+package com.code_with_pankaj;
+import java.util.Optional;
+
+class User {
+private String email;
+public User(String email) {
+this.email = email;
+}
+public Optional<String> getEmail() {
+return Optional.ofNullable(email);
+}
+}
+public class OptionalMapExample {
+public static void main(String[] args) {
+User user = new User("pankaj.bhande01@gmail.com");
+// Using map to transform the value
+Optional<String> email = user.getEmail().map(String::toUpperCase);
+email.ifPresent(System.out::println);
+// Using flatMap to avoid nested Optional
+Optional<String> upperCaseEmail =
+Optional.of(user).flatMap(User::getEmail).map(String::toUpperCase);
+upperCaseEmail.ifPresent(System.out::println);
+}
+}
+
+OUTPUT:
+PANKAJ.BHANDE01@GMAIL.COM
+PANKAJ.BHANDE01@GMAIL.COM
+
+
+Example 6: Avoiding Null Checks
+Using Optional to avoid null checks and handle potential null values gracefully.
+package com.code_with_pankaj;
+import java.util.Optional;
+public class OptionalAvoidNullExample {
+public static void main(String[] args) {
+String possiblyNull = null;
+
+// Wrapping a potentially null value
+Optional<String> opt = Optional.ofNullable(possiblyNull);
+// Using ifPresent to handle the value if it's present
+opt.ifPresent(value -> System.out.println("Value: " + value));
+// Providing a default value if absent
+String result = opt.orElse("Default Value");
+System.out.println("Result: " + result);
+}
+}
+
+OUTPUT: Result: Default Value`
+                                ]
+                            },
+
+                            {
+                                content: `<h3>7. Java String Joiner:</h3>
+Java 8 introduced the StringJoiner class to make it easier to construct sequences of strings separated
+by delimiters. <br>
+This class simplifies the process of creating concatenated strings, especially when dealing with 
+complex scenarios involving delimiters, prefixes, and suffixes.<br>
+Java added a new final class StringJoiner in java.util package. 
+It is used to construct a sequence ofcharacters separated by a delimiter. Now, you can create 
+string by passing delimiters like comma(,),hyphen(-) etc.<br>
+
+<h4>Key Features of StringJoiner:</h4>
+1. Delimiter: You can specify a delimiter that will separate each string added to the StringJoiner.<br>
+2. Optional Prefix and Suffix: You can also specify optional prefixes and suffixes that will be
+added to the resulting string.<br>`,
+
+                                codeExamples: [
+                                    `Example: 01 => Using StringJoiner without Prefix and Suffix
+package com.code_with_pankaj;
+import java.util.StringJoiner;
+public class Example {
+public static void main(String[] args) {
+StringJoiner stringJoiner = new StringJoiner(","); // passing comma(,) as delimiter
+// Adding values to StringJoiner
+stringJoiner.add("Sheru");
+stringJoiner.add("Dheeraj");
+stringJoiner.add("Pankaj");
+
+System.out.println(stringJoiner);
+}
+}
+
+Output: Sheru,Dheeraj,Pankaj`
+                                ]
+                            },
+
+                            {
+                                content: `Explanation:<br>
+1. Creating a StringJoiner:<br>
+• StringJoiner joiner = new StringJoiner(", ", "[", "]");<br>
+• This creates a StringJoiner with a comma (,) as the delimiter, a prefix ([) and a suffix (]).
+2. Adding Strings:<br>
+• joiner.add("Sheru"); adds the string "Sheru" to the StringJoiner.<br>
+• Similarly, joiner.add("Dheeraj"); and joiner.add("Pankaj"); add the strings "Dheeraj" and
+"Pankaj".<br>
+3. Generating the Result:<br>
+• System.out.println(joiner.toString()); prints the resulting string: [Sheru, Dheeraj, Pankaj].<br>`,
+
+                                codeExamples: [
+                                    `Example:02 => Merging StringJoiner Instances
+You can also merge two StringJoiner instances using the merge method:
+package com.code_with_pankaj;
+import java.util.StringJoiner;
+public class MergeStringJoinerExample {
+public static void main(String[] args) {
+// Create first StringJoiner
+StringJoiner joiner1 = new StringJoiner(", ", "{", "}");
+joiner1.add("Udgir");
+joiner1.add("Latur");
+// Create second StringJoiner
+StringJoiner joiner2 = new StringJoiner(", ", "{", "}");
+joiner2.add("Pune");
+joiner2.add("Mumbai");
+// Merge joiner2 into joiner1
+joiner1.merge(joiner2);
+// Print the merged result
+System.out.println(joiner1.toString());
+}
+}
+
+OUTPUT: {Udgir, Latur, Pune, Mumbai}`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Explanation:<br>
+1. Creating and Adding to StringJoiner:<br>
+• Two StringJoiner instances (joiner1 and joiner2) are created and populated with strings.<br>
+2. Merging StringJoiner Instances:<br>
+• joiner1.merge(joiner2);<br>
+• merges the contents of joiner2 into joiner1.<br>
+3. Generating the Result:<br>
+• System.out.println(joiner1.toString());<br>
+• prints the merged result: {Udgir, Latur, Pune, Mumbai}.<br><br>
+
+<h4>Advantages of Using StringJoiner:</h4>
+The StringJoiner class introduced in Java 8 comes with several advantages that make it a valuable
+addition for string handling and manipulation.<br>
+Here are some of the key benefits:<br>
+1. Ease of Use: Simplifies the process of building complex strings with delimiters, prefixes, and
+suffixes.<br>
+2. Enhanced Readability: Provides a clear and concise way to concatenate strings, improving code
+readability.<br>
+3. Reduced Boilerplate Code: Eliminates repetitive manual concatenation, making code cleaner.<br>
+4. Flexible Formatting: Allows specification of delimiters, prefixes, and suffixes for creating
+formatted strings.<br>
+5. Efficiency: More efficient than manual string concatenation, especially in loops or large
+collections.<br>
+6. Merging: Supports merging multiple StringJoiner instances.<br>
+7. Stream Integration: Works seamlessly with Java Streams for functional programming.<br><br>
+
+<h4>Disadvantages of StringJoiner in Short:</h4>
+1. Limited to Java 8 and Later: Not available in older Java versions.<br>
+2. Overhead for Simple Concatenations: Adds unnecessary complexity for basic concatenations.<br>
+3. Not Ideal for Performance-Critical Apps: Less efficient than StringBuilder for high-frequency
+operations.<br>
+4. Learning Curve: Requires learning for effective use.<br><br>
+
+<h4>Common Uses of StringJoiner in Java 8:</h4>
+
+1. Building Delimited Strings: Create strings with specific delimiters, such as CSV format.<br>
+StringJoiner joiner = new StringJoiner(", ");<br>
+joiner.add("Alice").add("Bob").add("Charlie");<br>
+System.out.println(joiner.toString()); // Output: Alice, Bob, Charlie<br><br>
+
+2. Formatting Output: Format output with prefixes and suffixes for lists or arrays.<br>
+StringJoiner joiner = new StringJoiner(", ", "[", "]");<br>
+joiner.add("Red").add("Green").add("Blue");<br>
+System.out.println(joiner.toString()); // Output: [Red, Green, Blue]<br><br>
+
+3. Generating SQL Queries: Construct SQL queries dynamically.<br>
+StringJoiner joiner = new StringJoiner(", ", "SELECT ", " FROM table");<br>
+joiner.add("column1").add("column2").add("column3");<br>
+System.out.println(joiner.toString()); // Output: SELECT column1, column2, column3 FROM table<br><br>
+
+4. Joining Stream Elements: Combine elements from a stream with a delimiter.<br>
+List<String> items = Arrays.asList("item1", "item2", "item3");<br>
+StringJoiner joiner = new StringJoiner(", ");<br>
+items.stream().forEach(joiner::add);<br>
+System.out.println(joiner.toString()); // Output: item1, item2, item3<br><br>
+
+5. Logging and Debugging: Create formatted log messages or debug outputs.<br>
+StringJoiner joiner = new StringJoiner(" | ");<br>
+joiner.add("INFO").add("2024-11-26").add("Application started");<br>
+System.out.println(joiner.toString()); // Output: INFO | 2024-11-26 | Application started<br><br>
+
+6. Combining Multiple Joiners: Merge multiple StringJoiner instances.<br>
+StringJoiner joiner1 = new StringJoiner(", ", "{", "}");<br>
+joiner1.add("Java").add("Python");<br>
+StringJoiner joiner2 = new StringJoiner(", ", "{", "}");<br>
+joiner2.add("C++").add("JavaScript");<br>
+joiner1.merge(joiner2);<br>
+System.out.println(joiner1.toString()); // Output: {Java, Python, C++, JavaScript}<br>`
+                            },
+
+
+                            {
+                                content:
+                                    `<h3>1. Java 8 Stream</h3>
+Java provides a new additional package in Java 8 called java.util.stream. This package consists of
+classes, interfaces & enum to allows functional-style operations on the elements.
+ You can use stream by importing java.util.stream package.<br><br>
+
+Stream provides following features:<br>
+• Stream does not store elements. It simply conveys elements from a source such as a data structure,
+an array, or an I/O channel, through a pipeline of computational operations.<br>
+• Stream is functional in nature. Operations performed on a stream does not modify it's source. For
+example, filtering a Stream obtained from a collection produces a new Stream without the filtered
+elements, rather than removing elements from the source collection.<br>
+• Stream is lazy and evaluates code only when required.<br>
+• The elements of a stream are only visited once during the life of a stream. Like an Iterator, a new
+stream must be generated to revisit the same elements of the source.<br>
+You can use stream to filter, collect, print, and convert from one data structure to other etc. In the
+following examples, we have apply various operations with the help of stream.<br>`,
+
+                                codeExamples: [
+                                    `Example of Stream API Demonstration
+
+ Filtering and Iterating Collection
+ Filtering Collection by using Stream
+ Filtering Collection without using Stream
+ reduce() Method in Collection
+ Sum by using Collectors Methods
+ Find Max and Min Product Price
+ count() Method in Collection
+ Convert List into Set
+
+ Convert List into Map
+
+package com.code_with_pankaj;
+import java.util.*;
+import java.util.stream.Collectors;
+class Product {
+int id;
+String name;
+double price;
+//--------------------------------------------------------------------
+// Generate Constructor Using Fields
+public Product(int id, String name, double price) {
+this.id = id;
+this.name = name;
+this.price = price;
+}
+//--------------------------------------------------------------------
+// Generate Getter and Setter
+public int getId() {
+return id;
+}
+public String getName() {
+return name;
+}
+public double getPrice() {
+return price;
+}
+//--------------------------------------------------------------------
+// Generate toString() Method
+@Override
+public String toString() {
+return "Product{id=" + id + ", name='" + name + "', price=" + price + "}";
+}
+//--------------------------------------------------------------------
+}
+--------------------------------------------------------------------------------------------------------------------
+
+public class StreamApiDemo {
+public static void main(String[] args) {
+List<Product> products = Arrays.asList(new Product(1, "Laptop", 800), new Product(2,
+"Smartphone", 500), new Product(3, "Tablet", 300), new Product(4, "Smartwatch", 200), new
+
+Product(5, "Headphones", 100));
+
+// Filtering and Iterating Collection
+System.out.println("Filtering and Iterating Collection:");
+products.stream().filter(p -> p.getPrice() > 300).forEach(System.out::println);
+// Filtering Collection by using Stream
+System.out.println("\nFiltering Collection by using Stream:");
+
+List<Product> filteredProducts = products.stream().filter(p -> p.getPrice() >
+
+300).collect(Collectors.toList());
+filteredProducts.forEach(System.out::println);
+// Filtering Collection without using Stream
+System.out.println("\nFiltering Collection without using Stream:");
+List<Product> filteredProductsWithoutStream = new ArrayList<>();
+for (Product p : products) {
+if (p.getPrice() > 300) {
+filteredProductsWithoutStream.add(p);
+}
+}
+for (Product p : filteredProductsWithoutStream) {
+System.out.println(p);
+}
+// reduce() Method in Collection
+System.out.println("\nUsing reduce() Method:");
+double totalPrice = products.stream().map(Product::getPrice).reduce(0.0, Double::sum);
+System.out.println("Total Price: " + totalPrice);
+// Sum by using Collectors Methods
+System.out.println("\nSum by using Collectors:");
+double sumPrice = products.stream().collect(Collectors.summingDouble(Product::getPrice));
+System.out.println("Sum of Prices: " + sumPrice);
+// Find Max and Min Product Price
+
+System.out.println("\nFind Max and Min Product Price:");
+Product maxPriceProduct = products.stream().max(Comparator.comparing(Product::getPrice))
+.orElseThrow(NoSuchElementException::new);
+Product minPriceProduct = products.stream().min(Comparator.comparing(Product::getPrice))
+.orElseThrow(NoSuchElementException::new);
+System.out.println("Max Price Product: " + maxPriceProduct);
+System.out.println("Min Price Product: " + minPriceProduct);
+// count() Method in Collection
+System.out.println("\nCount Method:");
+long count = products.stream().filter(p -> p.getPrice() > 300).count();
+System.out.println("Count of Products with Price > 300: " + count);
+// Convert List into Set
+System.out.println("\nConvert List into Set:");
+Set<Product> productSet = products.stream().collect(Collectors.toSet());
+productSet.forEach(System.out::println);
+// Convert List into Map
+System.out.println("\nConvert List into Map:");
+Map<Integer, String> productMap = products.stream().collect(Collectors.toMap(Product::getId,
+
+Product::getName));
+
+productMap.forEach((id, name) -> System.out.println("ID: " + id + ", Name: " + name));
+}
+}
+
+
+OUTPUT:
+Filtering and Iterating Collection:
+Product{id=1, name='Laptop', price=800.0}
+Product{id=2, name='Smartphone', price=500.0}
+Filtering Collection by using Stream:
+Product{id=1, name='Laptop', price=800.0}
+Product{id=2, name='Smartphone', price=500.0}
+Filtering Collection without using Stream:
+Product{id=1, name='Laptop', price=800.0}
+Product{id=2, name='Smartphone', price=500.0}
+Using reduce() Method:
+Total Price: 1900.0
+
+
+Sum by using Collectors:
+Sum of Prices: 1900.0
+Find Max and Min Product Price:
+Max Price Product: Product{id=1, name='Laptop', price=800.0}
+Min Price Product: Product{id=5, name='Headphones', price=100.0}
+Count Method:
+Count of Products with Price > 300: 2
+Convert List into Set:
+Product{id=1, name='Laptop', price=800.0}
+Product{id=2, name='Smartphone', price=500.0}
+Product{id=5, name='Headphones', price=100.0}
+Product{id=4, name='Smartwatch', price=200.0}
+Product{id=3, name='Tablet', price=300.0}
+Convert List into Map:
+ID: 1, Name: Laptop
+ID: 2, Name: Smartphone
+ID: 3, Name: Tablet
+ID: 4, Name: Smartwatch
+ID: 5, Name: Headphones`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Explanation:<br>
+1. Product Class: The Product class represents a product with id, name, and price attributes.<br>
+2. Filtering and Iterating Collection: Uses streams to filter products with a price greater than 300
+and iterates over them.<br>
+3. Filtering Collection by using Stream: Filters the collection using streams and collects the
+results into a list.<br>
+4. Filtering Collection without using Stream: Traditional method of filtering using a for-each
+loop.<br>
+
+5. reduce() Method in Collection: Uses reduce to calculate the total price of all products.<br>
+6. Sum by using Collectors Methods: Uses Collectors.summingDouble to sum the prices of all
+products.<br>
+7. Find Max and Min Product Price: Uses max and min to find products with the highest and
+lowest prices, respectively.<br>
+8. count() Method in Collection: Uses count to count the number of products with a price greater
+than 300.<br>
+9. Convert List into Set: Converts the list of products into a set using streams.<br>
+
+10. Convert List into Map: Converts the list into a map with product IDs as keys and product names
+as values.<br><br>
+
+The Streams API, introduced in Java 8, is a powerful tool that allows for processing sequences of
+elements in a functional and declarative manner. Streams facilitate operations on data such as
+filtering, mapping, and reducing without altering the original data source.<br><br>
+
+<h4>Key Features of Java Streams:</h4>
+1. Functional Programming: Streams enable functional-style operations on collections of
+elements, providing a more readable and concise way to manipulate data.<br>
+2. Lazy Evaluation: Stream operations are performed lazily, meaning that intermediate operations
+are not executed until a terminal operation is invoked. This optimizes performance.<br>
+3. Pipeline Processing: Stream operations are chained to form a pipeline, making the code more
+readable and expressive.<br>
+4. Parallel Processing: Streams can be processed in parallel, making it easier to take advantage of
+multicore processors.<br><br>
+
+Stream Operations:<br>
+1. Intermediate Operations:<br>
+• These operations return a new stream and are lazily executed.<br>
+• Examples: filter, map, sorted.<br>
+2. Terminal Operations:<br>
+• These operations produce a result or a side-effect and terminate the stream pipeline.<br>
+• Examples: forEach, collect, reduce.`,
+
+                                codeExamples: [
+                                    `Example: 01 => Creating and Using Streams
+
+package com.code_with_pankaj;
+mport java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class StreamExample {
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Sheru", "Pankaj", "Dheeraj", "Udgir");
+
+// Filtering and collecting names that start with 'S'
+
+List<String> filteredNames = names.stream().filter(name ->
+name.startsWith("S")).collect(Collectors.toList());
+System.out.println("Filtered Names: " + filteredNames);
+// Mapping and collecting the lengths of names
+List<Integer> nameLengths = names.stream().map(String::length).collect(Collectors.toList());
+System.out.println("Name Lengths: " + nameLengths);
+// Reducing to concatenate all names
+String concatenatedNames = names.stream().reduce("", (partialString, element) -> partialString +
+
+element);
+
+System.out.println("Concatenated Names: " + concatenatedNames);
+}
+}
+
+
+OUTPUT:
+Filtered Names: [Sheru]
+Name Lengths: [5, 6, 7, 5]
+Concatenated Names: SheruPankajDheerajUdgir`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Explanation:<br>
+1. Creating a Stream: names.stream() creates a stream from the list of names.<br>
+2. Filtering: filter(name -> name.startsWith("S")) filters the stream to include only names starting
+with "S".<br>
+3. Collecting: collect(Collectors.toList()) collects the filtered results into a list.<br>
+4. Mapping: map(String::length) transforms each name into its length.<br>
+5. Reducing: reduce("", (partialString, element) -> partialString + element) concatenates all names
+into a single string.<br><br>
+
+
+Parallel Streams:<br>
+You can convert a sequential stream to a parallel stream to leverage multicore processors.<br>`,
+
+                                codeExamples: [
+                                    `package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+
+public class ParallelStreamExample {
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Sheru", "Pankaj", "Dheeraj", "Udgir");
+// Using parallel stream
+names.parallelStream().filter(name ->
+name.startsWith("S")).forEach(System.out::println);
+}
+}
+
+
+OUTPUT: Sheru`
+                                ]
+                            },
+
+                            {
+                                content:
+                                    `Summary:<br>
+The Streams API in Java 8 brings the power of functional programming to Java, enabling more
+expressive, readable, and maintainable code.<br> By allowing for lazy evaluation, pipeline processing, and
+parallel execution, streams significantly enhance the way we work with collections.<br>`,
+
+                                codeExamples: [
+                                    `Example 1: Filtering and Mapping
+
+Filter out empty strings from a list and then convert the remaining strings to uppercase.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class FilterMapExample {
+public static void main(String[] args) {
+List<String> names = Arrays.asList("Sheru", "", "Pankaj", "Dheeraj", "");
+// Filter non-empty strings and convert to uppercase
+List<String> filteredNames = names.stream()
+.filter(name -> !name.isEmpty())
+.map(String::toUpperCase)
+.collect(Collectors.toList());
+System.out.println("Filtered and Uppercase Names: " + filteredNames);
+}
+}
+
+
+OUTPUT: Filtered and Uppercase Names: [SHERU, PANKAJ, DHEERAJ]
+
+
+Example 2: Sorting
+Sort a list of integers.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class SortExample {
+public static void main(String[] args) {
+List<Integer> numbers = Arrays.asList(3, 7, 2, 8, 1, 5);
+// Sort the numbers
+List<Integer> sortedNumbers = numbers.stream().sorted().collect(Collectors.toList());
+System.out.println("Sorted Numbers: " + sortedNumbers);
+}
+}
+
+
+OUTPUT: Sorted Numbers: [1, 2, 3, 5, 7, 8]
+
+
+Example 3: Distinct and Limit
+Get distinct elements and limit the result to a certain number.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class DistinctLimitExample {
+public static void main(String[] args) {
+List<String> items = Arrays.asList("Apple", "Banana", "Apple", "Orange", "Banana", "Apple");
+// Get distinct items and limit the result to 3
+List<String> distinctItems = items.stream()
+.distinct()
+.limit(3)
+.collect(Collectors.toList());
+System.out.println("Distinct Items: " + distinctItems);
+}
+}
+
+
+OUTPUT: Distinct Items: [Apple, Banana, Orange]
+
+
+Example 4: Reduce
+Calculate the sum of a list of integers using reduce.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+public class ReduceExample {
+public static void main(String[] args) {
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+// Calculate the sum
+int sum = numbers.stream().reduce(0, Integer::sum);
+System.out.println("Sum: " + sum);
+}
+}
+
+
+OUTPUT: Sum: 15
+
+
+Example 5: Grouping By
+Group a list of strings by their length.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+public class GroupByExample {
+public static void main(String[] args) {
+List<String> items = Arrays.asList("Apple", "Banana", "Cherry", "Date");
+// Group items by length
+Map<Integer, List<String>> groupedByLength = items.stream()
+.collect(Collectors.groupingBy(String::length));
+System.out.println("Grouped by Length: " + groupedByLength);
+}
+}
+
+
+OUTPUT: Grouped by Length: {4=[Date], 5=[Apple], 6=[Banana, Cherry]}
+
+
+Example 6: Partitioning By
+Partition a list of integers into even and odd numbers.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+public class PartitionByExample {
+public static void main(String[] args) {
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+// Partition numbers into even and odd
+Map<Boolean, List<Integer>> partitioned = numbers.stream()
+.collect(Collectors.partitioningBy(num -> num % 2 == 0));
+System.out.println("Even Numbers: " + partitioned.get(true));
+System.out.println("Odd Numbers: " + partitioned.get(false));
+}
+}
+
+
+OUTPUT:
+Even Numbers: [2, 4, 6, 8, 10]
+Odd Numbers: [1, 3, 5, 7, 9]
+
+
+Example 7: Parallel Stream
+Process a list of numbers in parallel.
+
+package com.code_with_pankaj;
+import java.util.Arrays;
+import java.util.List;
+public class ParallelStreamExample {
+public static void main(String[] args) {
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+// Process numbers in parallel
+numbers.parallelStream()
+
+.forEach(num -> System.out.println("Number: " + num + " - " +
+Thread.currentThread().getName()));
+
+}
+}
+
+
+OUTPUT:
+Number: 7 - main
+Number: 4 - ForkJoinPool.commonPool-worker-5
+Number: 6 - main
+Number: 8 - ForkJoinPool.commonPool-worker-5
+Number: 5 - ForkJoinPool.commonPool-worker-3
+Number: 3 - ForkJoinPool.commonPool-worker-1
+Number: 10 - ForkJoinPool.commonPool-worker-5
+Number: 9 - ForkJoinPool.commonPool-worker-4
+Number: 1 - main
+Number: 2 - ForkJoinPool.commonPool-worker-2`
+                                ]
+                            },
+
+                        ]
+                    }
+                ]
+            },
+
             {
                 id: 'basics',
                 name: 'Java Basics',
@@ -427,14 +2202,7 @@ etc. to complete the development of a Java Application.
   <td>JVM bundled in both software JDK and JRE</td>
   </tr>
 </table>
-
-
-
-
-
-
-
-                `
+ `
                             }
                         ]
                     },
@@ -444,22 +2212,22 @@ etc. to complete the development of a Java Application.
                         name: 'Data Types and Variables',
                         beginner: [
                             {
-                                content: `Java has two categories of data types : Primitive and Reference types.
+                                content: `Java has two categories of data types : Primitive and Reference types.<br>
 
-🔹 Primitive Data Types (8 types):
+<h3>Primitive Data Types (8 types):</h3>
 
-• byte: 8-bit integer (-128 to 127)
-• short: 16-bit integer (-32,768 to 32,767)
-• int: 32-bit integer (-2^31 to 2^31-1)
-• long: 64-bit integer (-2^63 to 2^63-1)
-• float: 32-bit floating point
-• double: 64-bit floating point
-• char: 16-bit Unicode character
-• boolean: true or false
+• byte: 8-bit integer (-128 to 127)<br>
+• short: 16-bit integer (-32,768 to 32,767)<br>
+• int: 32-bit integer (-2^31 to 2^31-1)<br>
+• long: 64-bit integer (-2^63 to 2^63-1)<br>
+• float: 32-bit floating point<br>
+• double: 64-bit floating point<br>
+• char: 16-bit Unicode character<br>
+• boolean: true or false<br>
 
-Variables:
+<h3>Variables:</h3>
 
-A variable is a container that holds data. In Java, you must declare a variable before using it.`,
+A variable is a container that holds data. In Java, you must declare a variable before using it.<br>`,
                                 codeExamples: [
                                     `// Variable Declaration and Initialization
 public class DataTypesExample {
@@ -487,27 +2255,26 @@ public class DataTypesExample {
                             }],
                         intermediate: [
                             {
-                                content: `Understanding wrapper classes, autoboxing, type casting, and variable scope:
+                                content: `Understanding wrapper classes, autoboxing, type casting, and variable scope:<br>
 
-Wrapper Classes:
+<h4>Wrapper Classes:</h4>
+Convert primitive types to objects and vice versa.<br>
 
-Convert primitive types to objects and vice versa.
+• Byte, Short, Integer, Long<br>
+• Float, Double<br>
+• Character, Boolean<br>
 
-• Byte, Short, Integer, Long
-• Float, Double
-• Character, Boolean
+<h4>Type Casting:</h4>
 
-Type Casting:
+• Widening (Implicit): byte → short → int → long → float → double<br>
+• Narrowing (Explicit): Requires manual casting<br>
 
-• Widening (Implicit): byte → short → int → long → float → double
-• Narrowing (Explicit): Requires manual casting
+<h4>Variable Scope:</h4>
 
-Variable Scope:
-
-• Instance Variables: Belong to object
-• Class Variables (static): Belong to class
-• Local Variables: Belong to method/block
-• Parameters: Passed to methods`,
+• Instance Variables: Belong to object<br>
+• Class Variables (static): Belong to class<br>
+• Local Variables: Belong to method/block<br>
+• Parameters: Passed to methods<br>`,
                                 codeExamples: [
                                     `// Autoboxing and Type Casting
 public class AdvancedDataTypes {
@@ -532,28 +2299,28 @@ public class AdvancedDataTypes {
                             }],
                         expert: [
                             {
-                                content: `Memory management, immutability, and performance considerations for data types:
+                                content: `Memory management, immutability, and performance considerations for data types:<br>
 
-Memory Allocation:
+<h4>Memory Allocation:</h4>
 
-• Primitive types: Stored in stack (faster access)
-• Objects: Stored in heap (slower access)
-• String Pool: Special memory region for strings
+• Primitive types: Stored in stack (faster access)<br>
+• Objects: Stored in heap (slower access)<br>
+• String Pool: Special memory region for strings<br><br>
 
-Immutability:
+<h3>Immutability:</h3>
 
-Wrapper classes and String are immutable for:
+<h4>Wrapper classes and String are immutable for: </h4>
 
-• Thread safety
-• Security
-• Performance (caching)
+• Thread safety<br>
+• Security<br>
+• Performance (caching)<br>
 
-Performance Considerations:
+<h4>Performance Considerations:</h4>
 
-• Use primitives when possible (less memory overhead)
-• Avoid unnecessary boxing/unboxing
-• String concatenation: Use StringBuilder for loops
-• Consider memory footprint in large collections`,
+• Use primitives when possible (less memory overhead)<br>
+• Avoid unnecessary boxing/unboxing<br>
+• String concatenation: Use StringBuilder for loops<br>
+• Consider memory footprint in large collections<br>`,
                                 codeExamples: [
                                     `// Performance Comparison
 public class PerformanceExample {
@@ -2344,6 +4111,1254 @@ System.out.println(a[a.length-3]);`
                         ]
                     },
 
+                    {
+                        id: 'arrayprogram',
+                        name: 'Array Program',
+                        beginner: [{
+                            content: ``,
+                            codeExamples: [
+                                `1. Sum of array elements 
+
+package com.code_with_pankaj; 
+public class SumOfArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int sum = 0; 
+ for (int num : array) { 
+ sum += num; 
+ } 
+ System.out.println("Sum of array elements: " + sum); 
+ } 
+} 
+ 
+OUTPUT: Sum of array elements: 15`,
+
+                                `2. Maximum and minimum element in array 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class MaxMinArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int max = Arrays.stream(array).max().getAsInt(); 
+ int min = Arrays.stream(array).min().getAsInt(); 
+ System.out.println("Maximum element: " + max); 
+ System.out.println("Minimum element: " + min); 
+ } 
+} 
+
+OUTPUT: 
+Maximum element: 5 
+Minimum element: 1 `,
+
+                                `3. Reverse an array 
+
+package com.code_with_pankaj; 
+public class ReverseArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ for (int i = 0; i < array.length / 2; i++) { 
+ int temp = array[i]; 
+ array[i] = array[array.length - 1 - i]; 
+ array[array.length - 1 - i] = temp; 
+ } 
+ System.out.print("Reversed array: "); 
+ for (int num : array) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Reversed array: 5 4 3 2 1 `,
+
+                                `4. Sort an array (Bubble Sort, Selection Sort, Insertion Sort)
+
+package com.code_with_pankaj; 
+public class BubbleSort { 
+public static void main(String[] args) { 
+ int[] array = { 5, 3, 8, 1, 2 }; 
+ for (int i = 0; i < array.length - 1; i++) { 
+ for (int j = 0; j < array.length - 1 - i; j++) { 
+ if (array[j] > array[j + 1]) { 
+ int temp = array[j]; 
+ array[j] = array[j + 1]; 
+ array[j + 1] = temp; 
+ } 
+ } 
+ } 
+ System.out.print("Sorted array: "); 
+ for (int num : array) { 
+ System.out.print(num + " ");
+ } 
+ } 
+} 
+
+OUTPUT: Sorted array: 1 2 3 5 8 `,
+
+                                `5. Find the second largest element in an array 
+
+package com.code_with_pankaj; 
+public class SecondLargest { 
+public static void main(String[] args) { 
+ int[] array = { 5, 3, 8, 1, 2 }; 
+ int firstLargest = Integer.MIN_VALUE; 
+ int secondLargest = Integer.MIN_VALUE; 
+ for (int num : array) { 
+ if (num > firstLargest) { 
+ secondLargest = firstLargest; 
+ firstLargest = num; 
+ } else if (num > secondLargest && num != firstLargest) { 
+ secondLargest = num; 
+ } 
+ } 
+ System.out.println("Second largest element: " + secondLargest); 
+ } 
+} 
+
+OUTPUT: Second largest element: 5 `,
+
+                                `6. Count the number of even and odd elements in an array 
+
+package com.code_with_pankaj; 
+public class CountEvenOdd { 
+public static void main(String[] args) { 
+ int[] array = { 5, 3, 8, 1, 2 }; 
+ int evenCount = 0; 
+ int oddCount = 0; 
+ for (int num : array) { 
+ if (num % 2 == 0) { 
+ evenCount++; 
+ } else { 
+ oddCount++; 
+ } 
+ } 
+ System.out.println("Number of even elements: " + evenCount); 
+ System.out.println("Number of odd elements: " + oddCount); 
+ } 
+} 
+
+OUTPUT: 
+Number of even elements: 2 
+Number of odd elements: 3 `,
+
+                                `7. Find the number of occurrences of a given element in an array 
+
+package com.code_with_pankaj; 
+public class CountOccurrences { 
+public static void main(String[] args) { 
+ int[] array = { 5, 3, 8, 5, 2 }; 
+ int target = 5; 
+ int count = 0; 
+ for (int num : array) { 
+ if (num == target) { 
+ count++; 
+ } 
+ } 
+ System.out.println("Number of occurrences of " + target + ": " + count); 
+ } 
+} 
+
+OUTPUT: Number of occurrences of 5: 2 `,
+
+                                `8. Check if an array is a palindrome 
+
+package com.code_with_pankaj; 
+public class PalindromeArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 2, 1 }; 
+ boolean isPalindrome = true; 
+ for (int i = 0; i < array.length / 2; i++) { 
+ if (array[i] != array[array.length - 1 - i]) { 
+ isPalindrome = false; 
+ break; 
+ } 
+ } 
+ System.out.println("Is array a palindrome: " + isPalindrome); 
+ } 
+} 
+
+OUTPUT: Is array a palindrome: true`,
+
+                                `9. Merge two arrays 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class MergeArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 3, 5 }; 
+ int[] array2 = { 2, 4, 6 }; 
+ int[] mergedArray = new int[array1.length + array2.length]; 
+ System.arraycopy(array1, 0, mergedArray, 0, array1.length); 
+ System.arraycopy(array2, 0, mergedArray, array1.length, array2.length); 
+ System.out.println("Merged array: " + Arrays.toString(mergedArray)); 
+ } 
+} 
+
+OUTPUT: Merged array: [1, 3, 5, 2, 4, 6] `,
+
+                                `10.Find the intersection of two arrays 
+
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+import java.util.Set; 
+public class IntersectionArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 3, 4, 5 }; 
+ int[] array2 = { 3, 5, 7, 8 }; 
+ Set<Integer> set1 = new HashSet<>(); 
+ Set<Integer> intersection = new HashSet<>(); 
+ for (int num : array1) { 
+ set1.add(num); 
+ } 
+ for (int num : array2) { 
+ if (set1.contains(num)) { 
+ intersection.add(num); 
+ } 
+ } 
+ System.out.println("Intersection of arrays: " + intersection); 
+ } 
+} 
+
+OUTPUT: Intersection of arrays: [3, 5] `,
+
+                                `11.Find the union of two arrays 
+
+package com.code_with_pankaj; 
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+import java.util.Set; 
+public class UnionArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 3, 4, 5 }; 
+ int[] array2 = { 3, 5, 7, 8 }; 
+ Set<Integer> union = new HashSet<>(); 
+ for (int num : array1) { 
+ union.add(num); 
+ } 
+ for (int num : array2) { 
+ union.add(num); 
+ } 
+ System.out.println("Union of arrays: " + union); 
+ } 
+}
+
+OUTPUT: Union of arrays: [1, 3, 4, 5, 7, 8]`,
+
+                                `12.Remove duplicates from an array 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class UnionArrays { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 2, 3, 4, 4, 5 }; 
+ int[] tempArray = Arrays.stream(array).distinct().toArray(); 
+ System.out.print("Array after removing duplicates: "); 
+ for (int num : tempArray) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+}
+
+OUTPUT: Array after removing duplicates: 1 2 3 4 5 `,
+
+                                `13.Rotate an array to the left by a given number of positions 
+
+package com.code_with_pankaj; 
+public class LeftRotateArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int n = 2; // Number of positions to rotate
+ int[] rotatedArray = new int[array.length]; 
+ for (int i = 0; i < array.length; i++) { 
+ rotatedArray[i] = array[(i + n) % array.length]; 
+ } 
+ System.out.print("Array after left rotation: "); 
+ for (int num : rotatedArray) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Array after left rotation: 3 4 5 1 2`,
+
+                                `14.Rotate an array to the right by a given number of positions 
+
+package com.code_with_pankaj; 
+public class RightRotateArray { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int n = 2; // Number of positions to rotate
+ int[] rotatedArray = new int[array.length]; 
+ for (int i = 0; i < array.length; i++) { 
+ rotatedArray[(i + n) % array.length] = array[i]; 
+ } 
+ System.out.print("Array after right rotation: "); 
+ for (int num : rotatedArray) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Array after right rotation: 4 5 1 2 3 `,
+
+                                `15.Move all zeros to the end of the array 
+
+package com.code_with_pankaj; 
+public class MoveZerosToEnd { 
+public static void main(String[] args) { 
+ int[] array = { 0, 1, 0, 3, 12 }; 
+ int count = 0; // Count of non-zero elements
+ for (int i = 0; i < array.length; i++) { 
+ if (array[i] != 0) { 
+ array[count++] = array[i]; 
+ } 
+ } 
+ while (count < array.length) { 
+ array[count++] = 0; 
+ } 
+ System.out.print("Array after moving zeros to the end: "); 
+ for (int num : array) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Array after moving zeros to the end: 1 3 12 0 0 `,
+
+                                `16.Find the sum of two arrays 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class SumOfTwoArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 2, 3 }; 
+ int[] array2 = { 4, 5, 6 }; 
+ int[] sumArray = new int[array1.length]; 
+ for (int i = 0; i < array1.length; i++) { 
+ sumArray[i] = array1[i] + array2[i]; 
+ } 
+ System.out.println("Sum of the two arrays: " + Arrays.toString(sumArray)); 
+ } 
+} 
+
+OUTPUT: Sum of the two arrays: [5, 7, 9] `,
+
+                                `17.Find the common elements in three sorted arrays 
+
+package com.code_with_pankaj; 
+import java.util.ArrayList; 
+import java.util.List; 
+public class CommonElementsThreeArrays { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 5, 10, 20, 40, 80 }; 
+ int[] array2 = { 6, 7, 20, 80, 100 }; 
+ int[] array3 = { 3, 4, 15, 20, 30, 70, 80, 120 }; 
+ List<Integer> common = new ArrayList<>(); 
+ int i = 0, j = 0, k = 0; 
+ while (i < array1.length && j < array2.length && k < array3.length) { 
+ if (array1[i] == array2[j] && array2[j] == array3[k]) { 
+ common.add(array1[i]); 
+ i++; 
+ j++; 
+ k++; 
+ } else if (array1[i] < array2[j]) { 
+ i++; 
+ } else if (array2[j] < array3[k]) { 
+ j++; 
+ } else { 
+ k++; 
+ } 
+ } 
+ System.out.println("Common elements in three arrays: " + common); 
+ } 
+} 
+
+OUTPUT: Common elements in three arrays: [20, 80] `,
+
+                                `18.Find the smallest and second smallest element in an array 
+
+package com.code_with_pankaj; 
+public class SmallestSecondSmallest { 
+public static void main(String[] args) { 
+ int[] array = { 12, 13, 1, 10, 34, 1 }; 
+ int firstMin = Integer.MAX_VALUE, secondMin = Integer.MAX_VALUE; 
+ for (int num : array) { 
+ if (num < firstMin) { 
+ secondMin = firstMin; 
+ firstMin = num; 
+ } else if (num < secondMin && num != firstMin) { 
+ secondMin = num; 
+ } 
+ } 
+ System.out.println("Smallest element: " + firstMin); 
+ System.out.println("Second smallest element: " + secondMin); 
+ } 
+} 
+
+OUTPUT: 
+Smallest element: 1 
+Second smallest element: 10 `,
+
+                                `19.Find the kth smallest and largest element in an array 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class KthSmallestLargest { 
+public static void main(String[] args) { 
+ int[] array = { 12, 3, 5, 7, 19 }; 
+ int k = 2; 
+ Arrays.sort(array); 
+ 
+ int kthSmallest = array[k - 1]; 
+ int kthLargest = array[array.length - k]; 
+ 
+ System.out.println(k + "th smallest element: " + kthSmallest); 
+ System.out.println(k + "th largest element: " + kthLargest); 
+ } 
+} 
+
+OUPUT: 
+2th smallest element: 5 
+2th largest element: 12 `,
+
+                                `20. Segregate even and odd numbers in an array
+
+package com.code_with_pankaj; 
+public class SegregateEvenOdd { 
+public static void main(String[] args) { 
+ int[] array = { 12, 34, 45, 9, 8, 90, 3 }; 
+ int left = 0, right = array.length - 1; 
+ 
+ while (left < right) { 
+ while (array[left] % 2 == 0 && left < right) { 
+ left++; 
+ } 
+ while (array[right] % 2 == 1 && left < right) { 
+ right--; 
+ } 
+ if (left < right) { 
+ int temp = array[left]; 
+ array[left] = array[right]; 
+ array[right] = temp; 
+ left++; 
+ right--; 
+ } 
+ } 
+ System.out.print("Array after segregation: "); 
+
+ for (int num : array) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+
+OUTPUT: Array after segregation: 12 34 90 8 9 45 3 `,
+
+                            ]
+                        }
+                        ],
+                        intermediate: [
+                            {
+                                content: ``,
+                                codeExamples: [
+                                    `1.Find the equilibrium index of an array 
+
+package com.code_with_pankaj; 
+public class EquilibriumIndex { 
+public static void main(String[] args) { 
+ int[] array = { 1, 3, 5, 2, 2 }; 
+ int totalSum = 0, leftSum = 0; 
+ for (int num : array) { 
+ totalSum += num; 
+ } 
+ for (int i = 0; i < array.length; i++) { 
+ totalSum -= array[i]; 
+ if (leftSum == totalSum) { 
+ System.out.println("Equilibrium index: " + i); 
+ return; 
+ } 
+ leftSum += array[i]; 
+ } 
+ System.out.println("No equilibrium index found"); 
+ } 
+} 
+
+OUTPUT: Equilibrium index: 2 `,
+
+                                    `2.Find the maximum sum of a subarray (Kadane's algorithm) 
+
+package com.code_with_pankaj; 
+public class KadanesAlgorithm { 
+public static void main(String[] args) { 
+ int[] array = { -2, 1, -3, 4, -1, 2, 1, -5, 4 }; 
+ int maxSoFar = array[0], maxEndingHere = array[0]; 
+ for (int i = 1; i < array.length; i++) { 
+ maxEndingHere = Math.max(array[i], maxEndingHere + array[i]); 
+ maxSoFar = Math.max(maxSoFar, maxEndingHere); 
+ } 
+ System.out.println("Maximum sum of a subarray: " + maxSoFar); 
+ } 
+} 
+
+OUTPUT: Maximum sum of a subarray: 6 `,
+
+                                    `3.Find the longest increasing subsequence in an array 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class LongestIncreasingSubsequence { 
+public static void main(String[] args) { 
+ int[] array = { 10, 22, 9, 33, 21, 50, 41, 60, 80 }; 
+ int[] lis = new int[array.length]; 
+ Arrays.fill(lis, 1); 
+ for (int i = 1; i < array.length; i++) { 
+ for (int j = 0; j < i; j++) { 
+ if (array[i] > array[j] && lis[i] < lis[j] + 1) { 
+ lis[i] = lis[j] + 1; 
+ } 
+ } 
+ } 
+ int maxLis = 0; 
+ for (int i = 0; i < lis.length; i++) { 
+ if (maxLis < lis[i]) { 
+ maxLis = lis[i]; 
+ } 
+ } 
+ System.out.println("Length of longest increasing subsequence: " + maxLis); 
+ } 
+} 
+
+OUTPUT: Length of longest increasing subsequence: 6 `,
+
+                                    `4.Find the longest common subsequence between two arrays 
+
+package com.code_with_pankaj; 
+public class LongestCommonSubsequence { 
+public static void main(String[] args) { 
+ int[] array1 = { 1, 3, 4, 1, 2, 8 }; 
+ int[] array2 = { 3, 4, 1, 2, 1, 3, 8 }; 
+ int[][] lcs = new int[array1.length + 1][array2.length + 1]; 
+ for (int i = 1; i <= array1.length; i++) { 
+ for (int j = 1; j <= array2.length; j++) { 
+ if (array1[i - 1] == array2[j - 1]) { 
+ lcs[i][j] = lcs[i - 1][j - 1] + 1; 
+ } else { 
+ lcs[i][j] = Math.max(lcs[i - 1][j], lcs[i][j - 1]); 
+ } 
+ } 
+ } 
+ System.out.println("Length of longest common subsequence: " + lcs[array1.length][array2.length]); 
+ } 
+} 
+
+OUTPUT: Length of longest common subsequence: 5 `,
+
+                                    `5.Find the missing number in a given array of size n containing numbers from 1 to n-1 
+
+package com.code_with_pankaj; 
+public class MissingNumber { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 4, 5, 6 }; 
+ int n = array.length + 1; // As one number is missing
+ int totalSum = (n * (n + 1)) / 2; 
+ int arraySum = 0; 
+ for (int num : array) { 
+ arraySum += num; 
+ } 
+ int missingNumber = totalSum - arraySum; 
+ System.out.println("Missing number: " + missingNumber); 
+ } 
+} 
+
+OUTPUT: Missing number: 3 `,
+
+                                    `6.Check if there are duplicate elements in an array within k distance from each other 
+
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+public class DuplicatesWithinKDistance { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 1, 4, 5 }; 
+ int k = 3; 
+ boolean duplicatesFound = false; 
+ HashSet<Integer> set = new HashSet<>(); 
+ for (int i = 0; i < array.length; i++) { 
+ if (set.contains(array[i])) { 
+ duplicatesFound = true; 
+ break; 
+ } 
+ set.add(array[i]); 
+ if (i >= k) { 
+ set.remove(array[i - k]); 
+ } 
+ } 
+ System.out.println("Duplicates within " + k + " distance: " + duplicatesFound); 
+ } 
+} 
+
+OUTPUT: Duplicates within 3 distance: true `,
+
+                                    `7.Find the length of the largest subarray with 0 sum 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+public class LargestSubarrayWithZeroSum { 
+public static void main(String[] args) { 
+ int[] array = { 15, -2, 2, -8, 1, 7, 10, 23 }; 
+ HashMap<Integer, Integer> map = new HashMap<>(); 
+ int maxLength = 0, sum = 0; 
+ for (int i = 0; i < array.length; i++) { 
+ sum += array[i]; 
+ if (array[i] == 0 && maxLength == 0) { 
+ maxLength = 1; 
+ } 
+ if (sum == 0) { 
+ maxLength = i + 1; 
+ } 
+ Integer prevIndex = map.get(sum); 
+ if (prevIndex != null) { 
+ maxLength = Math.max(maxLength, i - prevIndex); 
+ } else { 
+ map.put(sum, i); 
+ } 
+ } 
+ System.out.println("Length of the largest subarray with 0 sum: " + maxLength); 
+ } 
+} 
+OUTPUT: Length of the largest subarray with 0 sum: 5 `,
+
+                                    `8.Find the largest subarray with equal number of 0s and 1s 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+public class LargestSubarrayEqualZerosOnes { 
+public static void main(String[] args) { 
+ int[] array = { 1, 0, 0, 1, 0, 1, 1 }; 
+ HashMap<Integer, Integer> map = new HashMap<>(); 
+ int maxLength = 0, sum = 0; 
+ for (int i = 0; i < array.length; i++) { 
+ sum += (array[i] == 0) ? -1 : 1; 
+ if (sum == 0) { 
+ maxLength = i + 1; 
+ } 
+ if (map.containsKey(sum)) { 
+ maxLength = Math.max(maxLength, i - map.get(sum)); 
+ } else { 
+ map.put(sum, i); 
+ } 
+ } 
+ System.out.println("Largest subarray with equal number of 0s and 1s: " + maxLength); 
+ } 
+} 
+
+OUTPUT: Largest subarray with equal number of 0s and 1s: 6 `,
+
+                                    `9.Find the maximum product of two integers in an array 
+
+package com.code_with_pankaj; 
+public class MaximumProduct { 
+public static void main(String[] args) { 
+ int[] array = { 1, 20, 30, 40, 50, 60 }; 
+ int maxProduct = Integer.MIN_VALUE; 
+ for (int i = 0; i < array.length - 1; i++) { 
+ for (int j = i + 1; j < array.length; j++) { 
+ int product = array[i] * array[j]; 
+ if (product > maxProduct) { 
+ maxProduct = product; 
+ } 
+ } 
+ } 
+ System.out.println("Maximum product of two integers: " + maxProduct); 
+ } 
+} 
+
+OUTPUT: Maximum product of two integers: 3000`,
+
+                                    `10.Find the peak element in an array 
+
+package com.code_with_pankaj; 
+public class PeakElement { 
+public static void main(String[] args) { 
+ int[] array = { 1, 3, 20, 4, 1, 0 }; 
+ int peakElement = findPeakElement(array); 
+ System.out.println("Peak element: " + peakElement); 
+ } 
+public static int findPeakElement(int[] array) { 
+ int left = 0, right = array.length - 1; 
+ while (left < right) { 
+ int mid = (left + right) / 2; 
+ if (array[mid] > array[mid + 1]) { 
+ right = mid; 
+ } else { 
+ left = mid + 1; 
+ } 
+ } 
+ return array[left]; 
+ } 
+} 
+OUTPUT: Peak element: 20 `,
+
+                                    `11.Find the maximum difference between two elements in an array such that larger element 
+appears after the smaller element 
+
+package com.code_with_pankaj; 
+public class MaximumDifference { 
+public static void main(String[] args) { 
+ int[] array = { 2, 3, 10, 6, 4, 8, 1 }; 
+ int maxDifference = array[1] - array[0]; 
+ int minElement = array[0]; 
+ for (int i = 1; i < array.length; i++) { 
+ if (array[i] - minElement > maxDifference) { 
+ maxDifference = array[i] - minElement; 
+ } 
+ if (array[i] < minElement) { 
+ minElement = array[i]; 
+ } 
+ } 
+ System.out.println("Maximum difference: " + maxDifference); 
+ } 
+} 
+
+OUTPUT: Maximum difference: 8 `,
+
+                                    `12.Find the element that appears more than n/2 times in an array (Majority Element) 
+
+package com.code_with_pankaj; 
+public class MajorityElement { 
+public static void main(String[] args) { 
+ int[] array = { 2, 2, 1, 1, 1, 2, 2 }; 
+ int count = 0, candidate = -1; 
+ for (int num : array) { 
+ if (count == 0) { 
+ candidate = num; 
+ } 
+ count += (num == candidate) ? 1 : -1; 
+ } 
+ count = 0; 
+ for (int num : array) { 
+ if (num == candidate) { 
+ count++; 
+ } 
+ } 
+ if (count > array.length / 2) { 
+ System.out.println("Majority element: " + candidate); 
+ } else { 
+ System.out.println("No majority element found"); 
+ } 
+ } 
+} 
+
+OUTPUT: Majority element: 2 `,
+
+                                    `13.Find the next greater element for each element in an array 
+
+package com.code_with_pankaj; 
+import java.util.Stack; 
+public class NextGreaterElement { 
+public static void main(String[] args) { 
+ int[] array = { 4, 5, 2, 25 }; 
+ int[] nge = new int[array.length]; 
+ Stack<Integer> stack = new Stack<>(); 
+ for (int i = array.length - 1; i >= 0; i--) { 
+ while (!stack.isEmpty() && stack.peek() <= array[i]) { 
+ stack.pop(); 
+ } 
+ nge[i] = stack.isEmpty() ? -1 : stack.peek(); 
+ stack.push(array[i]); 
+ } 
+ System.out.print("Next greater elements: "); 
+ for (int num : nge) { 
+ System.out.print(num + " "); 
+ } 
+ } 
+} 
+OUTPUT: Next greater elements: 5 25 25 -1 
+`,
+
+                                    `14.Find the first repeating and first non-repeating element in an array 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+import java.util.Map; 
+public class FirstRepeatingNonRepeating { 
+public static void main(String[] args) { 
+ int[] array = { 10, 5, 3, 4, 3, 5, 6 }; 
+ Map<Integer, Integer> countMap = new HashMap<>(); 
+ Integer firstRepeating = null, firstNonRepeating = null; 
+ for (int num : array) { 
+ countMap.put(num, countMap.getOrDefault(num, 0) + 1); 
+ } 
+ for (int num : array) { 
+ if (countMap.get(num) > 1) { 
+ firstRepeating = num; 
+ break; 
+ } 
+ } 
+ for (int num : array) { 
+ if (countMap.get(num) == 1) { 
+ firstNonRepeating = num; 
+ break; 
+ } 
+ } 
+ System.out.println("First repeating element: " + firstRepeating); 
+ System.out.println("First non-repeating element: " + firstNonRepeating); 
+ } 
+} 
+
+OUTPUT: 
+First repeating element: 5 
+First non-repeating element: 10 `,
+
+                                    `15.Find the maximum sum of a subarray with at least k elements 
+
+package com.code_with_pankaj; 
+public class MaxSumSubarrayAtLeastK { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, -10, -3 }; 
+ int k = 2; 
+ int n = array.length; 
+ int[] maxSum = new int[n]; 
+ maxSum[0] = array[0]; 
+ for (int i = 1; i < n; i++) { 
+ maxSum[i] = Math.max(array[i], maxSum[i - 1] + array[i]); 
+ } 
+ int sum = 0; 
+ for (int i = 0; i < k; i++) { 
+ sum += array[i]; 
+ } 
+ int result = sum; 
+ for (int i = k; i < n; i++) { 
+ sum = sum + array[i] - array[i - k]; 
+ result = Math.max(result, sum); 
+ result = Math.max(result, sum + maxSum[i - k]); 
+ } 
+ System.out.println("Maximum sum of subarray with at least " + k + " elements: " + result); 
+ } 
+} 
+
+OUTPUT: Maximum sum of subarray with at least 2 elements: 5 `,
+
+                                    `16.Check if there is a subarray with sum equal to zero 
+
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+public class SubarrayWithZeroSum { 
+public static void main(String[] args) { 
+ int[] array = { 4, 2, -3, 1, 6 }; 
+ boolean found = false; 
+ int sum = 0; 
+ HashSet<Integer> set = new HashSet<>(); 
+ for (int num : array) { 
+ sum += num; 
+ if (sum == 0 || set.contains(sum)) { 
+ found = true; 
+ break; 
+ } 
+ set.add(sum); 
+ } 
+ System.out.println("Is there a subarray with sum equal to zero: " + found); 
+ } 
+} 
+
+OUTPUT: Is there a subarray with sum equal to zero: true `,
+
+                                    `17.Find the sum of the minimum elements of all subarrays 
+
+package com.code_with_pankaj; 
+public class SumOfMinElements { 
+public static void main(String[] args) { 
+ int[] array = { 3, 1, 2, 4 }; 
+ int n = array.length; 
+ int result = 0; 
+ for (int i = 0; i < n; i++) { 
+ int min = array[i]; 
+ for (int j = i; j < n; j++) { 
+ min = Math.min(min, array[j]); 
+ result += min; 
+ } 
+ } 
+ System.out.println("Sum of the minimum elements of all subarrays: " + result); 
+ } 
+} 
+
+OUTPUT: Sum of the minimum elements of all subarrays: 17 `,
+
+                                    `18.Find the maximum circular subarray sum 
+
+package com.code_with_pankaj; 
+public class MaxCircularSubarraySum { 
+public static void main(String[] args) { 
+ int[] array = { 8, -8, 9, -9, 10, -11, 12 }; 
+ int maxKadane = kadane(array); 
+ int maxWrap = 0; 
+ for (int i = 0; i < array.length; i++) { 
+ maxWrap += array[i]; 
+ array[i] = -array[i]; 
+ } 
+ maxWrap = maxWrap + kadane(array); 
+ int result = Math.max(maxKadane, maxWrap); 
+ System.out.println("Maximum circular subarray sum: " + result); 
+ } 
+private static int kadane(int[] array) { 
+ int maxSoFar = array[0], maxEndingHere = array[0]; 
+ for (int i = 1; i < array.length; i++) { 
+ maxEndingHere = Math.max(array[i], maxEndingHere + array[i]); 
+ maxSoFar = Math.max(maxSoFar, maxEndingHere); 
+ } 
+ return maxSoFar; 
+ } 
+} 
+
+OUTPUT: Maximum circular subarray sum: 22 `,
+
+                                    `19.Find the maximum sum of a subarray with exactly k elements 
+
+package com.code_with_pankaj; 
+public class MaxSumSubarrayExactlyK { 
+public static void main(String[] args) { 
+ int[] array = { 2, 1, 5, 1, 3, 2 }; 
+ int k = 3; 
+ int maxSum = 0; 
+ for (int i = 0; i < k; i++) { 
+ maxSum += array[i]; 
+ } 
+ int windowSum = maxSum; 
+ for (int i = k; i < array.length; i++) { 
+ windowSum += array[i] - array[i - k]; 
+ maxSum = Math.max(maxSum, windowSum); 
+ } 
+ System.out.println("Maximum sum of subarray with exactly " + k + " elements: " + maxSum);  
+ } 
+} 
+
+OUTPUT: Maximum sum of subarray with exactly 3 elements: 9`,
+
+                                    `20.Find the minimum difference between the sums of two subarrays of size n/2 
+
+package com.code_with_pankaj; 
+import java.util.Arrays; 
+public class MinDifferenceSubarrays { 
+public static void main(String[] args) { 
+ int[] array = { 1, 6, 11, 5 }; 
+ int totalSum = Arrays.stream(array).sum(); 
+ int n = array.length / 2; 
+ int targetSum = totalSum / 2; 
+ boolean[][] dp = new boolean[array.length + 1][targetSum + 1]; 
+ for (int i = 0; i <= array.length; i++) { 
+ dp[i][0] = true; 
+ } 
+ for (int i = 1; i <= array.length; i++) { 
+ for (int j = 1; j <= targetSum; j++) { 
+ if (array[i - 1] <= j) { 
+ dp[i][j] = dp[i - 1][j] || dp[i - 1][j - array[i - 1]]; 
+ } else { 
+ dp[i][j] = dp[i - 1][j]; 
+ } 
+ } 
+ } 
+ int sum1 = 0; 
+ for (int j = targetSum; j >= 0; j--) { 
+ if (dp[array.length][j]) { 
+ sum1 = j; 
+ break; 
+ } 
+ } 
+ int sum2 = totalSum - sum1; 
+ int minDifference = Math.abs(sum2 - sum1); 
+ System.out.println("Minimum difference between the sums of two subarrays of size n/2: "
++ minDifference); 
+ } 
+} 
+
+OUTPUT: Minimum difference between the sums of two subarrays of size n/2: 1 `,
+                                ]
+                            }
+                        ],
+
+                        expert: [
+                            {
+                                content: ``,
+                                codeExamples: [
+                                    `1.Check if a given array represents a Binary Search Tree or not 
+
+package com.code_with_pankaj; 
+public class ArrayRepresentsBST { 
+public static void main(String[] args) { 
+ int[] array = { 3, 5, 7, 9, 11, 13, 15 }; 
+ boolean isBST = isBST(array, 0, array.length - 1); 
+ System.out.println("Does the array represent a BST: " + isBST); 
+ } 
+public static boolean isBST(int[] array, int start, int end) { 
+ if (start >= end) { 
+ return true; 
+ } 
+ int mid = (start + end) / 2; 
+ if ((mid > 0 && array[mid] <= array[mid - 1]) || (mid < array.length - 1 && array[mid] >= 
+array[mid + 1])) { 
+ return false; 
+ } 
+ return isBST(array, start, mid - 1) && isBST(array, mid + 1, end); 
+ } 
+} 
+
+OUTPUT: Does the array represent a BST: true `,
+
+                                    `2.Find the maximum length of a subarray with a given sum 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+public class MaxLengthSubarrayGivenSum { 
+public static void main(String[] args) { 
+ int[] array = { 10, 5, 2, 7, 1, 9 }; 
+ int targetSum = 15; 
+ int maxLength = 0; 
+ int sum = 0; 
+ HashMap<Integer, Integer> map = new HashMap<>(); 
+ for (int i = 0; i < array.length; i++) { 
+ sum += array[i]; 
+ if (sum == targetSum) { 
+ maxLength = i + 1; 
+ } 
+ if (map.containsKey(sum - targetSum)) { 
+ maxLength = Math.max(maxLength, i - map.get(sum - targetSum)); 
+ } 
+ map.putIfAbsent(sum, i); 
+ } 
+ System.out.println("Maximum length of subarray with sum " + targetSum + ": " + maxLength); 
+ } 
+} 
+
+OUTPUT: Maximum length of subarray with sum 15: 4 `,
+
+                                    `3.Find the minimum length of a subarray with a given sum 
+
+package com.code_with_pankaj; 
+public class MinLengthSubarrayGivenSum { 
+public static void main(String[] args) { 
+ int[] array = { 2, 3, 1, 2, 4, 3 }; 
+ int targetSum = 7; 
+ int minLength = Integer.MAX_VALUE; 
+ int sum = 0; 
+ int left = 0; 
+ for (int right = 0; right < array.length; right++) { 
+ sum += array[right]; 
+ while (sum >= targetSum) { 
+ minLength = Math.min(minLength, right - left + 1); 
+ sum -= array[left++]; 
+ } 
+ } 
+ if (minLength == Integer.MAX_VALUE) { 
+ System.out.println("No subarray with the given sum found"); 
+ } else { 
+ System.out.println("Minimum length of subarray with sum " + targetSum + ": " + 
+minLength); 
+ } 
+ } 
+} 
+
+OUTPUT: Minimum length of subarray with sum 7: 2 `,
+
+                                    `4.Find the maximum length of a subarray with distinct elements 
+
+package com.code_with_pankaj; 
+import java.util.HashSet; 
+public class MaxLengthSubarrayDistinctElements { 
+public static void main(String[] args) { 
+ int[] array = { 5, 2, 3, 5, 4, 3 }; 
+ int maxLength = 0; 
+ int left = 0; 
+ HashSet<Integer> set = new HashSet<>(); 
+ for (int right = 0; right < array.length; right++) { 
+ while (set.contains(array[right])) { 
+ set.remove(array[left]); 
+ left++; 
+ } 
+ set.add(array[right]); 
+ maxLength = Math.max(maxLength, right - left + 1); 
+ } 
+ System.out.println("Maximum length of subarray with distinct elements: " + maxLength); 
+ } 
+} 
+
+OUTPUT: Maximum length of subarray with distinct elements: 4 `,
+
+                                    `5.Find the minimum length of a subarray with all elements of another array 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+import java.util.Map; 
+public class MinLengthSubarrayWithAllElements { 
+public static void main(String[] args) { 
+ int[] array1 = { 2, 3, 1, 2, 4, 3 }; 
+ int[] array2 = { 2, 4, 3 }; 
+ int minLength = Integer.MAX_VALUE; 
+ Map<Integer, Integer> map = new HashMap<>(); 
+ for (int num : array2) { 
+ map.put(num, map.getOrDefault(num, 0) + 1); 
+ } 
+ int left = 0; 
+ int count = 0; 
+ for (int right = 0; right < array1.length; right++) { 
+ if (map.containsKey(array1[right])) { 
+ map.put(array1[right], map.get(array1[right]) - 1); 
+ if (map.get(array1[right]) >= 0) { 
+ count++; 
+ } 
+ } 
+ while (count == array2.length) { 
+ minLength = Math.min(minLength, right - left + 1); 
+ if (map.containsKey(array1[left])) { 
+ map.put(array1[left], map.get(array1[left]) + 1); 
+ if (map.get(array1[left]) > 0) { 
+ count--; 
+ } 
+ } 
+ left++; 
+ } 
+ } 
+ if (minLength == Integer.MAX_VALUE) { 
+ System.out.println("No subarray contains all elements of the given array"); 
+ } else { 
+ System.out.println("Minimum length of subarray with all elements of given array: 
+" + minLength); 
+ } 
+ } 
+} 
+
+OUTPUT: Minimum length of subarray with all elements of given array: 3 `,
+
+                                    `6.Find the length of the smallest subarray with at least k distinct elements 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+import java.util.Map; 
+public class SmallestSubarrayWithKDistinct { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 1, 2, 3 }; 
+ int k = 2; 
+ int minLength = Integer.MAX_VALUE; 
+ Map<Integer, Integer> map = new HashMap<>(); 
+ int left = 0; 
+ for (int right = 0; right < array.length; right++) { 
+ map.put(array[right], map.getOrDefault(array[right], 0) + 1); 
+ while (map.size() >= k) { 
+ minLength = Math.min(minLength, right - left + 1); 
+ if (map.get(array[left]) == 1) { 
+ map.remove(array[left]); 
+ } else { 
+ map.put(array[left], map.get(array[left]) - 1); 
+ } 
+ left++; 
+ } 
+ } 
+ if (minLength == Integer.MAX_VALUE) { 
+ System.out.println("No subarray with at least " + k + " distinct elements found"); 
+ } else { 
+ System.out.println("Length of smallest subarray with at least " + k + " distinct 
+elements: " + minLength); 
+ } 
+ } 
+} 
+
+OUTPUT: Length of smallest subarray with at least 2 distinct elements: 2`,
+
+                                    `7.Find the longest subarray with the same element 
+
+package com.code_with_pankaj; 
+public class LongestSubarrayWithSameElement { 
+public static void main(String[] args) { 
+ int[] array = { 1, 1, 2, 2, 2, 3, 3 }; 
+ int maxLength = 1, currentLength = 1; 
+ for (int i = 1; i < array.length; i++) { 
+ if (array[i] == array[i - 1]) { 
+ currentLength++; 
+ } else { 
+ maxLength = Math.max(maxLength, currentLength); 
+ currentLength = 1; 
+ } 
+ } 
+ maxLength = Math.max(maxLength, currentLength); 
+ System.out.println("Length of longest subarray with the same element: " + maxLength); 
+ } 
+} 
+
+OUTPUT: Length of longest subarray with the same element: 3 `,
+
+                                    `8.Find the longest subarray with alternating even and odd elements 
+
+package com.code_with_pankaj; 
+public class LongestSubarrayAlternatingEvenOdd { 
+public static void main(String[] args) { 
+ int[] array = { 10, 12, 14, 7, 8 }; 
+ int maxLength = 1, currentLength = 1; 
+ for (int i = 1; i < array.length; i++) { 
+ if ((array[i] % 2 == 0 && array[i - 1] % 2 != 0) || (array[i] % 2 != 0 && array[i - 1] 
+% 2 == 0)) { 
+ currentLength++; 
+ } else { 
+ maxLength = Math.max(maxLength, currentLength); 
+ currentLength = 1; 
+ } 
+ } 
+ maxLength = Math.max(maxLength, currentLength); 
+ System.out.println("Length of longest subarray with alternating even and odd elements: " + 
+maxLength); 
+ } 
+} 
+
+OUTPUT: Length of longest subarray with alternating even and odd elements: 2`,
+
+                                    `9.Find the longest subarray with a sum less than or equal to a given value 
+
+package com.code_with_pankaj; 
+public class LongestSubarrayWithSumLE { 
+public static void main(String[] args) { 
+ int[] array = { 1, 2, 3, 4, 5 }; 
+ int target = 11; 
+ int maxLength = 0, sum = 0, left = 0; 
+ for (int right = 0; right < array.length; right++) { 
+ sum += array[right]; 
+ while (sum > target) { 
+ sum -= array[left++]; 
+ } 
+ maxLength = Math.max(maxLength, right - left + 1); 
+ } 
+ System.out.println("Longest subarray with a sum less than or equal to " + target + ": " + 
+maxLength); 
+ } 
+}
+
+OUTPUT: Longest subarray with a sum less than or equal to 11: 3 `,
+
+                                    `10.Find the number of subarrays with a given sum 
+
+package com.code_with_pankaj; 
+import java.util.HashMap; 
+public class SubarraysWithGivenSum { 
+public static void main(String[] args) { 
+ int[] array = { 10, 2, -2, -20, 10 }; 
+ int target = -10; 
+ int count = 0, sum = 0; 
+ HashMap<Integer, Integer> map = new HashMap<>(); 
+ for (int num : array) { 
+ sum += num; 
+ if (sum == target) { 
+ count++; 
+ } 
+ if (map.containsKey(sum - target)) { 
+ count += map.get(sum - target); 
+ } 
+ map.put(sum, map.getOrDefault(sum, 0) + 1); 
+ } 
+ System.out.println("Number of subarrays with sum " + target + ": " + count); 
+ } 
+} 
+ 
+OUTPUT: Number of subarrays with sum -10: 3 `
+                                ]
+                            }
+                        ]
+                    },
 
                     {
                         id: `String in java`,
@@ -3061,560 +6076,6 @@ Calling parameterized constructor of derived class
 • Constructors are not inherited, but they are executed.<br>
 • Helps in proper object initialization.
       `
-                            }
-                        ]
-                    },
-
-                    {
-                        id: `Array in java`,
-                        name: `Array in Java`,
-
-                        intermediate: [
-
-                            {
-                                content: `
-<b>Array</b><br>
-• Array is a collection of similar type of elements stored in contiguous memory locations.<br>
-• Java array is an object that contains elements of the same data type.<br>
-• Array size is fixed and cannot grow at runtime.<br>
-• Array is index-based, starting from index <b>0</b>.<br>
-<img src="./src/assets/array1.png" 
-     alt="String in Java" 
-     class="d-block mx-auto" />
-`
-                            },
-
-                            {
-                                content: `
-<h4>Advantages of Array</h4>
-• Code Optimization – efficient data access and sorting<br>
-• Random Access – direct access using index<br><br>
-
-<h4>Disadvantages of Array</h4>
-• Fixed size – cannot grow dynamically<br>
-• Memory wastage may occur<br>
-• Collection framework overcomes this limitation<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>Types of Arrays in Java</h4>
-1. Single Dimensional Array<br>
-2. Multidimensional Array<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>Single Dimensional Array</h4>
-<b>Declaration Syntax</b><br>
-1. dataType[] arr;<br>
-2. dataType []arr;<br>
-3. dataType arr[];<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>Array Declaration, Instantiation & Initialization</h4>
-`,
-                                codeExamples: [
-                                    `int a[] = new int[5];
-a[0] = 10;
-a[1] = 20;
-a[2] = 30;
-a[3] = 40;
-a[4] = 50;
-
-for(int i=0;i<a.length;i++){
-    System.out.println(a[i]);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Array Initialization in Single Line</h4>
-`,
-                                codeExamples: [
-                                    `int a[] = {10, 20, 30};
-
-for(int i=0;i<a.length;i++){
-    System.out.println(a[i]);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>For-each Loop with Array</h4>
-We can also print the Java array using for-each loop. The Java for-each loop prints the array elements
-one by one. It holds an array element in a variable, then executes the body of the loop.
-`,
-                                codeExamples: [
-                                    `int arr[] = {10, 20, 30, 40};
-
-for(int i : arr){
-    System.out.println(i);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Passing Array to Method</h4>
-We can pass the java array to method so that we can reuse the same logic on any array.
-`,
-                                codeExamples: [
-                                    `static void min(int arr[]){
-    int min = arr[0];
-    for(int i=1;i<arr.length;i++){
-        if(min > arr[i])
-            min = arr[i];
-    }
-    System.out.println(min);
-}
-
-int a[] = {33, 3, 4, 5};
-min(a);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Anonymous Array</h4>
-Java supports the feature of an anonymous array, so you don't need to declare the array while passing an
-array to the method.
-`,
-                                codeExamples: [
-                                    `printArray(new int[]{10, 22, 44, 66});`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Returning Array from Method</h4>
-We can also return an array from the method in Java.
-`,
-                                codeExamples: [
-                                    `static int[] get(){
-    return new int[]{10, 30, 50, 90, 60};
-}
-
-int arr[] = get();
-for(int i : arr){
-    System.out.println(i);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>ArrayIndexOutOfBoundsException</h4>
-The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException if length of the array in
-negative, equal to the array size or greater than the array size while traversing the array.`,
-                                codeExamples: [
-                                    `int arr[] = {50, 60, 70, 80};
-for(int i=0;i<=arr.length;i++){
-    System.out.println(arr[i]);
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Multidimensional Array</h4>
-• Stored in row and column format (matrix)<br>
-`,
-                                codeExamples: [
-                                    `int arr[][] = {
-    {1,2,3},
-    {2,4,5},
-    {4,4,5}
-};
-
-for(int i=0;i<3;i++){
-    for(int j=0;j<3;j++){
-        System.out.print(arr[i][j]+" ");
-    }
-    System.out.println();
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Jagged Array</h4>
-If we are creating odd number of columns in a 2D array, it is known as a jagged array. In other words, it
-is an array of arrays with different number of columns.`,
-                                codeExamples: [
-                                    `int arr[][] = new int[3][];
-arr[0] = new int[3];
-arr[1] = new int[4];
-arr[2] = new int[2];`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Copying an Array</h4>
-We can copy an array to another by the arraycopy() method of System class.
-`,
-                                codeExamples: [
-                                    `char[] src = {'d','e','c','a','f','f','e','i','n'};
-char[] dest = new char[7];
-
-System.arraycopy(src, 2, dest, 0, 7);
-System.out.println(String.valueOf(dest));`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Cloning an Array</h4>
-Since, Java array implements the Cloneable interface, we can create the clone of the Java array. If we
-create the clone of a single-dimensional array, it creates the deep copy of the Java array. It means, it will
-copy the actual value. But, if we create the clone of a multidimensional array, it creates the shallow copy
-of the Java array which means it copies the references.
-`,
-                                codeExamples: [
-                                    `int arr[] = {33, 3, 4, 5};
-int clone[] = arr.clone();
-
-System.out.println(arr == clone); // false`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Matrix Addition</h4>
-In the case of matrix multiplication, a one-row element of the first matrix is multiplied by all the
-columns of the second matrix which can be understood by the image given below.
-`,
-                                codeExamples: [
-                                    `int a[][] = {{1,3,4},{3,4,5}};
-int b[][] = {{1,3,4},{3,4,5}};
-int c[][] = new int[2][3];
-
-for(int i=0;i<2;i++){
-    for(int j=0;j<3;j++){
-        c[i][j] = a[i][j] + b[i][j];
-        System.out.print(c[i][j]+" ");
-    }
-    System.out.println();
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Matrix Multiplication</h4>
-`,
-                                codeExamples: [
-                                    `int a[][] = {{1,1,1},{2,2,2},{3,3,3}};
-int b[][] = {{1,1,1},{2,2,2},{3,3,3}};
-int c[][] = new int[3][3];
-
-for(int i=0;i<3;i++){
-    for(int j=0;j<3;j++){
-        c[i][j]=0;
-        for(int k=0;k<3;k++){
-            c[i][j]+=a[i][k]*b[k][j];
-        }
-        System.out.print(c[i][j]+" ");
-    }
-    System.out.println();
-}`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Find 3rd Largest Element</h4>
-`,
-                                codeExamples: [
-                                    `Arrays.sort(a);
-System.out.println(a[a.length-3]);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<div class="bg-secondary p-2 rounded-md">
-<h4>Important Interview Questions</h4>
-1. What is array?<br>
-2. Why array size is fixed?<br>
-3. Difference between array & collection<br>
-4. What is jagged array?<br>
-5. Array vs ArrayList<br>
-</div>
-`
-                            }
-
-                        ]
-                    },
-
-                    {
-                        id: `String in java`,
-                        name: `String in Java`,
-
-                        intermediate: [
-
-                            {
-                                content: `
-      String: 
-      It is the class that represents sequence of character.<br>
-Package: Java.lang.<br>
-Strings in Java are a sequence of characters, and they are one of the most commonly used data types
-for storing and manipulating text.<br>
-<img src="./src/assets/string.png" 
-     alt="String in Java" 
-     class="d-block mx-auto" />
-
-
-<b>Q. Why String is Immutable in Java?</b><br>
-• String is immutable, once a String object is created it cannot be changed.<br>
-• Any modification creates a <b>new String object</b>.<br>
-• Improves <b>security, memory efficiency, and thread safety</b>.<br><br>
-
-<b>CharSequence Interface</b><br>
-• Represents a sequence of characters.<br>
-• Implemented by String, StringBuffer, StringBuilder.<br>
-• Allows treating all three uniformly.<br>
-<img src="./src/assets/string2.png" 
-     alt="String in Java" 
-     class="d-block mx-auto" />
-
-`
-                            },
-
-                            {
-                                content: `
-<h4>Creating String Objects</h4>
-1. String Literal<br>
-2. Using new keyword<br>
-3. Using Character Array<br>
-4. Using String Methods<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>1. String Literal</h4>
-• Created using double quotes.<br>
-• Stored in <b>String Constant Pool</b>.<br>
-• JVM reuses existing objects for memory efficiency.<br>
-`,
-                                codeExamples: [
-                                    `String s1 = "pankaj";
-String s2 = "pankaj";
-System.out.println(s1 == s2); // true`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>2. Using new Keyword</h4>
-• Always creates a new object in heap memory.<br>
-• Even if value exists in String Pool.<br>
-`,
-                                codeExamples: [
-                                    `String s1 = "pankaj";
-String s2 = new String("pankaj");
-
-System.out.println(s1 == s2);      // false
-System.out.println(s1.equals(s2)); // true`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>String Immutability Example</h4>
-• concat() does not modify original String.<br>
-• New object is created.<br>
-`,
-                                codeExamples: [
-                                    `String s = "pankaj";
-s = s.concat("bhande");
-System.out.println(s); // pankajbhande`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>String Manipulation Methods</h4>
-• length()<br>
-• concat()<br>
-• charAt()<br>
-• substring()<br>
-• toUpperCase()<br>
-• trim()<br>
-• replace()<br>
-`,
-                                codeExamples: [
-                                    `String original = "Code With Pankaj";
-
-System.out.println("Length: " + original.length());
-System.out.println("Concatenated: " + original.concat(" is fun!"));
-System.out.println("First Char: " + original.charAt(0));
-System.out.println("Substring: " + original.substring(5, 16));
-System.out.println("Uppercase: " + original.toUpperCase());
-System.out.println("Trimmed: " + " Java ".trim());
-System.out.println("Replaced: " + original.replace('a', '@'));`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>String Comparison</h4>
-<b>3 Ways:</b><br>
-1. equals() → Content comparison<br>
-2. == → Reference comparison<br>
-3. compareTo() → Lexicographical comparison<br>
-<img src="./src/assets/string6.png" 
-     alt="String in Java" 
-     class="d-block mx-auto" />
-
-`,
-                                codeExamples: [
-                                    `String s1 = "Pankaj";
-String s2 = "Pankaj";
-String s3 = new String("Pankaj");
-
-System.out.println(s1.equals(s2)); // true
-System.out.println(s1 == s3);      // false`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>compareTo() Example</h4>
-`,
-                                codeExamples: [
-                                    `String s1 = "Pankaj";
-String s2 = "Pankaj";
-String s3 = "Dheeraj";
-
-System.out.println(s1.compareTo(s2)); // 0
-System.out.println(s1.compareTo(s3)); // positive
-System.out.println(s3.compareTo(s1)); // negative`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>String Concatenation Techniques</h4>
-1. + operator<br>
-2. concat() method<br>
-3. StringBuilder<br>
-4. String.format()<br>
-5. String.join()<br>
-`,
-                                codeExamples: [
-                                    `String s = "Pankaj" + " Bhande";
-System.out.println(s);`,
-
-                                    `StringBuilder sb = new StringBuilder("Hello");
-sb.append(" Pankaj");
-System.out.println(sb.toString());`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Concatenation Using format()</h4>
-`,
-                                codeExamples: [
-                                    `String s1 = "Hello";
-String s2 = " Pankaj";
-String s = String.format("%s%s", s1, s2);
-System.out.println(s);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Concatenation Using String.join()</h4>
-`,
-                                codeExamples: [
-                                    `String s = String.join("", "Hello", " Pankaj");
-System.out.println(s);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Concatenation Using StringJoiner</h4>
-`,
-                                codeExamples: [
-                                    `StringJoiner sj = new StringJoiner(", ");
-sj.add("Hello");
-sj.add("Pankaj");
-System.out.println(sj.toString());`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Character Array to String</h4>
-• String can be created from char array.<br>
-• Char array is mutable, String is immutable.<br>
-`,
-                                codeExamples: [
-                                    `char[] arr = {'H','e','l','l','o'};
-String str = new String(arr);
-System.out.println(str);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Counting Spaces in String</h4>
-`,
-                                codeExamples: [
-                                    `String str = "Code With Pankaj";
-int count = 0;
-
-for(int i=0;i<str.length();i++){
-    if(str.charAt(i)==' '){
-        count++;
-    }
-}
-System.out.println("Total spaces: " + count);`
-                                ]
-                            },
-
-                            {
-                                content: `
-<h4>Why String is Immutable? (Interview)</h4>
-1. ClassLoader safety<br>
-2. Thread safety<br>
-3. Security (passwords, DB URLs)<br>
-4. Heap memory optimization<br>
-`
-                            },
-
-                            {
-                                content: `
-<h4>Difference Between String, StringBuffer, StringBuilder</h4>
-• String → Immutable, Thread-safe<br>
-• StringBuffer → Mutable, Thread-safe<br>
-• StringBuilder → Mutable, Fastest, Not Thread-safe<br>
-`
-                            },
-
-                            {
-                                content: `
-<div class="bg-secondary p-2 rounded-md">
-<h4>Important Interview Questions</h4>
-1. Why String is immutable?<br>
-2. What is String Constant Pool?<br>
-3. == vs equals()<br>
-4. StringBuffer vs StringBuilder<br>
-5. How JVM handles + operator?<br>
-</div>
-`
                             }
                         ]
                     },
@@ -8208,10 +10669,574 @@ thread’s local cache. <br><br>
                 ]
             },
 
+            {
+                id: 'exception-handling',
+                name: 'Exception Handling in Java',
+                topics: [
+
+                    {
+                        id: 'exception-handling',
+                        name: 'Exception Handling in Java',
+                        intermediate: [
+                            {
+                                content: `It is the abnormal condition that occur during execution of program to stop the entire flow of
+application called as “Exception Handling.” <br>
+
+Exception handling in Java is all about managing errors and exceptions gracefully so that they don't
+crash your program unexpectedly. <br>
+Why? <br>
+
+<img src="/src/assets/exceptionHierarchy.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+`,
+                                codeExamples: [
+                                    `package com. pankaj;
+public class Test {
+public static void main(String[] args) {
+System.out.println("First line");
+System.out.println("Second line");
+System.out.println("Third line");
+}
+}
+Output:
+First line
+Second line
+Third line
+
+
+Now we add one exception line code as below
+package com. pankaj;
+public class Test {
+public static void main(String[] args) {
+System.out.println("First line");
+System.out.println("Second line");
+System.out.println("Third line");
+int a = 10 / 0;
+System.out.println("Fourth line");
+System.out.println("Fifth line");
+}
+
+}
+Output
+First line
+Second line
+Third line
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+at com.DHI_PANcom.exam.Pank.main(Pank.java:9)
+
+
+In this example, two statements are not executed, if you want to execute those two statements then
+how to do it in java? Then you should go for exception handling.
+package com.pankaj;
+public class Test {
+public static void main(String[] args) {
+System.out.println("First line");
+System.out.println("Second line");
+System.out.println("Third line");
+try {
+int a = 10 / 0;
+} catch (Exception e) {
+System.out.println(e);
+}
+System.out.println("Fourth line");
+System.out.println("Fifth line");
+}
+}
+
+Output-
+First line
+
+Second line
+Third line
+java.lang.ArithmeticException: / by zero
+Fourth line
+Fifth line
+
+( Here 2 statements are executed i.e 4th line and 5th line, we have achieved this by using try and catch
+
+block )
+}`
+
+                                ]
+                            },
+                            {
+
+                                content: `
+        A. Throwable <br>
+• In the above given Hierarchy Throwable is a class which is at the top of the exception hierarchy,
+from which all exception classes are derived.<br>
+• It is the super class of all Exceptions in Java.<br>
+• Both Exception and Errors are java classes which are derived from the Throwable class.<br><br>
+B. Error<br>
+• Error is subclass of throwable class.<br>
+• Errors are mostly the abnormal conditions.<br>
+• Error occur because of the programmer’s mistakes, but when system is not working properly or a
+resource is not allocated properly.<br>
+• Memory out of bound exception, stack overflow etc., are examples of Error. We can handle error
+because which are related to environment or system.`
+                            },
+
+                        ]
+                    },
+
+                    {
+                        id: 'exceptions',
+                        name: 'Difference between Checked and Unchecked Exceptions',
+                        intermediate: [
+                            {
+                                content: `<h3>1) Checked Exception - (Compile Time Exception) </h3>
+
+• The classes which directly inherit from Throwable class except RuntimeException & Error are
+known as Checked Exceptions.<br>
+• Checked exceptions are checked at compile-time. <br><br>
+
+Example- <br>
+1. IOException  <br>
+2. SQLException  <br>
+3. ClassNot Found Exception  <br> <br><br>
+
+<h3>2) Unchecked Exception – (Run Time Exception) </h3>
+• Unchecked Exceptions: The classes which inherit from RuntimeException <br>
+• Unchecked exceptions: not checked at compile-time, but they are checked at runtime.
+<br><br>
+Example-  <br>
+1. ArithmeticException <br>
+2. NullPointerException  <br>
+3. ArrayIndexOutOfBoundsException <br>
+4. NumberFormatException  <br>
+5. InputMismatchException  <br>
+6. IllegalStateException  <br>`,
+                                codeExamples: [
+                                    `1. ArithmeticException
+package com.test;
+public class Test {
+public static void main(String[] args) {
+int a = 10 / 0;
+}
+}
+Output
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+at com.test.Test.main(Test.java:7)
+}`,
+
+                                    `2. NullPointerException
+
+package com.test;
+public class Test {
+public static void main(String[] args) {
+String str = null;
+System.out.println(str.length()); //exception will be occured.
+}
+}
+
+Output
+Exception in thread "main" java.lang.NullPointerException
+at com.test.Test.main(Test.java:8)
+}`,
+
+                                    `3. ArrayIndexOutOfBoundsException
+
+package com.test;
+public class Test {
+public static void main(String[] args) {
+int a[] = new int[5]; // Index: 5
+a[10] = 50; // ArrayIndexOutOfBoundsException
+}
+}
+
+Output
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 10
+at com.test.Test.main(Test.java:8)
+}`,
+
+                                    `4. NumberFormatException
+package com.exam;
+public class Test {
+public static void main(String[] args) {
+int a = Integer.parseInt(null);
+// throws Exception as the input string is of illegal format for parsing as it is null.
+}
+}
+OUTPUT: Exception in thread "main" java.lang.NumberFormatException: Cannot parse null string
+at java.base/java.lang.Integer.parseInt(Integer.java:630)
+at java.base/java.lang.Integer.parseInt(Integer.java:786)
+at com.DHI_PANcom.exam.Pank.main(Pank.java:5)
+
+
+package com.DHI_PANcom.exam;
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+System.out.println("Please Enter your age : ");
+// throws Exception as if the input string is of illegal format for parsing as it as null or alphanumeric.
+int age = Integer.parseInt(sc.next()); // We Pass Not int value then we got such Excp.
+System.out.println("Your age is : " + age);
+}
+}
+OUTPUT: Please Enter your age :
+25+
+Exception in thread "main" java.lang.NumberFormatException: For input string: "25+"
+at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+at java.base/java.lang.Integer.parseInt(Integer.java:668)
+at java.base/java.lang.Integer.parseInt(Integer.java:786)
+at com.DHI_PANcom.exam.Pank.main(Pank.java:11)
+}`,
+
+                                    `5. InputMismatchExceptionExample1.java
+
+package com.exam;
+//import required classes and packages
+import java.util.InputMismatchException;
+import java.util.Scanner;
+//create class InputMismatchExample1 to understand how Scanner throws InputMismatchException
+
+
+public class InputMismatchExample1 {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+// use try-catch block for taking input from the user and handling exception
+try {
+System.out.println("Enter value of a to get its square value:");
+Integer a = sc.nextInt(); // we give any float value as input
+System.out.println((a * a));
+} catch (InputMismatchException ex) {
+System.out.println(ex);
+}
+}
+}
+
+OUTPUT:
+Enter value of a to get its square value:
+2.5
+java.util.InputMismatchException
+
+
+
+// import required classes and packages
+package javaTpoint.MicrosoftJava;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+// create class InputMismatchExample2 to understand how Scanner throws InputMismatchException
+public class InputMismatchExample2 {
+public static void main(String[] args) { // main() method start
+Scanner sc = new Scanner(System.in); // create scanner class object
+// use try-catch block for taking input from the user and handling exception
+try {
+System.out.println("Enter value of a to get its square value:");
+Integer a = sc.nextInt(); // we give big integer value as input
+System.out.println((a * a));
+} catch (InputMismatchException ex) {
+
+
+System.out.println(ex);
+}
+}
+}
+
+
+OUTPUT:
+Enter value of a to get its square value:
+1.11111111
+java.util.InputMismatchException
+          }`,
+
+
+                                    `6. IllegalStateException
+
+package com.exam;
+import java.util.ArrayList;
+import java.util.Iterator;
+public class IllegalStateExceptionExample {
+public static void main(String args[]) {
+ArrayList <String> list = new ArrayList<String>();
+list.add("a");
+list.add("b");
+list.add("c");
+Iterator<String> itr = list.iterator();
+itr.remove();
+}
+}
+
+
+OUTPUT:
+Exception in thread "main" java.lang.IllegalStateException
+at java.base/java.util.ArrayList$Itr.remove(ArrayList.java:980)
+at com.exam.IllegalStateExceptionExample.main(IllegalStateExceptionExample.java:14)
+
+
+
+package com.exam;
+// importing necessary packages
+import java.util.ArrayList;
+
+
+import java.util.ListIterator;
+public class IllegalStateExceptionTest3 {
+public static void main(String args[]) { // main method
+ArrayList<String> list = new ArrayList<String>();
+list.add("Nirnay");
+list.add("Anu");
+list.add("Swara");
+list.add("Pavan");
+
+// creating the iterator object to iterate the list
+ListIterator<String> itr = list.listIterator();
+// removing the element without moving to first position gives an exception
+itr.remove();
+}
+}
+
+
+OUTPUT:
+Exception in thread "main" java.lang.IllegalStateException
+at java.base/java.util.ArrayList$Itr.remove(ArrayList.java:980)
+at com.exam.IllegalStateExceptionTest3.main(IllegalStateExceptionTest3.java:22)
+          }`
+                                ]
+                            }
+                        ]
+                    },
+
+                    {
+                        id: 'error',
+                        name: 'Error ',
+                        intermediate: [
+                            {
+                                content: `<h3> 2) Error</h3>
+Error is irrecoverable e.g. OutOfMemoryError, VirtualMachineError, AssertionError etc.<br>
+
+Possible way to write try catch block <br>
+
+<img src="/src/assets/trycatch1.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+<img src="/src/assets/trycatch2.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+<img src="/src/assets/trycatch3.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+<img src="/src/assets/trycatch4.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+<img src="/src/assets/trycatch5.1.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+<img src="/src/assets/trycatch5.2.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+<img src="/src/assets/trycatch6.png" alt="Online Image"class="d-block mx-auto h-80"/><br>
+
+
+<h2>Not allowed – What is the reason?</h2>
+
+The bigger exception cannot be in the first catch because it will accommodate or handle all exceptions
+and there will be no chance to reach the second catch of NullpointerException.<br><br>
+
+<img src="/src/assets/trycatch8.png" alt="Online Image"class="d-block mx-auto h-80"/>
+<img src="/src/assets/trycatch8.2.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+
+<h2>Finally</h2>
+
+The finally block is used when an important part of the code needs to be executed. <br>
+It is always executed whether or not the exceptions are handled. <br>
+• Finally block will always get executed until we shut down JVM.
+ To shut down JVM in java we call System.exit (). If you write this in try block in that case finally block will not be executed.<br><br>
+• Normally, finally block contains the code to release resources like DB connections, IO streams etc.<br> <br>
+
+try { <br>
+// Code that might throw an exception <br>
+} <br>
+catch (ExceptionType e) { <br>
+// Handle the exception <br>
+} <br>
+ finally { <br>
+// Code that will always execute <br>
+}
+<br><br>
+
+<img src="/src/assets/catchfinallydiff.png" alt="Online Image"class="d-block mx-auto h-80"/>  `
+
+                            }
+                        ]
+                    },
+                    {
+                        id: 'error2',
+                        name: 'Exception Handling Interview Question & Answer',
+                        intermediate: [
+                            {
+                                content: `
+01. What is Exception Handling? Explain types of Exception. <br>
+
+02. Difference between Exception & Error. <br>
+<img src="/src/assets/exceperrordiff.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+
+03. Difference between Checked & Unchecked Exception.
+<img src="/src/assets/exceptiondiff.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+
+04. How to handle exception or multiple exception in JAVA? <br><br>
+<h3>Using Single catch block: </h3> 
+• If there is a hierarchy of exceptions in the catch block, then we can catch the base exception only
+instead of catching multiple specialized exceptions. By this we can catch multiple exceptions in a
+single catch block. <br>
+OR
+<br>
+<h3>Using Multi catch block: </h3>  
+• We can use multi-catch block to catch multiple exceptions. A try block can be followed by one or
+more catch blocks. Each catch block must contain a different exception handler.
+<br>
+
+05. Which keywords used for handling the exception in JAVA?<br>
+<img src="/src/assets/exception2.png" alt="Online Image"class="d-block mx-auto h-80"/> <br>
+
+06. Explain Finally. <br>
+Finally: <br>
+• Finally is a block which is always executed whether the exceptions are occurs or not. It is used to
+execute the necessary code of the program. <br>
+• Finally block will not be execute when shut down JVM by System.exit () in try block. <br>
+• Finally block is used to clean up code, close the connection, etc.<br>
+<br>
+
+07. What is custom exception? How to create custom exception class? <br>
+Custom Exception: <br>
+• We can create our own Exception is known as custom exception. Custom Exception is also called as
+User-defined exception. <br>
+• We need to extend java.lang.Exception class to create our own exception class.<br>
+• We are passing a string argument in the constructor of the custom exception and return that object. <br>
+<h3>Why we need Custom Exceptions? </h3> 
+Java has a lot of exceptions such as IOException, NullPointerException, etc, but these exceptions will
+not always be the best fit for the business requirements. So, we need Custom Exception. <br>
+Steps to create Custom Exception: <br>
+• Create a class which extend java.lang.Exception or java.lang.RunTimeException class.<br>
+• Always prefer an unchecked, Runtime exception than a checked exception.<br>
+• In Custom exception class, parametrized Constructor must called by using super keyword. <br>
+
+08. What is Concurrent Modification Exception?<br>
+Concurrent Modification Exception: <br>
+• When a thread in a program is trying to modify an object, which does not have permissions to
+be edited then Concurrent Modification Exception occurs. <br>
+• It is child class of RuntimeException.<br> `
+                            }
+                        ]
+                    },
+
+                    {
+                        id: 'exception-handling3',
+                        name: 'throw and throws in Java',
+                        intermediate: [
+                            {
+                                content: `
+<h3>Throw: </h3>
+The throw keyword is used to transfer the exception to someone else.<br>
+Example: throw new ArithmeticException (); <br>
+
+<h3>Throws:</h3> 
+Throws keyword is used to declare the exception with method. <br>
+Example: <br>
+void x1()throws IOException{ <br>
+x2(); <br>
+}
+<br>
+
+What is the difference between Checked Exception and Unchecked Exception keyword? (Self-assignment) <br>
+
+What is the difference between throw and throws? (Self-assignment)? <br>
+
+How to Create the Custom Exception in Java. <br>
+• We can create our own Exception that is known as custom exception or user-defined exception.<br>
+• By the help of custom exception, you can have your own exception and message.<br>
+Example-1- Scenario <br>
+Sometimes it is required to develop meaningful exceptions based on application requirements.
+For Example: Suppose you have 1 savings account in SBI Bank & you have 50000 in your account.
+Suppose you attempted to withdraw 60000 from your account. In java you can handle. You need to
+display some error message related to insufficient fund. <br> 
+Steps to create the user defined exception <br>
+1. Create the new class. <br>
+2. The user defined exception class must extend from java.lang.Exception or
+java.lang.RunTimeException class. <br>
+3. While creating custom exception, prefer to create an unchecked, Runtime exception than a checked
+exception. <br>
+4. Every user defined exception class in which parametrized Constructor must called Parametrized
+Constructor of either java.lang.Exception or java.lang.RunTimeException class by using super
+(string parameter always).`,
+                                codeExamples: [
+                                    `Example - 01
+
+package com.code_with_pankaj;
+public class InsufficientFundException extends RuntimeException {
+private String message;
+public InsufficientFundException(String message) {
+//this.message = message;
+super(message);
+}
+}
+}
+
+
+package com.code_with_pankaj;
+public class Account {
+private int balance = 3000;
+public int balance() {
+return balance;
+}
+public void withdraw(int amount) {
+if (amount > balance) {
+throw new InsufficientFundException("Insufficient balance in your A/C ");
+}
+balance = balance - amount;
+}
+}
+
+package com.code_with_pankaj;
+public class MainTest {
+public static void main(String[] args) {
+Account account = new Account();
+
+System.out.println("Current balance : " + account.balance());
+account.withdraw(3500);
+System.out.println("Current balance : " + account.balance());
+}
+}`,
+
+                                    `Example - 02
+package com.code_with_pankaj;
+
+class Test extends Exception {
+public Test(String s) {
+super(s);
+}
+}
+
+package com.code_with_pankaj;
+public class Test1 {
+public static void main(String[] args) {
+try {
+throw new Test("Invalid input");
+} catch (Exception e) {
+e.getMessage();
+}
+}
+}`,
+
+                                    `Java throw Example
+TestThrow.java
+package com.code_with_pankaj;
+public class Example {
+// defining a method
+public static void checkNum(int num) {
+if (num < 1) {
+
+
+
+throw new ArithmeticException("\nNumber is negative, cannot calculate square");
+} else {
+System.out.println("Square of " + num + " is " + (num * num));
+}
+}
+public static void main(String[] args) {
+Example obj = new Example();
+obj.checkNum(-3);
+System.out.println("Rest of the code..");
+}
+}`
+
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
 
         ],
-
-
 
 
         cheatNotes: [
@@ -8270,6 +11295,258 @@ thread’s local cache. <br><br>
         ]
     },
 
+    {
+        id: 'jdbc',
+        name: 'JDBC',
+        icon: 'Database',
+        subTopics: [
+            {
+                id: 'jdbc basic',
+                name: 'JDBC Basics',
+                topics: [
+                    {
+                        id: 'introductiontojdbc',
+                        name: 'Introduction to JDBC',
+                        beginner: [
+                            {
+                                content: `JDBC (Java Database Connectivity) is an API for connecting and executing queries with databases.
 
+  JDBC Components:
+  • DriverManager: Manages database drivers
+  • Connection: Establishes connection to database
+  • Statement: Executes SQL queries
+  • ResultSet: Holds query results
+  • SQLException: Handles database errors`,
+                                codeExamples: [
+                                    `import java.sql.*;
+
+  public class JDBCExample {
+      public static void main(String[] args) {
+          String url = "jdbc:mysql://localhost:3306/school";
+          String user = "root";
+          String password = "password";
+
+          try {
+              // Load driver
+              Class.forName("com.mysql.cj.jdbc.Driver");
+
+              // Establish connection
+              Connection con = DriverManager.getConnection(url, user, password);
+
+              // Create statement
+              Statement stmt = con.createStatement();
+
+              // Execute query
+              ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+
+              // Process results
+              while (rs.next()) {
+                  System.out.println(rs.getInt("id") + " " + rs.getString("name"));
+              }
+
+              // Close connections
+              rs.close();
+              stmt.close();
+              con.close();
+          } catch (Exception e) {
+              e.printStackTrace();
+          }
+      }
+  }`
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        cheatNotes: [
+            'Class.forName() - Load driver',
+            'DriverManager.getConnection() - Connect to DB',
+            'createStatement() - Create statement',
+            'executeQuery() - Execute SELECT',
+            'executeUpdate() - Execute INSERT/UPDATE/DELETE',
+            'PreparedStatement - Parameterized queries',
+            'CallableStatement - Stored procedures',
+            'ResultSet - Query results',
+            'setAutoCommit(false) - Transaction control',
+            'commit() / rollback() - Commit or rollback'
+        ],
+        interviewQuestions: [
+            {
+                company: 'Infosys',
+                questions: [
+                    'What is JDBC and explain its architecture?',
+                    'What is the difference between Statement and PreparedStatement?',
+                    'How do you handle transactions in JDBC?',
+                    'What are different types of JDBC drivers?',
+                    'Explain connection pooling'
+                ]
+            }
+        ]
+    },
+   
+    {
+        id: 'spring-mvc',
+        name: 'Spring MVC',
+        icon: 'Code',
+        subTopics: [
+            {
+                id: 'springMVC',
+                name: 'Spring MVC Basics',
+                topics: [
+                    {
+                        id: 'introductiontospringmvc',
+                        name: 'Introduction to Spring MVC',
+                        beginner: [
+                            {
+                                content: `Spring MVC is a web framework built on the Model-View-Controller pattern.
+
+  Components:
+  • DispatcherServlet: Front controller
+  • Controller: Handles requests
+  • Model: Data
+  • View: Presentation
+  • ViewResolver: Resolves view names
+
+  Request Flow:
+  1. Client sends request
+  2. DispatcherServlet receives request
+  3. Handler mapping finds controller
+  4. Controller processes request
+  5. Returns ModelAndView
+  6. ViewResolver resolves view
+  7. View renders response`,
+                                codeExamples: [
+                                    `@Controller
+  public class HomeController {
+
+      @GetMapping("/")
+      public String home(Model model) {
+          model.addAttribute("message", "Welcome to Spring MVC");
+          return "home";
+      }
+
+      @PostMapping("/submit")
+      public String submit(@RequestParam String name, Model model) {
+          model.addAttribute("name", name);
+          return "result";
+      }
+  }`
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        cheatNotes: [
+            '@Controller - Mark class as controller',
+            '@RequestMapping - Map URL to method',
+            '@GetMapping - Handle GET requests',
+            '@PostMapping - Handle POST requests',
+            '@RequestParam - Bind request parameter',
+            '@PathVariable - Bind URL path variable',
+            '@ModelAttribute - Bind form object',
+            'Model - Pass data to view',
+            '@ResponseBody - Return raw data',
+            '@RestController - REST controller'
+        ],
+        interviewQuestions: [
+            {
+                company: 'Cognizant',
+                questions: [
+                    'What is Spring MVC and its components?',
+                    'Explain the request flow in Spring MVC',
+                    'What is DispatcherServlet?',
+                    'What is the difference between @Controller and @RestController?',
+                    'How do you handle exceptions in Spring MVC?'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'spring-boot',
+        name: 'Spring Boot',
+        icon: 'Code',
+        subTopics: [
+            {
+                id: 'springboot',
+                name: 'Spring Boot Basics',
+                topics: [
+                    {
+                        id: 'introductiontospringboot',
+                        name: 'Introduction to Spring Boot',
+                        beginner: [
+                            {
+                                content: `Spring Boot is a framework that simplifies Spring application development with auto-configuration and embedded servers.
+
+  Key Features:
+  • Auto-configuration: Automatically configures beans
+  • Starter dependencies: Pre-configured dependencies
+  • Embedded server: Tomcat, Jetty, or Undertow
+  • Production-ready: Actuator for monitoring
+  • No XML configuration: Annotation-based
+
+  Advantages:
+  • Rapid development
+  • Microservices support
+  • Easy testing
+  • Reduced boilerplate code`,
+                                codeExamples: [
+                                    `@SpringBootApplication
+  public class Application {
+      public static void main(String[] args) {
+          SpringApplication.run(Application.class, args);
+      }
+  }
+
+  @RestController
+  @RequestMapping("/api")
+  public class ApiController {
+
+      @GetMapping("/hello")
+      public String hello() {
+          return "Hello from Spring Boot!";
+      }
+
+      @PostMapping("/user")
+      public User createUser(@RequestBody User user) {
+          // Save user logic
+          return user;
+      }
+  }`
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        cheatNotes: [
+            '@SpringBootApplication - Main annotation',
+            '@RestController - REST controller',
+            '@Service - Service layer',
+            '@Repository - Data access layer',
+            '@Autowired - Dependency injection',
+            '@Value - Inject property value',
+            '@ConfigurationProperties - Bind properties',
+            'application.properties - Configuration file',
+            'Spring Actuator - Monitoring',
+            '@EnableAutoConfiguration - Auto-configure'
+        ],
+        interviewQuestions: [
+            {
+                company: 'Capgemini',
+                questions: [
+                    'What is Spring Boot and its advantages?',
+                    'Explain Spring Boot auto-configuration',
+                    'What are Spring Boot starters?',
+                    'How do you configure different environments in Spring Boot?',
+                    'What is Spring Boot Actuator?'
+                ]
+            }
+        ]
+    }
 
 ]

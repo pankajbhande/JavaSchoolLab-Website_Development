@@ -7,6 +7,16 @@ interface DashboardProps {
 }
 
 const courseCards = [
+
+  {
+    id: 'HTML and CSS',
+    name : 'HTML and CSS',
+    icon  : Code,
+    color: 'from-blue-500 to-red-500',
+    description: 'Html and css programming',
+    query: 'html and css programming code'
+  },
+  
   {
     id: 'java',
     name: 'Java',
@@ -79,6 +89,15 @@ const courseCards = [
     description: 'Modern Spring application development',
     query: 'spring boot application'
   },
+
+  {
+    id: 'react-js',
+    name: 'React JS',
+    icon: Code,
+    color: 'from-amber-400 to-green-400 ',
+    description: '',
+    query: ''
+  }
 ];
 
 export function Dashboard({ onCourseSelect }: DashboardProps) {

@@ -31,7 +31,7 @@ export function TopicsBar({ courses, onCourseSelect, selectedCourseId }: TopicsB
         {/* <div className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"></div> */}
         <div className="flex items-center gap-2">
           <button
-            onClick={() => scrnpmoll('left')}
+            onClick={() => scroll('left')}
             className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors flex-shrink-0"
             title="Scroll left"
           >
