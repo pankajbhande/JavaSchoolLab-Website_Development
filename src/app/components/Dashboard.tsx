@@ -1,13 +1,16 @@
 import { motion } from 'motion/react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Book, Code, Database, Layout, Server, Layers } from 'lucide-react';
+import { Book, Code, Database, Layout, Server, Layers, Code2, Bot, Trophy, Sparkles } from 'lucide-react';
 
 interface DashboardProps {
   onCourseSelect: (courseId: string) => void;
+  onOpenPlayground?: () => void;
+  onOpenAiMentor?: () => void;
+  onOpenDailyQuiz?: () => void;
+  onOpenFlashcards?: () => void;
 }
 
 const courseCards = [
-
   {
     id: 'HTML and CSS',
     name : 'HTML and CSS',
@@ -100,7 +103,13 @@ const courseCards = [
   }
 ];
 
-export function Dashboard({ onCourseSelect }: DashboardProps) {
+export function Dashboard({
+  onCourseSelect,
+  onOpenPlayground,
+  onOpenAiMentor,
+  onOpenDailyQuiz,
+  onOpenFlashcards
+}: DashboardProps) {
   return (
     <div className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-8">
       <motion.div
@@ -109,7 +118,7 @@ export function Dashboard({ onCourseSelect }: DashboardProps) {
         transition={{ duration: 0.5 }}
         className="max-w-7xl mx-auto"
       >
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <motion.h1
             className="text-5xl font-bold mb-4 bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-transparent"
             initial={{ scale: 0.9 }}
@@ -118,9 +127,52 @@ export function Dashboard({ onCourseSelect }: DashboardProps) {
           >
             Welcome to JavaSchoolLab
           </motion.h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            Choose a course to begin your learning journey
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
+            Choose a course to begin your learning journey, or explore interactive tools below
           </p>
+
+          {/* Quick Feature Launchers */}
+          <div className="flex flex-wrap items-center justify-center gap-3 max-w-2xl mx-auto">
+            {onOpenPlayground && (
+              <button
+                onClick={onOpenPlayground}
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 hover:bg-orange-50 dark:hover:bg-gray-700 border border-orange-200 dark:border-gray-700 rounded-xl shadow-xs text-sm font-semibold text-gray-800 dark:text-gray-200 transition-all cursor-pointer"
+              >
+                <Code2 className="w-4 h-4 text-orange-500" />
+                <span>⚡ Java Playground</span>
+              </button>
+            )}
+
+            {onOpenAiMentor && (
+              <button
+                onClick={onOpenAiMentor}
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 hover:bg-orange-50 dark:hover:bg-gray-700 border border-orange-200 dark:border-gray-700 rounded-xl shadow-xs text-sm font-semibold text-gray-800 dark:text-gray-200 transition-all cursor-pointer"
+              >
+                <Bot className="w-4 h-4 text-green-500" />
+                <span>🤖 AI Java Mentor</span>
+              </button>
+            )}
+
+            {onOpenDailyQuiz && (
+              <button
+                onClick={onOpenDailyQuiz}
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 hover:bg-orange-50 dark:hover:bg-gray-700 border border-orange-200 dark:border-gray-700 rounded-xl shadow-xs text-sm font-semibold text-gray-800 dark:text-gray-200 transition-all cursor-pointer"
+              >
+                <Trophy className="w-4 h-4 text-yellow-500" />
+                <span>🎯 Daily Challenge</span>
+              </button>
+            )}
+
+            {onOpenFlashcards && (
+              <button
+                onClick={onOpenFlashcards}
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 hover:bg-orange-50 dark:hover:bg-gray-700 border border-orange-200 dark:border-gray-700 rounded-xl shadow-xs text-sm font-semibold text-gray-800 dark:text-gray-200 transition-all cursor-pointer"
+              >
+                <Layers className="w-4 h-4 text-purple-500" />
+                <span>🗂️ Flashcards</span>
+              </button>
+            )}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

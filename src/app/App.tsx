@@ -6,15 +6,21 @@ import { RightSidebar } from './components/RightSidebar';
 import { Dashboard } from './components/Dashboard';
 import { TopicsBar } from './components/TopicsBar';
 import { ThemeProvider } from './components/ThemeProvider';
+import { JavaPlaygroundModal } from './components/JavaPlaygroundModal';
+import { AiMentorModal } from './components/AiMentorModal';
+import { DailyQuizModal } from './components/DailyQuizModal';
+import { FlashcardsModal } from './components/FlashcardsModal';
 
 import { coursesData } from './data/coursesData';
 import { MySQLCSS } from './data/MySQLCSS';
 import { JDBC } from './data/JDBC';
 import { MongoDB } from './data/MongoDB';
 
+type ActiveModalType = 'playground' | 'ai-mentor' | 'quiz' | 'flashcards' | null;
+
 function AppContent() {
   // ✅ MERGED COURSES
-  const courses = [...coursesData, ...MySQLCSS,...JDBC,...MongoDB];
+  const courses = [...coursesData, ...MySQLCSS, ...JDBC, ...MongoDB];
 
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
   const [selectedSubTopicId, setSelectedSubTopicId] = useState<string | null>(null);
@@ -28,6 +34,9 @@ function AppContent() {
 
   const [leftSidebarMinimized, setLeftSidebarMinimized] = useState(false);
   const [rightSidebarMinimized, setRightSidebarMinimized] = useState(false);
+
+  // New Modals State
+  const [activeModal, setActiveModal] = useState<ActiveModalType>(null);
 
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -60,6 +69,12 @@ function AppContent() {
   // =========================
   // HANDLERS
   // =========================
+  const handleGoHome = () => {
+    setSelectedCourseId(null);
+    setSelectedSubTopicId(null);
+    setSelectedTopicId(null);
+  };
+
   const handleCourseSelect = (courseId: string) => {
     setSelectedCourseId(courseId);
     setSelectedSubTopicId(null);
@@ -114,6 +129,12 @@ function AppContent() {
         onSearch={handleSearch}
         voiceGender={voiceGender}
         onVoiceChange={setVoiceGender}
+        onGoHome={handleGoHome}
+        isHomeActive={showDashboard}
+        onOpenPlayground={() => setActiveModal('playground')}
+        onOpenAiMentor={() => setActiveModal('ai-mentor')}
+        onOpenDailyQuiz={() => setActiveModal('quiz')}
+        onOpenFlashcards={() => setActiveModal('flashcards')}
       />
 
       {!showDashboard && (
@@ -121,6 +142,7 @@ function AppContent() {
           courses={filteredCourses}
           selectedCourseId={selectedCourseId}
           onCourseSelect={handleCourseSelect}
+          onGoHome={handleGoHome}
         />
       )}
 
@@ -141,7 +163,13 @@ function AppContent() {
         )}
 
         {showDashboard ? (
-          <Dashboard onCourseSelect={handleCourseSelect} />
+          <Dashboard
+            onCourseSelect={handleCourseSelect}
+            onOpenPlayground={() => setActiveModal('playground')}
+            onOpenAiMentor={() => setActiveModal('ai-mentor')}
+            onOpenDailyQuiz={() => setActiveModal('quiz')}
+            onOpenFlashcards={() => setActiveModal('flashcards')}
+          />
         ) : (
           <ContentArea
             course={selectedCourse}
@@ -174,6 +202,29 @@ function AppContent() {
           />
         )}
       </div>
+
+      {/* Global Interactive Modals */}
+      <JavaPlaygroundModal
+        isOpen={activeModal === 'playground'}
+        onClose={() => setActiveModal(null)}
+      />
+
+      <AiMentorModal
+        isOpen={activeModal === 'ai-mentor'}
+        onClose={() => setActiveModal(null)}
+        currentCourseName={selectedCourse?.name}
+        currentTopicName={selectedTopic?.name}
+      />
+
+      <DailyQuizModal
+        isOpen={activeModal === 'quiz'}
+        onClose={() => setActiveModal(null)}
+      />
+
+      <FlashcardsModal
+        isOpen={activeModal === 'flashcards'}
+        onClose={() => setActiveModal(null)}
+      />
     </div>
   );
 }
