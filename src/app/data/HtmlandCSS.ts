@@ -36,6 +36,7 @@ export const HtmlandCSS: Course[] = [
         id: 'HTML and CSS',
         name: 'HTML & CSS',
         icon: 'Code',
+        
         subTopics: [
             {
 

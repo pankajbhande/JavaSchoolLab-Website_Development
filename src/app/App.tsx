@@ -19,8 +19,12 @@ import { MongoDB } from './data/MongoDB';
 type ActiveModalType = 'playground' | 'ai-mentor' | 'quiz' | 'flashcards' | null;
 
 function AppContent() {
-  // ✅ MERGED COURSES
-  const courses = [...coursesData, ...MySQLCSS, ...JDBC, ...MongoDB];
+  // Deduplicate by course id so later, richer data files override older duplicates.
+  const courses = Array.from(
+    new Map(
+      [...coursesData, ...MySQLCSS, ...JDBC, ...MongoDB].map(course => [course.id, course])
+    ).values()
+  );
 
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
   const [selectedSubTopicId, setSelectedSubTopicId] = useState<string | null>(null);

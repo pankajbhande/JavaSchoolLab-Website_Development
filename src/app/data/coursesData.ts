@@ -8,6 +8,7 @@ import { HtmlandCSS } from "./HtmlandCSS";
 import { JSPServlets } from "./JSPServlet";
 import { MySQLCSS } from "./MySQLCSS";
 import { Reactjs } from "./Reactjs";
+import {SpringMVC} from "./SpringMVC";
 
 export interface ContentBlock {
   content: string;
@@ -49,4 +50,5 @@ export const coursesData: Course[] = [
   ...MySQLCSS,
   ...Hibernate,
   ...Reactjs,
+  ...SpringMVC
 ];
