@@ -1407,7 +1407,1729 @@ public class Order {
                         ]
                     }
                 ]
-            }
+            },
+
+   {
+    id: 'spring-mvc-architecture',
+    name: 'Spring MVC Architecture',
+
+    topics: [
+
+        // =====================================================
+        // 3.1 DispatcherServlet
+        // =====================================================
+
+        {
+            id: 'dispatcher-servlet',
+            name: 'DispatcherServlet',
+
+            beginner: [
+                {
+                    content: `
+<h2>3.1 What is DispatcherServlet?</h2>
+
+<p>• <strong>DispatcherServlet</strong> is the central component of Spring MVC.</p>
+
+<p>• It acts as the <strong>Front Controller</strong> of a Spring MVC application.</p>
+
+<p>• It receives incoming HTTP requests and coordinates the request processing.</p><br>
+
+<h3>Responsibilities of DispatcherServlet</h3>
+
+<ul>
+<li>• Receives HTTP requests from the client.</li>
+<li>• Finds the appropriate Controller.</li>
+<li>• Sends the request to the Controller.</li>
+<li>• Processes the Controller response.</li>
+<li>• Resolves the View when required.</li>
+<li>• Sends the final response back to the client.</li>
+</ul><br>
+
+<h3>Simple Flow</h3>
+
+<p>
+Client → DispatcherServlet → Controller → Service → Model → View → Client
+</p>
+`
+                },
+
+                {
+                    content: `
+<h3>DispatcherServlet Example</h3>
+
+<p>• In Spring MVC, the DispatcherServlet receives requests before they reach the Controller.</p>
+
+<p>• It works as a central request dispatcher.</p>
+`,
+
+                    codeExamples: [
+                        `@Controller
+public class StudentController {
+
+    @GetMapping("/student")
+    public String student() {
+
+        return "student";
+    }
+}
+
+// Request:
+// GET /student
+
+// Flow:
+// Browser
+//    ↓
+// DispatcherServlet
+//    ↓
+// StudentController
+//    ↓
+// student View`
+                    ]
+                }
+            ],
+
+            intermediate: [
+                {
+                    content: `
+<h2>DispatcherServlet Request Processing</h2>
+
+<p>• DispatcherServlet coordinates the complete Spring MVC request lifecycle.</p>
+
+<h3>Main Components Used by DispatcherServlet</h3>
+
+<ul>
+<li>• HandlerMapping</li>
+<li>• HandlerAdapter</li>
+<li>• Controller</li>
+<li>• Model</li>
+<li>• ViewResolver</li>
+<li>• View</li>
+</ul><br>
+
+<h3>Request Processing</h3>
+
+<ol>
+<li>• Client sends HTTP request.</li>
+<li>• DispatcherServlet receives the request.</li>
+<li>• HandlerMapping identifies the Controller.</li>
+<li>• HandlerAdapter invokes the Controller method.</li>
+<li>• Controller processes the request.</li>
+<li>• ViewResolver resolves the View if required.</li>
+<li>• View generates the response.</li>
+<li>• DispatcherServlet sends response to client.</li>
+</ol>
+`
+                },
+
+                {
+                    content: `
+<h3>DispatcherServlet Configuration</h3>
+
+<p>• In modern Spring applications, DispatcherServlet is commonly registered automatically by the framework or Spring Boot.</p>
+
+<p>• In traditional Spring MVC applications, it can be configured explicitly.</p>
+`,
+
+                    codeExamples: [
+                        `@Configuration
+@EnableWebMvc
+@ComponentScan("com.example.controller")
+public class WebConfig {
+}
+
+// DispatcherServlet uses this Spring configuration
+// to process web requests.`
+                    ]
+                }
+            ],
+
+            expert: [
+                {
+                    content: `
+<h2>Advanced DispatcherServlet Lifecycle</h2>
+
+<p>• DispatcherServlet internally coordinates multiple Spring MVC components to process a request.</p>
+
+<h3>Important Processing Components</h3>
+
+<ul>
+<li>• HandlerMapping finds the appropriate handler.</li>
+<li>• HandlerAdapter invokes the selected handler.</li>
+<li>• HandlerExceptionResolver handles exceptions.</li>
+<li>• ViewResolver resolves logical View names.</li>
+<li>• View renders the final response.</li>
+</ul><br>
+
+<p>• DispatcherServlet implements the Front Controller pattern and provides a centralized entry point for web requests.</p>
+`
+                },
+
+                {
+                    content: `
+<h3>DispatcherServlet Request Pipeline</h3>
+`,
+
+                    codeExamples: [
+                        `Client
+   |
+   | HTTP Request
+   ↓
+DispatcherServlet
+   |
+   ↓
+HandlerMapping
+   |
+   ↓
+HandlerAdapter
+   |
+   ↓
+Controller
+   |
+   ↓
+Service
+   |
+   ↓
+Repository
+   |
+   ↓
+Database
+
+Database
+   |
+   ↓
+Repository
+   |
+   ↓
+Service
+   |
+   ↓
+Controller
+   |
+   ↓
+Model + View
+   |
+   ↓
+ViewResolver
+   |
+   ↓
+View
+   |
+   ↓
+DispatcherServlet
+   |
+   ↓
+Client`
+                    ]
+                }
+            ]
+        },
+
+
+        // =====================================================
+        // 3.2 HandlerMapping
+        // =====================================================
+
+        {
+            id: 'handler-mapping',
+            name: 'HandlerMapping',
+
+            beginner: [
+                {
+                    content: `
+<h2>3.2 What is HandlerMapping?</h2>
+
+<p>• <strong>HandlerMapping</strong> is a Spring MVC component that identifies which Controller or handler method should process an incoming request.</p>
+
+<p>• It maps a URL request to the appropriate Controller.</p><br>
+
+<h3>Example</h3>
+
+<p>• Suppose the client sends:</p>
+
+<p><strong>GET /students</strong></p>
+
+<p>• HandlerMapping searches for a Controller method mapped to <strong>/students</strong>.</p>
+
+<p>• It then provides the appropriate handler to DispatcherServlet.</p><br>
+
+<h3>Simple Flow</h3>
+
+<p>
+HTTP Request → DispatcherServlet → HandlerMapping → Controller
+</p>
+`
+                },
+
+                {
+                    content: `
+<h3>Example of Request Mapping</h3>
+
+<p>• Spring MVC uses annotations such as <strong>@RequestMapping</strong> and <strong>@GetMapping</strong> to map requests.</p>
+`,
+
+                    codeExamples: [
+                        `@Controller
+public class StudentController {
+
+    @GetMapping("/students")
+    public String students() {
+
+        return "students";
+    }
+}
+
+// Request:
+// GET /students
+
+// HandlerMapping finds:
+// StudentController.students()`
+                    ]
+                }
+            ],
+
+            intermediate: [
+                {
+                    content: `
+<h2>HandlerMapping and Request Mappings</h2>
+
+<p>• HandlerMapping determines the handler that should process a request.</p>
+
+<h3>Common Mapping Annotations</h3>
+
+<ul>
+<li>• @RequestMapping</li>
+<li>• @GetMapping</li>
+<li>• @PostMapping</li>
+<li>• @PutMapping</li>
+<li>• @DeleteMapping</li>
+<li>• @PatchMapping</li>
+</ul><br>
+
+<h3>Example</h3>
+
+<p>• Different HTTP requests can be mapped to different Controller methods.</p>
+`,
+
+                    codeExamples: [
+                        `@Controller
+@RequestMapping("/students")
+public class StudentController {
+
+    @GetMapping
+    public String getStudents() {
+        return "students";
+    }
+
+    @PostMapping
+    public String addStudent() {
+        return "student-form";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteStudent(@PathVariable int id) {
+        return "redirect:/students";
+    }
+}`
+                    ]
+                }
+            ],
+
+            expert: [
+                {
+                    content: `
+<h2>Advanced HandlerMapping</h2>
+
+<p>• HandlerMapping is part of the Spring MVC request processing infrastructure.</p>
+
+<p>• It can identify a handler based on request URL, HTTP method and other request conditions.</p><br>
+
+<h3>Request Matching</h3>
+
+<ul>
+<li>• URL pattern</li>
+<li>• HTTP method</li>
+<li>• Request parameters</li>
+<li>• Request headers</li>
+<li>• Content type</li>
+<li>• Accept type</li>
+</ul><br>
+
+<p>• Annotation-based controllers are commonly handled through Spring MVC's request mapping infrastructure.</p>
+`
+                },
+
+                {
+                    content: `
+<h3>Handler Mapping Flow</h3>
+`,
+
+                    codeExamples: [
+                        `HTTP Request
+     |
+     ↓
+DispatcherServlet
+     |
+     ↓
+HandlerMapping
+     |
+     |-- /students
+     |-- /students/{id}
+     |-- /students/search
+     |
+     ↓
+Controller Method`
+                    ]
+                }
+            ]
+        },
+
+
+        // =====================================================
+        // 3.3 Controller
+        // =====================================================
+
+        {
+            id: 'spring-mvc-controller',
+            name: 'Controller',
+
+            beginner: [
+                {
+                    content: `
+<h2>3.3 What is Controller?</h2>
+
+<p>• A <strong>Controller</strong> handles HTTP requests from the client.</p>
+
+<p>• It acts as a bridge between the web request and application logic.</p>
+
+<p>• Controllers are usually created using the <strong>@Controller</strong> annotation.</p><br>
+
+<h3>Responsibilities of Controller</h3>
+
+<ul>
+<li>• Receives client requests.</li>
+<li>• Reads request data.</li>
+<li>• Calls the Service layer.</li>
+<li>• Adds data to the Model.</li>
+<li>• Returns a View name or response.</li>
+</ul>
+`
+                },
+
+                {
+                    content: `
+<h3>Simple Controller Example</h3>
+`,
+
+                    codeExamples: [
+                        `@Controller
+public class StudentController {
+
+    @GetMapping("/student")
+    public String student() {
+
+        return "student";
+    }
+}
+
+// URL:
+// http://localhost:8080/student
+
+// Returned View:
+// student`
+                    ]
+                }
+            ],
+
+            intermediate: [
+                {
+                    content: `
+<h2>Controller with Model</h2>
+
+<p>• A Controller can add data to the Model and return a logical View name.</p>
+`,
+
+                    codeExamples: [
+                        `@Controller
+public class StudentController {
+
+    @GetMapping("/student")
+    public String student(Model model) {
+
+        model.addAttribute("id", 101);
+        model.addAttribute("name", "Pratiksha");
+        model.addAttribute("course", "Java");
+
+        return "student";
+    }
+}`
+                    ]
+                },
+
+                {
+                    content: `
+<h3>Controller with Service Layer</h3>
+
+<p>• Business logic should generally be handled by the Service layer rather than directly inside the Controller.</p>
+`,
+
+                    codeExamples: [
+                        `@Controller
+@RequestMapping("/students")
+public class StudentController {
+
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
+    @GetMapping("/{id}")
+    public String getStudent(
+            @PathVariable int id,
+            Model model) {
+
+        Student student =
+                studentService.getStudentById(id);
+
+        model.addAttribute("student", student);
+
+        return "student";
+    }
+}`
+                    ]
+                },
+
+                {
+                    content: `
+<h3>Common Controller Annotations</h3>
+
+<ul>
+<li>• @Controller</li>
+<li>• @RestController</li>
+<li>• @RequestMapping</li>
+<li>• @GetMapping</li>
+<li>• @PostMapping</li>
+<li>• @PutMapping</li>
+<li>• @DeleteMapping</li>
+<li>• @PathVariable</li>
+<li>• @RequestParam</li>
+<li>• @RequestBody</li>
+</ul>
+`
+                }
+            ],
+
+            expert: [
+                {
+                    content: `
+<h2>Controller in Enterprise Applications</h2>
+
+<p>• Controllers should remain lightweight and focus mainly on HTTP-related responsibilities.</p>
+
+<ul>
+<li>• Request mapping</li>
+<li>• Request validation</li>
+<li>• Input binding</li>
+<li>• Calling application services</li>
+<li>• Preparing responses</li>
+<li>• Handling web-specific concerns</li>
+</ul><br>
+
+<p>• Business rules should generally be placed in the Service or domain layer.</p>
+`
+                },
+
+                {
+                    content: `
+<h3>@Controller vs @RestController</h3>
+
+<table class="w-full border border-gray-700 border-collapse [&_th]:border [&_td]:border [&_td]:px-2 [&_th]:py-2">
+
+<tr>
+<th>Feature</th>
+<th>@Controller</th>
+<th>@RestController</th>
+</tr>
+
+<tr>
+<td>Purpose</td>
+<td>Traditional MVC Web Application</td>
+<td>REST APIs</td>
+</tr>
+
+<tr>
+<td>Response</td>
+<td>Usually View</td>
+<td>Usually JSON/XML</td>
+</tr>
+
+<tr>
+<td>View Resolution</td>
+<td>Commonly used</td>
+<td>Usually not required</td>
+</tr>
+
+</table>
+`
+                }
+            ]
+        },
+
+
+        // =====================================================
+        // 3.4 ModelAndView
+        // =====================================================
+
+        {
+            id: 'model-and-view',
+            name: 'ModelAndView',
+
+            beginner: [
+                {
+                    content: `
+<h2>3.4 What is ModelAndView?</h2>
+
+<p>• <strong>ModelAndView</strong> is a Spring MVC class that stores both <strong>Model data</strong> and the <strong>View name</strong>.</p>
+
+<p>• It allows a Controller method to return model data and a View together.</p><br>
+
+<h3>ModelAndView Contains</h3>
+
+<ul>
+<li>• Model data</li>
+<li>• Logical View name</li>
+</ul><br>
+
+<h3>Example</h3>
+
+<p>• A Controller can add student information and return the student View using ModelAndView.</p>
+`
+                },
+
+                {
+                    content: `
+<h3>Simple ModelAndView Example</h3>
+`,
+
+                    codeExamples: [
+                        `@Controller
+public class StudentController {
+
+    @GetMapping("/student")
+    public ModelAndView student() {
+
+        ModelAndView mav =
+                new ModelAndView("student");
+
+        mav.addObject("name", "Pratiksha");
+        mav.addObject("course", "Java");
+
+        return mav;
+    }
+}`
+                    ]
+                }
+            ],
+
+            intermediate: [
+                {
+                    content: `
+<h2>Adding Multiple Attributes</h2>
+
+<p>• Multiple objects can be added to ModelAndView using <strong>addObject()</strong>.</p>
+`,
+
+                    codeExamples: [
+                        `@GetMapping("/student")
+public ModelAndView student() {
+
+    ModelAndView mav =
+            new ModelAndView("student");
+
+    mav.addObject("id", 101);
+    mav.addObject("name", "Pratiksha");
+    mav.addObject("email", "pratiksha@gmail.com");
+    mav.addObject("course", "Spring MVC");
+
+    return mav;
+}`
+                    ]
+                },
+
+                {
+                    content: `
+<h3>ModelAndView with Model Object</h3>
+
+<p>• A complete Java object can also be passed to the View.</p>
+`,
+
+                    codeExamples: [
+                        `@GetMapping("/student")
+public ModelAndView getStudent() {
+
+    Student student =
+            new Student(101,
+                        "Pratiksha",
+                        "pratiksha@gmail.com");
+
+    ModelAndView mav =
+            new ModelAndView("student");
+
+    mav.addObject("student", student);
+
+    return mav;
+}`
+                    ]
+                }
+            ],
+
+            expert: [
+                {
+                    content: `
+<h2>ModelAndView in Spring MVC Request Processing</h2>
+
+<p>• ModelAndView represents the result of Controller processing when using traditional server-side MVC views.</p>
+
+<p>• It can contain a logical View name and model attributes that are later used during View rendering.</p><br>
+
+<h3>Processing Flow</h3>
+
+<p>
+Controller → ModelAndView → DispatcherServlet → ViewResolver → View
+</p>
+`
+                },
+
+                {
+                    content: `
+<h3>Model vs ModelAndView</h3>
+
+<table class="w-full border border-gray-700 border-collapse [&_th]:border [&_td]:border [&_td]:px-2 [&_th]:py-2">
+
+<tr>
+<th>Feature</th>
+<th>Model</th>
+<th>ModelAndView</th>
+</tr>
+
+<tr>
+<td>Stores Model Data</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+
+<tr>
+<td>Stores View Name</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+
+<tr>
+<td>Typical Return</td>
+<td>String View Name</td>
+<td>ModelAndView Object</td>
+</tr>
+
+</table>
+`
+                }
+            ]
+        },
+
+
+        // =====================================================
+        // 3.5 ViewResolver
+        // =====================================================
+
+        {
+            id: 'view-resolver',
+            name: 'ViewResolver',
+
+            beginner: [
+                {
+                    content: `
+<h2>3.5 What is ViewResolver?</h2>
+
+<p>• <strong>ViewResolver</strong> is a Spring MVC component that converts a logical View name into an actual View resource.</p>
+
+<p>• The Controller does not normally need to specify the complete path of the View.</p><br>
+
+<h3>Example</h3>
+
+<p>• Controller returns:</p>
+
+<p><strong>"student"</strong></p>
+
+<p>• ViewResolver finds the corresponding View file.</p><br>
+
+<h3>Basic Flow</h3>
+
+<p>
+Controller → "student" → ViewResolver → student View
+</p>
+`
+                },
+
+                {
+                    content: `
+<h3>JSP ViewResolver Example</h3>
+
+<p>• Suppose JSP files are stored inside:</p>
+
+<p><strong>/WEB-INF/views/</strong></p>
+
+<p>• The ViewResolver can combine prefix, View name and suffix.</p>
+`,
+
+                    codeExamples: [
+                        `Logical View Name:
+student
+
+Prefix:
+/WEB-INF/views/
+
+Suffix:
+.jsp
+
+Final View:
+/WEB-INF/views/student.jsp`
+                    ]
+                }
+            ],
+
+            intermediate: [
+                {
+                    content: `
+<h2>InternalResourceViewResolver</h2>
+
+<p>• InternalResourceViewResolver can be used to resolve JSP-based Views.</p>
+
+<h3>Configuration</h3>
+`,
+
+                    codeExamples: [
+                        `@Configuration
+@EnableWebMvc
+public class WebConfig implements WebMvcConfigurer {
+
+    @Bean
+    public InternalResourceViewResolver viewResolver() {
+
+        InternalResourceViewResolver resolver =
+                new InternalResourceViewResolver();
+
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+
+        return resolver;
+    }
+}`
+                    ]
+                },
+
+                {
+                    content: `
+<h3>View Resolution Example</h3>
+
+<p>• If the Controller returns <strong>"student"</strong>:</p>
+
+<ul>
+<li>• Prefix = /WEB-INF/views/</li>
+<li>• View name = student</li>
+<li>• Suffix = .jsp</li>
+</ul>
+
+<p>• Final View:</p>
+
+<p><strong>/WEB-INF/views/student.jsp</strong></p>
+`
+                }
+            ],
+
+            expert: [
+                {
+                    content: `
+<h2>Advanced View Resolution</h2>
+
+<p>• Spring MVC supports different View technologies through ViewResolver implementations.</p>
+
+<h3>Examples</h3>
+
+<ul>
+<li>• JSP</li>
+<li>• Thymeleaf</li>
+<li>• FreeMarker</li>
+<li>• Other View technologies</li>
+</ul><br>
+
+<p>• ViewResolver separates Controller logic from the physical location and technology of the View.</p>
+`
+                },
+
+                {
+                    content: `
+<h3>View Resolution Flow</h3>
+`,
+
+                    codeExamples: [
+                        `Controller
+    |
+    | return "student"
+    ↓
+DispatcherServlet
+    |
+    ↓
+ViewResolver
+    |
+    | Prefix + View Name + Suffix
+    ↓
+/WEB-INF/views/student.jsp
+    |
+    ↓
+Rendered View
+    |
+    ↓
+Client`
+                    ]
+                }
+            ]
+        },
+
+
+        // =====================================================
+        // 3.6 View
+        // =====================================================
+
+        {
+            id: 'spring-mvc-view',
+            name: 'View',
+
+            beginner: [
+                {
+                    content: `
+<h2>3.6 What is View?</h2>
+
+<p>• A <strong>View</strong> is responsible for presenting information to the user.</p>
+
+<p>• It receives Model data and renders the final user interface.</p><br>
+
+<h3>Common View Technologies</h3>
+
+<ul>
+<li>• JSP</li>
+<li>• Thymeleaf</li>
+<li>• FreeMarker</li>
+<li>• HTML templates</li>
+</ul><br>
+
+<h3>Responsibilities of View</h3>
+
+<ul>
+<li>• Display application data.</li>
+<li>• Display forms.</li>
+<li>• Display messages.</li>
+<li>• Provide user interface.</li>
+</ul>
+`
+                },
+
+                {
+                    content: `
+<h3>Simple JSP View</h3>
+`,
+
+                    codeExamples: [
+                        `<%@ page contentType="text/html;charset=UTF-8" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+
+<body>
+
+    <h1>Student Details</h1>
+
+    <p>Name: \${name}</p>
+
+    <p>Course: \${course}</p>
+
+</body>
+</html>`
+                    ]
+                }
+            ],
+
+            intermediate: [
+                {
+                    content: `
+<h2>View with Model Data</h2>
+
+<p>• The Controller adds data to the Model.</p>
+
+<p>• The View accesses that data and displays it to the user.</p>
+`,
+
+                    codeExamples: [
+                        `// Controller
+
+@Controller
+public class StudentController {
+
+    @GetMapping("/student")
+    public String student(Model model) {
+
+        model.addAttribute("name", "Pratiksha");
+        model.addAttribute("course", "Spring MVC");
+
+        return "student";
+    }
+}
+
+
+// JSP View: student.jsp
+
+<html>
+<body>
+
+    <h1>Student Details</h1>
+
+    <p>Name: \${name}</p>
+
+    <p>Course: \${course}</p>
+
+</body>
+</html>`
+                    ]
+                },
+
+                {
+                    content: `
+<h3>Thymeleaf View Example</h3>
+
+<p>• Thymeleaf is another server-side template engine commonly used with Spring MVC.</p>
+`,
+
+                    codeExamples: [
+                        `<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Student</title>
+</head>
+
+<body>
+
+    <h1>Student Details</h1>
+
+    <p>
+        Name:
+        <span th:text="\${name}"></span>
+    </p>
+
+    <p>
+        Course:
+        <span th:text="\${course}"></span>
+    </p>
+
+</body>
+
+</html>`
+                    ]
+                }
+            ],
+
+            expert: [
+                {
+                    content: `
+<h2>View Rendering in Spring MVC</h2>
+
+<p>• After the Controller returns a logical View name, DispatcherServlet uses ViewResolver to locate the appropriate View.</p>
+
+<p>• The View receives Model data and renders the response.</p><br>
+
+<h3>Complete View Rendering Flow</h3>
+
+<p>
+Controller
+→ ModelAndView
+→ DispatcherServlet
+→ ViewResolver
+→ View
+→ HTTP Response
+</p>
+`
+                },
+
+                {
+                    content: `
+<h3>Server-Side Rendering</h3>
+
+<p>• In traditional Spring MVC applications, the server generates HTML using View technologies such as JSP or Thymeleaf.</p>
+
+<ul>
+<li>• Server receives request.</li>
+<li>• Controller processes request.</li>
+<li>• Model data is prepared.</li>
+<li>• View is resolved.</li>
+<li>• HTML is generated.</li>
+<li>• HTML is sent to the browser.</li>
+</ul>
+`
+                }
+            ]
+        }
+
+    ]
+},
+{
+    id: 'dispatcherservlet-frontcontroller',
+    name: 'DispatcherServlet and Front Controller',
+    topics: [
+        {
+            id: 'what-is-dispatcher-servlet',
+    name: 'What is DispatcherServlet',
+
+    beginner: [
+        {
+            content: `
+<h2>4.1 What is DispatcherServlet?</h2>
+
+<p>• <strong>DispatcherServlet</strong> is the central component of Spring MVC.</p>
+
+<p>• It acts as the <strong>Front Controller</strong> of a Spring MVC application.</p>
+
+<p>• It receives incoming HTTP requests and coordinates the request processing.</p><br>
+
+<h3>Simple Definition</h3>
+
+<p>• DispatcherServlet is responsible for receiving client requests and dispatching them to the appropriate Controller.</p><br>
+
+<h3>Basic Flow</h3>
+
+<p>
+Client → DispatcherServlet → Controller → Response
+</p>
+`
+        },
+
+        {
+            content: `
+<h3>Simple DispatcherServlet Example</h3>
+
+<p>• Suppose a user requests the following URL:</p>
+
+<p><strong>GET /student</strong></p>
+
+<p>• The request first reaches DispatcherServlet.</p>
+
+<p>• DispatcherServlet finds the appropriate Controller and sends the request to it.</p>
+`,
+            codeExamples: [
+                `@Controller
+public class StudentController {
+
+    @GetMapping("/student")
+    public String student() {
+
+        return "student";
+    }
+}
+
+// Request:
+// GET /student
+
+// Flow:
+// Client
+//    ↓
+// DispatcherServlet
+//    ↓
+// StudentController
+//    ↓
+// student View`
+            ]
+        }
+    ],
+
+    intermediate: [
+        {
+            content: `
+<h2>DispatcherServlet in Spring MVC</h2>
+
+<p>• DispatcherServlet works as the central request dispatcher in Spring MVC.</p>
+
+<p>• It coordinates different components involved in processing an HTTP request.</p><br>
+
+<h3>Components Involved</h3>
+
+<ul>
+<li>• HandlerMapping</li>
+<li>• HandlerAdapter</li>
+<li>• Controller</li>
+<li>• Service</li>
+<li>• ViewResolver</li>
+<li>• View</li>
+</ul>
+`
+        },
+
+        {
+            content: `
+<h3>DispatcherServlet Request Example</h3>
+`,
+            codeExamples: [
+                `Client
+   ↓
+DispatcherServlet
+   ↓
+HandlerMapping
+   ↓
+Controller
+   ↓
+Service
+   ↓
+Repository
+   ↓
+Database`
+            ]
+        }
+    ],
+
+    expert: [
+        {
+            content: `
+<h2>DispatcherServlet Architecture</h2>
+
+<p>• DispatcherServlet implements the <strong>Front Controller pattern</strong>.</p>
+
+<p>• It provides a centralized entry point for web requests in Spring MVC.</p>
+
+<p>• It coordinates request mapping, handler invocation, exception handling and View resolution.</p><br>
+
+<h3>Important Components</h3>
+
+<ul>
+<li>• HandlerMapping identifies the appropriate handler.</li>
+<li>• HandlerAdapter invokes the handler.</li>
+<li>• HandlerExceptionResolver handles exceptions.</li>
+<li>• ViewResolver resolves logical View names.</li>
+<li>• View renders the final response.</li>
+</ul>
+`
+        }
+    ]
+},
+
+
+// =====================================================
+// 4.2 Role of DispatcherServlet
+// =====================================================
+
+{
+    id: 'role-of-dispatcher-servlet',
+    name: 'Role of DispatcherServlet',
+
+    beginner: [
+        {
+            content: `
+<h2>4.2 Role of DispatcherServlet</h2>
+
+<p>• DispatcherServlet acts as the central controller of a Spring MVC application.</p>
+
+<p>• It receives requests from the client and coordinates the processing of those requests.</p><br>
+
+<h3>Main Roles</h3>
+
+<ul>
+<li>• Receive HTTP requests.</li>
+<li>• Find the appropriate Controller.</li>
+<li>• Dispatch the request to the Controller.</li>
+<li>• Process the Controller response.</li>
+<li>• Resolve the View when required.</li>
+<li>• Send the final response to the client.</li>
+</ul>
+`
+        },
+
+        {
+            content: `
+<h3>Example</h3>
+
+<p>• When a user requests <strong>/students</strong>, DispatcherServlet receives the request.</p>
+
+<p>• It finds the Controller method mapped to <strong>/students</strong>.</p>
+
+<p>• The Controller processes the request and returns the result.</p>
+`
+        }
+    ],
+
+    intermediate: [
+        {
+            content: `
+<h2>Responsibilities of DispatcherServlet</h2>
+
+<h3>1. Request Handling</h3>
+<p>• Receives incoming HTTP requests from clients.</p>
+
+<h3>2. Handler Selection</h3>
+<p>• Uses HandlerMapping to identify the appropriate Controller or handler.</p>
+
+<h3>3. Handler Invocation</h3>
+<p>• Uses HandlerAdapter to invoke the selected Controller method.</p>
+
+<h3>4. View Resolution</h3>
+<p>• Uses ViewResolver to find the actual View when a traditional MVC View is returned.</p>
+
+<h3>5. Exception Handling</h3>
+<p>• Coordinates exception handling using Spring MVC exception resolver mechanisms.</p>
+
+<h3>6. Response Generation</h3>
+<p>• Sends the final response back to the client.</p>
+`
+        },
+
+        {
+            content: `
+<h3>Role of DispatcherServlet in Request Processing</h3>
+`,
+            codeExamples: [
+                `Client
+   ↓
+DispatcherServlet
+   ↓
+HandlerMapping
+   ↓
+Controller
+   ↓
+Service
+   ↓
+Repository
+   ↓
+Database
+   ↓
+Repository
+   ↓
+Service
+   ↓
+Controller
+   ↓
+View / JSON Response
+   ↓
+DispatcherServlet
+   ↓
+Client`
+            ]
+        }
+    ],
+
+    expert: [
+        {
+            content: `
+<h2>DispatcherServlet as Request Coordinator</h2>
+
+<p>• DispatcherServlet does not normally contain the application's business logic.</p>
+
+<p>• Its primary responsibility is to coordinate the web request lifecycle.</p>
+
+<p>• It delegates specific responsibilities to other Spring MVC components.</p><br>
+
+<h3>Delegation</h3>
+
+<ul>
+<li>• HandlerMapping → Finds the handler.</li>
+<li>• HandlerAdapter → Invokes the handler.</li>
+<li>• Service → Executes business logic.</li>
+<li>• Repository → Performs data access.</li>
+<li>• HandlerExceptionResolver → Handles exceptions.</li>
+<li>• ViewResolver → Resolves Views.</li>
+</ul>
+`
+        }
+    ]
+},
+
+
+// =====================================================
+// 4.3 DispatcherServlet Request Flow
+// =====================================================
+
+{
+    id: 'dispatcher-servlet-request-flow',
+    name: 'DispatcherServlet Request Flow',
+
+    beginner: [
+        {
+            content: `
+<h2>4.3 DispatcherServlet Request Flow</h2>
+
+<p>• DispatcherServlet controls the request processing flow in Spring MVC.</p>
+
+<h3>Basic Request Flow</h3>
+
+<ol>
+<li>• Client sends an HTTP request.</li>
+<li>• DispatcherServlet receives the request.</li>
+<li>• DispatcherServlet finds the appropriate Controller.</li>
+<li>• Controller processes the request.</li>
+<li>• Controller returns the result.</li>
+<li>• DispatcherServlet sends the response to the client.</li>
+</ol><br>
+
+<h3>Simple Flow</h3>
+
+<p>
+Client → DispatcherServlet → Controller → Response → Client
+</p>
+`
+        },
+
+        {
+            content: `
+<h3>Example Request</h3>
+
+<p>• Suppose the client sends:</p>
+
+<p><strong>GET /student/101</strong></p>
+
+<p>• DispatcherServlet receives the request and sends it to the appropriate Controller.</p>
+`,
+            codeExamples: [
+                `GET /student/101
+
+Client
+   ↓
+DispatcherServlet
+   ↓
+StudentController
+   ↓
+Response
+   ↓
+Client`
+            ]
+        }
+    ],
+
+    intermediate: [
+        {
+            content: `
+<h2>Complete DispatcherServlet Request Flow</h2>
+
+<ol>
+<li>• Client sends an HTTP request.</li>
+<li>• DispatcherServlet receives the request.</li>
+<li>• HandlerMapping identifies the appropriate handler.</li>
+<li>• HandlerAdapter invokes the Controller method.</li>
+<li>• Controller calls the Service layer.</li>
+<li>• Service performs business logic.</li>
+<li>• Service may call the Repository layer.</li>
+<li>• Repository communicates with the database.</li>
+<li>• Data is returned to the Service.</li>
+<li>• Service returns the result to the Controller.</li>
+<li>• Controller prepares the response.</li>
+<li>• DispatcherServlet sends the response to the client.</li>
+</ol>
+`
+        },
+
+        {
+            content: `
+<h3>Request Flow Diagram</h3>
+`,
+            codeExamples: [
+                `Client
+   |
+   | HTTP Request
+   ↓
+DispatcherServlet
+   ↓
+HandlerMapping
+   ↓
+HandlerAdapter
+   ↓
+Controller
+   ↓
+Service
+   ↓
+Repository
+   ↓
+Database
+
+Database
+   ↓
+Repository
+   ↓
+Service
+   ↓
+Controller
+   ↓
+View / JSON Response
+   ↓
+DispatcherServlet
+   ↓
+Client`
+            ]
+        },
+
+        {
+            content: `
+<h3>View-Based Request Flow</h3>
+
+<p>• In a traditional Spring MVC application, the Controller can return a logical View name.</p>
+
+<p>• DispatcherServlet uses ViewResolver to locate the actual View.</p>
+`,
+            codeExamples: [
+                `Controller
+   ↓
+Model + View Name
+   ↓
+DispatcherServlet
+   ↓
+ViewResolver
+   ↓
+View
+   ↓
+HTML Response
+   ↓
+Client`
+            ]
+        }
+    ],
+
+    expert: [
+        {
+            content: `
+<h2>Detailed DispatcherServlet Request Processing</h2>
+
+<p>• DispatcherServlet coordinates multiple steps during request processing.</p>
+
+<ol>
+<li>• Receives the HTTP request.</li>
+<li>• Uses HandlerMapping to identify a handler.</li>
+<li>• Uses HandlerAdapter to invoke the handler.</li>
+<li>• Controller executes application-level operations.</li>
+<li>• Service and Repository layers may be called.</li>
+<li>• Controller returns a response.</li>
+<li>• View resolution occurs for traditional MVC views.</li>
+<li>• The response is written back to the client.</li>
+</ol>
+`
+        },
+
+        {
+            content: `
+<h3>REST API Request Flow</h3>
+
+<p>• In REST APIs, the response is commonly returned as JSON rather than rendering a server-side View.</p>
+`,
+            codeExamples: [
+                `Client
+   ↓
+DispatcherServlet
+   ↓
+Controller
+   ↓
+Service
+   ↓
+Repository
+   ↓
+Database
+   ↓
+Repository
+   ↓
+Service
+   ↓
+Controller
+   ↓
+JSON Response
+   ↓
+Client`
+            ]
+        }
+    ]
+},
+
+
+// =====================================================
+// 4.4 Front Controller Pattern
+// =====================================================
+
+{
+    id: 'front-controller-pattern',
+    name: 'Front Controller Pattern',
+
+    beginner: [
+        {
+            content: `
+<h2>4.4 Front Controller Pattern</h2>
+
+<p>• The <strong>Front Controller Pattern</strong> uses a single central component to handle incoming requests.</p>
+
+<p>• In Spring MVC, <strong>DispatcherServlet</strong> acts as the Front Controller.</p>
+
+<p>• Instead of sending requests directly to different Controllers, requests first pass through DispatcherServlet.</p><br>
+
+<h3>Simple Flow</h3>
+
+<p>
+Client → DispatcherServlet → Controller
+</p>
+
+<h3>Advantages</h3>
+
+<ul>
+<li>• Centralized request handling.</li>
+<li>• Common processing can be handled in one place.</li>
+<li>• Provides a consistent request flow.</li>
+<li>• Makes web application architecture organized.</li>
+</ul>
+`
+        },
+
+        {
+            content: `
+<h3>Without Front Controller</h3>
+
+<p>• Without a Front Controller, different requests may be handled independently by different components.</p>
+`,
+            codeExamples: [
+                `Client
+   ├──→ Controller 1
+   ├──→ Controller 2
+   └──→ Controller 3`
+            ]
+        },
+
+        {
+            content: `
+<h3>With Front Controller</h3>
+
+<p>• With the Front Controller pattern, all requests first reach one central component.</p>
+`,
+            codeExamples: [
+                `Client
+   ↓
+DispatcherServlet
+   ├──→ Controller 1
+   ├──→ Controller 2
+   └──→ Controller 3`
+            ]
+        }
+    ],
+
+    intermediate: [
+        {
+            content: `
+<h2>Front Controller in Spring MVC</h2>
+
+<p>• DispatcherServlet provides a centralized entry point for Spring MVC web requests.</p>
+
+<p>• It coordinates common request-processing activities before and after a Controller executes.</p><br>
+
+<h3>Common Processing</h3>
+
+<ul>
+<li>• Request mapping</li>
+<li>• Handler selection</li>
+<li>• Controller invocation</li>
+<li>• Exception handling</li>
+<li>• View resolution</li>
+<li>• Response processing</li>
+</ul>
+`
+        },
+
+        {
+            content: `
+<h3>Front Controller Flow</h3>
+`,
+            codeExamples: [
+                `Client Request
+      ↓
+DispatcherServlet
+      ↓
+HandlerMapping
+      ↓
+Controller
+      ↓
+Service
+      ↓
+Repository
+      ↓
+Database
+      ↓
+Controller
+      ↓
+View / JSON
+      ↓
+DispatcherServlet
+      ↓
+Client`
+            ]
+        }
+    ],
+
+    expert: [
+        {
+            content: `
+<h2>Front Controller Pattern in Enterprise Applications</h2>
+
+<p>• The Front Controller pattern centralizes web request processing through a single entry point.</p>
+
+<p>• DispatcherServlet applies this pattern in Spring MVC.</p>
+
+<p>• Centralizing request processing makes it possible to apply common web concerns consistently.</p><br>
+
+<h3>Benefits</h3>
+
+<ul>
+<li>• Centralized request routing.</li>
+<li>• Consistent request processing.</li>
+<li>• Centralized exception handling.</li>
+<li>• Easier integration of cross-cutting web concerns.</li>
+<li>• Clear separation between web infrastructure and application logic.</li>
+</ul>
+`
+        },
+
+        {
+            content: `
+<h3>DispatcherServlet and Front Controller Pattern</h3>
+
+<p>• DispatcherServlet is the implementation of the Front Controller concept in Spring MVC.</p>
+
+<p>• It acts as the central entry point and delegates requests to the appropriate handlers.</p>
+`,
+            codeExamples: [
+                `                Client
+                   |
+                   | HTTP Request
+                   ↓
+          DispatcherServlet
+                   |
+          ┌────────┴────────┐
+          ↓                 ↓
+   HandlerMapping     Exception Handling
+          |
+          ↓
+      Controller
+          |
+          ↓
+       Service
+          |
+          ↓
+      Repository
+          |
+          ↓
+       Database`
+            ]
+        }
+                    ]
+                }
+            ]
+        }
     ],
 
     // =============================================================
@@ -1417,7 +3139,16 @@ public class Order {
     cheatNotes: [
         'Spring MVC is a web framework in the Spring ecosystem.',
         'MVC stands for Model, View and Controller.',
-        'DispatcherServlet is the Front Controller in Spring MVC.',
+        'DispatcherServlet acts as the Front Controller in Spring MVC.',
+        'DispatcherServlet receives incoming HTTP requests.',
+        'HandlerMapping identifies the appropriate Controller or handler.',
+        'Controller handles the request and coordinates application processing.',
+        'Model contains data that can be passed to the View.',
+        'ModelAndView can contain both Model data and a logical View name.',
+        'ViewResolver converts a logical View name into an actual View.',
+        'View is responsible for presenting data to the user.',
+        'Typical Spring MVC flow: Client → DispatcherServlet → HandlerMapping → Controller → Model → ViewResolver → View → Client.',
+        'HandlerAdapter is used by DispatcherServlet to invoke the selected handler.',
         '@Controller is used for MVC controllers.',
         '@RestController is commonly used for REST APIs.',
         '@RequestMapping maps HTTP requests to controller methods.',
@@ -1430,6 +3161,8 @@ public class Order {
         '@RequestBody converts request data such as JSON into Java objects.',
         '@ResponseBody returns method data directly in the HTTP response.',
         '@ControllerAdvice provides centralized exception handling.',
+        'ViewResolver helps separate Controller logic from the physical View location.',
+        'JSP and Thymeleaf are commonly used server-side View technologies.',
         'Spring MVC is a part of the larger Spring Framework ecosystem.',
         'Spring Boot simplifies configuration and commonly uses Spring MVC for web applications.',
         'spring-boot-starter-web is commonly used to create Spring MVC-based web applications and REST APIs.'
@@ -1448,8 +3181,20 @@ public class Order {
                 'What are the main components of Spring MVC?',
                 'What is DispatcherServlet?',
                 'Why is DispatcherServlet called the Front Controller?',
+                'What is the role of DispatcherServlet in Spring MVC?',
                 'Explain the Spring MVC request flow.',
+                'Explain the complete Spring MVC request-response lifecycle.',
+                'What happens when a user enters a URL in a Spring MVC application?',
+                'How does Spring MVC handle a request internally?',
+                'What is the Front Controller pattern?',
+                'How is Front Controller implemented in Spring MVC?',
+                'What is HandlerMapping?',
+                'What is the purpose of HandlerMapping?',
+                'How does HandlerMapping identify a Controller?',
+                'What is HandlerAdapter?',
+                'What is a Controller in Spring MVC?',
                 'What is the difference between @Controller and @RestController?',
+                'What is the role of a Controller in Spring MVC?',
                 'What is @RequestMapping?',
                 'What is the difference between @RequestMapping and @GetMapping?',
                 'What is @PostMapping used for?',
@@ -1462,8 +3207,22 @@ public class Order {
                 'What is @ResponseBody?',
                 'What is Model in Spring MVC?',
                 'What is ModelAndView?',
+                'What is the difference between Model and ModelAndView?',
+                'How do you add data to ModelAndView?',
                 'What is ViewResolver?',
-                'What is HandlerMapping?',
+                'Why do we use ViewResolver in Spring MVC?',
+                'What is InternalResourceViewResolver?',
+                'How does ViewResolver find a JSP page?',
+                'What is a logical View name?',
+                'What is a View in Spring MVC?',
+                'Which technologies can be used to create Views in Spring MVC?',
+                'How does Controller communicate with View?',
+                'Explain Controller → ModelAndView → ViewResolver → View flow.',
+                'Explain DispatcherServlet → HandlerMapping → Controller flow.',
+                'What is the role of ViewResolver in rendering a JSP?',
+                'How does Spring MVC pass data from Controller to View?',
+                'What is the difference between server-side rendering and REST API response?',
+                'Explain the role of DispatcherServlet, HandlerMapping, Controller, ModelAndView, ViewResolver and View in Spring MVC.',
                 'What are the advantages of Spring MVC?',
                 'What are the main features of Spring MVC?',
                 'How does Spring MVC support REST APIs?',
