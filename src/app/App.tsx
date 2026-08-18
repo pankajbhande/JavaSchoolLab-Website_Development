@@ -15,6 +15,7 @@ import { coursesData } from './data/coursesData';
 import { MySQLCSS } from './data/MySQLCSS';
 import { JDBC } from './data/JDBC';
 import { MongoDB } from './data/MongoDB';
+import { SpringBoot } from './data/SpringBoot';
 
 type ActiveModalType = 'playground' | 'ai-mentor' | 'quiz' | 'flashcards' | null;
 
@@ -22,7 +23,7 @@ function AppContent() {
   // Deduplicate by course id so later, richer data files override older duplicates.
   const courses = Array.from(
     new Map(
-      [...coursesData, ...MySQLCSS, ...JDBC, ...MongoDB].map(course => [course.id, course])
+      [...coursesData, ...MySQLCSS, ...JDBC, ...MongoDB, ...SpringBoot].map(course => [course.id, course])
     ).values()
   );
 
